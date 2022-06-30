@@ -1,24 +1,34 @@
 import NavDrawer from "./NavDrawer";
-import { Box, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { Box, Center, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
-function Navbar () {
-    return (
-        <nav className="nav">
-            <Box boxShadow='base'>
-                <Flex>
-                <Box p='2'>
-                    <Heading size='md'>
-                        <a href="/" className="site-title">JYP</a>
-                    </Heading>
-                </Box>
-                <Spacer />
-                <Box p='2'>
-                    <NavDrawer />
-                </Box>  
-                </Flex> 
-            </Box> 
-        </nav>
-    )
+function Navbar() {
+  return (
+    <Box
+      as="nav"
+      boxShadow="base"
+      position="fixed"
+      w="100%"
+      zIndex="200"
+      bg="white"
+    >
+      <Flex>
+        <Center>
+          <Box p="2">
+            <Heading size="lg">
+              <Link to="/" className="site-title">
+                JYP
+              </Link>
+            </Heading>
+          </Box>
+        </Center>
+        <Spacer />
+        <Box p="2">
+          <NavDrawer />
+        </Box>
+      </Flex>
+    </Box>
+  );
 }
 
 export default Navbar;
