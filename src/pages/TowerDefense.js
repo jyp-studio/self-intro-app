@@ -16,20 +16,43 @@ import {
 } from "@chakra-ui/react";
 import img_bg from "../assets/background_pc.jpg";
 import img_bg1 from "../assets/bg.png";
-import img_design from "../assets/design1.png";
+import img_design from "../assets/pencil.png";
 import img_uml from "../assets/uml.png";
+import img_tool from "../assets/gear.png";
+import img_idea from "../assets/lamp.png";
 
 function TowerDefense() {
+  const detailBoxStyle = {
+    bg: "teal.200",
+    borderRadius: "lg",
+    p: "2",
+    boxShadow: "dark-lg",
+    boxSize: { base: "3em", md: "6vw", lg: "6vw" },
+  };
+  const textBoxStyle = {
+    px: "4",
+    w: { base: "70vw", md: "20vw", lg: "20vw" },
+  };
+  const headingStyle = {
+    fontSize: { base: "sm", md: "xl", lg: "xl" },
+    color: { base: "teal.900", md: "teal.600", lg: "teal.400" },
+  };
+
+  const textStyle = {
+    fontSize: { base: "sm", md: "xl", lg: "xl" },
+    color: { base: "teal.900", md: "teal.600", lg: "teal.400" },
+  };
+
   return (
     <div>
       <Box
-        bgColor="white"
+        bgImage={img_bg}
         bgPosition="center"
         bgRepeat="no-repeat"
         w="100%"
         h="3500px"
       >
-        <Center borderRadius="lg" backdropFilter="auto" backdropBlur="8px">
+        <Center>
           <Heading
             fontSize={{ base: "50", md: "100", lg: "150" }}
             color="teal.300"
@@ -38,6 +61,7 @@ function TowerDefense() {
             Tower Defense
           </Heading>
         </Center>
+
         <Box px="10vw" py="10">
           <Heading color="black">摘要:</Heading>
         </Box>
@@ -54,7 +78,59 @@ function TowerDefense() {
             玩家事件則是使用observer pattern以方便增修觸發事件。
           </Text>
         </Box>
-        <Divider py="2" />
+
+        <Flex flexWrap="wrap" py="10" justify="center">
+          <WrapItem py="1">
+            <Box>
+              <Center>
+                <Box sx={detailBoxStyle}>
+                  <Image src={img_tool} />
+                </Box>
+              </Center>
+            </Box>
+            <Center>
+              <Box sx={textBoxStyle}>
+                <Heading sx={headingStyle}>Tool</Heading>
+                <Text sx={textStyle}>Python, pygame module, git</Text>
+              </Box>
+            </Center>
+          </WrapItem>
+
+          <WrapItem py="1">
+            <Box>
+              <Center>
+                <Box sx={detailBoxStyle}>
+                  <Image src={img_design} />
+                </Box>
+              </Center>
+            </Box>
+            <Center>
+              <Box sx={textBoxStyle}>
+                <Heading sx={headingStyle}>Design Pattern</Heading>
+                <Text sx={textStyle}>MVC & Observer pattern</Text>
+              </Box>
+            </Center>
+          </WrapItem>
+
+          <WrapItem py="1">
+            <Box>
+              <Center>
+                <Box sx={detailBoxStyle}>
+                  <Image src={img_idea} p="2" />
+                </Box>
+              </Center>
+            </Box>
+            <Center>
+              <Box sx={textBoxStyle}>
+                <Heading sx={headingStyle}>設計理念</Heading>
+                <Text sx={textStyle}>
+                  用遊戲的方式來告訴大眾Covid-19的危險性
+                </Text>
+              </Box>
+            </Center>
+          </WrapItem>
+        </Flex>
+
         <Box px="10vw" py="10">
           <Heading color="black">前導片:</Heading>
         </Box>
@@ -70,9 +146,9 @@ function TowerDefense() {
             />
           </AspectRatio>
         </Flex>
-        <Divider py="2" />
+
         <Box px="10vw" py="10">
-          <Heading color="black">程式簡單架構:</Heading>
+          <Heading color="black">程式架構(Simple):</Heading>
         </Box>
         <Center>
           <Box
@@ -84,68 +160,17 @@ function TowerDefense() {
             <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
           </Box>
         </Center>
-        <Flex py="10" px={{ base: "10vw", md: "20vw", lg: "30vw" }}>
-          <Box>
-            <Center>
-              <Box
-                bg="teal.200"
-                borderRadius="lg"
-                p="2"
-                boxShadow="dark-lg"
-                boxSize={{ base: "4em", md: "10vw", lg: "10vw" }}
-              >
-                <Image src={img_design} />
-              </Box>
-            </Center>
-          </Box>
-          <Center>
-            <Box px="4" w={{ base: "60vw", md: "50vw", lg: "30vw" }}>
-              <Heading
-                fontSize={{ base: "sm", md: "xl", lg: "2xl" }}
-                color="teal.300"
-              >
-                Design Pattern
-              </Heading>
-              <Text
-                fontSize={{ base: "sm", md: "xl", lg: "2xl" }}
-                color="teal.300"
-              >
-                MVC & Observer pattern
-              </Text>
-            </Box>
-          </Center>
-        </Flex>
-        <Flex py="10" px={{ base: "10vw", md: "20vw", lg: "30vw" }}>
-          <Box>
-            <Center>
-              <Box
-                bg="cyan.300"
-                borderRadius="lg"
-                p="2"
-                boxShadow="dark-lg"
-                boxSize={{ base: "4em", md: "10vw", lg: "10vw" }}
-              >
-                <Image src={img_bg1} />
-              </Box>
-            </Center>
-          </Box>
-          <Center>
-            <Box px="4" w={{ base: "60vw", md: "50vw", lg: "30vw" }}>
-              <Heading
-                fontSize={{ base: "sm", md: "xl", lg: "2xl" }}
-                color="teal.300"
-              >
-                設計理念
-              </Heading>
-              <Text
-                fontSize={{ base: "sm", md: "xl", lg: "2xl" }}
-                color="teal.300"
-              >
-                用遊戲的方式來告訴大眾Covid-19的危險性
-              </Text>
-            </Box>
-          </Center>
-        </Flex>
+
+        <Box px="10vw" py="10">
+          <Heading color="white">心得:</Heading>
+        </Box>
+        <Box px="10vw" w="100vw">
+          <Text fontSize="xl" color="teal.50">
+            &emsp;&emsp;在設計思維工作坊中，我擔任組長的職位，引領兩位組員分工合作完成這個遊戲。
+            其中遇到最大的難題是其中有一位組員沒有學過程式，使得整個程式幾乎由我和剩下一位組員共同完成。
+          </Text>
+          <Text fontSize="xl">&emsp;&emsp;</Text>
+        </Box>
       </Box>
     </div>
   );
