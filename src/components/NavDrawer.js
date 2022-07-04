@@ -53,7 +53,7 @@ function NavDrawer() {
                 <Link to="/">Main</Link>
               </Button>
               <Button>
-                <Link to="/side-project">Side Project</Link>
+                <Link to="/project">Project</Link>
               </Button>
               <Button>
                 <Link to="/activity">Activity</Link>

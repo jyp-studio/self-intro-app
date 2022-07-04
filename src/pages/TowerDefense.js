@@ -39,13 +39,11 @@ function TowerDefense() {
   return (
     <div>
       <Box
+        bgColor="teal.600"
         bgImg={img_bg}
-        bgSize="full"
         bgPosition="center"
         bgRepeat="no-repeat"
-        bgAttachment="scroll"
-        w="100%"
-        h="3500px"
+        bgSize="cover"
       >
         <Center>
           <Heading
@@ -74,8 +72,6 @@ function TowerDefense() {
               <u>每一波的病毒都會越發增強代表著病毒的變種性與流行性</u>
             </strong>
             。 期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
-          </Text>
-          <Text fontSize="xl">
             &emsp;&emsp;本遊戲使用
             <strong>
               <font color="#38B2AC">Python-pygame製作</font>
