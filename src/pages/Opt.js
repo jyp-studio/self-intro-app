@@ -7,7 +7,9 @@ import {
   Heading,
   AspectRatio,
   WrapItem,
+  Link,
 } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import img_bg from "../assets/bg.jpg";
 import img_uml from "../assets/stock_frame.png";
 import img_tool from "../assets/gear.png";
@@ -128,51 +130,48 @@ function Opt() {
               <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
             </Box>
           </Center>
+
+          <Box px="10vw" py="10">
+            <Heading color="teal.50">書面報告:</Heading>
+          </Box>
+          <Flex justify="center" w="100vw">
+            <iframe
+              title="numerical opt pdf"
+              src="https://drive.google.com/file/d/15MRtr8mL9XtxG7JyL70cNwWiCeweTAIf/preview"
+              width="800"
+              height="1000"
+              allow="autoplay"
+            ></iframe>
+          </Flex>
+
           <Box px="10vw" py="10">
             <Heading color="teal.50">心得:</Heading>
           </Box>
           <Box px="10vw" w="100vw">
             <Text fontSize="xl" color="teal.100">
-              &emsp;&emsp;在數週的設計思維工作坊中，我擔任
-              <font color="red">組長</font>
-              的職位，引領兩位組員分工合作完成這個遊戲。
-              原先的工作分配為我做Tower和Enemy相關的動畫、運作模式和錨點選單等；另一位則是做選單以及遊戲介面；
-              最後一位則是做Map與Potion相關運作方式。
-              <br />
-              &emsp;&emsp;然而，正當一切運作妥當時，遇到整個開發中
-              <font color="red">最大的難題</font>
-              ：其中有一位組員在快截止日期時，突然說他沒有學過程式，甚麼都沒做。
-              因此，身為組長的我只好臨時改變工作分配，將較不需要coding的遊戲平衡與圖片蒐集交給他，
-              而他原先所需做的Map和Potion則平分給其他人。所幸最後仍順利完成，並且被
-              <strong>
-                <u>教授點評進入選單、 遊戲流程與動畫做的很完善與順暢</u>
-              </strong>
-              。他稱讚我們是
-              <strong>
-                <font color="red">「遊戲整體最完整的。」</font>
-              </strong>
-              <br />
-              &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，提升我的抗壓性外，
-              也因為上述意外，使我python能力也跟著增強。除此之外，
-              <font color="red">我學到最重要的是畫UML的重要性。</font>
-              以往我們coding時，時常注意的是語法以及效率。然而
-              <strong>
-                <u>
-                  在大型企劃，數萬行的程式碼中，語法和效率只是基本，更重要的是架構
-                </u>
-              </strong>
-              。舉例來說，當開發一個鳥的class，可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
-              然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。這便是一個簡單的例子來闡述架構、格局的重要性。
-              <br />
-              &emsp;&emsp;同時，
-              <strong>
-                <u>
-                  學習使用一些design pattern也使架構更加明確，開發時也更加方便
-                </u>
-              </strong>
-              。如使用obsever pattern在user
-              requests時，當要新增觸發事件時，只要新增一個class寫功能，
-              再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
+              &emsp;&emsp;
+              <Link href="https://www.laimm.net/about" isExternal>
+                <strong>
+                  <font color="#76E4F7">
+                    <u>游濟華</u>
+                    <ExternalLinkIcon mx="2px" />
+                  </font>
+                </strong>
+              </Link>
+              教授與
+              <Link
+                href="http://ncku.es/esncku/zh/page.teacher.query.action?id=2"
+                isExternal
+              >
+                <strong>
+                  <font color="#76E4F7">
+                    <u>廖德祿</u>
+                    <ExternalLinkIcon mx="2px" />
+                  </font>
+                </strong>
+              </Link>
+              教授曾對我說：「如何應用所學於生活中」
+              如何把所學應用在日常生活中是我在數值方法中學到最重要的事情。
             </Text>
           </Box>
           <Box px="10vw" py="10">

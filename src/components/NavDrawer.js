@@ -8,6 +8,7 @@ import {
   DrawerCloseButton,
   VStack,
   Button,
+  Link as Link_ck,
 } from "@chakra-ui/react";
 import { useDisclosure, IconButton } from "@chakra-ui/react";
 import React from "react";
@@ -17,12 +18,6 @@ import { Link } from "react-router-dom";
 function NavDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-
-  // link to github
-  const handleClick = () => {
-    const w = window.open("about:blank");
-    w.location.href = "https://github.com/jyp-studio";
-  };
 
   return (
     <>
@@ -61,7 +56,11 @@ function NavDrawer() {
               <Button>
                 <Link to="/certificate">Certificates</Link>
               </Button>
-              <Button onClick={handleClick}>Github</Button>
+              <Button>
+                <Link_ck href="https://github.com/jyp-studio" isExternal>
+                  Github
+                </Link_ck>
+              </Button>
             </VStack>
           </DrawerBody>
 
