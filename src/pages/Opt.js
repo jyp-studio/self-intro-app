@@ -63,18 +63,16 @@ function Opt() {
           <Box px="10vw" w="100vw">
             <Text fontSize="xl" color="teal.100">
               &emsp;&emsp;在現今通貨膨脹率高漲而利息低迷的時代，若將資金存於銀行或郵局中，只會隨時間消磨其價值。為此，
-              <strong>
-                <u>許多人投資股票和 ETF，以對抗通貨膨脹</u>
-              </strong>
+              <Text as="strong" textDecoration="underline">
+                許多人投資股票和 ETF，以對抗通貨膨脹
+              </Text>
               。然而，眾所皆知水能載舟亦能覆舟，而股票市場亦如那滔滔浪江。若沒有準充分準備而隨意投資，
               只會落得「韭菜」，任人隨意宰割，的稱謂。因此，本研究藉由
-              <strong>
-                <u>
-                  蒐集 yfinance 的股票數據，利用 pandas 整理資料後，使用
-                  matlabplot 和 backtesting 繪出圖形和顯示回 測數據於用 tkinter
-                  建立的圖形介面上，供使用者使用
-                </u>
-              </strong>
+              <Text as="strong" textDecoration="underline">
+                蒐集 yfinance 的股票數據，利用 pandas 整理資料後，使用
+                matlabplot 和 backtesting 繪出圖形和顯示回 測數據於用 tkinter
+                建立的圖形介面上，供使用者使用
+              </Text>
               。
             </Text>
           </Box>
@@ -150,28 +148,40 @@ function Opt() {
           <Box px="10vw" w="100vw">
             <Text fontSize="xl" color="teal.100">
               &emsp;&emsp;
-              <Link href="https://www.laimm.net/about" isExternal>
-                <strong>
-                  <font color="#76E4F7">
-                    <u>游濟華</u>
-                    <ExternalLinkIcon mx="2px" />
-                  </font>
-                </strong>
+              <Link
+                href="https://www.laimm.net/about"
+                color="cyan.300"
+                textDecoration="underline"
+                fontWeight="bolder"
+                isExternal
+              >
+                游濟華
+                <ExternalLinkIcon mx="2px" />
               </Link>
               教授與
               <Link
                 href="http://ncku.es/esncku/zh/page.teacher.query.action?id=2"
+                color="cyan.300"
+                textDecoration="underline"
+                fontWeight="bolder"
                 isExternal
               >
-                <strong>
-                  <font color="#76E4F7">
-                    <u>廖德祿</u>
-                    <ExternalLinkIcon mx="2px" />
-                  </font>
-                </strong>
+                廖德祿
+                <ExternalLinkIcon mx="2px" />
               </Link>
-              教授曾對我說：「如何應用所學於生活中」
-              如何把所學應用在日常生活中是我在數值方法中學到最重要的事情。
+              教授曾對我說：「
+              <Text as="font" color="red" fontWeight="bolder">
+                最好的學習方式便是將所學應用於生活中。
+              </Text>
+              」因此，
+              為了理解學生是否有的理解數值方法這堂課的知識，教授要求我們將所學的工具應用於生活之中。
+              老實說這個問題讓我思索了好幾週，腦中都是工程應用，一點日常應用的影子都沒有。
+              然而所幸，在經過數週不眠不休地思索，以及參與設計思考工作坊，將思維發散並收束後，終於想出應用在股票市場。
+              至於為甚麼會選擇分析股票？原因
+              有別於以往從工程角度出發的專案設計，這次是從使用者角度出發。這讓我發現許多工程師與一般使用者之間所存在的差距。
+              閱讀CLI (Command-Line Interface)
+              上的輸出訊息對所有學過coding的人是再稀鬆平常不過的事，然而這對普遍大眾卻是難以閱讀與理解的事。
+              因此我決定利用tkinter製作簡易的GUI使一般大眾也能對程式的功能駕輕就熟，達到普及化與生活化的目的。
             </Text>
           </Box>
           <Box px="10vw" py="10">

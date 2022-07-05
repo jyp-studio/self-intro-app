@@ -8,11 +8,11 @@ import {
   DrawerCloseButton,
   VStack,
   Button,
-  Link as Link_ck,
+  Link as ChakraLink,
 } from "@chakra-ui/react";
 import { useDisclosure, IconButton } from "@chakra-ui/react";
 import React from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
 function NavDrawer() {
@@ -26,7 +26,7 @@ function NavDrawer() {
         boxShadow="base"
         colorScheme="blackAlpha.100"
         onClick={onOpen}
-        icon={<GiHamburgerMenu />}
+        icon={<HamburgerIcon />}
         variant="outline"
       >
         Open
@@ -57,9 +57,9 @@ function NavDrawer() {
                 <Link to="/certificate">Certificates</Link>
               </Button>
               <Button>
-                <Link_ck href="https://github.com/jyp-studio" isExternal>
+                <ChakraLink href="https://github.com/jyp-studio" isExternal>
                   Github
-                </Link_ck>
+                </ChakraLink>
               </Button>
             </VStack>
           </DrawerBody>

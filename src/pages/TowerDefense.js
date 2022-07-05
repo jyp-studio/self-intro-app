@@ -60,30 +60,30 @@ function TowerDefense() {
         <Box px="10vw" w="100vw">
           <Text fontSize="xl">
             &emsp;&emsp;2019年，Covid-19突然大流行造成許多人死亡。然而，部分大眾卻仍對其抱持懷疑與不信的態度。
-            <strong>
-              <u>為了讓民眾了解Covid-19的危險性</u>
-            </strong>
+            <Text as="strong" textDecoration="underline">
+              為了讓民眾了解Covid-19的危險性
+            </Text>
             。因此決定以
-            <strong>
-              <font color="#38B2AC">衛教的核心思想設計塔防遊戲。</font>
-            </strong>
+            <Text as="strong" color="teal.400">
+              衛教的核心思想設計塔防遊戲。
+            </Text>
             玩家所要守護的家園即代表個人、家人與朋友的健康，而受病毒所感染的變種人類則試圖感染正常人類。
-            <strong>
-              <u>每一波的病毒都會越發增強代表著病毒的變種性與流行性</u>
-            </strong>
+            <Text as="strong" textDecoration="underline">
+              每一波的病毒都會越發增強代表著病毒的變種性與流行性
+            </Text>
             。 期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
             &emsp;&emsp;本遊戲使用
-            <strong>
-              <font color="#38B2AC">Python-pygame製作</font>
-            </strong>
+            <Text as="strong" color="teal.400">
+              Python-pygame製作
+            </Text>
             ，遊戲主要使用
-            <strong>
-              <font color="#38B2AC">MVC(Model-View-Controller)</font>
-            </strong>
+            <Text as="strong" color="teal.400">
+              MVC(Model-View-Controller)
+            </Text>
             當做主架構， 玩家事件則是使用
-            <strong>
-              <font color="#38B2AC">observer pattern</font>
-            </strong>
+            <Text as="strong" color="teal.400">
+              observer pattern
+            </Text>
             以方便增修觸發事件。
           </Text>
         </Box>
@@ -172,42 +172,44 @@ function TowerDefense() {
         <Box px="10vw" w="100vw">
           <Text fontSize="xl" color="teal.50">
             &emsp;&emsp;在數週的設計思維工作坊中，我擔任
-            <font color="red">組長</font>
+            <Text as="font" color="red">
+              組長
+            </Text>
             的職位，引領兩位組員分工合作完成這個遊戲。
             原先的工作分配為我做Tower和Enemy相關的動畫、運作模式和錨點選單等；另一位則是做選單以及遊戲介面；
             最後一位則是做Map與Potion相關運作方式。
             <br />
             &emsp;&emsp;然而，正當一切運作妥當時，遇到整個開發中
-            <font color="red">最大的難題</font>
+            <Text as="font" color="red">
+              最大的難題
+            </Text>
             ：其中有一位組員在快截止日期時，突然說他沒有學過程式，甚麼都沒做。
             因此，身為組長的我只好臨時改變工作分配，將較不需要coding的遊戲平衡與圖片蒐集交給他，
             而他原先所需做的Map和Potion則平分給其他人。所幸最後仍順利完成，並且被
-            <strong>
-              <u>教授點評進入選單、 遊戲流程與動畫做的很完善與順暢</u>
-            </strong>
+            <Text as="strong" textDecoration="underline">
+              教授點評進入選單、 遊戲流程與動畫做的很完善與順暢
+            </Text>
             。他稱讚我們是
-            <strong>
-              <font color="red">「遊戲整體最完整的。」</font>
-            </strong>
+            <Text as="strong" color="red">
+              「遊戲整體最完整的。」
+            </Text>
             <br />
             &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，提升我的抗壓性外，
             也因為上述意外，使我python能力也跟著增強。除此之外，
-            <font color="red">我學到最重要的是畫UML的重要性。</font>
+            <Text as="font" color="red">
+              我學到最重要的是畫UML的重要性。
+            </Text>
             以往我們coding時，時常注意的是語法以及效率。然而
-            <strong>
-              <u>
-                在大型企劃，數萬行的程式碼中，語法和效率只是基本，更重要的是架構
-              </u>
-            </strong>
+            <Text as="strong" textDecoration="underline">
+              在大型企劃，數萬行的程式碼中，語法和效率只是基本，更重要的是架構
+            </Text>
             。舉例來說，當開發一個鳥的class，可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
             然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。這便是一個簡單的例子來闡述架構、格局的重要性。
             <br />
             &emsp;&emsp;同時，
-            <strong>
-              <u>
-                學習使用一些design pattern也使架構更加明確，開發時也更加方便
-              </u>
-            </strong>
+            <Text as="strong" textDecoration="underline">
+              學習使用一些design pattern也使架構更加明確，開發時也更加方便
+            </Text>
             。如使用obsever pattern在user
             requests時，當要新增觸發事件時，只要新增一個class寫功能，
             再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
