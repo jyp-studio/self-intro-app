@@ -13,29 +13,9 @@ import img_design from "../assets/pencil.png";
 import img_uml from "../assets/uml.png";
 import img_tool from "../assets/gear.png";
 import img_idea from "../assets/lamp.png";
+import IconBox from "../components/IconBox";
 
 function TowerDefense() {
-  const detailBoxStyle = {
-    bg: "teal.200",
-    borderRadius: "lg",
-    p: "2",
-    boxShadow: "dark-lg",
-    boxSize: { base: "3em", md: "6vw", lg: "6vw" },
-  };
-  const textBoxStyle = {
-    px: "4",
-    w: { base: "70vw", md: "20vw", lg: "20vw" },
-  };
-  const headingStyle = {
-    fontSize: { base: "sm", md: "xl", lg: "xl" },
-    color: { base: "teal.900", md: "teal.600", lg: "teal.400" },
-  };
-
-  const textStyle = {
-    fontSize: { base: "sm", md: "xl", lg: "xl" },
-    color: { base: "teal.900", md: "teal.600", lg: "teal.400" },
-  };
-
   return (
     <div>
       <Box
@@ -89,53 +69,28 @@ function TowerDefense() {
         </Box>
         <Flex flexWrap="wrap" py="10" justify="center">
           <WrapItem py="1">
-            <Box>
-              <Center>
-                <Box sx={detailBoxStyle}>
-                  <Image src={img_tool} />
-                </Box>
-              </Center>
-            </Box>
-            <Center>
-              <Box sx={textBoxStyle}>
-                <Heading sx={headingStyle}>Tool</Heading>
-                <Text sx={textStyle}>Python, pygame module, git</Text>
-              </Box>
-            </Center>
+            <IconBox
+              image={img_tool}
+              title="Tool"
+              text="Python, pygame module, git"
+              bg="teal.200"
+            />
           </WrapItem>
 
           <WrapItem py="1">
-            <Box>
-              <Center>
-                <Box sx={detailBoxStyle}>
-                  <Image src={img_design} />
-                </Box>
-              </Center>
-            </Box>
-            <Center>
-              <Box sx={textBoxStyle}>
-                <Heading sx={headingStyle}>Design Pattern</Heading>
-                <Text sx={textStyle}>MVC & Observer pattern</Text>
-              </Box>
-            </Center>
+            <IconBox
+              image={img_design}
+              title="Design Pattern"
+              text="MVC & Observer pattern"
+            />
           </WrapItem>
 
           <WrapItem py="1">
-            <Box>
-              <Center>
-                <Box sx={detailBoxStyle}>
-                  <Image src={img_idea} p="2" />
-                </Box>
-              </Center>
-            </Box>
-            <Center>
-              <Box sx={textBoxStyle}>
-                <Heading sx={headingStyle}>設計理念</Heading>
-                <Text sx={textStyle}>
-                  用遊戲的方式來告訴大眾Covid-19的危險性
-                </Text>
-              </Box>
-            </Center>
+            <IconBox
+              image={img_idea}
+              title="設計理念"
+              text="用遊戲的方式來告訴大眾Covid-19的危險性"
+            />
           </WrapItem>
         </Flex>
         <Box px="10vw" py="10">

@@ -10,7 +10,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import img_bg from "../assets/bg.jpg";
+import img_bg from "../assets/opt_bg.jpg";
 import img_uml from "../assets/stock_frame.png";
 import img_tool from "../assets/gear.png";
 import img_idea from "../assets/lamp.png";
@@ -46,7 +46,7 @@ function Opt() {
         bgRepeat="no-repeat"
         bgSize="cover"
       >
-        <Box backdropFilter="auto" backdropBlur="2px">
+        <Box backdropFilter="auto" backdropBlur="8px">
           <Center>
             <Heading
               fontSize={{ base: "50", md: "100", lg: "150" }}
@@ -173,15 +173,26 @@ function Opt() {
               <Text as="font" color="red" fontWeight="bolder">
                 最好的學習方式便是將所學應用於生活中。
               </Text>
-              」因此，
-              為了理解學生是否有的理解數值方法這堂課的知識，教授要求我們將所學的工具應用於生活之中。
+              」因此，為了理解學生是否有的理解數值方法這堂課的知識，教授要求我們將所學的工具應用於生活之中。
               老實說這個問題讓我思索了好幾週，腦中都是工程應用，一點日常應用的影子都沒有。
-              然而所幸，在經過數週不眠不休地思索，以及參與設計思考工作坊，將思維發散並收束後，終於想出應用在股票市場。
-              至於為甚麼會選擇分析股票？原因
-              有別於以往從工程角度出發的專案設計，這次是從使用者角度出發。這讓我發現許多工程師與一般使用者之間所存在的差距。
-              閱讀CLI (Command-Line Interface)
+              然而所幸，在經過數週不眠不休地思索，以及參與設計思考工作坊，將思維發散並收束後，終於想出應用領域
+              ——「股票市場」。
+              <br />
+              &emsp;&emsp;選擇股票市場的原因如摘要大致所述，是為了對抗通貨膨脹。而這即是許多人正面臨或即將面臨的問題，
+              也就是生活上無可避免的議題。因此，為了使更多人以及我自己可以更加方便地學習與理解，
+              我才決定選擇股票市場作為目標並製作分析程式，以期望可以造福更多人。
+              <br />
+              &emsp;&emsp;開發程式時，
+              <Text as="strong" textDecoration="underline">
+                有別於以往從工程角度出發的專案設計，這次是從使用者角度出發
+              </Text>
+              。這讓我發現許多工程師與一般使用者之間所存在的差距。舉例而言，閱讀CLI
+              (Command-Line Interface)
               上的輸出訊息對所有學過coding的人是再稀鬆平常不過的事，然而這對普遍大眾卻是難以閱讀與理解的事。
-              因此我決定利用tkinter製作簡易的GUI使一般大眾也能對程式的功能駕輕就熟，達到普及化與生活化的目的。
+              <Text as="strong" textDecoration="underline">
+                也因此我決定利用tkinter製作簡易的GUI使一般大眾也能對程式的功能駕輕就熟，輕易輸入資料與閱讀輸出結果，達到普及化與生活化的目的
+              </Text>
+              。
             </Text>
           </Box>
           <Box px="10vw" py="10">
