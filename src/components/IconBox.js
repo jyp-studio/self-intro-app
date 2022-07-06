@@ -2,7 +2,7 @@ import { Box, Center, Image, Heading, Text } from "@chakra-ui/react";
 
 function IconBox(props) {
   const detailBoxStyle = {
-    bg: "props.bg",
+    bg: "teal.200",
     borderRadius: "lg",
     p: "2",
     boxShadow: "dark-lg",

@@ -73,7 +73,6 @@ function TowerDefense() {
               image={img_tool}
               title="Tool"
               text="Python, pygame module, git"
-              bg="teal.200"
             />
           </WrapItem>
 
