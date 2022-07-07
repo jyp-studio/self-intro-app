@@ -11,12 +11,16 @@ import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_guitarist from "../assets/guitarist.jpg";
 import img_mc_all_spotlight from "../assets/mc_all_spotlight.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
-import img_mc from "../assets/mc.jpg";
 import img_speech from "../assets/speech.jpg";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Activity() {
   return (
-    <div className="activity">
+    <>
+      <Navbar />
+      <Box w="100%" h="84px" />
+
       <Wrap justify="center">
         <Flex flexWrap="wrap" w="100vw" justify="center">
           <Center>
@@ -93,7 +97,9 @@ function Activity() {
           </Box>
         </Flex>
       </Wrap>
-    </div>
+
+      <Footer />
+    </>
   );
 }
 
