@@ -1,10 +1,15 @@
 import { Image, Box, Center, Flex, Text } from "@chakra-ui/react";
 import img_cped_teacher from "../assets/cped_teacher.jpg";
 import img_gept from "../assets/gept.jpg";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 function Certificate() {
   return (
-    <div>
+    <>
+      <Navbar />
+      <Box w="100%" h="84px" />
+
       <Flex flexWrap="wrap" w="100vw" justify="center">
         <Box p="2" w="sm">
           <Image
@@ -29,7 +34,9 @@ function Certificate() {
           </Center>
         </Box>
       </Flex>
-    </div>
+
+      <Footer />
+    </>
   );
 }
 

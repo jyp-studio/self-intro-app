@@ -13,6 +13,8 @@ import img_design from "../assets/pencil.png";
 import img_uml from "../assets/uml.png";
 import img_tool from "../assets/gear.png";
 import img_idea from "../assets/lamp.png";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function VR() {
   const detailBoxStyle = {
@@ -37,7 +39,10 @@ function VR() {
   };
 
   return (
-    <div>
+    <>
+      <Navbar />
+      <Box w="100%" h="84px" />
+
       <Box
         bgColor="teal.600"
         bgImg={img_bg}
@@ -231,7 +236,9 @@ function VR() {
           </AspectRatio>
         </Flex>
       </Box>
-    </div>
+
+      <Footer />
+    </>
   );
 }
 

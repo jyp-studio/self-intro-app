@@ -1,8 +1,19 @@
 import NavDrawer from "./NavDrawer";
-import { Box, Center, Flex, Heading, Spacer } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Heading,
+  Spacer,
+  Button,
+  useColorMode,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  // change color mode between light and dark
+  const { colorMode, toggleColorMode } = useColorMode();
+
   return (
     <Box
       as="nav"
@@ -10,7 +21,7 @@ function Navbar() {
       position="fixed"
       w="100%"
       zIndex="200"
-      bg="white"
+      bg={colorMode === "light" ? "white" : "black"}
     >
       <Flex>
         <Center>
@@ -23,6 +34,11 @@ function Navbar() {
           </Box>
         </Center>
         <Spacer />
+        <Box p="2">
+          <Button onClick={toggleColorMode}>
+            {colorMode === "light" ? "Dark" : "Light"}
+          </Button>
+        </Box>
         <Box p="2">
           <NavDrawer />
         </Box>
