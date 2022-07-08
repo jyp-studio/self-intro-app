@@ -14,19 +14,23 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
+  useColorMode,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
+  MoonIcon,
+  SunIcon,
 } from "@chakra-ui/icons";
 
 function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box>
+    <Box as="nav" position="fixed" w={"100%"} zIndex="200">
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -58,7 +62,7 @@ function WithSubnavigation() {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
-            Logo
+            JYP
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -72,7 +76,9 @@ function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-          123
+          <Button onClick={toggleColorMode}>
+            {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          </Button>
         </Stack>
       </Flex>
 
@@ -142,13 +148,13 @@ const DesktopSubNav = (props) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("teal.50", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: useColorModeValue("teal.400", "teal.300") }}
             fontWeight={500}
           >
             {props.label}
@@ -164,7 +170,12 @@ const DesktopSubNav = (props) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon
+            color={useColorModeValue("teal.400", "teal.300")}
+            w={5}
+            h={5}
+            as={ChevronRightIcon}
+          />
         </Flex>
       </Stack>
     </Link>
@@ -238,50 +249,53 @@ const MobileNavItem = (props) => {
   );
 };
 
-// interface NavItem {
-//   label: string;
-//   subLabel?: string;
-//   children?: Array<NavItem>;
-//   href?: string;
-// }
-
 const NAV_ITEMS = [
   {
-    label: "Inspiration",
+    label: "Project",
     children: [
       {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
+        label: "Tower Defense",
+        subLabel:
+          "A game developed by python-pygame with MVC and Obsever pattern.",
+        href: "/project/tower-defense",
       },
       {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
+        label: "Digi+ Talent Internship",
+        subLabel:
+          "Collaborate with people from different fields to make projects.",
+        href: "/project/digi",
+      },
+      {
+        label: "VR Project",
+        subLabel:
+          "Undergraduate research fellowship, Ministry of Science and Technology （MOST), Taiwan.",
+        href: "/project/vr",
+      },
+      {
+        label: "Stock Backtesting",
+        subLabel:
+          "Using Numerical Methods to Optimize Stock Investment Strategies.",
+        href: "/project/opt",
+      },
+      {
+        label: "Pollution Detection Model",
+        subLabel: "Using Verilog to simulate the spread of pollution.",
+        href: "/project/pollution-model",
+      },
+      {
+        label: "Side Project",
+        subLabel:
+          "Projects made when learning Unity, JavaScript, Home Assistant, etc.",
+        href: "/project/pollution-model",
       },
     ],
   },
   {
-    label: "Find Work",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
+    label: "Activity",
+    href: "/activity",
   },
   {
-    label: "Learn Design",
-    href: "#",
-  },
-  {
-    label: "Hire Designers",
-    href: "#",
+    label: "Certificates",
+    href: "certificate",
   },
 ];

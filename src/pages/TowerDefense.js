@@ -15,15 +15,16 @@ import img_idea from "../assets/lamp.png";
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Nav from "../components/Nav";
 
 function TowerDefense() {
   return (
     <>
-      <Navbar />
-      <Box w="100%" h="84px" />
+      <Nav />
 
       <Center>
         <Heading
+          marginTop={"100px"}
           fontSize={{ base: "50", md: "100", lg: "150" }}
           color="teal.300"
           p="5"
