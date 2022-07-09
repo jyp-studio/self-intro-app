@@ -1,36 +1,16 @@
-import React, { ReactNode } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
-  CloseButton,
   Flex,
   Icon,
   useColorModeValue,
   Link,
   Drawer,
   DrawerContent,
-  Text,
   useDisclosure,
-  BoxProps,
-  FlexProps,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiTrendingUp,
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-} from "react-icons/fi";
 
-const LinkItems = [
-  { name: "Home", icon: FiHome },
-  { name: "Trending", icon: FiTrendingUp },
-  { name: "Explore", icon: FiCompass },
-  { name: "Favourites", icon: FiStar },
-  { name: "Settings", icon: FiSettings },
-];
-
-export default function SimpleSidebar() {
+export default function Sidebar(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box
@@ -41,9 +21,11 @@ export default function SimpleSidebar() {
       display={{ base: "none", md: "flex" }}
       marginTop={"85"}
     >
+      {console.log(props.linkItems)}
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
+        linkItems={props.linkItems}
       />
       <Drawer
         autoFocus={false}
@@ -55,7 +37,7 @@ export default function SimpleSidebar() {
         size="full"
       >
         <DrawerContent>
-          <SidebarContent onClose={onClose} />
+          <SidebarContent onClose={onClose} linkItems={props.linkItems} />
         </DrawerContent>
       </Drawer>
     </Box>
@@ -74,8 +56,8 @@ const SidebarContent = (props) => {
       h="full"
       {...props.rest}
     >
-      {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+      {props.linkItems.map((link) => (
+        <NavItem key={link.name} icon={link.icon} href={link.href}>
           {link.name}
         </NavItem>
       ))}
@@ -86,7 +68,7 @@ const SidebarContent = (props) => {
 const NavItem = (props) => {
   return (
     <Link
-      href="#"
+      href={props.href}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >

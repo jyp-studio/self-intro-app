@@ -15,6 +15,7 @@ import img_tool from "../assets/gear.png";
 import img_idea from "../assets/lamp.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
 
 function VR() {
   const detailBoxStyle = {
@@ -41,7 +42,8 @@ function VR() {
   return (
     <>
       <Navbar />
-      <Box w="100%" h="84px" />
+
+      <Sidebar />
 
       <Box
         bgColor="teal.600"
@@ -52,6 +54,7 @@ function VR() {
       >
         <Center>
           <Heading
+            marginTop={"85px"}
             fontSize={{ base: "50", md: "100", lg: "150" }}
             color="teal.300"
             p="5"

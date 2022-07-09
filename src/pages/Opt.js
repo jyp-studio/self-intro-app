@@ -16,16 +16,19 @@ import img_idea from "../assets/lamp.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import IconBox from "../components/IconBox";
+import Sidebar from "../components/Sidebar";
 
 function Opt() {
   return (
     <>
       <Navbar />
-      <Box w="100%" h="84px" />
+
+      <Sidebar />
 
       <Box backdropFilter="auto" backdropBlur="8px">
         <Center>
           <Heading
+            marginTop={"85px"}
             fontSize={{ base: "50", md: "100", lg: "150" }}
             bgGradient="linear(to-l, #EDC967, #D2AC47, #F7EF8A, #AE8625)"
             bgClip="text"

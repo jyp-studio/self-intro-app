@@ -16,27 +16,6 @@ import img_hobby from "../assets/hobby.png";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
-const Card = (props) => {
-  return (
-    <Box p="2">
-      <Link to={props.href}>
-        <Image
-          p="2"
-          bg={props.bg}
-          w="250px"
-          borderRadius="lg"
-          src={props.img}
-          alt={props.alt}
-          boxShadow="xl"
-        />
-      </Link>
-      <Center>
-        <Text fontSize="xl">{props.title}</Text>
-      </Center>
-    </Box>
-  );
-};
-
 function Project() {
   const projectList = [
     {
@@ -86,7 +65,7 @@ function Project() {
   return (
     <>
       <Navbar />
-      <Box w="100%" h="84px" />
+      <Box h={"85px"} bg="blue" />
 
       <Flex
         flexWrap="wrap"
@@ -111,3 +90,26 @@ function Project() {
 }
 
 export default Project;
+
+const Card = (props) => {
+  return (
+    <Box p="2">
+      <Link to={props.href}>
+        <Image
+          p="2"
+          bg={props.bg}
+          w="250px"
+          borderRadius="lg"
+          src={props.img}
+          alt={props.alt}
+          boxShadow="xl"
+        />
+      </Link>
+      <Center>
+        <Text fontSize="xl">{props.title}</Text>
+      </Center>
+    </Box>
+  );
+};
+
+const ProjectItems = [];
