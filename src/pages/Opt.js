@@ -17,13 +17,44 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import IconBox from "../components/IconBox";
 import Sidebar from "../components/Sidebar";
+import {
+  FiHome,
+  FiCompass,
+  FiCommand,
+  FiMessageCircle,
+  FiBox,
+  FiFile,
+} from "react-icons/fi";
 
 function Opt() {
+  // Sidebar link items
+  const LinkItems = [
+    { name: "Home", icon: FiHome, href: "#" },
+    { name: "Abstract", icon: FiCompass, href: "#abstract" },
+    { name: "Architecture", icon: FiCommand, href: "#architecture" },
+    { name: "Written report", icon: FiFile, href: "#written report" },
+    { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
+    { name: "Demo", icon: FiBox, href: "#demo" },
+  ];
+
+  // Icon box infomation
+  const IconBoxItems = [
+    {
+      image: img_tool,
+      title: "Tool",
+      text: "Python, pandas, matlabplot, tkinter, yfinance, multithreading",
+    },
+    {
+      image: img_idea,
+      title: "設計理念",
+      text: "利用tkinter介面使大眾可以輕易操作和獲取股票資訊",
+    },
+  ];
   return (
     <>
       <Navbar />
 
-      <Sidebar />
+      <Sidebar linkItems={LinkItems} />
 
       <Box backdropFilter="auto" backdropBlur="8px">
         <Center>
@@ -37,8 +68,9 @@ function Opt() {
             數值最佳化股市投資
           </Heading>
         </Center>
+        <Link name="abstract" />
         <Box px="10vw" py="10">
-          <Heading>摘要:</Heading>
+          <Heading>Abstract:</Heading>
         </Box>
         <Box px="10vw" w="100vw">
           <Text fontSize="xl" color="teal.100">
@@ -56,38 +88,25 @@ function Opt() {
             。
           </Text>
         </Box>
+
+        {/* icon box for catching the points */}
         <Flex flexWrap="wrap" py="10" justify="center">
           <WrapItem py="1">
-            <IconBox
-              image={img_tool}
-              title={"Tool"}
-              text={
-                "Python, pandas, matlabplot, tkinter, yfinance, multithreading"
-              }
-              bgGradient={"linear(to-l, #EDC967, #D2AC47, #F7EF8A, #AE8625)"}
-              iconBoxSize={{ base: "3em", md: "6vw", lg: "6vw" }}
-              textBoxSize={{ base: "70vw", md: "30vw", lg: "30vw" }}
-              textSize={{ base: "sm", md: "xl", lg: "xl" }}
-              textColor={"yellow.400"}
-            />
-          </WrapItem>
-
-          <WrapItem py="1">
-            <IconBox
-              image={img_idea}
-              title={"設計理念"}
-              text={"利用tkinter介面使大眾可以輕易操作和獲取股票資訊"}
-              bgGradient={"linear(to-l, #EDC967, #D2AC47, #F7EF8A, #AE8625)"}
-              iconBoxSize={{ base: "3em", md: "6vw", lg: "6vw" }}
-              textBoxSize={{ base: "70vw", md: "30vw", lg: "30vw" }}
-              textSize={{ base: "sm", md: "xl", lg: "xl" }}
-              textColor={"yellow.400"}
-            />
+            {IconBoxItems.map((item) => (
+              <IconBox
+                bgGradient={"linear(to-l, #EDC967, #D2AC47, #F7EF8A, #AE8625)"}
+                iconBoxSize={{ base: "3em", md: "6vw", lg: "6vw" }}
+                textBoxSize={{ base: "70vw", md: "30vw", lg: "30vw" }}
+                textSize={{ base: "sm", md: "xl", lg: "xl" }}
+                textColor={"yellow.400"}
+                {...item}
+              />
+            ))}
           </WrapItem>
         </Flex>
-
+        <Link name="architecture" />
         <Box px="10vw" py="10">
-          <Heading>程式架構與邏輯:</Heading>
+          <Heading>Architecture:</Heading>
         </Box>
         <Center>
           <Box
@@ -99,9 +118,9 @@ function Opt() {
             <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
           </Box>
         </Center>
-
+        <Link name="written report" />
         <Box px="10vw" py="10">
-          <Heading>書面報告:</Heading>
+          <Heading>Written report:</Heading>
         </Box>
         <Flex justify="center" w="100vw">
           <iframe
@@ -112,9 +131,9 @@ function Opt() {
             allow="autoplay"
           ></iframe>
         </Flex>
-
+        <Link name="thoughts" />
         <Box px="10vw" py="10">
-          <Heading>心得:</Heading>
+          <Heading>Thoughts:</Heading>
         </Box>
         <Box px="10vw" w="100vw">
           <Text fontSize="xl" color="teal.100">
@@ -166,6 +185,7 @@ function Opt() {
             。
           </Text>
         </Box>
+        <Link name="demo" />
         <Box px="10vw" py="10">
           <Heading>Demo:</Heading>
         </Box>
