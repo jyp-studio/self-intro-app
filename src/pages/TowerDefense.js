@@ -121,12 +121,12 @@ function TowerDefense() {
               </WrapItem>
             ))}
           </Flex>
+
           <Box py="10">
             <Heading scrollMargin="100px" id="trailer">
               Trailer:
             </Heading>
           </Box>
-
           <AspectRatio
             w={{ base: "70vw", md: "60vw", lg: "50vw" }}
             ratio={4 / 3}
