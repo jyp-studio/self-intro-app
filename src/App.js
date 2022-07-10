@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/project" element={<Project />} />
+          <Route path="project" element={<Project />} />
           <Route path="/project/tower-defense" element={<TowerDefense />} />
           <Route path="/project/digi" element={<Digi />} />
           <Route path="/project/vr" element={<VR />} />
@@ -28,6 +28,9 @@ function App() {
           <Route path="/activity" element={<Activity />} />
           <Route path="/certificate" element={<Certificate />} />
           <Route path="/*" element={<NotFound />} />
+          {/* <Route path="/" element={<Main />}>
+            <Route path="project" element={<Project />} />
+          </Route> */}
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

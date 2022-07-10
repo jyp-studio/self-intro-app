@@ -7,7 +7,7 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
+  Link as ChakraLink,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -24,6 +24,7 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -102,9 +103,10 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
-              <Link
+              <ChakraLink
+                as={Link}
                 p={2}
-                href={navItem.href ?? "#"}
+                to={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -114,7 +116,7 @@ const DesktopNav = () => {
                 }}
               >
                 {navItem.label}
-              </Link>
+              </ChakraLink>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -142,8 +144,9 @@ const DesktopNav = () => {
 
 const DesktopSubNav = (props) => {
   return (
-    <Link
-      href={props.href}
+    <ChakraLink
+      as={Link}
+      to={props.href}
       role={"group"}
       display={"block"}
       p={2}
@@ -178,7 +181,7 @@ const DesktopSubNav = (props) => {
           />
         </Flex>
       </Stack>
-    </Link>
+    </ChakraLink>
   );
 };
 
@@ -203,7 +206,7 @@ const MobileNavItem = (props) => {
     <Stack spacing={4} onClick={props.children && onToggle}>
       <Flex
         py={2}
-        as={Link}
+        as={ChakraLink}
         href={props.href ?? "#"}
         justify={"space-between"}
         align={"center"}
@@ -239,9 +242,9 @@ const MobileNavItem = (props) => {
         >
           {props.children &&
             props.children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <ChakraLink as={Link} key={child.label} py={2} to={child.href}>
                 {child.label}
-              </Link>
+              </ChakraLink>
             ))}
         </Stack>
       </Collapse>
@@ -297,6 +300,6 @@ const NAV_ITEMS = [
   },
   {
     label: "Certificates",
-    href: "certificate",
+    href: "/certificate",
   },
 ];

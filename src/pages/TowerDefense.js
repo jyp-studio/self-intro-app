@@ -1,5 +1,4 @@
 import {
-  Stack,
   Box,
   Center,
   Flex,
@@ -8,7 +7,8 @@ import {
   Heading,
   AspectRatio,
   WrapItem,
-  Link,
+  Container,
+  Button,
 } from "@chakra-ui/react";
 import img_design from "../assets/pencil.png";
 import img_uml from "../assets/uml.png";
@@ -63,29 +63,19 @@ function TowerDefense() {
   return (
     <>
       <Navbar />
+
       <Sidebar linkItems={LinkItems} />
-      <Box marginLeft={{ base: "0", md: "360px", lg: "360px" }}>
-        <Stack
-          direction={"column"}
-          spacing={3}
-          align={"center"}
-          alignSelf={"center"}
-          position={"relative"}
-          px={{ base: "0", md: "5", lg: "10" }}
-        >
-          <Center>
-            <Heading
-              marginTop={"85"}
-              fontSize={{ base: "50", md: "100", lg: "150" }}
-              color="teal.300"
-              p="5"
-            >
-              Tower Defense
-            </Heading>
-          </Center>
-          <Link name="abstract" />
+
+      <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        <Container maxW={"8xl"} py="3" centerContent>
+          <Heading marginTop={"85"} fontSize={"10vw"} color="teal.300" py="5">
+            Tower Defense
+          </Heading>
+
           <Box py="10">
-            <Heading color="black">Abstract:</Heading>
+            <Heading scrollMargin="100px" id="abstract">
+              Abstract:
+            </Heading>
           </Box>
           <Box>
             <Text fontSize="xl">
@@ -118,56 +108,55 @@ function TowerDefense() {
               以方便增修觸發事件。
             </Text>
           </Box>
-          <Flex flexWrap="wrap" py="10" justify="center">
-            <WrapItem py="1">
-              {IconBoxItems.map((item) => (
+          <Flex flexWrap="wrap" py="10">
+            {IconBoxItems.map((item) => (
+              <WrapItem py="1">
                 <IconBox
                   iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
-                  textBoxSize={{ base: "70vw", md: "40vw", lg: "18vw" }}
+                  textBoxSize={{ base: "50vw", md: "50vw", lg: "17vw" }}
                   textSize={{ base: "sm", md: "lg", lg: "lg" }}
-                  textColor={{
-                    base: "teal.900",
-                    md: "teal.600",
-                    lg: "teal.400",
-                  }}
+                  textColor={"teal.400"}
                   {...item}
                 />
-              ))}
-            </WrapItem>
+              </WrapItem>
+            ))}
           </Flex>
-          <Link name="trailer" />
           <Box py="10">
-            <Heading color="black">Trailer:</Heading>
+            <Heading scrollMargin="100px" id="trailer">
+              Trailer:
+            </Heading>
           </Box>
-          <Flex>
-            <AspectRatio
-              w={{ base: "70vw", md: "60vw", lg: "50vw" }}
-              ratio={4 / 3}
-            >
-              <iframe
-                title="tower defense demo video"
-                src="https://www.youtube.com/embed/gTNaXtLUB8s"
-                allowFullScreen
-              />
-            </AspectRatio>
-          </Flex>
-          <Link name="architecture" />
-          <Box px="10vw" py="10">
-            <Heading color="black">Architecture:</Heading>
-          </Box>
-          <Center>
-            <Box
-              bg="teal.50"
-              boxShadow="dark-lg"
-              borderRadius="2xl"
-              w={{ base: "90vw", md: "70vw", lg: "70vw" }}
-            >
-              <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
-            </Box>
-          </Center>
-          <Link name="thoughts" />
+
+          <AspectRatio
+            w={{ base: "70vw", md: "60vw", lg: "50vw" }}
+            ratio={4 / 3}
+          >
+            <iframe
+              title="tower defense demo video"
+              src="https://www.youtube.com/embed/gTNaXtLUB8s"
+              allowFullScreen
+            />
+          </AspectRatio>
+
           <Box py="10">
-            <Heading>Thoughts:</Heading>
+            <Heading scrollMargin="100px" id="architecture">
+              Architecture:
+            </Heading>
+          </Box>
+
+          <Box
+            bg="teal.50"
+            boxShadow="dark-lg"
+            borderRadius="2xl"
+            w={{ base: "90vw", md: "70vw", lg: "70vw" }}
+          >
+            <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
+          </Box>
+
+          <Box py="10">
+            <Heading scrollMargin="100px" id="thoughts">
+              Thoughts:
+            </Heading>
           </Box>
           <Box>
             <Text fontSize="xl">
@@ -215,23 +204,24 @@ function TowerDefense() {
               再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
             </Text>
           </Box>
-          <Link name="demo" />
+
           <Box px="10vw" py="10">
-            <Heading color="black">Demo:</Heading>
+            <Heading scrollMargin="100px" id="demo">
+              Demo:
+            </Heading>
           </Box>
-          <Flex justify="center" w="100vw">
-            <AspectRatio
-              w={{ base: "70vw", md: "60vw", lg: "50vw" }}
-              ratio={4 / 3}
-            >
-              <iframe
-                title="tower defense demo video"
-                src="https://www.youtube.com/embed/mkjUvo7B_K8"
-                allowFullScreen
-              />
-            </AspectRatio>
-          </Flex>
-        </Stack>
+
+          <AspectRatio
+            w={{ base: "70vw", md: "60vw", lg: "50vw" }}
+            ratio={4 / 3}
+          >
+            <iframe
+              title="tower defense demo video"
+              src="https://www.youtube.com/embed/mkjUvo7B_K8"
+              allowFullScreen
+            />
+          </AspectRatio>
+        </Container>
         <Footer />
       </Box>
     </>
