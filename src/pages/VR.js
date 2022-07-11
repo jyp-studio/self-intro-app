@@ -1,14 +1,13 @@
 import {
   Box,
-  Center,
   Flex,
   Text,
   Image,
   Heading,
   AspectRatio,
   WrapItem,
-  Link,
   Container,
+  Button,
 } from "@chakra-ui/react";
 import img_design from "../assets/pencil.png";
 import img_uml from "../assets/uml.png";
@@ -18,7 +17,6 @@ import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-
 import {
   FiHome,
   FiCompass,
@@ -27,6 +25,13 @@ import {
   FiMessageCircle,
   FiBox,
 } from "react-icons/fi";
+import {
+  BsGearFill,
+  BsLightbulbFill,
+  BsPinAngleFill,
+  BsPenFill,
+  BsAwardFill,
+} from "react-icons/bs";
 
 function VR() {
   // Sidebar link items
@@ -41,21 +46,21 @@ function VR() {
   // Icon box infomation
   const IconBoxItems = [
     {
-      image: img_tool,
+      icon: BsGearFill,
       title: "Tool",
-      text: "Python, pygame module, git",
+      text: "Magic VR, Python, Linux, Blender, Cinema 4D",
       bg: "teal.200",
     },
     {
-      image: img_design,
-      title: "Design Pattern",
-      text: "MVC & Observer pattern",
-      bg: "teal.200",
-    },
-    {
-      image: img_idea,
+      icon: BsLightbulbFill,
       title: "設計理念",
-      text: "用遊戲的方式來告訴大眾Covid-19的危險性",
+      text: "將VR的應用範圍拓展到教育上",
+      bg: "teal.200",
+    },
+    {
+      icon: BsAwardFill,
+      title: "獲得補助",
+      text: "科技部大專生計畫(MOST) & 成大工學院補助",
       bg: "teal.200",
     },
   ];
@@ -63,24 +68,22 @@ function VR() {
   return (
     <>
       <Navbar />
+
       <Sidebar linkItems={LinkItems} />
-      <Box marginLeft={{ base: "0", md: "360px", lg: "360px" }}>
-        <Container maxW={"4xl"} py="3" centerContent>
-          <Center marginTop={"85"}>
-            <Heading
-              fontSize={{ base: "50", md: "100", lg: "150" }}
-              color="teal.300"
-              py="5"
-            >
-              VR
-            </Heading>
-          </Center>
-          {/* <Link name="abstract" /> */}
+
+      <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        <Container maxW={"8xl"} py="3" centerContent>
+          <Heading marginTop={"85"} fontSize={"10vw"} color="teal.300" py="5">
+            VR
+          </Heading>
+
           <Box py="10">
-            <Heading id="abstract">Abstract:</Heading>
+            <Heading scrollMargin="100px" id="abstract">
+              Abstract:
+            </Heading>
           </Box>
           <Box>
-            <Text fontSize="xl">
+            <Text fontSize="2xl">
               <AbstractText />
             </Text>
           </Box>
@@ -97,11 +100,12 @@ function VR() {
               </WrapItem>
             ))}
           </Flex>
-          <Link name="trailer" />
-          <Box py="10">
-            <Heading>Trailer:</Heading>
-          </Box>
 
+          <Box py="10">
+            <Heading scrollMargin="100px" id="trailer">
+              Trailer:
+            </Heading>
+          </Box>
           <AspectRatio
             w={{ base: "70vw", md: "60vw", lg: "50vw" }}
             ratio={4 / 3}
@@ -113,9 +117,10 @@ function VR() {
             />
           </AspectRatio>
 
-          <Link name="architecture" />
           <Box py="10">
-            <Heading>Architecture:</Heading>
+            <Heading scrollMargin="100px" id="architecture">
+              Architecture:
+            </Heading>
           </Box>
 
           <Box
@@ -127,9 +132,10 @@ function VR() {
             <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
           </Box>
 
-          <Link name="thoughts" />
           <Box py="10">
-            <Heading>Thoughts:</Heading>
+            <Heading scrollMargin="100px" id="thoughts">
+              Thoughts:
+            </Heading>
           </Box>
           <Box>
             <Text fontSize="xl">
@@ -177,9 +183,11 @@ function VR() {
               再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
             </Text>
           </Box>
-          <Link name="demo" />
+
           <Box px="10vw" py="10">
-            <Heading>Demo:</Heading>
+            <Heading scrollMargin="100px" id="demo">
+              Demo:
+            </Heading>
           </Box>
 
           <AspectRatio
@@ -202,5 +210,19 @@ function VR() {
 export default VR;
 
 const AbstractText = () => {
-  return <>&emsp;&emsp;</>;
+  return (
+    <>
+      &emsp;&emsp;虛擬實境，英文名為Virtual
+      Reality，簡稱VR，為現代帶來許多創造性與便利性。
+      VR的應用相當廣泛，如在娛樂方面有VR電影與遊戲，讓使用者可以體驗身歷其境的冒險；在培訓方面有醫療、防災與機台模擬等，
+      使學習者能有效學習技能。然而，對於在教育方面的應用卻是少之又少。因此，本研究決定將VR應用在教育上，探討虛擬實境對學生參與度的影響。
+      <br />
+      &emsp;&emsp;本研究使用哈瑪星科技的虛擬實境編輯器(Magic
+      VR)輔以Python、Linux、Blender與Cinema
+      4D來設計樹莓派應用於虛擬實境中，並將實驗對象分成實驗組與對照組，
+      分別使用虛擬環境和實體簡報學習，並以前後測來取得實驗成效。
+      <br />
+      &emsp;&emsp;目前本研究已獲得科技部大專生計畫(MOST)與成大工學院補助。
+    </>
+  );
 };

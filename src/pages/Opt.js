@@ -1,6 +1,5 @@
 import {
   Box,
-  Center,
   Flex,
   Text,
   Image,
@@ -12,8 +11,6 @@ import {
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import img_uml from "../assets/stock_frame.png";
-import img_tool from "../assets/gear.png";
-import img_idea from "../assets/lamp.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import IconBox from "../components/IconBox";
@@ -26,6 +23,12 @@ import {
   FiBox,
   FiFile,
 } from "react-icons/fi";
+import {
+  BsGearFill,
+  BsLightbulbFill,
+  BsPinAngleFill,
+  BsPuzzleFill,
+} from "react-icons/bs";
 
 function Opt() {
   // Sidebar link items
@@ -41,12 +44,12 @@ function Opt() {
   // Icon box infomation
   const IconBoxItems = [
     {
-      image: img_tool,
+      icon: BsGearFill,
       title: "Tool",
       text: "Python, pandas, matlabplot, tkinter, yfinance, multithreading",
     },
     {
-      image: img_idea,
+      icon: BsLightbulbFill,
       title: "設計理念",
       text: "利用tkinter介面使大眾可以輕易操作和獲取股票資訊",
     },
@@ -128,10 +131,19 @@ function Opt() {
               Written report:
             </Heading>
           </Box>
-          <AspectRatio maxW="560px" ratio={1}>
+          <AspectRatio
+            w={{ base: "80vw", md: "50vw", lg: "50vw" }}
+            ratio={3 / 4}
+          >
             <iframe
               title="numerical opt pdf"
               src="https://drive.google.com/file/d/15MRtr8mL9XtxG7JyL70cNwWiCeweTAIf/preview"
+              position="absolute"
+              marginTop={"0"}
+              marginLeft={"0"}
+              width={"100%"}
+              height={"100%"}
+              // style={}
               // width={{ md: "800px", lg: "800px" }}
               // height={{ md: "800px", lg: "1000px" }}
               // width={"800"}

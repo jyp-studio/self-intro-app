@@ -1,4 +1,11 @@
-import { Box, Center, Image, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Heading,
+  Text,
+  Icon,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 function IconBox(props) {
   return (
@@ -9,11 +16,15 @@ function IconBox(props) {
             bgGradient={props.bgGradient}
             bg={props.bg}
             borderRadius={"lg"}
-            p={"2"}
             boxShadow={"dark-lg"}
             boxSize={props.iconBoxSize}
           >
-            <Image src={props.image} />
+            <Icon
+              p={"1vw"}
+              as={props.icon}
+              boxSize={props.iconBoxSize}
+              color={useColorModeValue("teal.500", "gray.800")}
+            />
           </Box>
         </Center>
       </Box>

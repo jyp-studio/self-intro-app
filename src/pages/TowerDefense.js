@@ -1,6 +1,5 @@
 import {
   Box,
-  Center,
   Flex,
   Text,
   Image,
@@ -27,6 +26,12 @@ import {
   FiMessageCircle,
   FiBox,
 } from "react-icons/fi";
+import {
+  BsGearFill,
+  BsLightbulbFill,
+  BsPinAngleFill,
+  BsPenFill,
+} from "react-icons/bs";
 
 function TowerDefense() {
   // Sidebar link items
@@ -41,19 +46,19 @@ function TowerDefense() {
   // Icon box infomation
   const IconBoxItems = [
     {
-      image: img_tool,
+      icon: BsGearFill,
       title: "Tool",
       text: "Python, pygame module, git",
       bg: "teal.200",
     },
     {
-      image: img_design,
+      icon: BsPenFill,
       title: "Design Pattern",
       text: "MVC & Observer pattern",
       bg: "teal.200",
     },
     {
-      image: img_idea,
+      icon: BsLightbulbFill,
       title: "設計理念",
       text: "用遊戲的方式來告訴大眾Covid-19的危險性",
       bg: "teal.200",
