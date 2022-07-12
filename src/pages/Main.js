@@ -46,15 +46,16 @@ function Main() {
           textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
           py={{ base: 20, md: 36 }}
+          h={"100vh"}
         >
           <Heading
             fontWeight={600}
             fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
             lineHeight={"110%"}
           >
-            Make money from <br />
+            Great works are performed not by strength but by <br />
             <Text as={"span"} color={"teal.300"}>
-              your audience
+              perseverance
             </Text>
           </Heading>
           <Text color={"gray.500"}>
@@ -84,7 +85,7 @@ function Main() {
         </Stack>
       </Container>
       <Flex bg={useColorModeValue("teal.300", "teal.400")} p={20}>
-        <Container maxW={"5xl"} py={12}>
+        <Container maxW={"8xl"} py={12}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
             <Stack spacing={4}>
               <Text

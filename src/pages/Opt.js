@@ -95,7 +95,11 @@ function Opt() {
           </Box>
 
           {/* icon box for catching the points */}
-          <Flex flexWrap="wrap" py="10">
+          <Flex
+            flexWrap="wrap"
+            py="10"
+            display={{ base: "block", md: "block", lg: "flex" }}
+          >
             {IconBoxItems.map((item) => (
               <WrapItem py="1">
                 <IconBox
@@ -103,7 +107,7 @@ function Opt() {
                     "linear(to-l, #EDC967, #D2AC47, #F7EF8A, #AE8625)"
                   }
                   iconBoxSize={{ base: "3em", md: "6vw", lg: "6vw" }}
-                  textBoxSize={{ base: "70vw", md: "60vw", lg: "30vw" }}
+                  textBoxSize={{ base: "50vw", md: "50vw", lg: "30vw" }}
                   textSize={{ base: "sm", md: "xl", lg: "xl" }}
                   textColor={"yellow.400"}
                   {...item}

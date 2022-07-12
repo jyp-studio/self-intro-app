@@ -113,12 +113,16 @@ function TowerDefense() {
               以方便增修觸發事件。
             </Text>
           </Box>
-          <Flex flexWrap="wrap" py="10">
+          <Flex
+            flexWrap="wrap"
+            py="10"
+            display={{ base: "block", md: "block", lg: "flex" }}
+          >
             {IconBoxItems.map((item) => (
               <WrapItem py="1">
                 <IconBox
                   iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
-                  textBoxSize={{ base: "50vw", md: "50vw", lg: "17vw" }}
+                  textBoxSize={{ base: "50vw", md: "40vw", lg: "17vw" }}
                   textSize={{ base: "sm", md: "lg", lg: "lg" }}
                   textColor={"teal.400"}
                   {...item}
