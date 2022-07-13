@@ -36,7 +36,6 @@ function VR() {
   const LinkItems = [
     { name: "Home", icon: FiHome, href: "#" },
     { name: "Abstract", icon: FiCompass, href: "#abstract" },
-    { name: "Trailer", icon: FiYoutube, href: "#trailer" },
     { name: "Architecture", icon: FiCommand, href: "#architecture" },
     { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
     { name: "Demo", icon: FiBox, href: "#demo" },

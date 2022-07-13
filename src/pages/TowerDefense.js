@@ -9,10 +9,7 @@ import {
   Container,
   Button,
 } from "@chakra-ui/react";
-import img_design from "../assets/pencil.png";
 import img_uml from "../assets/uml.png";
-import img_tool from "../assets/gear.png";
-import img_idea from "../assets/lamp.png";
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
