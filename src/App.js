@@ -11,7 +11,6 @@ import VR from "./pages/VR";
 import Opt from "./pages/Opt";
 import PollutionModel from "./pages/PollutionModel";
 import NotFound from "./pages/NotFound";
-import CaptionCarousel from "./pages/test";
 
 function App() {
   return (
@@ -29,7 +28,6 @@ function App() {
           <Route path="/activity" element={<Activity />} />
           <Route path="/certificate" element={<Certificate />} />
           <Route path="/*" element={<NotFound />} />
-          <Route path="/test" element={<CaptionCarousel />} />
           {/* <Route path="/" element={<Main />}>
             <Route path="project" element={<Project />} />
           </Route> */}

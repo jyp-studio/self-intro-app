@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  Box,
-  Flex,
-  Icon,
-  useColorModeValue,
-  Link,
-  Drawer,
-  DrawerContent,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Flex, Icon, useColorModeValue, Link } from "@chakra-ui/react";
 
 export default function Sidebar(props) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <Box
       minH="100vh"
@@ -20,24 +10,19 @@ export default function Sidebar(props) {
       paddingTop="59"
       position={"fixed"}
     >
-      {/* <SidebarContent
-        onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
-        linkItems={props.linkItems}
-      /> */}
-
       <Box
         py="2"
         bg={useColorModeValue("white", "gray.900")}
         borderRight="1px"
         borderRightColor={useColorModeValue("gray.200", "gray.700")}
-        w={{ base: "full", md: 60 }}
+        w={{ md: 60 }}
         pos="fixed"
         h="full"
         {...props.rest}
       >
         {props.linkItems.map((link) => (
           <Link
+            key={link.id}
             href={link.href}
             style={{ textDecoration: "none" }}
             _focus={{ boxShadow: "none" }}
