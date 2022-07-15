@@ -18,6 +18,7 @@ import {
   TagLabel,
   TagRightIcon,
   Spacer,
+  HStack,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
@@ -27,8 +28,11 @@ import img_mc_all from "../assets/mc_all.jpg";
 import img_speech from "../assets/speech.jpg";
 import img_coding_bg from "../assets/coding_bg1.png";
 import img_creativity from "../assets/creativity_bg.jpg";
+import img_mobile_creativity from "../assets/mobile_creativity_bg.jpg";
 import img_learn from "../assets/learn_bg.png";
+import img_mobile_learn from "../assets/mobile_learn_bg.png";
 import img_confidence from "../assets/confidence_bg.png";
+import img_mobile_confidence from "../assets/mobile_confidence_bg.jpg";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
@@ -102,6 +106,7 @@ const data = [
     id: "data_1",
     name: "Creativity",
     image: img_creativity,
+    mobileImage: img_mobile_creativity,
     detail: "有價值的差異化，是我的創新",
     icon: FiFeather,
   },
@@ -109,6 +114,7 @@ const data = [
     id: "data_2",
     name: "Fast-learner",
     image: img_learn,
+    mobileImage: img_mobile_learn,
     detail: "快速學習，應用知識",
     icon: FiBookOpen,
   },
@@ -116,6 +122,7 @@ const data = [
     id: "data_3",
     name: "Self-confidence",
     image: img_confidence,
+    mobileImage: img_mobile_confidence,
     detail: "我相信我做得到，而我也總是做得到",
     icon: FiUserCheck,
   },
@@ -232,13 +239,32 @@ function Activity() {
         {/* here is widget */}
         <VStack>
           <Heading marginTop={"10"} fontSize={"6xl"}>
-            我的特質
+            人格特質
           </Heading>
         </VStack>
-        <Flex flexWrap={"wrap"} justify={"center"} py={"10"}>
+        {/* desktop widgets */}
+        <Flex
+          flexWrap={"wrap"}
+          justify={"center"}
+          py={"10"}
+          display={{ base: "none", lg: "flex" }}
+        >
           {data.map((item) => (
             <WrapItem px={"2"} key={item.key}>
-              <Widget {...item} />
+              <DesktopWidget {...item} />
+            </WrapItem>
+          ))}
+        </Flex>
+        {/* mobile widgets */}
+        <Flex
+          flexWrap={"wrap"}
+          justify={"center"}
+          py={"10"}
+          display={{ base: "flex", lg: "none" }}
+        >
+          {data.map((item) => (
+            <WrapItem p={"2"} key={item.key}>
+              <MobileWidget {...item} />
             </WrapItem>
           ))}
         </Flex>
@@ -246,16 +272,29 @@ function Activity() {
         {/* body of content */}
         <Box w={"full"} bg={"teal.50"}>
           <Container maxW={"8xl"} py="3" centerContent>
-            <Flex flexWrap={"wrap"} justifyContent="center" marginTop={"20"}>
+            <Flex flexWrap={"wrap"} justify="center" marginTop={"20"}>
               <Flex flexWrap="wrap" flexDirection="column" w={"20em"}>
-                <Heading fontSize={"6xl"}>活動總召</Heading>
-                <Text>感恩節活動時，擔任中友扒雞會總召</Text>
-                <Flex flexWrap="wrap">
+                <Heading
+                  fontSize={"6xl"}
+                  textAlign={useBreakpointValue({ base: "center", lg: "left" })}
+                >
+                  活動總召
+                </Heading>
+                <Text
+                  textAlign={useBreakpointValue({ base: "center", lg: "left" })}
+                >
+                  感恩節活動時，擔任中友扒雞會總召
+                </Text>
+                <HStack spacing={"2"} justify={{ base: "center", lg: "left" }}>
                   <CreativityTags />
                   <ConfidenceTags />
-                </Flex>
+                </HStack>
               </Flex>
-              <Box p="2" width={{ base: "sm", md: "md", lg: "3xl" }}>
+              <Box
+                p="2"
+                width={{ base: "90vw", md: "md", lg: "40vw" }}
+                justify={{ base: "center", lg: "left" }}
+              >
                 <Image
                   borderRadius="lg"
                   src={img_thanksgivening}
@@ -330,11 +369,11 @@ function Activity() {
 export default Activity;
 
 // widget component
-const Widget = (props) => {
+const DesktopWidget = (props) => {
   return (
     <Box
       bg={useColorModeValue("white", "gray.800")}
-      maxW="sm"
+      w={"20vw"}
       borderWidth="1px"
       rounded="lg"
       shadow="lg"
@@ -345,12 +384,16 @@ const Widget = (props) => {
         alt={`Widget of ${props.name}`}
         roundedTop="lg"
       />
-      <VStack h={"250px"} justify={"center"}>
+      <VStack h={"13vw"} justify={"center"}>
         <Icon as={props.icon} w={"5"} h={"5"} />
-        <Heading fontWeight={"light"} px={"5"}>
+        <Heading fontWeight={"light"} px={"5"} fontSize={"2vw"}>
           {props.name}
         </Heading>
-        <Text color={useColorModeValue("gray.800", "gray.300")} px={"10"}>
+        <Text
+          color={useColorModeValue("gray.800", "gray.300")}
+          px={"10"}
+          fontSize={"0.8vw"}
+        >
           {props.detail}
         </Text>
       </VStack>
@@ -358,15 +401,45 @@ const Widget = (props) => {
   );
 };
 
+// widget component
+const MobileWidget = (props) => {
+  return (
+    <Box
+      bg={useColorModeValue("white", "gray.800")}
+      maxW="lg"
+      h={"100px"}
+      borderWidth="1px"
+      rounded="lg"
+      shadow="xl"
+      position="relative"
+    >
+      <Image
+        w="lg"
+        h={"100px"}
+        src={props.mobileImage}
+        alt={`Widget of ${props.name}`}
+        rounded="lg"
+      />
+      <Flex
+        spacing={"5"}
+        w={"full"}
+        color={"white"}
+        position={"absolute"}
+        top="50%"
+        transform="translate(0, -50%)"
+      >
+        <Heading fontWeight={"thin"}>{props.name}</Heading>
+        <Spacer />
+        <Icon as={props.icon} w={"5"} h={"5"} />
+      </Flex>
+    </Box>
+  );
+};
+
 // tag component
 const CreativityTags = () => {
   return (
-    <Tag
-      size={{ base: "sm", md: "md", lg: "lg" }}
-      borderRadius="full"
-      variant="solid"
-      colorScheme="teal"
-    >
+    <Tag size={"lg"} borderRadius="full" variant="solid" colorScheme="yellow">
       <TagLabel>Creativity</TagLabel>
       <TagRightIcon as={FiFeather} />
     </Tag>
@@ -375,12 +448,7 @@ const CreativityTags = () => {
 
 const LearnerTags = () => {
   return (
-    <Tag
-      size={{ base: "sm", md: "md", lg: "lg" }}
-      borderRadius="full"
-      variant="solid"
-      colorScheme="teal"
-    >
+    <Tag size={"lg"} borderRadius="full" variant="solid" colorScheme="teal">
       <TagLabel>Fast-learner</TagLabel>
       <TagRightIcon as={FiBookOpen} />
     </Tag>
@@ -389,12 +457,7 @@ const LearnerTags = () => {
 
 const ConfidenceTags = () => {
   return (
-    <Tag
-      size={{ base: "sm", md: "md", lg: "lg" }}
-      borderRadius="full"
-      variant="solid"
-      colorScheme="teal"
-    >
+    <Tag size={"lg"} borderRadius="full" variant="solid" colorScheme="cyan">
       <TagLabel>Self-confidence</TagLabel>
       <TagRightIcon as={FiUserCheck} />
     </Tag>
