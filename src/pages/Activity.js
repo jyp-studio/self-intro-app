@@ -100,34 +100,6 @@ const cards = [
   },
 ];
 
-// data of widget
-const data = [
-  {
-    id: "data_1",
-    name: "Creativity",
-    image: img_creativity,
-    mobileImage: img_mobile_creativity,
-    detail: "有價值的差異化，是我的創新",
-    icon: FiFeather,
-  },
-  {
-    id: "data_2",
-    name: "Fast-learner",
-    image: img_learn,
-    mobileImage: img_mobile_learn,
-    detail: "快速學習，應用知識",
-    icon: FiBookOpen,
-  },
-  {
-    id: "data_3",
-    name: "Self-confidence",
-    image: img_confidence,
-    mobileImage: img_mobile_confidence,
-    detail: "我相信我做得到，而我也總是做得到",
-    icon: FiUserCheck,
-  },
-];
-
 function Activity() {
   const [slider, setSlider] = useState(null);
 
@@ -135,6 +107,37 @@ function Activity() {
   // buttons as the screen size changes
   const top = useBreakpointValue({ base: "90%", md: "50%" });
   const side = useBreakpointValue({ base: "30%", md: "40px" });
+
+  // data of widget
+  const data = [
+    {
+      id: "data_1",
+      name: "Creativity",
+      image: img_creativity,
+      color: useColorModeValue("red.500", "red.400"),
+      mobileImage: img_mobile_creativity,
+      detail: "有價值的差異化，是我的創新",
+      icon: FiFeather,
+    },
+    {
+      id: "data_2",
+      name: "Fast-learner",
+      image: img_learn,
+      color: useColorModeValue("teal.400", "teal.300"),
+      mobileImage: img_mobile_learn,
+      detail: "快速學習，應用知識",
+      icon: FiBookOpen,
+    },
+    {
+      id: "data_3",
+      name: "Self-confidence",
+      image: img_confidence,
+      color: "cyan.400",
+      mobileImage: img_mobile_confidence,
+      detail: "我相信我做得到，而我也總是做得到",
+      icon: FiUserCheck,
+    },
+  ];
 
   return (
     <>
@@ -235,133 +238,172 @@ function Activity() {
             ))}
           </Slider>
         </Box>
-
-        {/* here is widget */}
-        <VStack>
-          <Heading marginTop={"10"} fontSize={"6xl"}>
-            人格特質
-          </Heading>
-        </VStack>
-        {/* desktop widgets */}
-        <Flex
-          flexWrap={"wrap"}
-          justify={"center"}
-          py={"10"}
-          display={{ base: "none", lg: "flex" }}
-        >
-          {data.map((item) => (
-            <WrapItem px={"2"} key={item.key}>
-              <DesktopWidget {...item} />
-            </WrapItem>
-          ))}
-        </Flex>
-        {/* mobile widgets */}
-        <Flex
-          flexWrap={"wrap"}
-          justify={"center"}
-          py={"10"}
-          display={{ base: "flex", lg: "none" }}
-        >
-          {data.map((item) => (
-            <WrapItem p={"2"} key={item.key}>
-              <MobileWidget {...item} />
-            </WrapItem>
-          ))}
-        </Flex>
+        <Box bg={useColorModeValue("gray.50", "black")}>
+          {/* here is widget */}
+          <VStack>
+            <Heading marginTop={"10"} fontSize={"6xl"}>
+              人格特質
+            </Heading>
+          </VStack>
+          {/* desktop widgets */}
+          <Flex
+            flexWrap={"wrap"}
+            justify={"center"}
+            py={"10"}
+            display={{ base: "none", lg: "flex" }}
+          >
+            {data.map((item) => (
+              <WrapItem px={"2"} key={item.key}>
+                <DesktopWidget {...item} />
+              </WrapItem>
+            ))}
+          </Flex>
+          {/* mobile widgets */}
+          <Flex
+            flexWrap={"wrap"}
+            justify={"center"}
+            py={"10"}
+            display={{ base: "flex", lg: "none" }}
+          >
+            {data.map((item) => (
+              <WrapItem p={"2"} key={item.key}>
+                <MobileWidget {...item} />
+              </WrapItem>
+            ))}
+          </Flex>
+        </Box>
 
         {/* body of content */}
-        <Box w={"full"} bg={"teal.50"}>
-          <Container maxW={"8xl"} py="3" centerContent>
-            <Flex flexWrap={"wrap"} justify="center" marginTop={"20"}>
-              <Flex flexWrap="wrap" flexDirection="column" w={"20em"}>
+
+        <Container maxW={"8xl"} py="3" centerContent>
+          <Flex flexWrap={"wrap"} justify="center" marginTop={"15"}>
+            <Center>
+              <Box p="2" w="sm">
                 <Heading
-                  fontSize={"6xl"}
-                  textAlign={useBreakpointValue({ base: "center", lg: "left" })}
+                  fontSize={{ base: "2xl", md: "3vw" }}
+                  textAlign={{ base: "center", lg: "left" }}
                 >
                   活動總召
                 </Heading>
                 <Text
-                  textAlign={useBreakpointValue({ base: "center", lg: "left" })}
+                  textAlign={{ base: "center", lg: "left" }}
+                  fontSize={{ base: "lg", md: "xl" }}
                 >
                   感恩節活動時，擔任中友扒雞會總召
                 </Text>
+
                 <HStack spacing={"2"} justify={{ base: "center", lg: "left" }}>
                   <CreativityTags />
                   <ConfidenceTags />
                 </HStack>
-              </Flex>
-              <Box
-                p="2"
-                width={{ base: "90vw", md: "md", lg: "40vw" }}
-                justify={{ base: "center", lg: "left" }}
-              >
-                <Image
-                  borderRadius="lg"
-                  src={img_thanksgivening}
-                  alt="感恩節活動照片"
-                  boxShadow="xl"
-                />
               </Box>
-            </Flex>
+            </Center>
+            <Box
+              p="2"
+              width={{ base: "90vw", md: "md", lg: "40vw" }}
+              justify={{ base: "center", lg: "left" }}
+            >
+              <Image
+                borderRadius="lg"
+                src={img_thanksgivening}
+                alt="感恩節活動照片"
+                boxShadow="xl"
+              />
+            </Box>
+          </Flex>
 
-            <Flex flexWrap="wrap" flexDirection="row-reverse">
-              <Center>
-                <Box p="2" w="sm">
-                  <Heading fontSize={"5xl"}>營隊講者</Heading>
-                  <Text fontSize={"xl"}>
-                    擔任兩次中友科系探索營的科系講者，負責介紹系所、準備歷程與讀書計畫等。
-                  </Text>
-                </Box>
-              </Center>
-              <Box p="2" width={{ base: "sm", md: "md", lg: "lg" }}>
-                <Image
-                  borderRadius="lg"
-                  src={img_speech}
-                  alt="演講狀況照片"
-                  boxShadow="xl"
-                />
+          <Flex
+            flexWrap="wrap"
+            flexDirection="row-reverse"
+            justify="center"
+            marginTop={"20"}
+          >
+            <Center px={{ base: "0", lg: "5" }}>
+              <Box p="2" w="sm">
+                <Heading
+                  fontSize={{ base: "2xl", md: "3vw" }}
+                  textAlign={{ base: "center", lg: "left" }}
+                >
+                  營隊講者
+                </Heading>
+                <Text
+                  fontSize={{ base: "lg", md: "xl" }}
+                  textAlign={{ base: "center", lg: "left" }}
+                >
+                  擔任兩次中友科系探索營的科系講者，負責介紹系所、準備歷程與讀書計畫等。
+                </Text>
+                <HStack spacing={"2"} justify={{ base: "center", lg: "left" }}>
+                  <ConfidenceTags />
+                  <LearnerTags />
+                </HStack>
               </Box>
-            </Flex>
-            <Flex flexWrap="wrap" justify="center">
-              <Center>
-                <Box p="2" maxWidth="sm">
-                  <Heading>隊輔x表演</Heading>
-                  <Text>
-                    在兩次中友科系探索營中除了擔任講者外，同時也有擔任過隊輔，領導小隊員；
-                    擔任MC、樂團吉他手等。
-                  </Text>
-                </Box>
-              </Center>
-              <Box p="2" width={{ base: "sm", md: "md", lg: "lg" }}>
-                <Image
-                  borderRadius="lg"
-                  src={img_guitarist}
-                  alt="彈吉他照片"
-                  boxShadow="xl"
-                />
-              </Box>
-              <Box p="2" width={{ base: "sm", md: "md", lg: "md" }}>
-                <Image
-                  borderRadius="lg"
-                  src={img_mc_all}
-                  alt="MC表演大合照1"
-                  boxShadow="xl"
-                />
-              </Box>
-              <Box p="2" width={{ base: "sm", md: "md", lg: "md" }}>
-                <Image
-                  borderRadius="lg"
-                  src={img_mc_all_spotlight}
-                  alt="MC表演大合照2"
-                  boxShadow="xl"
-                />
-              </Box>
-            </Flex>
-          </Container>
-        </Box>
+            </Center>
+            <Box
+              p="2"
+              width={{ base: "90vw", md: "md", lg: "40vw" }}
+              justify={{ base: "center", lg: "left" }}
+            >
+              <Image
+                borderRadius="lg"
+                src={img_speech}
+                alt="演講狀況照片"
+                boxShadow="xl"
+              />
+            </Box>
+          </Flex>
 
-        <Footer />
+          <Flex flexWrap={"wrap"} justify="center" marginTop={"20"}>
+            <Center>
+              <Box p="2" w="sm">
+                <Heading
+                  fontSize={{ base: "2xl", md: "3vw" }}
+                  textAlign={{ base: "center", lg: "left" }}
+                >
+                  隊輔x表演
+                </Heading>
+                <Text
+                  textAlign={{ base: "center", lg: "left" }}
+                  fontSize={{ base: "lg", md: "xl" }}
+                >
+                  在兩次中友科系探索營中除了擔任講者外，同時也有擔任過隊輔，領導小隊員；
+                  擔任MC、樂團吉他手等。
+                </Text>
+
+                <HStack spacing={"2"} justify={{ base: "center", lg: "left" }}>
+                  <CreativityTags />
+                  <ConfidenceTags />
+                </HStack>
+              </Box>
+            </Center>
+            <Box
+              p="2"
+              width={{ base: "90vw", md: "md", lg: "40vw" }}
+              justify={{ base: "center", lg: "left" }}
+            >
+              <Image
+                borderRadius="lg"
+                src={img_guitarist}
+                alt="感恩節活動照片"
+                boxShadow="xl"
+              />
+              <Image
+                borderRadius="lg"
+                src={img_mc_all}
+                alt="MC表演大合照1"
+                boxShadow="xl"
+              />
+              <Image
+                borderRadius="lg"
+                src={img_mc_all_spotlight}
+                alt="MC表演大合照2"
+                boxShadow="xl"
+              />
+            </Box>
+          </Flex>
+        </Container>
       </Box>
+
+      <Footer />
     </>
   );
 }
@@ -384,13 +426,22 @@ const DesktopWidget = (props) => {
         alt={`Widget of ${props.name}`}
         roundedTop="lg"
       />
-      <VStack h={"13vw"} justify={"center"}>
-        <Icon as={props.icon} w={"5"} h={"5"} />
-        <Heading fontWeight={"light"} px={"5"} fontSize={"2vw"}>
+      <VStack
+        h={"13vw"}
+        justify={"center"}
+        bg={useColorModeValue("white", "gray.800")}
+      >
+        <Icon as={props.icon} w={"5"} h={"5"} color={props.color} />
+        <Heading
+          fontWeight={"light"}
+          px={"5"}
+          fontSize={"2vw"}
+          color={props.color}
+        >
           {props.name}
         </Heading>
         <Text
-          color={useColorModeValue("gray.800", "gray.300")}
+          color={useColorModeValue("gray.800", "gray.400")}
           px={"10"}
           fontSize={"0.8vw"}
         >
@@ -420,18 +471,33 @@ const MobileWidget = (props) => {
         alt={`Widget of ${props.name}`}
         rounded="lg"
       />
-      <Flex
-        spacing={"5"}
+      <HStack
         w={"full"}
         color={"white"}
         position={"absolute"}
         top="50%"
         transform="translate(0, -50%)"
+        justify={"flex-end"}
+        px={"10"}
       >
-        <Heading fontWeight={"thin"}>{props.name}</Heading>
+        <Heading
+          fontWeight={"thin"}
+          backdropFilter="auto"
+          backdropBlur={"1px"}
+          color={props.color}
+        >
+          {props.name}
+        </Heading>
         <Spacer />
-        <Icon as={props.icon} w={"5"} h={"5"} />
-      </Flex>
+        <Icon
+          color={props.color}
+          backdropFilter="auto"
+          backdropBlur={"1px"}
+          as={props.icon}
+          w={"5"}
+          h={"5"}
+        />
+      </HStack>
     </Box>
   );
 };
@@ -439,7 +505,7 @@ const MobileWidget = (props) => {
 // tag component
 const CreativityTags = () => {
   return (
-    <Tag size={"lg"} borderRadius="full" variant="solid" colorScheme="yellow">
+    <Tag size={"lg"} borderRadius="full" variant="solid" bg="red.500">
       <TagLabel>Creativity</TagLabel>
       <TagRightIcon as={FiFeather} />
     </Tag>
@@ -448,7 +514,7 @@ const CreativityTags = () => {
 
 const LearnerTags = () => {
   return (
-    <Tag size={"lg"} borderRadius="full" variant="solid" colorScheme="teal">
+    <Tag size={"lg"} borderRadius="full" variant="solid" bg="teal.400">
       <TagLabel>Fast-learner</TagLabel>
       <TagRightIcon as={FiBookOpen} />
     </Tag>
@@ -457,7 +523,7 @@ const LearnerTags = () => {
 
 const ConfidenceTags = () => {
   return (
-    <Tag size={"lg"} borderRadius="full" variant="solid" colorScheme="cyan">
+    <Tag size={"lg"} borderRadius="full" variant="solid" bg="cyan.500">
       <TagLabel>Self-confidence</TagLabel>
       <TagRightIcon as={FiUserCheck} />
     </Tag>
