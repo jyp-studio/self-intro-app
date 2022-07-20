@@ -290,7 +290,7 @@ const NAV_ITEMS = [
         label: "Side Project",
         subLabel:
           "Projects made when learning Unity, JavaScript, Home Assistant, etc.",
-        href: "/project/pollution-model",
+        href: "/project/side-project",
       },
     ],
   },

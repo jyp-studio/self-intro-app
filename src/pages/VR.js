@@ -76,8 +76,18 @@ function VR() {
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
         <Container maxW={"8xl"} py="3" centerContent>
-          <Heading marginTop={"85"} fontSize={"10vw"} color="teal.300" py="5">
-            VR
+          <Heading
+            marginTop={"85"}
+            fontSize={"5vw"}
+            color="teal.300"
+            py="5"
+            textAlign={"center"}
+          >
+            探討情境模擬學習融入
+            <Text as={"span"} color={"yellow.500"}>
+              虛擬實境
+            </Text>
+            對學生學習表現與參與度之影響
           </Heading>
 
           <Box py="10">
