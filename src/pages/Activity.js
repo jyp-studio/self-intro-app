@@ -22,7 +22,7 @@ import {
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
-import img_guitarist from "../assets/guitarist.jpg";
+import img_guitarist from "../assets/guitarist1.png";
 import img_mc_all_spotlight from "../assets/mc_all_spotlight.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
 import img_speech from "../assets/speech.jpg";
@@ -354,17 +354,14 @@ function Activity() {
 
           <Flex flexWrap={"wrap"} justify="center" marginTop={"20"}>
             <Center>
-              <Box p="2" w="sm">
+              <Box p="2" w="lg">
                 <Heading
                   fontSize={{ base: "2xl", md: "3vw" }}
-                  textAlign={{ base: "center", lg: "left" }}
+                  textAlign={"center"}
                 >
                   隊輔x表演
                 </Heading>
-                <Text
-                  textAlign={{ base: "center", lg: "left" }}
-                  fontSize={{ base: "lg", md: "xl" }}
-                >
+                <Text textAlign={"center"} fontSize={{ base: "lg", md: "xl" }}>
                   在兩次中友科系探索營中除了擔任講者外，同時也有擔任過隊輔，領導小隊員；
                   擔任MC、樂團吉他手等。
                 </Text>
@@ -375,9 +372,11 @@ function Activity() {
                 </HStack>
               </Box>
             </Center>
+          </Flex>
+          <Flex flexWrap={"wrap"} justify="center">
             <Box
               p="2"
-              width={{ base: "90vw", md: "md", lg: "40vw" }}
+              width={{ base: "90vw", md: "md", lg: "2xl" }}
               justify={{ base: "center", lg: "left" }}
             >
               <Image
@@ -386,12 +385,39 @@ function Activity() {
                 alt="感恩節活動照片"
                 boxShadow="xl"
               />
-              <Image
-                borderRadius="lg"
-                src={img_mc_all}
-                alt="MC表演大合照1"
-                boxShadow="xl"
-              />
+            </Box>
+            <VStack>
+              <Box
+                p="2"
+                width={{ base: "90vw", md: "md", lg: "lg" }}
+                justify={{ base: "center", lg: "left" }}
+              >
+                <Image
+                  borderRadius="lg"
+                  src={img_mc_all}
+                  alt="MC表演大合照1"
+                  boxShadow="xl"
+                />
+              </Box>
+              <Heading
+                fontSize={{ lg: "5xl" }}
+                display={{ base: "none", lg: "inline" }}
+              >
+                <Text as={"span"} color={"red"}>
+                  M
+                </Text>
+                icphone{" "}
+                <Text as={"span"} color={"red"}>
+                  C
+                </Text>
+                ontroller
+              </Heading>
+            </VStack>
+            <Box
+              p="2"
+              width={{ base: "90vw", md: "md", lg: "64vw" }}
+              justify={{ base: "center", lg: "left" }}
+            >
               <Image
                 borderRadius="lg"
                 src={img_mc_all_spotlight}
@@ -401,9 +427,8 @@ function Activity() {
             </Box>
           </Flex>
         </Container>
+        <Footer />
       </Box>
-
-      <Footer />
     </>
   );
 }
