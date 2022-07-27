@@ -14,7 +14,8 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import video from "../assets/flappy_bird.mp4";
+import video_flappy_bird from "../assets/flappy_bird.mp4";
+import video_mp3 from "../assets/music_player.MP4";
 import img_ha_structure from "../assets/ha_structure.png";
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
@@ -93,7 +94,7 @@ function SideProject() {
             >
               <iframe
                 title="flappy bird video"
-                src={video}
+                src={video_flappy_bird}
                 allowFullScreen
                 controls="0"
                 autoplay="0" // disable video from auto playing; however, not working:(
@@ -211,11 +212,50 @@ function SideProject() {
           <Heading scrollMargin="100px" py="10" w={"full"} id={"react"}>
             React app
           </Heading>
-
+          <Flex flexWrap={"wrap"} w={"full"} justify={"center"}>
+            <Text fontSize={"2xl"} textAlign={"justify"}>
+              &emsp;&emsp;現今我們看到的一切幾乎都是JavaScript所寫成。無論是網頁，抑或購物程式如蝦皮購物，
+              甚至是coding常用的VS
+              code也是使用與相關TypeScript所寫成。因此，這促使我想學習JavaScript的動力，
+              我想嘗試建立網頁與應用程式，不但可以滿足我學習的欲望、增加謀生的技能；同時，我也想幫父母建立一個購物網站，
+              完成父親的願望。
+              <br />
+              &emsp;&emsp;學習JS的過程中，我使用React建立經典的前端購物網站，包含選購商品，購物籃與結帳。
+              成功架設一個購物網站後，我開始建立自己的「自我介紹網站」並使用chakra-ui來美化介面。
+              行銷自己的同時也學習網頁排版與CSS語法。
+              <br />
+              &emsp;&emsp;雖然目前沒有需求，但日後我也想學習後端的架設。先前曾參加資工系所開設的密集課程學習PHP和MySQL，
+              學習基礎的資料庫建立。未來我想嘗試使用Laraval，一個開源的PHP框架，來實作後端的建設。
+              希望可以幫助父親建立一個完整的互動式網頁包含著前後端。
+            </Text>
+          </Flex>
           {/* Music Player */}
           <Heading scrollMargin="100px" py="10" w={"full"} id={"mp"}>
             Music Player
           </Heading>
+          <Flex flexWrap={"wrap"} w={"full"} justify={"center"}>
+            <Text fontSize={"2xl"} textAlign={"justify"} w={"50vw"}>
+              &emsp;&emsp;我很喜歡聽音樂，為此當買到樹莓派的第一時間便是想讓他播放音樂，成為一個音樂播放器。
+              我先嘗試使用raspotify來串接我的Spotify帳號，然而卻發現raspotify只是讓樹莓派變成可以被spotify辨識到的播放裝置而已，
+              並不是我所期待的音樂播放器。因此，我決定運用先前所學的python-pygame建立一個音樂播放器，使我可以使用GUI畫面來切換音樂。
+              <br />
+              &emsp;&emsp;使用pygame的音樂播放器非常成功，具備所有播放器所需的功能。然而由於播放器讀取的是檔案內的mp3檔案，
+              缺點顯而易見的就是浪費掉我的spotify帳號。因此，未來我將串接Spotify的API來實現串流播放。
+            </Text>
+            <AspectRatio
+              w={{ base: "70vw", md: "60vw", lg: "20vw" }}
+              ratio={3.5 / 6}
+            >
+              <iframe
+                title="music player video"
+                src={video_mp3}
+                allowFullScreen
+                controls="0"
+                autoplay="0" // disable video from auto playing; however, not working:(
+                volume="0"
+              />
+            </AspectRatio>
+          </Flex>
         </Container>
         <Footer />
       </Box>
