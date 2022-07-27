@@ -12,12 +12,14 @@ import {
   Badge,
   HStack,
   Link as ChakraLink,
+  Spacer,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import video_flappy_bird from "../assets/flappy_bird.mp4";
 import video_mp3 from "../assets/music_player.MP4";
 import img_ha_structure from "../assets/ha_structure.png";
-import IconBox from "../components/IconBox";
+import img_bg from "../assets/bg_sideproject.jpg";
+import Title from "../components/Title";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
@@ -68,8 +70,9 @@ function SideProject() {
       <Sidebar linkItems={LinkItems} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        <Title mainTitle={"Side Project"} image={img_bg} />
         <Container maxW={"8xl"} py="3" centerContent>
-          <Heading
+          {/* <Heading
             marginTop={"85"}
             fontSize={"6xl"}
             color="teal.300"
@@ -81,12 +84,54 @@ function SideProject() {
 
           <Text fontSize="2xl">
             &emsp;&emsp;我很喜歡學習各項新知識與技術，而這些是我學習各項技術時，嘗試動手做出的專案！
-          </Text>
+          </Text> */}
 
           {/* Unity Flappy Bird */}
-          <Heading scrollMargin="100px" py="10" w={"full"} id={"flappy-bird"}>
-            Unity Flappy Bird
-          </Heading>
+          <Flex
+            flexWrap={"wrap"}
+            py="10"
+            w={"full"}
+            justify={{ base: "center", lg: "left" }}
+          >
+            <Heading
+              scrollMargin="100px"
+              id={"flappy-bird"}
+              w={{ base: "full", lg: "auto" }}
+              textAlign={{ base: "center", lg: "left" }}
+            >
+              Unity Flappy Bird
+            </Heading>
+            <HStack
+              spacing={"2"}
+              marginLeft={{ base: "0", lg: "10" }}
+              py={{ base: "3", lg: "0" }}
+            >
+              <Badge
+                colorScheme={"teal"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                Unity bolt
+              </Badge>
+              <Badge
+                colorScheme={"blue"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                C#
+              </Badge>
+              <Badge
+                colorScheme={"red"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                Flexibility
+              </Badge>
+            </HStack>
+          </Flex>
           <Flex flexWrap={"wrap"} w={"full"} justify={"center"}>
             <AspectRatio
               w={{ base: "70vw", md: "60vw", lg: "40vw" }}
@@ -115,65 +160,55 @@ function SideProject() {
                 第二則是學習Unity
                 bolt，讓我可以更明確地設計程式的流程與架構，使我開發虛擬實境的內容時，能夠更加有彈性。
               </Text>
-              <HStack>
-                <Badge
-                  colorScheme={"teal"}
-                  fontSize={"xl"}
-                  borderRadius="full"
-                  px={"2"}
-                >
-                  Unity bolt
-                </Badge>
-                <Badge
-                  colorScheme={"blue"}
-                  fontSize={"xl"}
-                  borderRadius="full"
-                  px={"2"}
-                >
-                  C#
-                </Badge>
-                <Badge
-                  colorScheme={"red"}
-                  fontSize={"xl"}
-                  borderRadius="full"
-                  px={"2"}
-                >
-                  Flexibility
-                </Badge>
-              </HStack>
             </VStack>
           </Flex>
 
           {/* Home Assistant */}
-          <Heading scrollMargin="100px" py="10" w={"full"} id={"ha"}>
-            Home Assistant
-          </Heading>
-          <HStack>
-            <Badge
-              colorScheme={"teal"}
-              fontSize={"xl"}
-              borderRadius="full"
-              px={"2"}
-            >
-              Raspberry Pi 4
-            </Badge>
-            <Badge
-              colorScheme={"blue"}
-              fontSize={"xl"}
-              borderRadius="full"
-              px={"2"}
+          <Flex
+            flexWrap={"wrap"}
+            py="10"
+            w={"full"}
+            justify={{ base: "center", lg: "left" }}
+          >
+            <Heading
+              scrollMargin="100px"
+              id={"ha"}
+              w={{ base: "full", lg: "auto" }}
+              textAlign={{ base: "center", lg: "left" }}
             >
               Home Assistant
-            </Badge>
-            <Badge
-              colorScheme={"red"}
-              fontSize={"xl"}
-              borderRadius="full"
-              px={"2"}
+            </Heading>
+            <HStack
+              spacing={"2"}
+              marginLeft={{ base: "0", lg: "10" }}
+              py={{ base: "3", lg: "0" }}
             >
-              ZeroTier
-            </Badge>
-          </HStack>
+              <Badge
+                colorScheme={"teal"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                Raspberry Pi 4
+              </Badge>
+              <Badge
+                colorScheme={"blue"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                Home Assistant
+              </Badge>
+              <Badge
+                colorScheme={"red"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                ZeroTier
+              </Badge>
+            </HStack>
+          </Flex>
           <Flex flexWrap={"wrap"} w={"full"} justify={"center"}>
             <Text fontSize={"2xl"} textAlign={"justify"}>
               &emsp;&emsp;時常在網路上看到有人利用樹莓派製作音樂播放器、Minecraft伺服器等。
@@ -209,9 +244,51 @@ function SideProject() {
           </Flex>
 
           {/* React app */}
-          <Heading scrollMargin="100px" py="10" w={"full"} id={"react"}>
-            React app
-          </Heading>
+          <Flex
+            flexWrap={"wrap"}
+            py="10"
+            w={"full"}
+            justify={{ base: "center", lg: "left" }}
+          >
+            <Heading
+              scrollMargin="100px"
+              id={"react"}
+              w={{ base: "full", lg: "auto" }}
+              textAlign={{ base: "center", lg: "left" }}
+            >
+              React app
+            </Heading>
+            <HStack
+              spacing={"2"}
+              marginLeft={{ base: "0", lg: "10" }}
+              py={{ base: "3", lg: "0" }}
+            >
+              <Badge
+                colorScheme={"teal"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                JavaScript
+              </Badge>
+              <Badge
+                colorScheme={"blue"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                HTML/CSS
+              </Badge>
+              <Badge
+                colorScheme={"red"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                PHP/MySQL
+              </Badge>
+            </HStack>
+          </Flex>
           <Flex flexWrap={"wrap"} w={"full"} justify={"center"}>
             <Text fontSize={"2xl"} textAlign={"justify"}>
               &emsp;&emsp;現今我們看到的一切幾乎都是JavaScript所寫成。無論是網頁，抑或購物程式如蝦皮購物，
@@ -230,9 +307,51 @@ function SideProject() {
             </Text>
           </Flex>
           {/* Music Player */}
-          <Heading scrollMargin="100px" py="10" w={"full"} id={"mp"}>
-            Music Player
-          </Heading>
+          <Flex
+            flexWrap={"wrap"}
+            py="10"
+            w={"full"}
+            justify={{ base: "center", lg: "left" }}
+          >
+            <Heading
+              scrollMargin="100px"
+              id={"mp"}
+              w={{ base: "full", lg: "auto" }}
+              textAlign={{ base: "center", lg: "left" }}
+            >
+              Music Player
+            </Heading>
+            <HStack
+              spacing={"2"}
+              marginLeft={{ base: "0", lg: "10" }}
+              py={{ base: "3", lg: "0" }}
+            >
+              <Badge
+                colorScheme={"teal"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                Raspberry Pi 4
+              </Badge>
+              <Badge
+                colorScheme={"blue"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                Pyton-Pygame
+              </Badge>
+              <Badge
+                colorScheme={"red"}
+                fontSize={"xl"}
+                borderRadius="full"
+                px={"2"}
+              >
+                Spotify
+              </Badge>
+            </HStack>
+          </Flex>
           <Flex flexWrap={"wrap"} w={"full"} justify={"center"}>
             <Text fontSize={"2xl"} textAlign={"justify"} w={"50vw"}>
               &emsp;&emsp;我很喜歡聽音樂，為此當買到樹莓派的第一時間便是想讓他播放音樂，成為一個音樂播放器。

@@ -5,6 +5,7 @@ import {
   Text,
   Image,
   useColorModeValue,
+  Container,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import img_digi from "../assets/digi.png";
@@ -65,24 +66,25 @@ function Project() {
   return (
     <>
       <Navbar />
-      <Box h={"85px"} bg="blue" />
-
-      <Flex
-        flexWrap="wrap"
-        w="100vw"
-        justify="center"
-        px={{ md: "22vw", lg: "22vw" }}
-      >
-        {projectList.map((project) => (
-          <Card
-            href={project.href}
-            bg={project.bg}
-            img={project.img}
-            alt={project.alt}
-            title={project.title}
-          />
-        ))}
-      </Flex>
+      <Container maxW={"9xl"} py="3" centerContent>
+        <Flex
+          marginTop={"85"}
+          flexWrap="wrap"
+          w="full"
+          justify="center"
+          px={{ md: "12vw", lg: "21vw" }}
+        >
+          {projectList.map((project) => (
+            <Card
+              href={project.href}
+              bg={project.bg}
+              img={project.img}
+              alt={project.alt}
+              title={project.title}
+            />
+          ))}
+        </Flex>
+      </Container>
 
       <Footer />
     </>
@@ -106,7 +108,7 @@ const Card = (props) => {
         />
       </Link>
       <Center>
-        <Text fontSize="xl">{props.title}</Text>
+        <Text fontSize="2xl">{props.title}</Text>
       </Center>
     </Box>
   );
