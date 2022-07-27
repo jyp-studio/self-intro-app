@@ -13,6 +13,7 @@ import {
   HStack,
   Link as ChakraLink,
   Spacer,
+  useColorMode,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import video_flappy_bird from "../assets/flappy_bird.mp4";
@@ -70,22 +71,16 @@ function SideProject() {
       <Sidebar linkItems={LinkItems} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
-        <Title mainTitle={"Side Project"} image={img_bg} />
+        <Title
+          image={img_bg}
+          mainColor={"blackAlpha.800"}
+          mainTitle={"Side Project"}
+          subColor={"black"}
+          subTitle={
+            "我很喜歡學習各項新知識與技術，而這些是我學習各項技術時，嘗試動手做出的專案！"
+          }
+        />
         <Container maxW={"8xl"} py="3" centerContent>
-          {/* <Heading
-            marginTop={"85"}
-            fontSize={"6xl"}
-            color="teal.300"
-            py="5"
-            w={"full"}
-          >
-            Side Project
-          </Heading>
-
-          <Text fontSize="2xl">
-            &emsp;&emsp;我很喜歡學習各項新知識與技術，而這些是我學習各項技術時，嘗試動手做出的專案！
-          </Text> */}
-
           {/* Unity Flappy Bird */}
           <Flex
             flexWrap={"wrap"}

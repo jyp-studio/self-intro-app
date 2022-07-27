@@ -10,11 +10,6 @@ import {
   Container,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import img_uml from "../assets/stock_frame.png";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import IconBox from "../components/IconBox";
-import Sidebar from "../components/Sidebar";
 import {
   FiHome,
   FiCompass,
@@ -29,6 +24,15 @@ import {
   BsPinAngleFill,
   BsPuzzleFill,
 } from "react-icons/bs";
+
+import Title from "../components/Title";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import IconBox from "../components/IconBox";
+import Sidebar from "../components/Sidebar";
+
+import img_uml from "../assets/stock_frame.png";
+import img_bg from "../assets/bg_opt.jpeg";
 
 function Opt() {
   // Sidebar link items
@@ -61,8 +65,15 @@ function Opt() {
       <Sidebar linkItems={LinkItems} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        <Title
+          image={img_bg}
+          mainTitle={"數值最佳化投資"}
+          mainColor={"teal.200"}
+          subColor={"teal.300"}
+          subTitle={"運用數值方法於python中來進行股票回測"}
+        />
         <Container maxW={"8xl"} py="3" centerContent>
-          <Heading
+          {/* <Heading
             marginTop={"85"}
             fontSize={"10vw"}
             bgGradient="linear(to-l, #EDC967, #D2AC47, #F7EF8A, #AE8625)"
@@ -70,7 +81,7 @@ function Opt() {
             py="5"
           >
             數值最佳化投資
-          </Heading>
+          </Heading> */}
 
           <Box py="10">
             <Heading scrollMargin="100px" id="abstract">

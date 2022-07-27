@@ -1,4 +1,4 @@
-import { Box, Heading, VStack } from "@chakra-ui/react";
+import { Box, Heading, VStack, Text } from "@chakra-ui/react";
 
 function Title(props) {
   return (
@@ -10,7 +10,7 @@ function Title(props) {
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
-        backgroundImage={props.image}
+        backgroundImage={`url(${props.image})`}
         w={"full"}
         h={"xl"}
       >
@@ -18,6 +18,7 @@ function Title(props) {
           as={VStack}
           w={"full"}
           h={"full"}
+          spacing={"8"}
           backdropFilter="auto"
           backdropBlur="5px"
           alignContent={"center"}
@@ -28,9 +29,20 @@ function Title(props) {
           top="50%"
           transform="translate(0, -50%)"
         >
-          <Heading fontSize={"6xl"} color="teal.300">
+          <Heading
+            fontSize={{ base: "12vw", md: "6xl" }}
+            color={props.mainColor}
+          >
             {props.mainTitle}
           </Heading>
+          <Text
+            fontSize={"xl"}
+            color={props.subColor}
+            fontWeight={"bold"}
+            px={"5"}
+          >
+            {props.subTitle}
+          </Text>
         </Box>
       </Box>
     </>
