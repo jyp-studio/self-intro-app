@@ -8,6 +8,10 @@ import {
   WrapItem,
   Container,
   Button,
+  VStack,
+  useColorMode,
+  Divider,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import IconBox from "../components/IconBox";
@@ -18,6 +22,7 @@ import Title from "../components/Title";
 
 import img_uml from "../assets/uml.png";
 import img_bg from "../assets/bg_tower.jpg";
+import img_covid from "../assets/covid.jpg";
 
 import {
   FiHome,
@@ -81,59 +86,72 @@ function TowerDefense() {
           subTitle={"用python從0打造自己的塔防遊戲"}
         />
         <Container maxW={"8xl"} py="3" centerContent>
-          <Box py="10">
-            <Heading scrollMargin="100px" id="abstract">
+          <Box
+            border={"1px"}
+            borderColor={useColorModeValue("gray.200", "gray.600")}
+            rounded={"2xl"}
+            marginTop={"10"}
+          >
+            <Heading
+              py={"4"}
+              px={"5"}
+              scrollMargin="100px"
+              id={"abstract"}
+              w={{ base: "auto", lg: "full" }}
+              textAlign={{ base: "center", lg: "left" }}
+            >
               Abstract:
             </Heading>
+            <Divider
+              w={"full"}
+              color={useColorModeValue("gray.200", "gray.600")}
+            />
+            <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
+            <Flex flexWrap={"wrap"} py="10" justify={"center"}>
+              <Text
+                fontSize="2xl"
+                w={{ base: "95vw", md: "70vw", lg: "45vw" }}
+                px={{ base: "5", md: "5", lg: "10" }}
+                textAlign={"justify"}
+              >
+                &emsp;&emsp;2019年，Covid-19突然大流行造成許多人死亡。然而，部分大眾卻仍對其抱持懷疑與不信的態度。
+                <Text as={"span"} fontWeight={"bold"}>
+                  為了讓民眾了解Covid-19的危險性。因此決定以衛教的核心思想設計塔防遊戲。
+                </Text>
+                玩家所要守護的家園即代表個人、家人與朋友的健康，而受病毒所感染的變種人類則試圖感染正常人類。每一波的病毒都會越發增強代表著病毒的變種性與流行性。
+                <Text as={"span"} fontWeight={"bold"}>
+                  期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
+                </Text>
+                <br />
+                &emsp;&emsp;本遊戲使用Python-pygame製作，遊戲主要使用
+                <Text as={"span"} fontWeight={"bold"}>
+                  MVC{"("}
+                  Model-View-Controller{")"}
+                </Text>
+                當做主架構，玩家事件則是使用
+                <Text as={"span"} fontWeight={"bold"}>
+                  observer pattern
+                </Text>
+                以方便增修觸發事件。
+              </Text>
+
+              {/* icon box */}
+              <VStack mt={{ base: "10", lg: "0" }}>
+                {IconBoxItems.map((item, index) => (
+                  <WrapItem py="1" key={index}>
+                    <IconBox
+                      bgColor={"gray.200"}
+                      iconColor={"gray.800"}
+                      iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
+                      textBoxSize={{ base: "50vw", md: "40vw", lg: "17vw" }}
+                      textSize={{ base: "sm", md: "lg", lg: "lg" }}
+                      {...item}
+                    />
+                  </WrapItem>
+                ))}
+              </VStack>
+            </Flex>
           </Box>
-          <Box>
-            <Text fontSize="xl">
-              &emsp;&emsp;2019年，Covid-19突然大流行造成許多人死亡。然而，部分大眾卻仍對其抱持懷疑與不信的態度。
-              <Text as="strong" textDecoration="underline">
-                為了讓民眾了解Covid-19的危險性
-              </Text>
-              。因此決定以
-              <Text as="strong" color="teal.400">
-                衛教的核心思想設計塔防遊戲。
-              </Text>
-              玩家所要守護的家園即代表個人、家人與朋友的健康，而受病毒所感染的變種人類則試圖感染正常人類。
-              <Text as="strong" textDecoration="underline">
-                每一波的病毒都會越發增強代表著病毒的變種性與流行性
-              </Text>
-              。 期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
-              <br />
-              &emsp;&emsp;本遊戲使用
-              <Text as="strong" color="teal.400">
-                Python-pygame製作
-              </Text>
-              ，遊戲主要使用
-              <Text as="strong" color="teal.400">
-                MVC(Model-View-Controller)
-              </Text>
-              當做主架構， 玩家事件則是使用
-              <Text as="strong" color="teal.400">
-                observer pattern
-              </Text>
-              以方便增修觸發事件。
-            </Text>
-          </Box>
-          <Flex
-            flexWrap="wrap"
-            py="10"
-            display={{ base: "block", md: "block", lg: "flex" }}
-          >
-            {IconBoxItems.map((item) => (
-              <WrapItem py="1">
-                <IconBox
-                  iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
-                  textBoxSize={{ base: "50vw", md: "40vw", lg: "17vw" }}
-                  textSize={{ base: "sm", md: "lg", lg: "lg" }}
-                  textColor={"teal.400"}
-                  {...item}
-                />
-              </WrapItem>
-            ))}
-          </Flex>
 
           <Box py="10">
             <Heading scrollMargin="100px" id="trailer">

@@ -22,7 +22,7 @@ export default function Sidebar(props) {
       >
         {props.linkItems.map((link) => (
           <Link
-            key={link.id}
+            key={link.name}
             href={link.href}
             style={{ textDecoration: "none" }}
             _focus={{ boxShadow: "none" }}

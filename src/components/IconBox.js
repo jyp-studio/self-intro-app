@@ -13,17 +13,17 @@ function IconBox(props) {
       <Box>
         <Center>
           <Box
-            bgGradient={props.bgGradient}
-            bg={props.bg}
+            bgGradient={props.bgGradient ?? undefined}
+            bg={props.bgColor ?? "red"}
             borderRadius={"lg"}
             boxShadow={"dark-lg"}
             boxSize={props.iconBoxSize}
           >
             <Icon
-              p={"1vw"}
+              p={{ base: "3", md: "1.3vw" }}
               as={props.icon}
               boxSize={props.iconBoxSize}
-              color={useColorModeValue("teal.500", "gray.800")}
+              color={props.iconColor ?? "teal.100"}
             />
           </Box>
         </Center>
