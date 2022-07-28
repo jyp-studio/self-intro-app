@@ -9,11 +9,15 @@ import {
   Container,
   Button,
 } from "@chakra-ui/react";
-import img_uml from "../assets/uml.png";
+
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
+import Title from "../components/Title";
+
+import img_uml from "../assets/uml.png";
+import img_bg from "../assets/bg_tower.jpg";
 
 import {
   FiHome,
@@ -69,11 +73,14 @@ function TowerDefense() {
       <Sidebar linkItems={LinkItems} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        <Title
+          image={img_bg}
+          mainTitle={"Tower Defense"}
+          mainColor={"whiteAlpha.900"}
+          subColor={"whiteAlpha.700"}
+          subTitle={"用python從0打造自己的塔防遊戲"}
+        />
         <Container maxW={"8xl"} py="3" centerContent>
-          <Heading marginTop={"85"} fontSize={"10vw"} color="teal.300" py="5">
-            Tower Defense
-          </Heading>
-
           <Box py="10">
             <Heading scrollMargin="100px" id="abstract">
               Abstract:

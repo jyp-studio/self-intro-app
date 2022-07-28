@@ -5,7 +5,6 @@ function Title(props) {
     <>
       <Box
         filter="auto"
-        brightness="80%"
         position="relative"
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
@@ -20,6 +19,7 @@ function Title(props) {
           h={"full"}
           spacing={"8"}
           backdropFilter="auto"
+          backdropBrightness={props.brightness ?? "80%"}
           backdropBlur="5px"
           alignContent={"center"}
           textAlign={"center"}
@@ -36,6 +36,7 @@ function Title(props) {
             {props.mainTitle}
           </Heading>
           <Text
+            letterSpacing={"5px"}
             fontSize={"xl"}
             color={props.subColor}
             fontWeight={"bold"}

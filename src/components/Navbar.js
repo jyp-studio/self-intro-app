@@ -106,7 +106,7 @@ const DesktopNav = () => {
               <ChakraLink
                 as={Link}
                 p={2}
-                to={navItem.href}
+                to={navItem.pcHref}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -206,8 +206,8 @@ const MobileNavItem = (props) => {
     <Stack spacing={4} onClick={props.children && onToggle}>
       <Flex
         py={2}
-        as={ChakraLink}
-        href={props.href ?? "#"}
+        as={Link}
+        to={props.href ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -255,7 +255,7 @@ const MobileNavItem = (props) => {
 const NAV_ITEMS = [
   {
     label: "Project",
-    href: "/project",
+    pcHref: "/project",
     children: [
       {
         label: "Tower Defense",
@@ -296,10 +296,12 @@ const NAV_ITEMS = [
   },
   {
     label: "Activity",
+    pcHref: "/activity",
     href: "/activity",
   },
   {
     label: "Certificates",
+    pcHref: "/certificate",
     href: "/certificate",
   },
 ];

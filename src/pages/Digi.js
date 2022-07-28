@@ -9,12 +9,6 @@ import {
   Container,
   Button,
 } from "@chakra-ui/react";
-import img_uml from "../assets/uml.png";
-import IconBox from "../components/IconBox";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
-
 import {
   FiHome,
   FiCompass,
@@ -29,6 +23,15 @@ import {
   BsPinAngleFill,
   BsPenFill,
 } from "react-icons/bs";
+
+import IconBox from "../components/IconBox";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import Title from "../components/Title";
+
+import img_uml from "../assets/uml.png";
+import img_bg from "../assets/bg_digi.jpg";
 
 function Digi() {
   // Sidebar link items
@@ -69,11 +72,15 @@ function Digi() {
       <Sidebar linkItems={LinkItems} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        <Title
+          brightness={"50%"}
+          image={img_bg}
+          mainColor={"yellow.400"}
+          mainTitle={"Digi+ Talent 實習"}
+          subColor={"orange.100"}
+          subTitle={"與企業和跨領域人才合作共同製作專題"}
+        />
         <Container maxW={"8xl"} py="3" centerContent>
-          <Heading marginTop={"85"} fontSize={"10vw"} color="teal.300" py="5">
-            Digi+ Talent實習
-          </Heading>
-
           <Box py="10">
             <Heading scrollMargin="100px" id="abstract">
               Abstract:

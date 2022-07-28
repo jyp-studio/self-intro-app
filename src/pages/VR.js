@@ -10,11 +10,6 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import img_uml from "../assets/vr_uml.png";
-import IconBox from "../components/IconBox";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
 import {
   FiHome,
   FiCompass,
@@ -30,6 +25,15 @@ import {
   BsPenFill,
   BsAwardFill,
 } from "react-icons/bs";
+
+import IconBox from "../components/IconBox";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import Title from "../components/Title";
+
+import img_uml from "../assets/vr_uml.png";
+import img_bg from "../assets/bg_vr.jpg";
 
 function VR() {
   // Sidebar link items
@@ -75,21 +79,16 @@ function VR() {
       <Sidebar linkItems={LinkItems} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        <Title
+          brightness={"40%"}
+          image={img_bg}
+          mainColor={"cyan.300"}
+          // mainTitle={"探討情境模擬學習融入虛擬實境對學生學習表現與參與度之影響"}
+          mainTitle={"VR專題"}
+          subColor={"cyan.100"}
+          subTitle={"探討情境模擬學習融入虛擬實境對學生學習表現與參與度之影響"}
+        />
         <Container maxW={"8xl"} py="3" centerContent>
-          <Heading
-            marginTop={"85"}
-            fontSize={"5vw"}
-            color="teal.300"
-            py="5"
-            textAlign={"center"}
-          >
-            探討情境模擬學習融入
-            <Text as={"span"} color={"yellow.500"}>
-              虛擬實境
-            </Text>
-            對學生學習表現與參與度之影響
-          </Heading>
-
           <Box py="10">
             <Heading scrollMargin="100px" id="abstract">
               Abstract:

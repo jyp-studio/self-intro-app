@@ -72,10 +72,11 @@ function Project() {
           flexWrap="wrap"
           w="full"
           justify="center"
-          px={{ md: "12vw", lg: "21vw" }}
+          px={{ md: "12vw", lg: "22vw" }}
         >
           {projectList.map((project) => (
             <Card
+              key={project.title}
               href={project.href}
               bg={project.bg}
               img={project.img}

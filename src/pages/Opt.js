@@ -68,8 +68,8 @@ function Opt() {
         <Title
           image={img_bg}
           mainTitle={"數值最佳化投資"}
-          mainColor={"teal.200"}
-          subColor={"teal.300"}
+          mainColor={"orange.200"}
+          subColor={"orange.300"}
           subTitle={"運用數值方法於python中來進行股票回測"}
         />
         <Container maxW={"8xl"} py="3" centerContent>
