@@ -40,6 +40,7 @@ function Footer() {
   return (
     <>
       <Box
+        marginTop={"10"}
         bg={useColorModeValue("gray.50", "gray.900")}
         color={useColorModeValue("gray.700", "gray.200")}
       >
