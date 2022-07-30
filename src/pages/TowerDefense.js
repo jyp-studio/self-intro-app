@@ -12,7 +12,10 @@ import {
   useColorMode,
   Divider,
   useColorModeValue,
+  HStack,
+  Spacer,
 } from "@chakra-ui/react";
+import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
 
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
@@ -23,6 +26,8 @@ import Title from "../components/Title";
 import img_uml from "../assets/uml.png";
 import img_bg from "../assets/bg_tower.jpg";
 import img_covid from "../assets/covid.jpg";
+import img_miro from "../assets/miro.png";
+import img_miro1 from "../assets/miro1.png";
 
 import {
   FiHome,
@@ -187,7 +192,7 @@ function TowerDefense() {
                 />
               </AspectRatio>
             </Box>
-            <Box marginTop={"10"} marginBottom={"10"}>
+            <Box marginTop={"10"} marginBottom={"20"}>
               <Heading
                 scrollMargin="100px"
                 py={"4"}
@@ -231,15 +236,93 @@ function TowerDefense() {
               </Text>{" "}
               Thoughts
             </Heading>
-            <Text fontSize="2xl" marginTop={"5"} textAlign={"justify"}>
-              <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
-                分工狀態
-              </Text>
-              &emsp;&emsp;在數週的設計思維工作坊中，我擔任組長的職位，引領兩位組員分工合作完成這個遊戲。
-              {""}
-              原先的工作分配為我做Tower和Enemy相關的動畫、運作模式和錨點選單等；另一位則是做選單以及遊戲介面；
-              {""}
-              最後一位則是做Map與Potion相關運作方式。
+            <Box fontSize="2xl" marginTop={"5"} textAlign={"justify"}>
+              <Box
+                bgColor={useColorModeValue("gray.100", "gray.700")}
+                border={"1px"}
+                borderColor={useColorModeValue("gray.300", "gray.600")}
+                rounded={"2xl"}
+                shadow={"lg"}
+                p={"10"}
+              >
+                <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
+                  分工狀態
+                </Text>
+                <Flex
+                  flexWrap={"wrap"}
+                  w={"full"}
+                  spacing={"10"}
+                  justify={"center"}
+                >
+                  <VStack>
+                    <Text w={"40vw"}>
+                      &emsp;&emsp;在數週的設計思維工作坊中，我擔任組長的職位，引領兩位組員
+                      {""}
+                      藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
+                      {""}
+                      工作分配為我做Tower和Enemy相關的動畫、運作模式和錨點選單等；另一位則是做選單以及遊戲介面；
+                      {""}
+                      最後一位則是做Map與Potion相關運作方式。
+                    </Text>
+                    <HStack>
+                      <FiChevronsRight size={"50px"} color={"#81E6D9"} />
+                      <Text
+                        fontWeight={"bold"}
+                        fontSize={"4xl"}
+                        color={"teal.300"}
+                      >
+                        設計思考 Design Thinking
+                      </Text>
+                      <FiChevronsLeft size={"50px"} color={"#81E6D9"} />
+                    </HStack>
+                  </VStack>
+                  <Box
+                    bgColor={"yellow.400"}
+                    w={"20vw"}
+                    marginLeft={"8"}
+                    p={"5"}
+                    boxShadow={"xl"}
+                    fontWeight={"bold"}
+                  >
+                    <VStack spacing={"3"} w={"full"} color={"black"}>
+                      <Heading>分工表</Heading>
+                      <Text>
+                        我：所有遊戲物件相關
+                        <Box
+                          bgColor={"yellow.600"}
+                          w={"full"}
+                          h={"4px"}
+                          px={"5"}
+                        />
+                        組員A：選單介面
+                        <Box
+                          bgColor={"yellow.600"}
+                          w={"full"}
+                          h={"4px"}
+                          px={"5"}
+                        />
+                        組員B：地圖、藥水相關
+                        <Box
+                          bgColor={"yellow.600"}
+                          w={"full"}
+                          h={"4px"}
+                          px={"5"}
+                          marginBottom={"2"}
+                        />
+                      </Text>
+                    </VStack>
+                  </Box>
+                </Flex>
+                <Flex
+                  justify={"center"}
+                  w={"full"}
+                  flexWrap={"wrap"}
+                  marginTop={"8"}
+                >
+                  <Image src={img_miro} w={"31vw"} px={"2"} />
+                  <Image src={img_miro1} w={"31vw"} px={"2"} />
+                </Flex>
+              </Box>
               <Box
                 bgColor={useColorModeValue("gray.300", "gray.700")}
                 marginTop={"5"}
@@ -250,7 +333,8 @@ function TowerDefense() {
               <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
                 遇到困難
               </Text>
-              &emsp;&emsp;然而，正當一切運作妥當時，遇到整個開發中最大的難題{""}
+              &emsp;&emsp;然而，正當一切運作妥當時，遇到整個開發中最大的難題
+              {""}
               ：其中有一位組員在快截止日期時，突然說他沒有學過程式，甚麼都沒做。
               {""}
               因此，身為組長的我只好臨時改變工作分配，將較不需要coding的遊戲平衡與圖片蒐集交給他，
@@ -299,9 +383,11 @@ function TowerDefense() {
               也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
               requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
               再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
-            </Text>
+            </Box>
           </Box>
+        </Container>
 
+        <Container maxW={"8xl"} py="3" centerContent>
           <Box marginTop={"10"}>
             <Heading
               scrollMargin="100px"
