@@ -16,6 +16,7 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
+import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
 
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
@@ -28,6 +29,8 @@ import img_bg from "../assets/bg_tower.jpg";
 import img_covid from "../assets/covid.jpg";
 import img_miro from "../assets/miro.png";
 import img_miro1 from "../assets/miro1.png";
+import img_anime from "../assets/attack_anime.png";
+import img_anime1 from "../assets/attack_anime1.png";
 
 import {
   FiHome,
@@ -345,14 +348,66 @@ function TowerDefense() {
                 <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
                   遇到困難
                 </Text>
-                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與實際傷害的銜接，相信這是普遍遊戲都會遇到的困難之處。
+                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
                 {""}
                 原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
                 {""}
                 因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
                 {""}
-                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般好。
+                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
+                <Flex flexWrap={"wrap"} justify={"center"} marginTop={"5"}>
+                  <Box
+                    w={"30vw"}
+                    h={"400px"}
+                    bgColor={"yellow.400"}
+                    rounded={"2xl"}
+                    shadow={"lg"}
+                    justify={"center"}
+                  >
+                    <Box
+                      bgColor={"black"}
+                      w={"full"}
+                      h={"80px"}
+                      textAlign={"center"}
+                      roundedTop={"2xl"}
+                    >
+                      <HStack spacing={"5"} justify={"center"}>
+                        <Heading color={"white"} py={"4"}>
+                          動畫和傷害同時發生
+                        </Heading>
+                        <CloseIcon boxSize={"30px"} color={"red"} />
+                      </HStack>
+                    </Box>
+                    <Image src={img_anime} px={"10"} py={"5"} />
+                  </Box>
+                  <Box
+                    w={"30vw"}
+                    h={"400px"}
+                    bgColor={"yellow.400"}
+                    rounded={"2xl"}
+                    shadow={"lg"}
+                    justify={"center"}
+                    marginLeft={"50"}
+                  >
+                    <Box
+                      bgColor={"black"}
+                      w={"full"}
+                      h={"80px"}
+                      textAlign={"center"}
+                      roundedTop={"2xl"}
+                    >
+                      <HStack spacing={"5"} justify={"center"}>
+                        <Heading color={"white"} py={"4"}>
+                          動畫後才讓傷害出現
+                        </Heading>
+                        <CheckIcon boxSize={"40px"} color={"green.300"} />
+                      </HStack>
+                    </Box>
+                    <Image src={img_anime1} px={"10"} py={"5"} />
+                  </Box>
+                </Flex>
               </Box>
+
               <Box
                 bgColor={useColorModeValue("gray.300", "gray.700")}
                 marginTop={"5"}

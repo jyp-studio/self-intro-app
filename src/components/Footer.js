@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebook, FaGithub } from "react-icons/fa";
 
 // social button component in fotter
@@ -56,10 +57,18 @@ function Footer() {
             JYP - STUDIO
           </Text>
           <Stack direction={"row"} spacing={6}>
-            <ChakraLink href={"#"}>Home</ChakraLink>
-            <ChakraLink href={"#"}>About</ChakraLink>
-            <ChakraLink href={"#"}>Blog</ChakraLink>
-            <ChakraLink href={"#"}>Contact</ChakraLink>
+            <ChakraLink as={Link} to={"/#"}>
+              Home
+            </ChakraLink>
+            <ChakraLink as={Link} to={"#"}>
+              About
+            </ChakraLink>
+            <ChakraLink as={Link} to={"#"}>
+              Blog
+            </ChakraLink>
+            <ChakraLink as={Link} to={"#"}>
+              Contact
+            </ChakraLink>
           </Stack>
         </Container>
 
