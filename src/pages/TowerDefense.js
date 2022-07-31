@@ -256,7 +256,11 @@ function TowerDefense() {
                 >
                   <VStack>
                     <Text w={"40vw"}>
-                      &emsp;&emsp;在數週的設計思維工作坊中，我擔任組長的職位，引領兩位組員
+                      &emsp;&emsp;在數週的設計思維工作坊中，我擔任
+                      <Text as={"span"} fontWeight={"bold"}>
+                        組長
+                      </Text>
+                      的職位，引領兩位組員
                       {""}
                       藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
                       {""}
@@ -330,20 +334,25 @@ function TowerDefense() {
                 w={"full"}
                 h={"1px"}
               />
-              <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
-                遇到困難
-              </Text>
-              &emsp;&emsp;然而，正當一切運作妥當時，遇到整個開發中最大的難題
-              {""}
-              ：其中有一位組員在快截止日期時，突然說他沒有學過程式，甚麼都沒做。
-              {""}
-              因此，身為組長的我只好臨時改變工作分配，將較不需要coding的遊戲平衡與圖片蒐集交給他，
-              {""}
-              而他原先所需做的Map和Potion則平分給其他人。所幸最後仍順利完成，並且被
-              {""}
-              教授點評進入選單、 遊戲流程與動畫做的很完善與順暢 。他稱讚我們是
-              {""}
-              「遊戲整體最完整的。」
+              <Box
+                bgColor={useColorModeValue("gray.100", "gray.700")}
+                border={"1px"}
+                borderColor={useColorModeValue("gray.300", "gray.600")}
+                rounded={"2xl"}
+                shadow={"lg"}
+                p={"10"}
+              >
+                <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
+                  遇到困難
+                </Text>
+                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與實際傷害的銜接，相信這是普遍遊戲都會遇到的困難之處。
+                {""}
+                原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
+                {""}
+                因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
+                {""}
+                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般好。
+              </Box>
               <Box
                 bgColor={useColorModeValue("gray.300", "gray.700")}
                 marginTop={"5"}
@@ -351,38 +360,47 @@ function TowerDefense() {
                 w={"full"}
                 h={"1px"}
               />
-              <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
-                獲得收穫
-              </Text>
-              &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
-              <Text as={"span"} fontWeight={"bold"}>
-                提升我的抗壓性
-              </Text>
-              外， 也我
-              <Text as={"span"} fontWeight={"bold"}>
-                python能力也跟著增強
-              </Text>
-              。除此之外， 我學到最重要的是
-              <Text as={"span"} fontWeight={"bold"}>
-                畫UML的重要性
-              </Text>
-              。
-              以往我們coding時，時常注意的是語法以及效率。然而在大型企劃，數萬行的程式碼中，
-              {""}
-              語法和效率只是基本，更重要的是架構。舉例來說，當開發一個鳥的class，
-              {""}
-              可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
-              {""}
-              然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
-              這便是一個簡單的例子來闡述架構、格局的重要性。
-              <br />
-              &emsp;&emsp;同時， 學習使用一些
-              <Text as={"span"} fontWeight={"bold"}>
-                design pattern
-              </Text>
-              也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
-              requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
-              再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
+              <Box
+                bgColor={useColorModeValue("gray.100", "gray.700")}
+                border={"1px"}
+                borderColor={useColorModeValue("gray.300", "gray.600")}
+                rounded={"2xl"}
+                shadow={"lg"}
+                p={"10"}
+              >
+                <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
+                  獲得收穫
+                </Text>
+                &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
+                <Text as={"span"} fontWeight={"bold"}>
+                  提升我的抗壓性
+                </Text>
+                外， 也我
+                <Text as={"span"} fontWeight={"bold"}>
+                  python能力也跟著增強
+                </Text>
+                。除此之外， 我學到最重要的是
+                <Text as={"span"} fontWeight={"bold"}>
+                  畫UML的重要性
+                </Text>
+                。
+                以往我們coding時，時常注意的是語法以及效率。然而在大型企劃，數萬行的程式碼中，
+                {""}
+                語法和效率只是基本，更重要的是架構。舉例來說，當開發一個鳥的class，
+                {""}
+                可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
+                {""}
+                然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
+                這便是一個簡單的例子來闡述架構、格局的重要性。
+                <br />
+                &emsp;&emsp;同時， 學習使用一些
+                <Text as={"span"} fontWeight={"bold"}>
+                  design pattern
+                </Text>
+                也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
+                requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
+                再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
+              </Box>
             </Box>
           </Box>
         </Container>
