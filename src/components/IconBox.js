@@ -16,7 +16,7 @@ function IconBox(props) {
             bgGradient={props.bgGradient ?? undefined}
             bg={props.bgColor ?? "red"}
             borderRadius={"lg"}
-            boxShadow={"dark-lg"}
+            boxShadow={"lg"}
             boxSize={props.iconBoxSize}
           >
             <Icon

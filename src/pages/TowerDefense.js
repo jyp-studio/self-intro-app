@@ -14,6 +14,7 @@ import {
   useColorModeValue,
   HStack,
   Spacer,
+  Center,
 } from "@chakra-ui/react";
 import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
 import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
@@ -31,6 +32,8 @@ import img_miro from "../assets/miro.png";
 import img_miro1 from "../assets/miro1.png";
 import img_anime from "../assets/attack_anime.png";
 import img_anime1 from "../assets/attack_anime1.png";
+import img_distribution_chart from "../assets/work_distribution_chart.png";
+import img_bg_sticky from "../assets/bg_sticky_note.jpg";
 
 import {
   FiHome,
@@ -93,14 +96,42 @@ function TowerDefense() {
           subColor={"whiteAlpha.700"}
           subTitle={"用python從0打造自己的塔防遊戲"}
         />
-        <Container maxW={"8xl"} py="3" centerContent>
+
+        {/* icon box */}
+        <Flex
+          px={{ base: "0", md: "8vw" }}
+          flexWrap={"wrap"}
+          justify={"center"}
+          justifyContent={"space-around"}
+          marginTop={"100px"}
+        >
+          {IconBoxItems.map((item, index) => (
+            <WrapItem key={index} py={"2"}>
+              <IconBox
+                bgColor={"gray.200"}
+                iconColor={"gray.800"}
+                iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
+                textBoxSize={{ base: "60vw", md: "40vw", lg: "17vw" }}
+                textSize={{ base: "sm", md: "lg", lg: "lg" }}
+                {...item}
+              />
+            </WrapItem>
+          ))}
+        </Flex>
+
+        <Box marginTop={"100px"} px={"50"}>
+          <Divider />
+        </Box>
+
+        <Container maxW={"6xl"} marginTop={"120"} centerContent>
           <Box
+            w={"full"}
             border={"1px"}
-            borderColor={useColorModeValue("gray.300", "gray.600")}
+            borderColor={useColorModeValue("gray.100", "gray.700")}
             rounded={"2xl"}
-            marginTop={"10"}
           >
             <Heading
+              font
               py={"4"}
               px={"5"}
               scrollMargin="100px"
@@ -114,15 +145,11 @@ function TowerDefense() {
               </Text>{" "}
               Abstract
             </Heading>
-            <Divider
-              w={"full"}
-              color={useColorModeValue("gray.300", "gray.600")}
-            />
             <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
             <Flex flexWrap={"wrap"} py="10" justify={"center"}>
               <Text
-                fontSize="2xl"
-                w={{ base: "95vw", md: "70vw", lg: "45vw" }}
+                fontSize="xl"
+                w={"full"}
                 px={{ base: "5", md: "5", lg: "10" }}
                 textAlign={"justify"}
               >
@@ -146,29 +173,18 @@ function TowerDefense() {
                 </Text>
                 以方便增修觸發事件。
               </Text>
-
-              {/* icon box */}
-              <VStack mt={{ base: "10", lg: "0" }}>
-                {IconBoxItems.map((item, index) => (
-                  <WrapItem py="1" key={index}>
-                    <IconBox
-                      bgColor={"gray.200"}
-                      iconColor={"gray.800"}
-                      iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
-                      textBoxSize={{ base: "50vw", md: "40vw", lg: "17vw" }}
-                      textSize={{ base: "sm", md: "lg", lg: "lg" }}
-                      {...item}
-                    />
-                  </WrapItem>
-                ))}
-              </VStack>
             </Flex>
           </Box>
         </Container>
 
-        <Box bg={"teal.400"} w={"full"} mt={"10"} py={"10"}>
+        <Box
+          bg={useColorModeValue("gray.50", "blackAlpha.500")}
+          w={"full"}
+          mt={"120"}
+          py={"10"}
+        >
           <Container maxW={"8xl"} centerContent>
-            <Box marginTop={"10"}>
+            <Box marginTop={"100"}>
               <Heading
                 scrollMargin="100px"
                 py={"4"}
@@ -195,7 +211,7 @@ function TowerDefense() {
                 />
               </AspectRatio>
             </Box>
-            <Box marginTop={"10"} marginBottom={"20"}>
+            <Box marginTop={"200"} marginBottom={"150"}>
               <Heading
                 scrollMargin="100px"
                 py={"4"}
@@ -213,8 +229,7 @@ function TowerDefense() {
 
               <Box
                 bg="teal.50"
-                boxShadow="dark-lg"
-                borderRadius="2xl"
+                boxShadow="lg"
                 w={{ base: "90vw", md: "70vw", lg: "67vw" }}
               >
                 <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
@@ -223,241 +238,234 @@ function TowerDefense() {
           </Container>
         </Box>
 
-        <Container maxW={"8xl"} py="3" centerContent>
-          <Box marginTop={"10"}>
-            <Heading
-              scrollMargin="100px"
-              py={"4"}
-              px={"5"}
-              id={"thoughts"}
-              w={{ base: "auto", lg: "full" }}
-              textAlign={{ base: "center", lg: "left" }}
+        <Container maxW={"6xl"} py="3" marginTop={"150"} centerContent>
+          <Heading
+            scrollMargin="100px"
+            py={"4"}
+            px={"5"}
+            id={"thoughts"}
+            w={{ base: "auto", lg: "full" }}
+            textAlign={{ base: "center", lg: "left" }}
+          >
+            心得{" "}
+            <Text as={"span"} fontWeight={"thin"}>
+              |
+            </Text>{" "}
+            Thoughts
+          </Heading>
+        </Container>
+        <Box
+          backgroundPosition="center"
+          backgroundRepeat="no-repeat"
+          backgroundSize="cover"
+          bgImage={img_bg_sticky}
+          fit={"cover"}
+          w={"full"}
+          marginTop={"150"}
+          h={"500px"}
+          justify={"center"}
+        >
+          <Box
+            w={"full"}
+            h={"full"}
+            backdropFilter={"auto"}
+            backdropBrightness={"30%"}
+            backdropBlur={"4px"}
+            textAlign={"center"}
+          >
+            <Box
+              position={"fixed"}
+              top={"50%"}
+              left={"50%"}
+              transform={"translate(-50%, -50%)"}
+              py={"100"}
+              w={"50vw"}
+              border={"2px"}
+              borderColor={useColorModeValue("gray.100", "gray.600")}
+              color={"gray.50"}
+              fontWeight={"bold"}
+              fontSize={"4xl"}
             >
-              心得{" "}
-              <Text as={"span"} fontWeight={"thin"}>
-                |
-              </Text>{" "}
-              Thoughts
-            </Heading>
-            <Box fontSize="2xl" marginTop={"5"} textAlign={"justify"}>
-              <Box
-                bgColor={useColorModeValue("gray.100", "gray.700")}
-                border={"1px"}
-                borderColor={useColorModeValue("gray.300", "gray.600")}
-                rounded={"2xl"}
-                shadow={"lg"}
-                p={"10"}
-              >
-                <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
-                  分工狀態
-                </Text>
-                <Flex
-                  flexWrap={"wrap"}
-                  w={"full"}
-                  spacing={"10"}
-                  justify={"center"}
-                >
-                  <VStack>
-                    <Text w={"40vw"}>
-                      &emsp;&emsp;在數週的設計思維工作坊中，我擔任
-                      <Text as={"span"} fontWeight={"bold"}>
-                        組長
-                      </Text>
-                      的職位，引領兩位組員
-                      {""}
-                      藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
-                      {""}
-                      工作分配為我做Tower和Enemy相關的動畫、運作模式和錨點選單等；另一位則是做選單以及遊戲介面；
-                      {""}
-                      最後一位則是做Map與Potion相關運作方式。
-                    </Text>
-                    <HStack>
-                      <FiChevronsRight size={"50px"} color={"#81E6D9"} />
-                      <Text
-                        fontWeight={"bold"}
-                        fontSize={"4xl"}
-                        color={"teal.300"}
-                      >
-                        設計思考 Design Thinking
-                      </Text>
-                      <FiChevronsLeft size={"50px"} color={"#81E6D9"} />
-                    </HStack>
-                  </VStack>
-                  <Box
-                    bgColor={"yellow.400"}
-                    w={"20vw"}
-                    marginLeft={"8"}
-                    p={"5"}
-                    boxShadow={"xl"}
-                    fontWeight={"bold"}
-                  >
-                    <VStack spacing={"3"} w={"full"} color={"black"}>
-                      <Heading>分工表</Heading>
-                      <Text>
-                        我：所有遊戲物件相關
-                        <Box
-                          bgColor={"yellow.600"}
-                          w={"full"}
-                          h={"4px"}
-                          px={"5"}
-                        />
-                        組員A：選單介面
-                        <Box
-                          bgColor={"yellow.600"}
-                          w={"full"}
-                          h={"4px"}
-                          px={"5"}
-                        />
-                        組員B：地圖、藥水相關
-                        <Box
-                          bgColor={"yellow.600"}
-                          w={"full"}
-                          h={"4px"}
-                          px={"5"}
-                          marginBottom={"2"}
-                        />
-                      </Text>
-                    </VStack>
-                  </Box>
-                </Flex>
-                <Flex
-                  justify={"center"}
-                  w={"full"}
-                  flexWrap={"wrap"}
-                  marginTop={"8"}
-                >
-                  <Image src={img_miro} w={"31vw"} px={"2"} />
-                  <Image src={img_miro1} w={"31vw"} px={"2"} />
-                </Flex>
-              </Box>
-              <Box
-                bgColor={useColorModeValue("gray.300", "gray.700")}
-                marginTop={"5"}
-                marginBottom={"5"}
-                w={"full"}
-                h={"1px"}
-              />
-              <Box
-                bgColor={useColorModeValue("gray.100", "gray.700")}
-                border={"1px"}
-                borderColor={useColorModeValue("gray.300", "gray.600")}
-                rounded={"2xl"}
-                shadow={"lg"}
-                p={"10"}
-              >
-                <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
-                  遇到困難
-                </Text>
-                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
-                {""}
-                原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
-                {""}
-                因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
-                {""}
-                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
-                <Flex flexWrap={"wrap"} justify={"center"} marginTop={"5"}>
-                  <Box
-                    w={"30vw"}
-                    h={"400px"}
-                    bgColor={"yellow.400"}
-                    rounded={"2xl"}
-                    shadow={"lg"}
-                    justify={"center"}
-                  >
-                    <Box
-                      bgColor={"black"}
-                      w={"full"}
-                      h={"80px"}
-                      textAlign={"center"}
-                      roundedTop={"2xl"}
-                    >
-                      <HStack spacing={"5"} justify={"center"}>
-                        <Heading color={"white"} py={"4"}>
-                          動畫和傷害同時發生
-                        </Heading>
-                        <CloseIcon boxSize={"30px"} color={"red"} />
-                      </HStack>
-                    </Box>
-                    <Image src={img_anime} px={"10"} py={"5"} />
-                  </Box>
-                  <Box
-                    w={"30vw"}
-                    h={"400px"}
-                    bgColor={"yellow.400"}
-                    rounded={"2xl"}
-                    shadow={"lg"}
-                    justify={"center"}
-                    marginLeft={"50"}
-                  >
-                    <Box
-                      bgColor={"black"}
-                      w={"full"}
-                      h={"80px"}
-                      textAlign={"center"}
-                      roundedTop={"2xl"}
-                    >
-                      <HStack spacing={"5"} justify={"center"}>
-                        <Heading color={"white"} py={"4"}>
-                          動畫後才讓傷害出現
-                        </Heading>
-                        <CheckIcon boxSize={"40px"} color={"green.300"} />
-                      </HStack>
-                    </Box>
-                    <Image src={img_anime1} px={"10"} py={"5"} />
-                  </Box>
-                </Flex>
-              </Box>
-
-              <Box
-                bgColor={useColorModeValue("gray.300", "gray.700")}
-                marginTop={"5"}
-                marginBottom={"5"}
-                w={"full"}
-                h={"1px"}
-              />
-              <Box
-                bgColor={useColorModeValue("gray.100", "gray.700")}
-                border={"1px"}
-                borderColor={useColorModeValue("gray.300", "gray.600")}
-                rounded={"2xl"}
-                shadow={"lg"}
-                p={"10"}
-              >
-                <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
-                  獲得收穫
-                </Text>
-                &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
-                <Text as={"span"} fontWeight={"bold"}>
-                  提升我的抗壓性
-                </Text>
-                外， 也我
-                <Text as={"span"} fontWeight={"bold"}>
-                  python能力也跟著增強
-                </Text>
-                。除此之外， 我學到最重要的是
-                <Text as={"span"} fontWeight={"bold"}>
-                  畫UML的重要性
-                </Text>
-                。
-                以往我們coding時，時常注意的是語法以及效率。然而在大型企劃，數萬行的程式碼中，
-                {""}
-                語法和效率只是基本，更重要的是架構。舉例來說，當開發一個鳥的class，
-                {""}
-                可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
-                {""}
-                然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
-                這便是一個簡單的例子來闡述架構、格局的重要性。
-                <br />
-                &emsp;&emsp;同時， 學習使用一些
-                <Text as={"span"} fontWeight={"bold"}>
-                  design pattern
-                </Text>
-                也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
-                requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
-                再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
-              </Box>
+              設計思考 ｜ Design Thinking
             </Box>
           </Box>
+        </Box>
+        <VStack
+          py={"150"}
+          spacing={"150"}
+          w={"full"}
+          bgColor={"blackAlpha.800"}
+          justify={"center"}
+          alignContent={"center"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <Image src={img_miro} w={"75vw"} px={"50"} />
+          <HStack
+            py={"50"}
+            marginTop={"50"}
+            flexWrap={"wrap"}
+            w={"65vw"}
+            justify={"center"}
+            justifyContent={"space-around"}
+          >
+            <Image src={img_distribution_chart} w={"400px"} />
+            <Text w={"30vw"} px={"30"} fontSize={"xl"} color={"gray.200"}>
+              &emsp;&emsp;在數週的設計思維工作坊中，我擔任
+              <Text as={"span"} fontWeight={"bold"}>
+                組長
+              </Text>
+              的職位，引領兩位組員
+              {""}
+              藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
+            </Text>
+          </HStack>
+          <Image src={img_miro1} w={"75vw"} px={"50"} />
+        </VStack>
+
+        <Container maxW={"6xl"} py="3" marginTop={"150"} centerContent>
+          <VStack
+            spacing={"100"}
+            fontSize="xl"
+            marginTop={"50"}
+            textAlign={"justify"}
+            justify={"center"}
+            justifyContent={"center"}
+          >
+            <VStack
+              justify={"center"}
+              w={"full"}
+              flexWrap={"wrap"}
+              marginTop={"100"}
+            ></VStack>
+
+            <Box
+              bgColor={useColorModeValue("gray.300", "gray.700")}
+              marginTop={"5"}
+              marginBottom={"5"}
+              w={"full"}
+              h={"1px"}
+            />
+            <Box
+              bgColor={useColorModeValue("gray.100", "gray.700")}
+              border={"1px"}
+              borderColor={useColorModeValue("gray.300", "gray.600")}
+              rounded={"2xl"}
+              shadow={"lg"}
+              p={"10"}
+            >
+              <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
+                遇到困難
+              </Text>
+              &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
+              {""}
+              原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
+              {""}
+              因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
+              {""}
+              經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
+              <Flex flexWrap={"wrap"} justify={"center"} marginTop={"5"}>
+                <Box
+                  w={"30vw"}
+                  h={"400px"}
+                  bgColor={"yellow.400"}
+                  rounded={"2xl"}
+                  shadow={"lg"}
+                  justify={"center"}
+                >
+                  <Box
+                    bgColor={"black"}
+                    w={"full"}
+                    h={"80px"}
+                    textAlign={"center"}
+                    roundedTop={"2xl"}
+                  >
+                    <HStack spacing={"5"} justify={"center"}>
+                      <Heading color={"white"} py={"4"}>
+                        動畫和傷害同時發生
+                      </Heading>
+                      <CloseIcon boxSize={"30px"} color={"red"} />
+                    </HStack>
+                  </Box>
+                  <Image src={img_anime} px={"10"} py={"5"} />
+                </Box>
+                <Box
+                  w={"30vw"}
+                  h={"400px"}
+                  bgColor={"yellow.400"}
+                  rounded={"2xl"}
+                  shadow={"lg"}
+                  justify={"center"}
+                  marginLeft={"50"}
+                >
+                  <Box
+                    bgColor={"black"}
+                    w={"full"}
+                    h={"80px"}
+                    textAlign={"center"}
+                    roundedTop={"2xl"}
+                  >
+                    <HStack spacing={"5"} justify={"center"}>
+                      <Heading color={"white"} py={"4"}>
+                        動畫後才讓傷害出現
+                      </Heading>
+                      <CheckIcon boxSize={"40px"} color={"green.300"} />
+                    </HStack>
+                  </Box>
+                  <Image src={img_anime1} px={"10"} py={"5"} />
+                </Box>
+              </Flex>
+            </Box>
+
+            <Box
+              bgColor={useColorModeValue("gray.300", "gray.700")}
+              marginTop={"5"}
+              marginBottom={"5"}
+              w={"full"}
+              h={"1px"}
+            />
+            <Box
+              bgColor={useColorModeValue("gray.100", "gray.700")}
+              border={"1px"}
+              borderColor={useColorModeValue("gray.300", "gray.600")}
+              rounded={"2xl"}
+              shadow={"lg"}
+              p={"10"}
+            >
+              <Text fontSize={"3xl"} fontWeight={"bold"} color={"teal.400"}>
+                獲得收穫
+              </Text>
+              &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
+              <Text as={"span"} fontWeight={"bold"}>
+                提升我的抗壓性
+              </Text>
+              外， 也我
+              <Text as={"span"} fontWeight={"bold"}>
+                python能力也跟著增強
+              </Text>
+              。除此之外， 我學到最重要的是
+              <Text as={"span"} fontWeight={"bold"}>
+                畫UML的重要性
+              </Text>
+              。
+              以往我們coding時，時常注意的是語法以及效率。然而在大型企劃，數萬行的程式碼中，
+              {""}
+              語法和效率只是基本，更重要的是架構。舉例來說，當開發一個鳥的class，
+              {""}
+              可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
+              {""}
+              然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
+              這便是一個簡單的例子來闡述架構、格局的重要性。
+              <br />
+              &emsp;&emsp;同時， 學習使用一些
+              <Text as={"span"} fontWeight={"bold"}>
+                design pattern
+              </Text>
+              也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
+              requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
+              再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
+            </Box>
+          </VStack>
         </Container>
 
         <Container maxW={"8xl"} py="3" centerContent>
@@ -496,3 +504,37 @@ function TowerDefense() {
 }
 
 export default TowerDefense;
+
+function Tag() {
+  return (
+    <>
+      <Box
+        bgColor={"yellow.400"}
+        w={"20vw"}
+        marginLeft={"8"}
+        p={"5"}
+        boxShadow={"xl"}
+        fontWeight={"bold"}
+        boxSize={"400px"}
+      >
+        <VStack spacing={"3"} w={"full"} color={"black"}>
+          <Heading>分工表</Heading>
+          <Text>
+            我：所有遊戲物件相關
+            <Box bgColor={"yellow.600"} w={"full"} h={"4px"} px={"5"} />
+            組員A：選單介面
+            <Box bgColor={"yellow.600"} w={"full"} h={"4px"} px={"5"} />
+            組員B：地圖、藥水相關
+            <Box
+              bgColor={"yellow.600"}
+              w={"full"}
+              h={"4px"}
+              px={"5"}
+              marginBottom={"2"}
+            />
+          </Text>
+        </VStack>
+      </Box>
+    </>
+  );
+}
