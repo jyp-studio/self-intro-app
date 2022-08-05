@@ -1,4 +1,6 @@
 import { Box, Heading, VStack, Text } from "@chakra-ui/react";
+import "@fontsource/open-sans/700.css";
+import "@fontsource/nunito-sans/700.css";
 
 function Title(props) {
   return (
@@ -30,6 +32,8 @@ function Title(props) {
           transform="translate(0, -50%)"
         >
           <Heading
+            fontFamily={`"Nunito Sans", "Open Sans", sans-serif`}
+            letterSpacing={"5px"}
             fontSize={{ base: "12vw", md: "6xl" }}
             color={props.mainColor}
           >

@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Activity from "./pages/Activity";
 import Certificate from "./pages/Certificate";
 import Main from "./pages/Main";

@@ -28,6 +28,9 @@ import {
   BsPenFill,
 } from "react-icons/bs";
 
+import "@fontsource/open-sans";
+import "@fontsource/nunito-sans";
+
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -156,6 +159,7 @@ function TowerDefense() {
               id={"abstract"}
               w={{ base: "auto", lg: "full" }}
               textAlign={{ base: "center", lg: "left" }}
+              fontFamily={`"Open Sans", sans-serif`}
             >
               摘要{" "}
               <Text as={"span"} fontWeight={"thin"}>
@@ -166,6 +170,7 @@ function TowerDefense() {
             <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
             <Flex flexWrap={"wrap"} py="10" justify={"center"}>
               <Text
+                fontFamily={`"Open Sans", sans-serif`}
                 fontSize="xl"
                 w={"full"}
                 px={{ base: "5", md: "5", lg: "10" }}
@@ -204,6 +209,7 @@ function TowerDefense() {
           <Container maxW={"8xl"} centerContent>
             <Box marginTop={"100"}>
               <Heading
+                fontFamily={`"Open Sans", sans-serif`}
                 scrollMargin="100px"
                 py={"4"}
                 px={"5"}
@@ -231,6 +237,7 @@ function TowerDefense() {
             </Box>
             <Box marginTop={"200"} marginBottom={"150"}>
               <Heading
+                fontFamily={`"Open Sans", sans-serif`}
                 scrollMargin="100px"
                 py={"4"}
                 px={"5"}
@@ -258,6 +265,7 @@ function TowerDefense() {
 
         <Container maxW={"6xl"} py="3" marginTop={"150"} centerContent>
           <Heading
+            fontFamily={`"Open Sans", sans-serif`}
             scrollMargin="100px"
             py={"4"}
             px={"5"}
@@ -299,7 +307,13 @@ function TowerDefense() {
             justifyContent={"space-around"}
           >
             <Image src={img_distribution_chart} w={"400px"} />
-            <Text w={"30vw"} px={"30"} fontSize={"xl"} color={"gray.200"}>
+            <Text
+              w={"30vw"}
+              px={"30"}
+              fontSize={"xl"}
+              color={"gray.200"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
               &emsp;&emsp;在數週的設計思維工作坊中，我擔任
               <Text as={"span"} fontWeight={"bold"}>
                 組長
@@ -337,7 +351,12 @@ function TowerDefense() {
                 bgPosition={"center"}
                 bgSize={"cover"}
               />
-              <Text w={"30vw"} fontSize="xl" textAlign={"justify"}>
+              <Text
+                w={"30vw"}
+                fontSize="xl"
+                textAlign={"justify"}
+                fontFamily={`"Open Sans", sans-serif`}
+              >
                 &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
                 {""}
                 原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
@@ -430,7 +449,7 @@ function TowerDefense() {
                 color={"white"}
               >
                 <Heading>收穫</Heading>
-                <Box>
+                <Box fontFamily={`"Open Sans", sans-serif`}>
                   {Gain.map((props, index) => (
                     <Flex
                       py={"2"}
@@ -457,6 +476,7 @@ function TowerDefense() {
               </VStack>
             </HStack>
             <Text
+              fontFamily={`"Open Sans", sans-serif`}
               fontSize={"xl"}
               textAlign={"justify"}
               color={"gray.200"}
@@ -495,9 +515,10 @@ function TowerDefense() {
           </Container>
         </Box>
 
-        <Container maxW={"8xl"} py="3" centerContent>
+        <Container maxW={"8xl"} py="3" mt={"100"} centerContent>
           <Box marginTop={"10"}>
             <Heading
+              fontFamily={`"Open Sans", sans-serif`}
               scrollMargin="100px"
               py={"4"}
               px={"5"}
