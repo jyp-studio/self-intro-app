@@ -7,36 +7,12 @@ import {
   AspectRatio,
   WrapItem,
   Container,
-  Button,
   VStack,
-  useColorMode,
   Divider,
   useColorModeValue,
   HStack,
-  Spacer,
-  Center,
 } from "@chakra-ui/react";
-import { FiChevronsRight, FiChevronsLeft } from "react-icons/fi";
-import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
-
-import IconBox from "../components/IconBox";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
-import Title from "../components/Title";
-
-import img_uml from "../assets/uml.png";
-import img_bg from "../assets/bg_tower.jpg";
-import img_covid from "../assets/covid.jpg";
-import img_miro from "../assets/miro.png";
-import img_miro1 from "../assets/miro1.png";
-import img_anime from "../assets/attack_anime.png";
-import img_anime1 from "../assets/attack_anime1.png";
-import img_distribution_chart from "../assets/work_distribution_chart.png";
-import img_bg_sticky from "../assets/bg_sticky_note.jpg";
-import img_problem from "../assets/problem.jpg";
-import img_reward from "../assets/reward.jpg";
-
+import { CloseIcon, CheckIcon, StarIcon } from "@chakra-ui/icons";
 import {
   FiHome,
   FiCompass,
@@ -51,6 +27,27 @@ import {
   BsPinAngleFill,
   BsPenFill,
 } from "react-icons/bs";
+
+import IconBox from "../components/IconBox";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import Title from "../components/Title";
+import Banner from "../components/Banner";
+
+import img_uml from "../assets/uml.png";
+import img_bg from "../assets/bg_tower.jpg";
+import img_covid from "../assets/covid.jpg";
+import img_miro from "../assets/miro.png";
+import img_miro1 from "../assets/miro1.png";
+import img_anime from "../assets/attack_anime.png";
+import img_anime1 from "../assets/attack_anime1.png";
+import img_distribution_chart from "../assets/work_distribution_chart.png";
+import img_bg_sticky from "../assets/bg_sticky_note.jpg";
+import img_problem from "../assets/problem.jpg";
+import img_reward from "../assets/reward.jpg";
+import img_bg_reward from "../assets/bg_reward.jpg";
+import img_bg_problem from "../assets/bg_problem.jpg";
 
 function TowerDefense() {
   // Sidebar link items
@@ -81,6 +78,25 @@ function TowerDefense() {
       title: "設計理念",
       text: "用遊戲的方式來告訴大眾Covid-19的危險性",
       bg: "teal.200",
+    },
+  ];
+
+  const Gain = [
+    {
+      name: "Python",
+      rating: "5",
+    },
+    {
+      name: "抗壓性",
+      rating: "5",
+    },
+    {
+      name: "UML",
+      rating: "4",
+    },
+    {
+      name: "Design pattern",
+      rating: "4",
     },
   ];
 
@@ -256,44 +272,15 @@ function TowerDefense() {
             Thoughts
           </Heading>
         </Container>
-        <Box
-          backgroundPosition="center"
-          backgroundRepeat="no-repeat"
-          backgroundSize="cover"
+
+        {/* 1. design thinking */}
+        <Banner
+          title={"設計思考 ｜ Design thinking"}
           bgImage={img_bg_sticky}
-          fit={"cover"}
-          w={"full"}
           marginTop={"150"}
-          h={"500px"}
-          justify={"center"}
-        >
-          <Box
-            w={"full"}
-            h={"full"}
-            backdropFilter={"auto"}
-            backdropBrightness={"30%"}
-            backdropBlur={"4px"}
-            textAlign={"center"}
-          >
-            <Box
-              position={"fixed"}
-              top={"50%"}
-              left={"50%"}
-              transform={"translate(-50%, -50%)"}
-              py={"100"}
-              w={"50vw"}
-              border={"2px"}
-              borderColor={useColorModeValue("gray.100", "gray.600")}
-              color={"gray.50"}
-              fontWeight={"bold"}
-              fontSize={"4xl"}
-            >
-              設計思考 ｜ Design Thinking
-            </Box>
-          </Box>
-        </Box>
+        />
         <VStack
-          py={"150"}
+          py={"200"}
           spacing={"150"}
           w={"full"}
           bgColor={"blackAlpha.800"}
@@ -323,160 +310,190 @@ function TowerDefense() {
           <Image src={img_miro1} w={"75vw"} px={"50"} />
         </VStack>
 
-        <Container maxW={"7xl"} py="3" marginTop={"150"} centerContent>
-          <Text
-            fontSize={"8xl"}
-            fontWeight={"bold"}
-            color={useColorModeValue("gray.800", "gray.200")}
-          >
-            遇到困難
-          </Text>
-          {/* divider */}
-          <Box
-            bgColor={useColorModeValue("gray.300", "gray.700")}
-            w={"full"}
-            h={"1px"}
-          />
-          <Flex
-            mt={"150"}
-            flexWrap={"wrap"}
-            w={"full"}
-            justify={"center"}
-            justifyContent={"space-around"}
-          >
-            {/* image of facing problem */}
-            <Box
-              bgImage={img_problem}
-              w={{ lg: "500px" }}
-              h={"400px"}
-              bgRepeat={"no-repeat"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-            />
-            <Text w={"30vw"} fontSize="xl" textAlign={"justify"}>
-              &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
-              {""}
-              原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
-              {""}
-              因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
-              {""}
-              經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
-            </Text>
-          </Flex>
-          <Flex flexWrap={"wrap"} justify={"center"} marginTop={"200"}>
-            <Box
-              w={"550px"}
-              h={"400px"}
-              bgColor={"gray.100"}
-              rounded={"2xl"}
-              shadow={"lg"}
+        {/* 2. facing problem */}
+        <Banner
+          title={"遇到困難"}
+          bgImage={img_bg_problem}
+          brightness={"80%"}
+        />
+        <Box
+          bg={useColorModeValue("gray.50", "blackAlpha.500")}
+          w={"full"}
+          py={"200"}
+        >
+          <Container maxW={"7xl"} py="3" centerContent>
+            <Flex
+              flexWrap={"wrap"}
+              w={"full"}
               justify={"center"}
+              justifyContent={"space-around"}
+            >
+              {/* image of facing problem */}
+              <Box
+                bgImage={img_problem}
+                w={{ lg: "500px" }}
+                h={"400px"}
+                bgRepeat={"no-repeat"}
+                bgPosition={"center"}
+                bgSize={"cover"}
+              />
+              <Text w={"30vw"} fontSize="xl" textAlign={"justify"}>
+                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
+                {""}
+                原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
+                {""}
+                因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
+                {""}
+                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
+              </Text>
+            </Flex>
+            <Flex flexWrap={"wrap"} justify={"center"} marginTop={"200"}>
+              <Box
+                w={"550px"}
+                h={"400px"}
+                bgColor={"gray.100"}
+                rounded={"2xl"}
+                shadow={"lg"}
+                justify={"center"}
+              >
+                <Box
+                  bgColor={"black"}
+                  w={"full"}
+                  h={"80px"}
+                  textAlign={"center"}
+                  roundedTop={"2xl"}
+                >
+                  <HStack spacing={"5"} justify={"center"}>
+                    <Heading color={"white"} py={"4"}>
+                      動畫和傷害同時發生
+                    </Heading>
+                    <CloseIcon boxSize={"30px"} color={"red"} />
+                  </HStack>
+                </Box>
+                <Image src={img_anime} px={"10"} py={"5"} />
+              </Box>
+              <Box
+                w={"550px"}
+                h={"400px"}
+                bgColor={"gray.100"}
+                rounded={"2xl"}
+                shadow={"lg"}
+                justify={"center"}
+                marginLeft={"50"}
+              >
+                <Box
+                  bgColor={"black"}
+                  w={"full"}
+                  h={"80px"}
+                  textAlign={"center"}
+                  roundedTop={"2xl"}
+                >
+                  <HStack spacing={"5"} justify={"center"}>
+                    <Heading color={"white"} py={"4"}>
+                      動畫後才讓傷害出現
+                    </Heading>
+                    <CheckIcon boxSize={"40px"} color={"green.300"} />
+                  </HStack>
+                </Box>
+                <Image src={img_anime1} px={"10"} py={"5"} />
+              </Box>
+            </Flex>
+          </Container>
+        </Box>
+
+        {/* 2. facing problem */}
+        <Banner title={"獲得收穫"} bgImage={img_bg_reward} brightness={"25%"} />
+        <Box
+          bg={useColorModeValue("gray.900", "blackAlpha.500")}
+          w={"full"}
+          py={"200"}
+        >
+          <Container maxW={"7xl"} py="3" centerContent>
+            <HStack
+              bgColor={"gray.800"}
+              border={"1px"}
+              borderRadius={"lg"}
+              overflow={"hidden"}
+              borderColor={"gray.700"}
             >
               <Box
-                bgColor={"black"}
-                w={"full"}
-                h={"80px"}
-                textAlign={"center"}
-                roundedTop={"2xl"}
+                bgImage={img_reward}
+                w={"400px"}
+                h={"500px"}
+                bgPosition={"center"}
+                bgSize={"cover"}
+              />
+              <VStack
+                textAlign={"left"}
+                px={"10"}
+                spacing={"10"}
+                color={"white"}
               >
-                <HStack spacing={"5"} justify={"center"}>
-                  <Heading color={"white"} py={"4"}>
-                    動畫和傷害同時發生
-                  </Heading>
-                  <CloseIcon boxSize={"30px"} color={"red"} />
-                </HStack>
-              </Box>
-              <Image src={img_anime} px={"10"} py={"5"} />
-            </Box>
-            <Box
-              w={"550px"}
-              h={"400px"}
-              bgColor={"gray.100"}
-              rounded={"2xl"}
-              shadow={"lg"}
-              justify={"center"}
-              marginLeft={"50"}
+                <Heading>收穫</Heading>
+                <Box>
+                  {Gain.map((props, index) => (
+                    <Flex
+                      py={"2"}
+                      key={index}
+                      textAlign={"left"}
+                      w={"full"}
+                      justifyContent={"space-between"}
+                    >
+                      <Text fontSize={"xl"}>{props.name}</Text>
+                      <Box ml={"10"}>
+                        {Array(5)
+                          .fill("")
+                          .map((_, index) => (
+                            <StarIcon
+                              ml={"1"}
+                              key={index}
+                              color={index < props.rating ? "gold" : "gray.300"}
+                            />
+                          ))}
+                      </Box>
+                    </Flex>
+                  ))}
+                </Box>
+              </VStack>
+            </HStack>
+            <Text
+              fontSize={"xl"}
+              textAlign={"justify"}
+              color={"gray.200"}
+              mt={"150"}
             >
-              <Box
-                bgColor={"black"}
-                w={"full"}
-                h={"80px"}
-                textAlign={"center"}
-                roundedTop={"2xl"}
-              >
-                <HStack spacing={"5"} justify={"center"}>
-                  <Heading color={"white"} py={"4"}>
-                    動畫後才讓傷害出現
-                  </Heading>
-                  <CheckIcon boxSize={"40px"} color={"green.300"} />
-                </HStack>
-              </Box>
-              <Image src={img_anime1} px={"10"} py={"5"} />
-            </Box>
-          </Flex>
-          <Text
-            mt={"200"}
-            fontSize={"8xl"}
-            fontWeight={"bold"}
-            color={useColorModeValue("gray.800", "gray.200")}
-          >
-            獲得收穫
-          </Text>
-          {/* divider */}
-          <Box
-            bgColor={useColorModeValue("gray.300", "gray.700")}
-            marginTop={"5"}
-            marginBottom={"5"}
-            w={"full"}
-            h={"1px"}
-          />
-          <HStack
-            border={"1px"}
-            borderRadius={"lg"}
-            overflow={"hidden"}
-            borderColor={useColorModeValue("gray.100", "gray.700")}
-          >
-            <Box
-              bgImage={img_reward}
-              w={"400px"}
-              h={"500px"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-            />
-            <Text px={"10"}>testfffffffffffffffffffffffffffffff</Text>
-          </HStack>
-          <Text fontSize={"xl"} textAlign={"justify"}>
-            &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
-            <Text as={"span"} fontWeight={"bold"}>
-              提升我的抗壓性
+              &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
+              <Text as={"span"} fontWeight={"bold"}>
+                提升我的抗壓性
+              </Text>
+              外， 也我
+              <Text as={"span"} fontWeight={"bold"}>
+                python能力也跟著增強
+              </Text>
+              。除此之外， 我學到最重要的是
+              <Text as={"span"} fontWeight={"bold"}>
+                畫UML的重要性
+              </Text>
+              。
+              以往我們coding時，時常注意的是語法以及效率。然而在大型企劃，數萬行的程式碼中，
+              {""}
+              語法和效率只是基本，更重要的是架構。舉例來說，當開發一個鳥的class，
+              {""}
+              可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
+              {""}
+              然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
+              這便是一個簡單的例子來闡述架構、格局的重要性。
+              <br />
+              &emsp;&emsp;同時， 學習使用一些
+              <Text as={"span"} fontWeight={"bold"}>
+                design pattern
+              </Text>
+              也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
+              requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
+              再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
             </Text>
-            外， 也我
-            <Text as={"span"} fontWeight={"bold"}>
-              python能力也跟著增強
-            </Text>
-            。除此之外， 我學到最重要的是
-            <Text as={"span"} fontWeight={"bold"}>
-              畫UML的重要性
-            </Text>
-            。
-            以往我們coding時，時常注意的是語法以及效率。然而在大型企劃，數萬行的程式碼中，
-            {""}
-            語法和效率只是基本，更重要的是架構。舉例來說，當開發一個鳥的class，
-            {""}
-            可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
-            {""}
-            然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
-            這便是一個簡單的例子來闡述架構、格局的重要性。
-            <br />
-            &emsp;&emsp;同時， 學習使用一些
-            <Text as={"span"} fontWeight={"bold"}>
-              design pattern
-            </Text>
-            也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
-            requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
-            再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
-          </Text>
-        </Container>
+          </Container>
+        </Box>
 
         <Container maxW={"8xl"} py="3" centerContent>
           <Box marginTop={"10"}>
@@ -514,37 +531,3 @@ function TowerDefense() {
 }
 
 export default TowerDefense;
-
-function Tag() {
-  return (
-    <>
-      <Box
-        bgColor={"yellow.400"}
-        w={"20vw"}
-        marginLeft={"8"}
-        p={"5"}
-        boxShadow={"xl"}
-        fontWeight={"bold"}
-        boxSize={"400px"}
-      >
-        <VStack spacing={"3"} w={"full"} color={"black"}>
-          <Heading>分工表</Heading>
-          <Text>
-            我：所有遊戲物件相關
-            <Box bgColor={"yellow.600"} w={"full"} h={"4px"} px={"5"} />
-            組員A：選單介面
-            <Box bgColor={"yellow.600"} w={"full"} h={"4px"} px={"5"} />
-            組員B：地圖、藥水相關
-            <Box
-              bgColor={"yellow.600"}
-              w={"full"}
-              h={"4px"}
-              px={"5"}
-              marginBottom={"2"}
-            />
-          </Text>
-        </VStack>
-      </Box>
-    </>
-  );
-}
