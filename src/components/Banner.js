@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import "@fontsource/open-sans";
 
 function Banner(props) {
   return (
@@ -22,6 +23,7 @@ function Banner(props) {
         textAlign={"center"}
       >
         <Box
+          fontFamily={`"Open Sans", sans-serif`}
           position={"fixed"}
           top={"50%"}
           left={"50%"}
