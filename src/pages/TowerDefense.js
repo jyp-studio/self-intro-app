@@ -13,7 +13,7 @@ import {
   HStack,
   Stack,
 } from "@chakra-ui/react";
-import { CloseIcon, CheckIcon, StarIcon } from "@chakra-ui/icons";
+import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
 import {
   FiHome,
   FiCompass,
@@ -38,6 +38,7 @@ import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/Title";
 import Banner from "../components/Banner";
+import Rating from "../components/Rating";
 
 import img_uml from "../assets/uml.png";
 import img_bg from "../assets/bg_tower.jpg";
@@ -152,7 +153,6 @@ function TowerDefense() {
             rounded={"2xl"}
           >
             <Heading
-              font
               py={"4"}
               px={"5"}
               scrollMargin="100px"
@@ -499,30 +499,7 @@ function TowerDefense() {
                 color={"white"}
               >
                 <Heading>收穫</Heading>
-                <Box fontFamily={`"Open Sans", sans-serif`}>
-                  {Gain.map((props, index) => (
-                    <Flex
-                      py={"2"}
-                      key={index}
-                      textAlign={"left"}
-                      w={"full"}
-                      justifyContent={"space-between"}
-                    >
-                      <Text fontSize={"xl"}>{props.name}</Text>
-                      <Box ml={"10"}>
-                        {Array(5)
-                          .fill("")
-                          .map((_, index) => (
-                            <StarIcon
-                              ml={"1"}
-                              key={index}
-                              color={index < props.rating ? "gold" : "gray.300"}
-                            />
-                          ))}
-                      </Box>
-                    </Flex>
-                  ))}
-                </Box>
+                <Rating Gain={Gain} />
               </VStack>
             </Stack>
             <Text

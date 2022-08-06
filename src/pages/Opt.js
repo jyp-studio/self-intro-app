@@ -39,6 +39,7 @@ import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/Title";
 import Banner from "../components/Banner";
+import Rating from "../components/Rating";
 
 import img_uml from "../assets/stock_frame.png";
 import img_bg from "../assets/bg_opt.jpeg";
@@ -142,7 +143,6 @@ function Opt() {
             rounded={"2xl"}
           >
             <Heading
-              font
               py={"4"}
               px={"5"}
               scrollMargin="100px"
@@ -405,30 +405,8 @@ function Opt() {
                 color={"white"}
               >
                 <Heading>收穫</Heading>
-                <Box fontFamily={`"Open Sans", sans-serif`}>
-                  {Gain.map((props, index) => (
-                    <Flex
-                      py={"2"}
-                      key={index}
-                      textAlign={"left"}
-                      w={"full"}
-                      justifyContent={"space-between"}
-                    >
-                      <Text fontSize={"xl"}>{props.name}</Text>
-                      <Box ml={"10"}>
-                        {Array(5)
-                          .fill("")
-                          .map((_, index) => (
-                            <StarIcon
-                              ml={"1"}
-                              key={index}
-                              color={index < props.rating ? "gold" : "gray.300"}
-                            />
-                          ))}
-                      </Box>
-                    </Flex>
-                  ))}
-                </Box>
+                {/* Rating of gain */}
+                <Rating Gain={Gain} />
               </VStack>
             </Stack>
             <Text
@@ -476,12 +454,10 @@ function Opt() {
                 title="numerical opt pdf"
                 src="https://drive.google.com/file/d/15MRtr8mL9XtxG7JyL70cNwWiCeweTAIf/preview"
                 position="absolute"
-                marginTop={"0"}
-                marginLeft={"0"}
                 width={"100%"}
                 height={"100%"}
                 allow="autoplay"
-              ></iframe>
+              />
             </AspectRatio>
           </Box>
         </Container>
