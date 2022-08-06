@@ -11,6 +11,7 @@ import {
   Divider,
   useColorModeValue,
   HStack,
+  Stack,
 } from "@chakra-ui/react";
 import { CloseIcon, CheckIcon, StarIcon } from "@chakra-ui/icons";
 import {
@@ -84,6 +85,7 @@ function TowerDefense() {
     },
   ];
 
+  // what I learn im class with name and rating.
   const Gain = [
     {
       name: "Python",
@@ -110,6 +112,7 @@ function TowerDefense() {
       <Sidebar linkItems={LinkItems} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        {/* title banner */}
         <Title
           image={img_bg}
           mainTitle={"Tower Defense"}
@@ -127,7 +130,7 @@ function TowerDefense() {
           marginTop={"100px"}
         >
           {IconBoxItems.map((item, index) => (
-            <WrapItem key={index} py={"2"}>
+            <WrapItem key={index} py={{ base: "3", md: "3", lg: "5" }}>
               <IconBox
                 bgColor={"gray.200"}
                 iconColor={"gray.800"}
@@ -297,7 +300,11 @@ function TowerDefense() {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Image src={img_miro} w={"75vw"} px={"50"} />
+          <Image
+            src={img_miro}
+            w={{ base: "95vw", md: "75vw" }}
+            px={{ base: "5", md: "50" }}
+          />
           <HStack
             py={"50"}
             marginTop={"50"}
@@ -308,8 +315,9 @@ function TowerDefense() {
           >
             <Image src={img_distribution_chart} w={"400px"} />
             <Text
-              w={"30vw"}
-              px={"30"}
+              w={{ base: "80vw", lg: "30vw" }}
+              px={{ base: "5", md: "30" }}
+              py={{ base: "20" }}
               fontSize={"xl"}
               color={"gray.200"}
               fontFamily={`"Open Sans", sans-serif`}
@@ -321,7 +329,11 @@ function TowerDefense() {
               的職位，引領兩位組員藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
             </Text>
           </HStack>
-          <Image src={img_miro1} w={"75vw"} px={"50"} />
+          <Image
+            src={img_miro1}
+            w={{ base: "95vw", md: "75vw" }}
+            px={{ base: "5", md: "50" }}
+          />
         </VStack>
 
         {/* 2. facing problem */}
@@ -335,7 +347,7 @@ function TowerDefense() {
           w={"full"}
           py={"200"}
         >
-          <Container maxW={"7xl"} py="3" centerContent>
+          <Container maxW={"8xl"} py="3" centerContent>
             <Flex
               flexWrap={"wrap"}
               w={"full"}
@@ -345,14 +357,15 @@ function TowerDefense() {
               {/* image of facing problem */}
               <Box
                 bgImage={img_problem}
-                w={{ lg: "500px" }}
+                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
                 h={"400px"}
                 bgRepeat={"no-repeat"}
                 bgPosition={"center"}
                 bgSize={"cover"}
               />
               <Text
-                w={"30vw"}
+                mt={{ base: "100", lg: "0" }}
+                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
                 fontSize="xl"
                 textAlign={"justify"}
                 fontFamily={`"Open Sans", sans-serif`}
@@ -366,15 +379,24 @@ function TowerDefense() {
                 經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
               </Text>
             </Flex>
-            <Flex flexWrap={"wrap"} justify={"center"} marginTop={"200"}>
+            <Flex
+              w={"full"}
+              flexWrap={"wrap"}
+              justify={"center"}
+              marginTop={"200"}
+              justifyContent={"space-around"}
+            >
+              {/* 1. Box of explaining animation and damage */}
+              {/* background */}
               <Box
-                w={"550px"}
-                h={"400px"}
+                w={{ base: "80vw", md: "60vw", lg: "550px" }}
+                h={{ base: "60vw", md: "45vw", lg: "400px" }}
                 bgColor={"gray.100"}
                 rounded={"2xl"}
                 shadow={"lg"}
                 justify={"center"}
               >
+                {/* heading banner */}
                 <Box
                   bgColor={"black"}
                   w={"full"}
@@ -382,24 +404,38 @@ function TowerDefense() {
                   textAlign={"center"}
                   roundedTop={"2xl"}
                 >
-                  <HStack spacing={"5"} justify={"center"}>
-                    <Heading color={"white"} py={"4"}>
+                  {/* heading */}
+                  <HStack
+                    h={"full"}
+                    spacing={"5"}
+                    justify={"center"}
+                    alignItems={"center"}
+                  >
+                    <Heading
+                      color={"white"}
+                      fontSize={{ base: "2xl", md: "auto", lg: "4xl" }}
+                    >
                       動畫和傷害同時發生
                     </Heading>
                     <CloseIcon boxSize={"30px"} color={"red"} />
                   </HStack>
                 </Box>
+                {/* image */}
                 <Image src={img_anime} px={"10"} py={"5"} />
               </Box>
+
+              {/* 2. Box of explaining animation and damage */}
+              {/* background */}
               <Box
-                w={"550px"}
-                h={"400px"}
+                mt={{ base: "20", md: "20", lg: "0" }}
+                w={{ base: "80vw", md: "60vw", lg: "550px" }}
+                h={{ base: "60vw", md: "45vw", lg: "400px" }}
                 bgColor={"gray.100"}
                 rounded={"2xl"}
                 shadow={"lg"}
                 justify={"center"}
-                marginLeft={"50"}
               >
+                {/* heading banner */}
                 <Box
                   bgColor={"black"}
                   w={"full"}
@@ -407,13 +443,24 @@ function TowerDefense() {
                   textAlign={"center"}
                   roundedTop={"2xl"}
                 >
-                  <HStack spacing={"5"} justify={"center"}>
-                    <Heading color={"white"} py={"4"}>
+                  {/* heading */}
+                  <HStack
+                    h={"full"}
+                    spacing={"5"}
+                    justify={"center"}
+                    alignItems={"center"}
+                  >
+                    <Heading
+                      color={"white"}
+                      py={"4"}
+                      fontSize={{ base: "2xl", md: "auto", lg: "4xl" }}
+                    >
                       動畫後才讓傷害出現
                     </Heading>
                     <CheckIcon boxSize={"40px"} color={"green.300"} />
                   </HStack>
                 </Box>
+                {/* image */}
                 <Image src={img_anime1} px={"10"} py={"5"} />
               </Box>
             </Flex>
@@ -428,21 +475,27 @@ function TowerDefense() {
           py={"200"}
         >
           <Container maxW={"7xl"} py="3" centerContent>
-            <HStack
+            {/* box of gain */}
+            <Stack
+              direction={{ base: "column", lg: "row" }}
               bgColor={"gray.800"}
               border={"1px"}
               borderRadius={"lg"}
               overflow={"hidden"}
               borderColor={"gray.700"}
+              spacing={{ base: "50", lg: "0" }}
+              alignItems={"center"}
             >
               <Box
                 bgImage={img_reward}
-                w={"400px"}
+                w={{ base: "80vw", md: "60vw", lg: "400px" }}
                 h={"500px"}
                 bgPosition={"center"}
                 bgSize={"cover"}
               />
+              {/* words */}
               <VStack
+                py={"10"}
                 textAlign={"left"}
                 px={"10"}
                 spacing={"10"}
@@ -474,13 +527,14 @@ function TowerDefense() {
                   ))}
                 </Box>
               </VStack>
-            </HStack>
+            </Stack>
             <Text
               fontFamily={`"Open Sans", sans-serif`}
               fontSize={"xl"}
               textAlign={"justify"}
               color={"gray.200"}
               mt={"150"}
+              px={{ base: "5", md: "10" }}
             >
               &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
               <Text as={"span"} fontWeight={"bold"}>

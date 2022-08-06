@@ -32,7 +32,7 @@ function Title(props) {
           transform="translate(0, -50%)"
         >
           <Heading
-            fontFamily={`"Nunito Sans", "Open Sans", sans-serif`}
+            fontFamily={`"Open Sans", sans-serif`}
             letterSpacing={"5px"}
             fontSize={{ base: "12vw", md: "6xl" }}
             color={props.mainColor}
