@@ -69,19 +69,16 @@ function TowerDefense() {
       icon: BsGearFill,
       title: "Tool",
       text: "Python, pygame module, git",
-      bg: "teal.200",
     },
     {
       icon: BsPenFill,
       title: "Design Pattern",
       text: "MVC & Observer pattern",
-      bg: "teal.200",
     },
     {
       icon: BsLightbulbFill,
       title: "設計理念",
       text: "用遊戲的方式來告訴大眾Covid-19的危險性",
-      bg: "teal.200",
     },
   ];
 
@@ -209,8 +206,8 @@ function TowerDefense() {
           mt={"120"}
           py={"10"}
         >
-          <Container maxW={"8xl"} centerContent>
-            <Box marginTop={"100"}>
+          <Container maxW={"8xl"} marginTop={"100"} centerContent>
+            <Box>
               <Heading
                 fontFamily={`"Open Sans", sans-serif`}
                 scrollMargin="100px"
@@ -467,7 +464,7 @@ function TowerDefense() {
           </Container>
         </Box>
 
-        {/* 2. facing problem */}
+        {/* 3. gain */}
         <Banner title={"獲得收穫"} bgImage={img_bg_reward} brightness={"25%"} />
         <Box
           bg={useColorModeValue("gray.900", "blackAlpha.500")}

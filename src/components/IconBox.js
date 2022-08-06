@@ -14,7 +14,7 @@ function IconBox(props) {
         <Center>
           <Box
             bgGradient={props.bgGradient ?? undefined}
-            bg={props.bgColor ?? "red"}
+            bg={props.bgColor ?? "gray.100"}
             borderRadius={"lg"}
             boxShadow={"lg"}
             boxSize={props.iconBoxSize}
