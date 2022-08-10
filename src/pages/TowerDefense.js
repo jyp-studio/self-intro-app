@@ -499,6 +499,7 @@ function TowerDefense() {
                 color={"white"}
               >
                 <Heading>收穫</Heading>
+                {/* Rating of gain */}
                 <Rating Gain={Gain} />
               </VStack>
             </Stack>

@@ -158,28 +158,28 @@ function Opt() {
               Abstract
             </Heading>
             <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
-            <Flex flexWrap={"wrap"} py="10" justify={"center"}>
-              <Text
-                fontFamily={`"Open Sans", sans-serif`}
-                fontSize="xl"
-                w={"full"}
-                px={{ base: "5", md: "5", lg: "10" }}
-                textAlign={"justify"}
-              >
-                &emsp;&emsp;在現今通貨膨脹率高漲而利息低迷的時代，若將資金存於銀行或郵局中，只會隨時間消磨其價值。為此，
-                <Text as="span" fontWeight={"bold"}>
-                  許多人投資股票和 ETF，以對抗通貨膨脹
-                </Text>
-                。然而，眾所皆知水能載舟亦能覆舟，而股票市場亦如那滔滔浪江。若沒有準充分準備而隨意投資，
-                只會落得「韭菜」，任人隨意宰割，的稱謂。因此，本研究藉由
-                <Text as="span" fontWeight={"bold"}>
-                  蒐集 yfinance 的股票數據，利用 pandas 整理資料後，使用
-                  matlabplot 和 backtesting 繪出圖形和顯示回 測數據於用 tkinter
-                  建立的圖形介面上，供使用者使用
-                </Text>
-                。
+
+            <Text
+              py={"10"}
+              fontFamily={`"Open Sans", sans-serif`}
+              fontSize="xl"
+              w={"full"}
+              px={{ base: "5", md: "5", lg: "10" }}
+              textAlign={"justify"}
+            >
+              &emsp;&emsp;在現今通貨膨脹率高漲而利息低迷的時代，若將資金存於銀行或郵局中，只會隨時間消磨其價值。為此，
+              <Text as="span" fontWeight={"bold"}>
+                許多人投資股票和 ETF，以對抗通貨膨脹
               </Text>
-            </Flex>
+              。然而，眾所皆知水能載舟亦能覆舟，而股票市場亦如那滔滔浪江。若沒有準充分準備而隨意投資，
+              只會落得「韭菜」，任人隨意宰割，的稱謂。因此，本研究藉由
+              <Text as="span" fontWeight={"bold"}>
+                蒐集 yfinance 的股票數據，利用 pandas 整理資料後，使用
+                matlabplot 和 backtesting 繪出圖形和顯示回 測數據於用 tkinter
+                建立的圖形介面上，供使用者使用
+              </Text>
+              。
+            </Text>
           </Box>
         </Container>
 
