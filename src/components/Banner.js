@@ -17,6 +17,7 @@ function Banner(props) {
       <Box
         w={"full"}
         h={"full"}
+        position={"relative"}
         backdropFilter={"auto"}
         backdropBrightness={props.brightness ?? "30%"}
         backdropBlur={"4px"}
@@ -24,7 +25,7 @@ function Banner(props) {
       >
         <Box
           fontFamily={`"Open Sans", sans-serif`}
-          position={"fixed"}
+          position={"absolute"}
           top={"50%"}
           left={"50%"}
           transform={"translate(-50%, -50%)"}
