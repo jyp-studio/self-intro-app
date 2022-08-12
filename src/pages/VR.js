@@ -12,8 +12,9 @@ import {
   Divider,
   useColorModeValue,
   Stack,
+  useBreakpointValue,
+  Center,
 } from "@chakra-ui/react";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   FiHome,
   FiCompass,
@@ -43,14 +44,13 @@ import Rating from "../components/Rating";
 import img_uml from "../assets/vr_uml.png";
 import img_bg from "../assets/bg_vr.jpg";
 import img_abstract from "../assets/raspberry_pi.jpg";
-import img_bg_sticky from "../assets/bg_sticky_note.jpg";
+import img_bg_design from "../assets/bg_design.jpg";
+import img_unity_to_magicVR from "../assets/unity_to_magicVR.png";
+import img_unity_to_magicVR1 from "../assets/unity_to_magicVR1.png";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/sunrise.jpg";
-import img_numerical_poster1 from "../assets/numerical_poster1.png";
-import img_numerical_poster2 from "../assets/numerical_poster2.png";
-import img_numerical_poster3 from "../assets/numerical_poster3.png";
-import img_numerical_poster4 from "../assets/numerical_poster4.png";
-import img_Albert_Einstein from "../assets/Albert_Einstein.jpg";
+
+import pdf from "../assets/numerical_paper.pdf";
 
 function VR() {
   // Sidebar link items
@@ -88,18 +88,25 @@ function VR() {
   // what I learn im class with name and rating.
   const Gain = [
     {
-      name: "Numerical method",
+      name: "Magic VR",
       rating: "5",
     },
     {
-      name: "python-tkinter",
+      name: "樹莓派用法",
       rating: "5",
     },
     {
-      name: "python-pandas",
+      name: "Linux",
+      rating: "4",
+    },
+    {
+      name: "RPI.GPIO",
       rating: "4",
     },
   ];
+
+  // varable to justify the direction of img_unity_to_magicVR
+  const imageDir = useBreakpointValue({ base: "row", lg: "column" });
 
   return (
     <>
@@ -279,12 +286,74 @@ function VR() {
           </Heading>
         </Container>
 
-        {/* 1. design thinking */}
-        <Banner
-          title={"設計思考 ｜ Design thinking"}
-          bgImage={img_bg_sticky}
-          marginTop={"150"}
-        />
+        <Box
+          w={"full"}
+          bgColor={"blackAlpha.800"}
+          py={"200"}
+          justify={"center"}
+          alignContent={"center"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <Stack
+            w={"full"}
+            direction={{ base: "column", lg: "row" }}
+            spacing={"15vw"}
+            justify={"center"}
+            textAlign={"justify"}
+            alignItems={"center"}
+          >
+            {/* display in mobile */}
+            {imageDir == "row" && (
+              <Image
+                src={img_unity_to_magicVR1}
+                w={{ base: "80vw", md: "50vw" }}
+                display={{ base: "inline", lg: "none" }}
+              />
+            )}
+            {/* display in pc */}
+            {imageDir == "row" || (
+              <Image
+                src={img_unity_to_magicVR}
+                w={{ lg: "10vw" }}
+                display={{ base: "none", lg: "inline-block" }}
+              />
+            )}
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "30vw" }}
+              fontSize={"xl"}
+              color={"gray.100"}
+              fontFamily={`"Open Sans", sans-serif`}
+              textAlign={"justify"}
+            >
+              &emsp;&emsp;原本我以為會使用Unity來製作VR專題，因此在大二暑假時有先自學製作
+              <ChakraLink as={Link} to={"/project/side-project"} color={"cyan"}>
+                Flappy Bird
+              </ChakraLink>
+              的遊戲，然而最後是使用哈瑪星科技所開發的虛擬實境編輯器Magic VR。
+              所幸有學習Unity的基礎，在與其相似的Magic
+              VR上，仍快速地熟悉並熟練運用。
+            </Text>
+          </Stack>
+        </Box>
+        <Center
+          w={"full"}
+          py={"150"}
+          px={{ base: "5", md: "30" }}
+          textAlign={"justify"}
+          alignItems={"center"}
+          justify={"center"}
+        >
+          <Text
+            fontSize={"3xl"}
+            fontWeight={"extrabold"}
+            fontFamily={`"Open Sans", sans-serif`}
+          >
+            開發的路上非常艱辛，我也因此學會幾個重要的觀念：
+          </Text>
+        </Center>
+        {/* 1. have a good design */}
+        <Banner title={"1. 要有好的事件傳遞。"} bgImage={img_bg_design} />
         <VStack
           py={"200"}
           spacing={"150"}
@@ -295,34 +364,6 @@ function VR() {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Stack
-            direction={{ base: "column", lg: "row" }}
-            spacing={"10"}
-            justify={"space-around"}
-            textAlign={"justify"}
-            alignItems={"center"}
-          >
-            <Box
-              bgImage={img_Albert_Einstein}
-              w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-              h={"600px"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-              bgRepeat={"no-repeat"}
-            />
-            <Text
-              w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-              px={{ base: "5", md: "30" }}
-              fontSize={"3xl"}
-              fontWeight={"extrabold"}
-              color={"gray.100"}
-              fontFamily={`"Open Sans", sans-serif`}
-              textAlign={"justify"}
-            >
-              如果我有一小時拯救世界，我會花55分鐘去確認問題為何，只以5分鐘尋找解決方案。
-              <Text textAlign={"right"}>— Albert Einstein</Text>
-            </Text>
-          </Stack>
           <Text
             w={{ base: "80vw", md: "60vw" }}
             px={{ base: "5", md: "30" }}
@@ -331,85 +372,61 @@ function VR() {
             fontFamily={`"Open Sans", sans-serif`}
             textAlign={"justify"}
           >
-            &emsp;&emsp;
-            <ChakraLink
-              href="https://www.laimm.net/about"
-              textDecoration="underline"
-              fontWeight="bolder"
-              isExternal
-            >
-              游濟華
-              <ExternalLinkIcon mx="2px" />
-            </ChakraLink>
-            教授曾對我們說：「
-            <Text as={"span"} fontWeight={"bold"} color={"cyan.300"}>
-              最好的學習方式便是將所學應用於生活中。
-            </Text>
-            」因此，為了理解學生是否有的理解數值方法這堂課的知識，教授要求我們將所學的工具應用於生活之中。
-            {""}
-            老實說這個問題讓我思索了好幾週，腦中都是工程應用，一點日常應用的影子都沒有。
-            {""}
-            然而所幸，在經過數週不眠不休地思索，以及參與設計思考工作坊，將思維發散並收束後，終於想出應用領域—「股票市場」。
+            &emsp;&emsp;在開發初期，由於把很多事件都綁死，導致後期開發都要把過去開發的事件重寫。
+            這讓我學會寫code前審視邏輯與架構，確立事件的傳遞必須具有彈性。
           </Text>
-          <Image
-            src={img_numerical_poster1}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
+        </VStack>
+
+        {/* 2. solve the problem by oneself */}
+        <Banner title={"2. 問題要自己解決。"} bgImage={img_bg_design} />
+
+        <VStack
+          py={"200"}
+          spacing={"150"}
+          w={"full"}
+          bgColor={"blackAlpha.800"}
+          justify={"center"}
+          alignContent={"center"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
           <Text
-            px={{ base: "5", md: "10", lg: "30" }}
-            fontSize={"3xl"}
-            fontWeight={"bold"}
-            textAlign={"justify"}
+            w={{ base: "80vw", md: "60vw" }}
+            px={{ base: "5", md: "30" }}
+            fontSize={"xl"}
             color={"gray.200"}
             fontFamily={`"Open Sans", sans-serif`}
-          >
-            工作坊中，藉由小組討論的方式來發散想法與構想可行性。
-          </Text>
-          <Image
-            src={img_numerical_poster2}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
-          <Text
-            px={{ base: "5", md: "10", lg: "30" }}
-            fontSize={"3xl"}
-            fontWeight={"bold"}
             textAlign={"justify"}
+          >
+            &emsp;&emsp;基於MagicVR是新的軟體，實驗室的學長姊其實也不會操作，因此發生的許多問題，
+            無論是程式問題或是跑不出來的問題，都要由我們自己解決。我相信日後做研究也同樣需要自己探查論文，解決問題，
+            因此，我很慶幸及早學會不依賴他人，而獨立解決問題。
+          </Text>
+        </VStack>
+
+        {/* 2. solve the problem by oneself */}
+        <Banner title={"3. 千萬要記得備份。"} bgImage={img_bg_design} />
+
+        <VStack
+          py={"200"}
+          spacing={"150"}
+          w={"full"}
+          bgColor={"blackAlpha.800"}
+          justify={"center"}
+          alignContent={"center"}
+          alignItems={"center"}
+          justifyContent={"center"}
+        >
+          <Text
+            w={{ base: "80vw", md: "60vw" }}
+            px={{ base: "5", md: "30" }}
+            fontSize={"xl"}
             color={"gray.200"}
             fontFamily={`"Open Sans", sans-serif`}
-          >
-            完成後，設計流程與GUI介面。
-          </Text>
-          <Image
-            src={img_numerical_poster3}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
-          <Text
-            px={{ base: "5", md: "10", lg: "30" }}
-            fontSize={"3xl"}
-            fontWeight={"bold"}
             textAlign={"justify"}
-            color={"gray.200"}
-            fontFamily={`"Open Sans", sans-serif`}
           >
-            最後，撰寫摘要來向他人報告。
-          </Text>
-          <Image
-            src={img_numerical_poster4}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
-          <Text
-            px={{ base: "5", md: "10", lg: "30" }}
-            fontSize={"3xl"}
-            fontWeight={"bold"}
-            textAlign={"justify"}
-            color={"gray.200"}
-            fontFamily={`"Open Sans", sans-serif`}
-          >
-            &emsp;&emsp;小組結束後，再各自以同樣的方式，發想自己的主題，也因此我後來決定製作股市回測。
+            &emsp;&emsp;我還記得大三下開學時檔案突然之間就打不開了，裡面辛辛苦苦建立的場景、事件全部都損毀。
+            後來花好多時間才重新建立先前大三上所開發的場景與事件。這慘痛的代價讓我知道，做完一件事情後，千萬記得要備份。
           </Text>
         </VStack>
 
@@ -459,17 +476,10 @@ function VR() {
               mt={"150"}
               px={{ base: "5", md: "10" }}
             >
-              &emsp;&emsp;這次的專題研究，我主要
-              <Text as={"span"} fontWeight={"bold"}>
-                複習pandas和學習tkinter套件
-              </Text>
-              。同時，在整學期的數值方法中，我從游濟華教授學到最重要的道理是：「
-              <Text as={"span"} fontWeight={"bold"}>
-                將所學結合電腦科學來解決生活問題。
-              </Text>
-              」原因是，現在科技突飛猛進，許多問題電腦都可以幫我們解決，甚至比我們手算的還精確。因此，
-              {""}
-              我們需要的已經不是使用老舊的工具，自己手算，而是將我們的工具，藉由coding的方式，讓電腦來幫我們計算。
+              &emsp;&emsp;除此之外，在期望學生可以更融入VR之中並提升興趣與參與度，我設計一套劇情、任務與對戰系統於虛擬實境之中。
+              如同Samuel
+              Johnson(1709)曾說：「偉大的作品並非靠力量，而是靠堅持所完成的。」我相信我對專案的堅持，
+              可以提升學生的學習成效，並讓VR的技術步入教育之中，使更多人受益。
             </Text>
           </Container>
         </Box>
@@ -495,7 +505,7 @@ function VR() {
             <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
               <iframe
                 title="numerical opt pdf"
-                src="https://drive.google.com/file/d/15MRtr8mL9XtxG7JyL70cNwWiCeweTAIf/preview"
+                src={pdf}
                 position="absolute"
                 width={"100%"}
                 height={"100%"}
@@ -511,30 +521,3 @@ function VR() {
 }
 
 export default VR;
-
-const ThoughtsText = () => {
-  return (
-    <>
-      &emsp;&emsp;原本我以為會使用Unity來製作VR專題，因此在大二暑假時有先自學製作
-      <ChakraLink as={Link} to={"/project/side-project"} color={"cyan"}>
-        Flappy Bird
-      </ChakraLink>
-      的遊戲，然而最後是使用哈瑪星科技所開發的虛擬實境編輯器Magic VR。
-      所幸有學習Unity的基礎，在與其相似的Magic VR上，仍快速地熟悉並熟練運用。
-      <br />
-      &emsp;&emsp;開發的路上非常艱辛，我也因此學會幾個重要的觀念：
-      一、要有好的事件傳遞。在開發初期，由於把很多事件都綁死，導致後期開發都要把過去開發的事件重寫。
-      這讓我學會寫code前審視邏輯與架構，確立事件的傳遞必須具有彈性。
-      二、問題要自己解決。基於MagicVR是新的軟體，實驗室的學長姊其實也不會操作，因此發生的許多問題，
-      無論是程式問題或是跑不出來的問題，都要由我們自己解決。我相信日後做研究也同樣需要自己探查論文，解決問題，
-      因此，我很慶幸及早學會不依賴他人，而獨立解決問題。
-      三、千萬要記得備份。我還記得大三下開學時檔案突然之間就打不開了，裡面辛辛苦苦建立的場景、事件全部都損毀。
-      後來花好多時間才重新建立先前大三上所開發的場景與事件。這慘痛的代價讓我知道，做完一件事情後，千萬記得要備份。
-      <br />
-      &emsp;&emsp;除此之外，在期望學生可以更融入VR之中並提升興趣與參與度，我設計一套劇情、任務與對戰系統於虛擬實境之中。
-      如同Samuel
-      Johnson(1709)曾說：「偉大的作品並非靠力量，而是靠堅持所完成的。」我相信我對專案的堅持，
-      可以提升學生的學習成效，並讓VR的技術步入教育之中，使更多人受益。
-    </>
-  );
-};
