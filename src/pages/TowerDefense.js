@@ -318,6 +318,7 @@ function TowerDefense() {
               fontSize={"xl"}
               color={"gray.200"}
               fontFamily={`"Open Sans", sans-serif`}
+              textAlign={"justify"}
             >
               &emsp;&emsp;在數週的設計思維工作坊中，我擔任
               <Text as={"span"} fontWeight={"bold"}>

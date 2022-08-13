@@ -304,7 +304,7 @@ function VR() {
             alignItems={"center"}
           >
             {/* display in mobile */}
-            {imageDir == "row" && (
+            {imageDir === "row" && (
               <Image
                 src={img_unity_to_magicVR1}
                 w={{ base: "80vw", md: "50vw" }}
@@ -312,7 +312,7 @@ function VR() {
               />
             )}
             {/* display in pc */}
-            {imageDir == "row" || (
+            {imageDir === "row" || (
               <Image
                 src={img_unity_to_magicVR}
                 w={{ lg: "10vw" }}
@@ -476,7 +476,11 @@ function VR() {
               mt={"150"}
               px={{ base: "5", md: "10" }}
             >
-              &emsp;&emsp;為了製作樹莓派虛擬場景，因此自己向
+              &emsp;&emsp;為了製作完善的樹莓派虛擬場景，為此，請教實驗室學長姐來學習樹莓派和Linux。
+              同時自己也購買一台樹莓派與教學指南，來學習基本指令和嘗試做音樂播放器和智慧家庭。
+              從中我感覺受益良多，並且發現Linux真的好好用，只要打指令就可以完成許多事項，令我愛不釋手。
+              此外，樹莓派除了當做音樂播放器和智慧家庭的中控外，我認為還有許多用途，例如結合opencv來做影像辨識應用等，
+              等著我去發掘。因此，我很高興可以學習到這些以往不知的知識。
             </Text>
           </Container>
         </Box>
