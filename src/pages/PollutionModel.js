@@ -21,6 +21,7 @@ import {
   FiCommand,
   FiMessageCircle,
   FiBox,
+  FiFile,
 } from "react-icons/fi";
 import {
   BsGearFill,
@@ -40,9 +41,9 @@ import Title from "../components/Title";
 import Banner from "../components/Banner";
 import Rating from "../components/Rating";
 
-import img_uml from "../assets/uml.png";
+import img_uml from "../assets/pollution_uml.png";
 import img_bg from "../assets/bg_pollution.jpg";
-import img_covid from "../assets/covid.jpg";
+import img_abstract from "../assets/pollution_abstract.jpg";
 import img_miro from "../assets/miro.png";
 import img_miro1 from "../assets/miro1.png";
 import img_anime from "../assets/attack_anime.png";
@@ -54,32 +55,28 @@ import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/bg_reward.jpg";
 import img_bg_problem from "../assets/bg_problem.jpg";
 
+import pdf_project from "../assets/pollution_project.pdf";
+
 function PollutionModel() {
   // Sidebar link items
   const LinkItems = [
     { name: "Home", icon: FiHome, href: "#" },
     { name: "Abstract", icon: FiCompass, href: "#abstract" },
-    { name: "Trailer", icon: FiYoutube, href: "#trailer" },
     { name: "Architecture", icon: FiCommand, href: "#architecture" },
     { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Demo", icon: FiBox, href: "#demo" },
+    { name: "Project report", icon: FiFile, href: "#project-report" },
   ];
   // Icon box infomation
   const IconBoxItems = [
     {
       icon: BsGearFill,
       title: "Tool",
-      text: "Python, pygame module, git",
-    },
-    {
-      icon: BsPenFill,
-      title: "Design Pattern",
-      text: "MVC & Observer pattern",
+      text: "Verilog",
     },
     {
       icon: BsLightbulbFill,
       title: "設計理念",
-      text: "用遊戲的方式來告訴大眾Covid-19的危險性",
+      text: "將邏輯設計概念應用於探查汙染擴散",
     },
   ];
 
@@ -160,7 +157,7 @@ function PollutionModel() {
               </Text>{" "}
               Abstract
             </Heading>
-            <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
+            <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
             <Flex flexWrap={"wrap"} py="10" justify={"center"}>
               <Text
                 fontFamily={`"Open Sans", sans-serif`}
@@ -169,25 +166,11 @@ function PollutionModel() {
                 px={{ base: "5", md: "5", lg: "10" }}
                 textAlign={"justify"}
               >
-                &emsp;&emsp;2019年，Covid-19突然大流行造成許多人死亡。然而，部分大眾卻仍對其抱持懷疑與不信的態度。
-                <Text as={"span"} fontWeight={"bold"}>
-                  為了讓民眾了解Covid-19的危險性。因此決定以衛教的核心思想設計塔防遊戲。
-                </Text>
-                玩家所要守護的家園即代表個人、家人與朋友的健康，而受病毒所感染的變種人類則試圖感染正常人類。每一波的病毒都會越發增強代表著病毒的變種性與流行性。
-                <Text as={"span"} fontWeight={"bold"}>
-                  期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
-                </Text>
-                <br />
-                &emsp;&emsp;本遊戲使用Python-pygame製作，遊戲主要使用
-                <Text as={"span"} fontWeight={"bold"}>
-                  MVC{"("}
-                  Model-View-Controller{")"}
-                </Text>
-                當做主架構，玩家事件則是使用
-                <Text as={"span"} fontWeight={"bold"}>
-                  observer pattern
-                </Text>
-                以方便增修觸發事件。
+                &emsp;&emsp;Covid-19大爆發，首先是雙北，緊接著周遭和交通方便的縣市也跟著爆發。
+                {""}
+                為了有效追蹤感染新冠肺炎的人路徑。本研究使用邏輯設計的思考，運用Verilog模擬汙染擴散的樣式。
+                {""}
+                藉由選定投放汙染地點後，觀察其擴散位置，來得知汙染所可能擴散的位置。未來可再加入更多細節，以更精確模擬現況。
               </Text>
             </Flex>
           </Box>
@@ -200,7 +183,7 @@ function PollutionModel() {
           py={"10"}
         >
           <Container maxW={"8xl"} marginTop={"100"} centerContent>
-            <Box  marginBottom={"150"}>
+            <Box marginBottom={"150"}>
               <Heading
                 fontFamily={`"Open Sans", sans-serif`}
                 scrollMargin="100px"
@@ -218,9 +201,10 @@ function PollutionModel() {
               </Heading>
 
               <Box
-                bg="teal.50"
+                bg="red.100"
                 boxShadow="lg"
                 w={{ base: "90vw", md: "70vw", lg: "67vw" }}
+                py={"10"}
               >
                 <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
               </Box>
@@ -246,191 +230,13 @@ function PollutionModel() {
           </Heading>
         </Container>
 
-        {/* 1. design thinking */}
+        {/* 3. gain */}
         <Banner
-          title={"設計思考 ｜ Design thinking"}
-          bgImage={img_bg_sticky}
+          title={"獲得收穫"}
+          bgImage={img_bg_reward}
+          brightness={"25%"}
           marginTop={"150"}
         />
-        <VStack
-          py={"200"}
-          spacing={"150"}
-          w={"full"}
-          bgColor={"blackAlpha.800"}
-          justify={"center"}
-          alignContent={"center"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          <Image
-            src={img_miro}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
-          <HStack
-            py={"50"}
-            marginTop={"50"}
-            flexWrap={"wrap"}
-            w={"65vw"}
-            justify={"center"}
-            justifyContent={"space-around"}
-          >
-            <Image src={img_distribution_chart} w={"400px"} />
-            <Text
-              w={{ base: "80vw", lg: "30vw" }}
-              px={{ base: "5", md: "30" }}
-              py={{ base: "20" }}
-              fontSize={"xl"}
-              color={"gray.200"}
-              fontFamily={`"Open Sans", sans-serif`}
-            >
-              &emsp;&emsp;在數週的設計思維工作坊中，我擔任
-              <Text as={"span"} fontWeight={"bold"}>
-                組長
-              </Text>
-              的職位，引領兩位組員藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
-            </Text>
-          </HStack>
-          <Image
-            src={img_miro1}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
-        </VStack>
-
-        {/* 2. facing problem */}
-        <Banner
-          title={"遇到困難"}
-          bgImage={img_bg_problem}
-          brightness={"80%"}
-        />
-        <Box
-          bg={useColorModeValue("gray.50", "blackAlpha.500")}
-          w={"full"}
-          py={"200"}
-        >
-          <Container maxW={"8xl"} py="3" centerContent>
-            <Flex
-              flexWrap={"wrap"}
-              w={"full"}
-              justify={"center"}
-              justifyContent={"space-around"}
-            >
-              {/* image of facing problem */}
-              <Box
-                bgImage={img_problem}
-                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-                h={"400px"}
-                bgRepeat={"no-repeat"}
-                bgPosition={"center"}
-                bgSize={"cover"}
-              />
-              <Text
-                mt={{ base: "100", lg: "0" }}
-                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-                fontSize="xl"
-                textAlign={"justify"}
-                fontFamily={`"Open Sans", sans-serif`}
-              >
-                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
-                {""}
-                原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
-                {""}
-                因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
-                {""}
-                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
-              </Text>
-            </Flex>
-            <Flex
-              w={"full"}
-              flexWrap={"wrap"}
-              justify={"center"}
-              marginTop={"200"}
-              justifyContent={"space-around"}
-            >
-              {/* 1. Box of explaining animation and damage */}
-              {/* background */}
-              <Box
-                w={{ base: "80vw", md: "60vw", lg: "550px" }}
-                h={{ base: "60vw", md: "45vw", lg: "400px" }}
-                bgColor={"gray.100"}
-                rounded={"2xl"}
-                shadow={"lg"}
-                justify={"center"}
-              >
-                {/* heading banner */}
-                <Box
-                  bgColor={"black"}
-                  w={"full"}
-                  h={"80px"}
-                  textAlign={"center"}
-                  roundedTop={"2xl"}
-                >
-                  {/* heading */}
-                  <HStack
-                    h={"full"}
-                    spacing={"5"}
-                    justify={"center"}
-                    alignItems={"center"}
-                  >
-                    <Heading
-                      color={"white"}
-                      fontSize={{ base: "2xl", md: "auto", lg: "4xl" }}
-                    >
-                      動畫和傷害同時發生
-                    </Heading>
-                    <CloseIcon boxSize={"30px"} color={"red"} />
-                  </HStack>
-                </Box>
-                {/* image */}
-                <Image src={img_anime} px={"10"} py={"5"} />
-              </Box>
-
-              {/* 2. Box of explaining animation and damage */}
-              {/* background */}
-              <Box
-                mt={{ base: "20", md: "20", lg: "0" }}
-                w={{ base: "80vw", md: "60vw", lg: "550px" }}
-                h={{ base: "60vw", md: "45vw", lg: "400px" }}
-                bgColor={"gray.100"}
-                rounded={"2xl"}
-                shadow={"lg"}
-                justify={"center"}
-              >
-                {/* heading banner */}
-                <Box
-                  bgColor={"black"}
-                  w={"full"}
-                  h={"80px"}
-                  textAlign={"center"}
-                  roundedTop={"2xl"}
-                >
-                  {/* heading */}
-                  <HStack
-                    h={"full"}
-                    spacing={"5"}
-                    justify={"center"}
-                    alignItems={"center"}
-                  >
-                    <Heading
-                      color={"white"}
-                      py={"4"}
-                      fontSize={{ base: "2xl", md: "auto", lg: "4xl" }}
-                    >
-                      動畫後才讓傷害出現
-                    </Heading>
-                    <CheckIcon boxSize={"40px"} color={"green.300"} />
-                  </HStack>
-                </Box>
-                {/* image */}
-                <Image src={img_anime1} px={"10"} py={"5"} />
-              </Box>
-            </Flex>
-          </Container>
-        </Box>
-
-        {/* 3. gain */}
-        <Banner title={"獲得收穫"} bgImage={img_bg_reward} brightness={"25%"} />
         <Box
           bg={useColorModeValue("gray.900", "blackAlpha.500")}
           w={"full"}
@@ -476,10 +282,12 @@ function PollutionModel() {
               mt={"150"}
               px={{ base: "5", md: "10" }}
             >
-              &emsp;&emsp;學習邏輯設計和使用Verilog設計decoder和encoder等，不但讓我更加了解電腦的基礎架構、運行過程，{""}
+              &emsp;&emsp;學習邏輯設計和使用Verilog設計decoder和encoder等，不但讓我更加了解電腦的基礎架構、運行過程，
+              {""}
               也讓我日後設計程式時，更加有邏輯性。
-              <br/>
-              &emsp;&emsp;而製作期末專題的過程中，運用許多邏輯閘與正反器，使我更加知道他們的功能與作用；{""}
+              <br />
+              &emsp;&emsp;而製作期末專題的過程中，運用許多邏輯閘與正反器，使我更加知道他們的功能與作用；
+              {""}
               構想專題的過程，更讓我學習到獨立思考，自己解決問題的能力。
             </Text>
           </Container>
@@ -492,25 +300,25 @@ function PollutionModel() {
               scrollMargin="100px"
               py={"4"}
               px={"5"}
-              id={"demo"}
+              id={"project-report"}
               w={{ base: "auto", lg: "full" }}
               textAlign={{ base: "center", lg: "left" }}
             >
-              成果展示{" "}
+              專題報告書{" "}
               <Text as={"span"} fontWeight={"thin"}>
                 |
               </Text>{" "}
-              Demo
+              Project Report
             </Heading>
 
-            <AspectRatio
-              w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-              ratio={16 / 9}
-            >
+            <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
               <iframe
-                title="tower defense demo video"
-                src="https://www.youtube.com/embed/mkjUvo7B_K8"
-                allowFullScreen
+                title="numerical opt pdf"
+                src={pdf_project}
+                position="absolute"
+                width={"100%"}
+                height={"100%"}
+                allow="autoplay"
               />
             </AspectRatio>
           </Box>
@@ -522,4 +330,3 @@ function PollutionModel() {
 }
 
 export default PollutionModel;
-

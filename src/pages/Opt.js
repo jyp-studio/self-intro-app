@@ -11,15 +11,9 @@ import {
   VStack,
   Divider,
   useColorModeValue,
-  HStack,
   Stack,
 } from "@chakra-ui/react";
-import {
-  CloseIcon,
-  CheckIcon,
-  StarIcon,
-  ExternalLinkIcon,
-} from "@chakra-ui/icons";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   FiHome,
   FiCompass,
@@ -53,6 +47,8 @@ import img_numerical_poster3 from "../assets/numerical_poster3.png";
 import img_numerical_poster4 from "../assets/numerical_poster4.png";
 import img_Albert_Einstein from "../assets/Albert_Einstein.jpg";
 
+import pdf_project from "../assets/numerical_paper.pdf";
+
 function Opt() {
   // Sidebar link items
   const LinkItems = [
@@ -60,7 +56,7 @@ function Opt() {
     { name: "Abstract", icon: FiCompass, href: "#abstract" },
     { name: "Architecture", icon: FiCommand, href: "#architecture" },
     { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Written report", icon: FiFile, href: "#written-report" },
+    { name: "Project report", icon: FiFile, href: "#project-report" },
   ];
 
   // Icon box infomation
@@ -438,7 +434,7 @@ function Opt() {
               scrollMargin="100px"
               py={"4"}
               px={"5"}
-              id={"written-report"}
+              id={"project-report"}
               w={{ base: "auto", lg: "full" }}
               textAlign={{ base: "center", lg: "left" }}
             >
@@ -446,13 +442,14 @@ function Opt() {
               <Text as={"span"} fontWeight={"thin"}>
                 |
               </Text>{" "}
-              Written Report
+              Project Report
             </Heading>
 
             <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
               <iframe
                 title="numerical opt pdf"
                 src="https://drive.google.com/file/d/15MRtr8mL9XtxG7JyL70cNwWiCeweTAIf/preview"
+                //src={pdf_project}
                 position="absolute"
                 width={"100%"}
                 height={"100%"}
