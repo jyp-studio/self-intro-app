@@ -43,9 +43,8 @@ import Title from "../components/Title";
 import Banner from "../components/Banner";
 import Rating from "../components/Rating";
 
-import img_uml from "../assets/uml.png";
 import img_bg from "../assets/bg_digi.jpg";
-import img_covid from "../assets/covid.jpg";
+import img_abstract from "../assets/digi_abstract.jpg";
 import img_miro from "../assets/miro.png";
 import img_miro1 from "../assets/miro1.png";
 import img_anime from "../assets/attack_anime.png";
@@ -56,6 +55,8 @@ import img_problem from "../assets/problem.jpg";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/bg_reward.jpg";
 import img_bg_problem from "../assets/bg_problem.jpg";
+import img_class from "../assets/digi_class.jpg";
+import img_debate from "../assets/digi_debate.jpg";
 
 function Digi() {
   // Sidebar link items
@@ -130,7 +131,7 @@ function Digi() {
             <WrapItem key={index} py={{ base: "3", md: "3", lg: "5" }}>
               <IconBox
                 bgColor={"orange.200"}
-                iconColor={"gray.800"}
+                iconColor={"orange.900"}
                 iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
                 textBoxSize={{ base: "60vw", md: "40vw", lg: "17vw" }}
                 textSize={{ base: "sm", md: "lg", lg: "lg" }}
@@ -166,7 +167,7 @@ function Digi() {
               </Text>{" "}
               Motivation
             </Heading>
-            <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
+            <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
             <Flex flexWrap={"wrap"} py="10" justify={"center"}>
               <Text
                 fontFamily={`"Open Sans", sans-serif`}
@@ -184,68 +185,7 @@ function Digi() {
           </Box>
         </Container>
 
-        <Box
-          bg={useColorModeValue("gray.50", "blackAlpha.500")}
-          w={"full"}
-          mt={"120"}
-          py={"10"}
-        >
-          <Container maxW={"8xl"} marginTop={"100"} centerContent>
-            <Box>
-              <Heading
-                fontFamily={`"Open Sans", sans-serif`}
-                scrollMargin="100px"
-                py={"4"}
-                px={"5"}
-                id={"trailer"}
-                w={{ base: "auto", lg: "full" }}
-                textAlign={{ base: "center", lg: "left" }}
-              >
-                前導片{" "}
-                <Text as={"span"} fontWeight={"thin"}>
-                  |
-                </Text>{" "}
-                Trailer
-              </Heading>
-
-              <AspectRatio
-                w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-                ratio={16 / 9}
-              >
-                <iframe
-                  title="tower defense demo video"
-                  src="https://www.youtube.com/embed/gTNaXtLUB8s"
-                  allowFullScreen
-                />
-              </AspectRatio>
-            </Box>
-            <Box marginTop={"200"} marginBottom={"150"}>
-              <Heading
-                fontFamily={`"Open Sans", sans-serif`}
-                scrollMargin="100px"
-                py={"4"}
-                px={"5"}
-                id={"architecture"}
-                w={{ base: "auto", lg: "full" }}
-                textAlign={{ base: "center", lg: "left" }}
-              >
-                程式架構{" "}
-                <Text as={"span"} fontWeight={"thin"}>
-                  |
-                </Text>{" "}
-                Architecture
-              </Heading>
-
-              <Box
-                bg="teal.50"
-                boxShadow="lg"
-                w={{ base: "90vw", md: "70vw", lg: "67vw" }}
-              >
-                <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
-              </Box>
-            </Box>
-          </Container>
-        </Box>
+        <Banner marginTop={"150"} title={"課堂學習"} bgImage={img_class} />
 
         <Container maxW={"6xl"} py="3" marginTop={"150"} centerContent>
           <Heading

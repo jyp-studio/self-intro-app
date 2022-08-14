@@ -117,7 +117,7 @@ function Opt() {
             <WrapItem key={index} py={{ base: "3", md: "3", lg: "5" }}>
               <IconBox
                 bgColor={"orange.200"}
-                iconColor={"gray.800"}
+                iconColor={"orange.900"}
                 iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
                 textBoxSize={{ base: "60vw", md: "40vw", lg: "17vw" }}
                 textSize={{ base: "sm", md: "lg", lg: "lg" }}
