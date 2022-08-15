@@ -60,7 +60,7 @@ function Opt() {
     { name: "Abstract", icon: FiCompass, href: "#abstract" },
     { name: "Architecture", icon: FiCommand, href: "#architecture" },
     { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Written report", icon: FiFile, href: "#written-report" },
+    { name: "Project report", icon: FiFile, href: "#project-report" },
   ];
 
   // Icon box infomation
@@ -438,7 +438,7 @@ function Opt() {
               scrollMargin="100px"
               py={"4"}
               px={"5"}
-              id={"written-report"}
+              id={"project-report"}
               w={{ base: "auto", lg: "full" }}
               textAlign={{ base: "center", lg: "left" }}
             >
@@ -446,7 +446,7 @@ function Opt() {
               <Text as={"span"} fontWeight={"thin"}>
                 |
               </Text>{" "}
-              Written Report
+              Project Report
             </Heading>
 
             <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>

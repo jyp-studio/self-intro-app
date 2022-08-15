@@ -412,13 +412,7 @@ function PollutionModel() {
                     justify={"center"}
                     alignItems={"center"}
                   >
-                    <Heading
-                      color={"white"}
-                      py={"4"}
-                      fontSize={{ base: "2xl", md: "auto", lg: "4xl" }}
-                    >
-                      動畫後才讓傷害出現
-                    </Heading>
+                    
                     <CheckIcon boxSize={"40px"} color={"green.300"} />
                   </HStack>
                 </Box>
