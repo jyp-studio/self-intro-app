@@ -50,7 +50,7 @@ import img_unity_to_magicVR1 from "../assets/unity_to_magicVR1.png";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/sunrise.jpg";
 
-import pdf from "../assets/numerical_paper.pdf";
+import pdf_proposal from "../assets/vr_proposal.pdf";
 
 function VR() {
   // Sidebar link items
@@ -287,6 +287,7 @@ function VR() {
         </Container>
 
         <Box
+          mt={"150"}
           w={"full"}
           bgColor={"blackAlpha.800"}
           py={"200"}
@@ -496,17 +497,19 @@ function VR() {
               w={{ base: "auto", lg: "full" }}
               textAlign={{ base: "center", lg: "left" }}
             >
-              專題報告書{" "}
+              研究企劃書{" "}
               <Text as={"span"} fontWeight={"thin"}>
                 |
               </Text>{" "}
-              Project Report
+              Reasearch Proposal
             </Heading>
-
+            <Text mt={"5"}>
+              申請科技部大專生專題計畫計劃書，已刪除首頁個人資料表。
+            </Text>
             <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
               <iframe
                 title="numerical opt pdf"
-                src={pdf}
+                src={pdf_proposal}
                 position="absolute"
                 width={"100%"}
                 height={"100%"}

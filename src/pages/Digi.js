@@ -12,6 +12,9 @@ import {
   useColorModeValue,
   HStack,
   Stack,
+  Button,
+  Center,
+  Icon,
 } from "@chakra-ui/react";
 import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
 import {
@@ -40,9 +43,8 @@ import Title from "../components/Title";
 import Banner from "../components/Banner";
 import Rating from "../components/Rating";
 
-import img_uml from "../assets/uml.png";
 import img_bg from "../assets/bg_digi.jpg";
-import img_covid from "../assets/covid.jpg";
+import img_abstract from "../assets/digi_abstract.jpg";
 import img_miro from "../assets/miro.png";
 import img_miro1 from "../assets/miro1.png";
 import img_anime from "../assets/attack_anime.png";
@@ -53,6 +55,8 @@ import img_problem from "../assets/problem.jpg";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/bg_reward.jpg";
 import img_bg_problem from "../assets/bg_problem.jpg";
+import img_class from "../assets/digi_class.jpg";
+import img_debate from "../assets/digi_debate.jpg";
 
 function Digi() {
   // Sidebar link items
@@ -68,13 +72,13 @@ function Digi() {
   const IconBoxItems = [
     {
       icon: BsGearFill,
-      title: "Tool",
-      text: "Python",
+      title: "課堂學習",
+      text: "學習python、資料探勘、APP開發、UI/UX等",
     },
     {
       icon: BsLightbulbFill,
-      title: "",
-      text: "",
+      title: "實務專題",
+      text: "與中傑鞋業合作開發財務報表辨識系統",
     },
   ];
 
@@ -126,8 +130,8 @@ function Digi() {
           {IconBoxItems.map((item, index) => (
             <WrapItem key={index} py={{ base: "3", md: "3", lg: "5" }}>
               <IconBox
-                bgColor={"gray.200"}
-                iconColor={"gray.800"}
+                bgColor={"orange.200"}
+                iconColor={"orange.900"}
                 iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
                 textBoxSize={{ base: "60vw", md: "40vw", lg: "17vw" }}
                 textSize={{ base: "sm", md: "lg", lg: "lg" }}
@@ -157,13 +161,13 @@ function Digi() {
               textAlign={{ base: "center", lg: "left" }}
               fontFamily={`"Open Sans", sans-serif`}
             >
-              摘要{" "}
+              參加動機{" "}
               <Text as={"span"} fontWeight={"thin"}>
                 |
               </Text>{" "}
-              Abstract
+              Motivation
             </Heading>
-            <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
+            <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
             <Flex flexWrap={"wrap"} py="10" justify={"center"}>
               <Text
                 fontFamily={`"Open Sans", sans-serif`}
@@ -172,92 +176,16 @@ function Digi() {
                 px={{ base: "5", md: "5", lg: "10" }}
                 textAlign={"justify"}
               >
-                &emsp;&emsp;2019年，Covid-19突然大流行造成許多人死亡。然而，部分大眾卻仍對其抱持懷疑與不信的態度。
-                <Text as={"span"} fontWeight={"bold"}>
-                  為了讓民眾了解Covid-19的危險性。因此決定以衛教的核心思想設計塔防遊戲。
-                </Text>
-                玩家所要守護的家園即代表個人、家人與朋友的健康，而受病毒所感染的變種人類則試圖感染正常人類。每一波的病毒都會越發增強代表著病毒的變種性與流行性。
-                <Text as={"span"} fontWeight={"bold"}>
-                  期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
-                </Text>
-                <br />
-                &emsp;&emsp;本遊戲使用Python-pygame製作，遊戲主要使用
-                <Text as={"span"} fontWeight={"bold"}>
-                  MVC{"("}
-                  Model-View-Controller{")"}
-                </Text>
-                當做主架構，玩家事件則是使用
-                <Text as={"span"} fontWeight={"bold"}>
-                  observer pattern
-                </Text>
-                以方便增修觸發事件。
+                &emsp;&emsp;有鑑於未來工作型態是與不同領域的人才共同合作，開發產品。
+                為此，我決定參加工研院舉辦的Digi+
+                Talent計畫來提早了解與不同領域的人才、企業，
+                合作的形式，藉此學習團隊溝通、合作、與相關技術。
               </Text>
             </Flex>
           </Box>
         </Container>
 
-        <Box
-          bg={useColorModeValue("gray.50", "blackAlpha.500")}
-          w={"full"}
-          mt={"120"}
-          py={"10"}
-        >
-          <Container maxW={"8xl"} marginTop={"100"} centerContent>
-            <Box>
-              <Heading
-                fontFamily={`"Open Sans", sans-serif`}
-                scrollMargin="100px"
-                py={"4"}
-                px={"5"}
-                id={"trailer"}
-                w={{ base: "auto", lg: "full" }}
-                textAlign={{ base: "center", lg: "left" }}
-              >
-                前導片{" "}
-                <Text as={"span"} fontWeight={"thin"}>
-                  |
-                </Text>{" "}
-                Trailer
-              </Heading>
-
-              <AspectRatio
-                w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-                ratio={16 / 9}
-              >
-                <iframe
-                  title="tower defense demo video"
-                  src="https://www.youtube.com/embed/gTNaXtLUB8s"
-                  allowFullScreen
-                />
-              </AspectRatio>
-            </Box>
-            <Box marginTop={"200"} marginBottom={"150"}>
-              <Heading
-                fontFamily={`"Open Sans", sans-serif`}
-                scrollMargin="100px"
-                py={"4"}
-                px={"5"}
-                id={"architecture"}
-                w={{ base: "auto", lg: "full" }}
-                textAlign={{ base: "center", lg: "left" }}
-              >
-                程式架構{" "}
-                <Text as={"span"} fontWeight={"thin"}>
-                  |
-                </Text>{" "}
-                Architecture
-              </Heading>
-
-              <Box
-                bg="teal.50"
-                boxShadow="lg"
-                w={{ base: "90vw", md: "70vw", lg: "67vw" }}
-              >
-                <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
-              </Box>
-            </Box>
-          </Container>
-        </Box>
+        <Banner marginTop={"150"} title={"課堂學習"} bgImage={img_class} />
 
         <Container maxW={"6xl"} py="3" marginTop={"150"} centerContent>
           <Heading

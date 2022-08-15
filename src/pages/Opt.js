@@ -11,15 +11,9 @@ import {
   VStack,
   Divider,
   useColorModeValue,
-  HStack,
   Stack,
 } from "@chakra-ui/react";
-import {
-  CloseIcon,
-  CheckIcon,
-  StarIcon,
-  ExternalLinkIcon,
-} from "@chakra-ui/icons";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
   FiHome,
   FiCompass,
@@ -52,6 +46,8 @@ import img_numerical_poster2 from "../assets/numerical_poster2.png";
 import img_numerical_poster3 from "../assets/numerical_poster3.png";
 import img_numerical_poster4 from "../assets/numerical_poster4.png";
 import img_Albert_Einstein from "../assets/Albert_Einstein.jpg";
+
+import pdf_project from "../assets/numerical_paper.pdf";
 
 function Opt() {
   // Sidebar link items
@@ -121,7 +117,7 @@ function Opt() {
             <WrapItem key={index} py={{ base: "3", md: "3", lg: "5" }}>
               <IconBox
                 bgColor={"orange.200"}
-                iconColor={"gray.800"}
+                iconColor={"orange.900"}
                 iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
                 textBoxSize={{ base: "60vw", md: "40vw", lg: "17vw" }}
                 textSize={{ base: "sm", md: "lg", lg: "lg" }}
@@ -453,6 +449,7 @@ function Opt() {
               <iframe
                 title="numerical opt pdf"
                 src="https://drive.google.com/file/d/15MRtr8mL9XtxG7JyL70cNwWiCeweTAIf/preview"
+                //src={pdf_project}
                 position="absolute"
                 width={"100%"}
                 height={"100%"}
