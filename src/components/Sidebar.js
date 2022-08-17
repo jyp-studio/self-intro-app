@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Flex, Icon, useColorModeValue, Link } from "@chakra-ui/react";
 
-export default function Sidebar(props) {
+function Sidebar(props) {
   return (
     <Box
       minH="100vh"
@@ -35,7 +35,7 @@ export default function Sidebar(props) {
               role="group"
               cursor="pointer"
               _hover={{ bg: "teal.400", color: "white" }}
-              {...link.rest}
+              {...link}
             >
               {link.icon && (
                 <Icon
@@ -53,3 +53,5 @@ export default function Sidebar(props) {
     </Box>
   );
 }
+
+export default Sidebar;

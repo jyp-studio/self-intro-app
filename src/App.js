@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="project" element={<Project />} />
+          <Route path="/project" element={<Project />} />
           <Route path="/project/tower-defense" element={<TowerDefense />} />
           <Route path="/project/digi" element={<Digi />} />
           <Route path="/project/vr" element={<VR />} />

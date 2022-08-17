@@ -261,7 +261,7 @@ const NAV_ITEMS = [
         label: "Tower Defense",
         subLabel:
           "A game developed by python-pygame with MVC and Obsever pattern.",
-        href: "/project/tower-defense",
+        href: "/project/tower-defense/",
       },
       {
         label: "Digi+ Talent Internship",
