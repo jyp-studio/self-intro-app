@@ -24,7 +24,7 @@ import {
   MoonIcon,
   SunIcon,
 } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -107,6 +107,7 @@ const DesktopNav = () => {
                 as={Link}
                 p={2}
                 to={navItem.pcHref}
+                onClick={() => window.scrollTo({ top: 0 })}
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
@@ -147,6 +148,7 @@ const DesktopSubNav = (props) => {
     <ChakraLink
       as={Link}
       to={props.href}
+      onClick={() => window.scrollTo({ top: 0 })}
       role={"group"}
       display={"block"}
       p={2}
@@ -208,6 +210,7 @@ const MobileNavItem = (props) => {
         py={2}
         as={Link}
         to={props.href ?? "#"}
+        onClick={() => props.href && window.scrollTo({ top: 0 })}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -242,7 +245,13 @@ const MobileNavItem = (props) => {
         >
           {props.children &&
             props.children.map((child) => (
-              <ChakraLink as={Link} key={child.label} py={2} to={child.href}>
+              <ChakraLink
+                as={Link}
+                key={child.label}
+                py={2}
+                to={child.href}
+                onClick={() => window.scrollTo({ top: 0 })}
+              >
                 {child.label}
               </ChakraLink>
             ))}
