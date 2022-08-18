@@ -20,7 +20,7 @@ import {
   ListItem,
   ListIcon,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
 import {
   FiHome,
@@ -127,11 +127,6 @@ function Digi() {
   const textBg = useColorModeValue("gray.50", "gray.900");
   const cardSize = { base: "70vw", md: "50vw", lg: "350px" };
 
-  // lesson cards anchors
-
-  const lesson2 = document.getElementById("lessonCard2");
-  const lesson3 = document.getElementById("lessonCard3");
-
   return (
     <>
       <Navbar />
@@ -217,495 +212,510 @@ function Digi() {
 
         {/* 1. lesson */}
         <Banner marginTop={"150"} title={"課堂學習"} bgImage={img_class} />
-        {/* show all cards without details */}
-        {section === 0 && (
-          <Flex flexWrap={"wrap"} justify={"space-around"} mt={"150"} px={10}>
-            {/* 1. card about class */}
-            <Center py={6} id={"lessonCard1"}>
-              <Box
-                w={cardSize}
-                bg={cardBg}
-                boxShadow={"2xl"}
-                rounded={"md"}
-                overflow={"hidden"}
-              >
+        {/* anchor */}
+        <Container id="cards" maxW={"10xl"} scrollMargin={"100px"}>
+          {/* show all cards without details */}
+          {section === 0 && (
+            <Flex flexWrap={"wrap"} justify={"space-around"} mt={"150"} px={10}>
+              {/* 1. card about class */}
+              <Center py={6} id={"lessonCard1"}>
                 <Box
-                  w={"full"}
-                  h={"200px"}
-                  bgImage={img_dm_class}
-                  roundedTop={"md"}
-                  bgPosition={"center"}
-                  bgSize={"cover"}
-                  position={"relative"}
+                  w={cardSize}
+                  bg={cardBg}
+                  boxShadow={"2xl"}
+                  rounded={"md"}
+                  overflow={"hidden"}
                 >
-                  <Center>
-                    <Heading
-                      fontSize={"3xl"}
-                      position={"absolute"}
-                      top={"50%"}
-                      transform={"translate(0,-50%)"}
-                      color={"whiteAlpha.800"}
-                      backdropFilter={"auto"}
-                      backdropBlur={"8px"}
-                    >
-                      課堂專案與討論
-                    </Heading>
-                  </Center>
-                </Box>
-                <Box bg={textBg} px={10} py={10}>
-                  <List spacing={3} px={10}>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="teal.400" />
-                      人工智慧與物聯網導論
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="teal.400" />
-                      APP開發導論
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="teal.400" />
-                      大數據分析導論
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="teal.400" />
-                      專案管理
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="teal.400" />
-                      視覺化設計規劃
-                    </ListItem>
-                  </List>
-
-                  <Button
-                    mt={10}
+                  <Box
                     w={"full"}
-                    bg={"teal.400"}
-                    color={"white"}
-                    rounded={"xl"}
-                    boxShadow={"0 5px 20px 0px rgb(49 151 149 / 43%)"}
-                    _hover={{
-                      bg: "teal.500",
-                    }}
-                    _focus={{
-                      bg: "teal.500",
-                    }}
-                    onClick={() => setSection(1)}
+                    h={"200px"}
+                    bgImage={img_dm_class}
+                    roundedTop={"md"}
+                    bgPosition={"center"}
+                    bgSize={"cover"}
+                    position={"relative"}
                   >
-                    更多細節
-                  </Button>
-                </Box>
-              </Box>
-            </Center>
+                    <Center>
+                      <Heading
+                        fontSize={"3xl"}
+                        position={"absolute"}
+                        top={"50%"}
+                        transform={"translate(0,-50%)"}
+                        color={"whiteAlpha.800"}
+                        backdropFilter={"auto"}
+                        backdropBlur={"8px"}
+                      >
+                        課堂專案與討論
+                      </Heading>
+                    </Center>
+                  </Box>
+                  <Box bg={textBg} px={10} py={10}>
+                    <List spacing={3} px={10}>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="teal.400" />
+                        人工智慧與物聯網導論
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="teal.400" />
+                        APP開發導論
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="teal.400" />
+                        大數據分析導論
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="teal.400" />
+                        專案管理
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="teal.400" />
+                        視覺化設計規劃
+                      </ListItem>
+                    </List>
 
-            {/* 2. card about AI class*/}
-            <Center py={6} id={"lessonCard2"}>
-              <Box
-                w={cardSize}
-                bg={cardBg}
-                boxShadow={"2xl"}
-                rounded={"md"}
-                overflow={"hidden"}
-              >
-                <Box
-                  w={"full"}
-                  h={"200px"}
-                  bgImage={img_ai_class}
-                  brightness={"20%"}
-                  roundedTop={"md"}
-                  bgPosition={"center"}
-                  bgSize={"cover"}
-                  position={"relative"}
-                >
-                  <Center>
-                    <Heading
-                      fontSize={"3xl"}
-                      position={"absolute"}
-                      top={"50%"}
-                      transform={"translate(0,-50%)"}
-                      color={"whiteAlpha.800"}
-                      backdropFilter={"auto"}
-                      backdropBlur={"8px"}
+                    <Button
+                      mt={10}
+                      w={"full"}
+                      bg={"teal.400"}
+                      color={"white"}
+                      rounded={"xl"}
+                      boxShadow={"0 5px 20px 0px rgb(49 151 149 / 43%)"}
+                      _hover={{
+                        bg: "teal.500",
+                      }}
+                      _focus={{
+                        bg: "teal.500",
+                      }}
+                      onClick={() => {
+                        setSection(1);
+                        const element = document.getElementById("cards");
+                        element.scrollIntoView({ behavior: "smooth" }, false);
+                      }}
                     >
-                      AI必修課程
-                    </Heading>
-                  </Center>
+                      更多細節
+                    </Button>
+                  </Box>
                 </Box>
-                <Box bg={textBg} px={10} py={10}>
-                  <List spacing={3} px={10}>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="yellow.400" />
-                      專題開發
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="yellow.400" />
-                      機器學習、深度學習
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="yellow.400" />
-                      語意機器人
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="yellow.400" />
-                      影像辨識
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="yellow.400" />
-                      IFTTT API串接
-                    </ListItem>
-                  </List>
-
-                  <Button
-                    mt={10}
-                    w={"full"}
-                    bg={"yellow.400"}
-                    color={"white"}
-                    rounded={"xl"}
-                    boxShadow={"0 5px 20px 0px rgb(255 255 59 / 43%)"}
-                    _hover={{
-                      bg: "yellow.500",
-                    }}
-                    _focus={{
-                      bg: "yellow.500",
-                    }}
-                    onClick={() => {
-                      setSection(2);
-                    }}
-                  >
-                    更多細節
-                  </Button>
-                </Box>
-              </Box>
-            </Center>
-
-            {/* 3. card about online class */}
-            <Center py={6} id={"lessonCard3"}>
-              <Box
-                w={cardSize}
-                bg={cardBg}
-                boxShadow={"2xl"}
-                rounded={"md"}
-                overflow={"hidden"}
-              >
-                <Box
-                  w={"full"}
-                  h={"200px"}
-                  bgImage={img_online_class}
-                  roundedTop={"md"}
-                  bgPosition={"center"}
-                  bgSize={"cover"}
-                  position={"relative"}
-                >
-                  <Center>
-                    <Heading
-                      fontSize={"3xl"}
-                      position={"absolute"}
-                      top={"50%"}
-                      transform={"translate(0,-50%)"}
-                      color={"whiteAlpha.800"}
-                      backdropFilter={"auto"}
-                      backdropBlur={"8px"}
-                    >
-                      線上課程與講座
-                    </Heading>
-                  </Center>
-                </Box>
-                <Box bg={textBg} px={10} py={10}>
-                  <List spacing={3} px={10}>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="blue.500" />
-                      人工智慧
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="blue.500" />
-                      區塊鏈技術
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="blue.500" />
-                      數位轉型
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="blue.500" />
-                      設計思考
-                    </ListItem>
-                    <ListItem>
-                      <ListIcon as={CheckIcon} color="blue.500" />
-                      元宇宙
-                    </ListItem>
-                  </List>
-
-                  <Button
-                    mt={10}
-                    w={"full"}
-                    bg={"blue.500"}
-                    color={"white"}
-                    rounded={"xl"}
-                    boxShadow={"0 5px 20px 0px rgb(43 108 176 / 43%)"}
-                    _hover={{
-                      bg: "blue.600",
-                    }}
-                    _focus={{
-                      bg: "blue.600",
-                    }}
-                    onClick={() => {
-                      setSection(3);
-                    }}
-                  >
-                    更多細節
-                  </Button>
-                </Box>
-              </Box>
-            </Center>
-          </Flex>
-        )}
-
-        {/* show first card detail */}
-        {/* 1. card detail */}
-        {section === 1 && (
-          <Container
-            maxW={"6xl"}
-            rounded={"2xl"}
-            bg={containerBg}
-            bgImage={img_dm_class1}
-            bgPosition={"center"}
-            bgSize={"cover"}
-            mt={"150"}
-            p={10}
-            centerContent
-          >
-            <Stack spacing={10} backdropFilter={"auto"} backdropBlur={"8px"}>
-              <Box>
-                <Heading fontSize={"5xl"} color={"white"}>
-                  課堂專案與討論
-                </Heading>
-                <Text mt={5} textAlign={"justify"} color={"gray.400"}>
-                  為與企業進行合作專案，因此有安排相關課程，包含專案管理、APP開發、UI/UX等。
-                  {""}
-                  其中有一次是關於資料探勘的課堂，講師分享他為公司進行資料探勘與分析的經驗，
-                  {""}
-                  並要求我們分組討論，擬定主題並進行資料分析。
-                </Text>
-              </Box>
-              <Divider />
-
-              {/* project name and detail */}
-              <Flex flexWrap={"wrap"}>
-                <Stack spacing={5}>
-                  <Heading fontSize={"4xl"} color={"gray.100"}>
-                    心臟病成因分析
-                  </Heading>
-                  <Text textAlign={"justify"} color={"gray.400"}>
-                    藉由weka資料探勘，分析kaggle上的心臟病成因。
-                  </Text>
-                  <Text textAlign={"justify"}>
-                    <Text as={"span"} fontWeight={"bold"} color={"white"}>
-                      資料來源：
-                    </Text>
-                    <ChakraLink
-                      color={"gray.100"}
-                      href="https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset"
-                      isExternal
-                    >
-                      Kaggle Heart Disease Dataset
-                    </ChakraLink>
-                  </Text>
-                  <Text textAlign={"justify"} color={"gray.100"}>
-                    <Text as={"span"} fontWeight={"bold"} color={"white"}>
-                      研究成員：
-                    </Text>
-                    <br />
-                    潘玠佑(我)：組長，教學組員三種演算法與分派工作。並負責資料預處理、關聯規則的報告與簡報白板。
-                    <br />
-                    黃晰婕：負責資料預處理、分群法的報告與簡報白板。
-                    <br />
-                    黃晟旺：負責分類法的報告與簡報白板。
-                    <br />
-                    王安琪：負責製作與美化簡報，以及主持演講。
-                  </Text>
-                </Stack>
-              </Flex>
-              <Divider />
-
-              {/* project report */}
-              <Center>
-                <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={16 / 9}>
-                  <iframe
-                    title={"heart disease data mining report pdf"}
-                    src={pdf_heart}
-                    position="absolute"
-                    width={"100%"}
-                    height={"100%"}
-                    allow="autoplay"
-                  />
-                </AspectRatio>
               </Center>
 
-              {/* back button */}
-              <Button
-                colorScheme={"whiteAlpha"}
-                color={"whiteAlpha.600"}
-                variant={"ghost"}
-                onClick={() => {
-                  setSection(0);
-                  const element = document.getElementById("lessonCard1");
-                  const offset = 500;
-                  const bodyRect = document.body.getBoundingClientRect().top;
-                  const elementRect = element.getBoundingClientRect().top;
-                  const elementPosition = elementRect - bodyRect;
-                  const offsetPosition = elementPosition - offset;
-                  window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                }}
-              >
-                返回
-              </Button>
-            </Stack>
-          </Container>
-        )}
+              {/* 2. card about AI class*/}
+              <Center py={6} id={"lessonCard2"}>
+                <Box
+                  w={cardSize}
+                  bg={cardBg}
+                  boxShadow={"2xl"}
+                  rounded={"md"}
+                  overflow={"hidden"}
+                >
+                  <Box
+                    w={"full"}
+                    h={"200px"}
+                    bgImage={img_ai_class}
+                    brightness={"20%"}
+                    roundedTop={"md"}
+                    bgPosition={"center"}
+                    bgSize={"cover"}
+                    position={"relative"}
+                  >
+                    <Center>
+                      <Heading
+                        fontSize={"3xl"}
+                        position={"absolute"}
+                        top={"50%"}
+                        transform={"translate(0,-50%)"}
+                        color={"whiteAlpha.800"}
+                        backdropFilter={"auto"}
+                        backdropBlur={"8px"}
+                      >
+                        AI必修課程
+                      </Heading>
+                    </Center>
+                  </Box>
+                  <Box bg={textBg} px={10} py={10}>
+                    <List spacing={3} px={10}>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="yellow.400" />
+                        專題開發
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="yellow.400" />
+                        機器學習、深度學習
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="yellow.400" />
+                        語意機器人
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="yellow.400" />
+                        影像辨識
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="yellow.400" />
+                        IFTTT API串接
+                      </ListItem>
+                    </List>
 
-        {/* 2. card detail */}
-        {section === 2 && (
-          <Container
-            maxW={"6xl"}
-            rounded={"2xl"}
-            bg={containerBg}
-            bgImage={img_ai_class1}
-            bgPosition={"center"}
-            bgSize={"cover"}
-            mt={"150"}
-            p={10}
-            centerContent
-          >
-            <Stack spacing={10} backdropFilter={"auto"} backdropBlur={"8px"}>
-              <Box>
-                <Heading fontSize={"5xl"} color={"white"}>
-                  AI必修課程
-                </Heading>
-                <Text mt={5} textAlign={"justify"} color={"gray.400"}>
-                  為期兩個禮拜的人工智慧課程，教授影像辨識、遠端連線攝影機、{""}
-                  語意機器人、以及利用IFTTT抓取雲端資料和傳送訊息等。
-                </Text>
-              </Box>
-              <Divider />
+                    <Button
+                      mt={10}
+                      w={"full"}
+                      bg={"yellow.400"}
+                      color={"white"}
+                      rounded={"xl"}
+                      boxShadow={"0 5px 20px 0px rgb(255 255 59 / 43%)"}
+                      _hover={{
+                        bg: "yellow.500",
+                      }}
+                      _focus={{
+                        bg: "yellow.500",
+                      }}
+                      onClick={() => {
+                        setSection(2);
+                        const element = document.getElementById("cards");
+                        element.scrollIntoView({ behavior: "smooth" }, false);
+                      }}
+                    >
+                      更多細節
+                    </Button>
+                  </Box>
+                </Box>
+              </Center>
 
-              {/* project name and detail */}
-              <Flex flexWrap={"wrap"}>
-                <Stack spacing={5}>
-                  <Heading fontSize={"4xl"} color={"gray.100"}>
-                    基於影像辨識的自助結帳系統
+              {/* 3. card about online class */}
+              <Center py={6} id={"lessonCard3"}>
+                <Box
+                  w={cardSize}
+                  bg={cardBg}
+                  boxShadow={"2xl"}
+                  rounded={"md"}
+                  overflow={"hidden"}
+                >
+                  <Box
+                    w={"full"}
+                    h={"200px"}
+                    bgImage={img_online_class}
+                    roundedTop={"md"}
+                    bgPosition={"center"}
+                    bgSize={"cover"}
+                    position={"relative"}
+                  >
+                    <Center>
+                      <Heading
+                        fontSize={"3xl"}
+                        position={"absolute"}
+                        top={"50%"}
+                        transform={"translate(0,-50%)"}
+                        color={"whiteAlpha.800"}
+                        backdropFilter={"auto"}
+                        backdropBlur={"8px"}
+                      >
+                        線上課程與講座
+                      </Heading>
+                    </Center>
+                  </Box>
+                  <Box bg={textBg} px={10} py={10}>
+                    <List spacing={3} px={10}>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="blue.500" />
+                        人工智慧
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="blue.500" />
+                        區塊鏈技術
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="blue.500" />
+                        數位轉型
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="blue.500" />
+                        設計思考
+                      </ListItem>
+                      <ListItem>
+                        <ListIcon as={CheckIcon} color="blue.500" />
+                        元宇宙
+                      </ListItem>
+                    </List>
+
+                    <Button
+                      mt={10}
+                      w={"full"}
+                      bg={"blue.500"}
+                      color={"white"}
+                      rounded={"xl"}
+                      boxShadow={"0 5px 20px 0px rgb(43 108 176 / 43%)"}
+                      _hover={{
+                        bg: "blue.600",
+                      }}
+                      _focus={{
+                        bg: "blue.600",
+                      }}
+                      onClick={() => {
+                        setSection(3);
+                        const element = document.getElementById("cards");
+                        element.scrollIntoView({ behavior: "smooth" }, false);
+                      }}
+                    >
+                      更多細節
+                    </Button>
+                  </Box>
+                </Box>
+              </Center>
+            </Flex>
+          )}
+
+          {/* show first card detail */}
+          {/* 1. card detail */}
+          {section === 1 && (
+            <Container
+              maxW={"6xl"}
+              rounded={"2xl"}
+              bg={containerBg}
+              bgImage={img_dm_class1}
+              bgPosition={"center"}
+              bgSize={"cover"}
+              mt={"150"}
+              p={10}
+              centerContent
+            >
+              <Stack spacing={10} backdropFilter={"auto"} backdropBlur={"8px"}>
+                <Box>
+                  <Heading fontSize={"5xl"} color={"white"}>
+                    課堂專案與討論
                   </Heading>
-                  <Text textAlign={"justify"} color={"gray.400"}>
-                    利用影像辨識的方式加速結帳流程，有別於自助條碼和重量感應式的自助結帳系統，
+                  <Text mt={5} textAlign={"justify"} color={"gray.400"}>
+                    為與企業進行合作專案，因此有安排相關課程，包含專案管理、APP開發、UI/UX等。
                     {""}
-                    基於影像辨識的系統能更加精確與準確地辨識商品並藉由API抓取後台資料，回傳並加總金額。
+                    其中有一次是關於資料探勘的課堂，講師分享他為公司進行資料探勘與分析的經驗，
+                    {""}
+                    並要求我們分組討論，擬定主題並進行資料分析。
                   </Text>
-                  <Text textAlign={"justify"}>
-                    <Text as={"span"} fontWeight={"bold"} color={"white"}>
-                      Github：
+                </Box>
+                <Divider />
+
+                {/* project name and detail */}
+                <Flex flexWrap={"wrap"}>
+                  <Stack spacing={5}>
+                    <Heading fontSize={"4xl"} color={"gray.100"}>
+                      心臟病成因分析
+                    </Heading>
+                    <Text textAlign={"justify"} color={"gray.400"}>
+                      藉由weka資料探勘，分析kaggle上的心臟病成因。
                     </Text>
-                    <ChakraLink
-                      color={"gray.100"}
-                      href="https://github.com/jyp-studio/self-checkout"
-                      isExternal
-                    >
-                      Self-Checkout
-                    </ChakraLink>
-                  </Text>
-                  <Text textAlign={"justify"} color={"gray.100"}>
-                    <Text as={"span"} fontWeight={"bold"} color={"white"}>
-                      研究成員：
+                    <Text textAlign={"justify"}>
+                      <Text as={"span"} fontWeight={"bold"} color={"white"}>
+                        資料來源：
+                      </Text>
+                      <ChakraLink
+                        color={"gray.100"}
+                        href="https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset"
+                        isExternal
+                      >
+                        Kaggle Heart Disease Dataset
+                      </ChakraLink>
                     </Text>
-                    <br />
-                    潘玠佑(我)：組長，帶領討論、統整程式、製作簡報、與上台報告。
-                    <br />
-                    邱沛慈：影像辨識。
-                    <br />
-                    巫鎔輿：GUI設計。
-                    <br />
-                    陳宣仁：統整程式。
-                    <br />
-                    林宇哲：製作簡報、語意機器人。
-                    <br />
-                    陳玠宏：串接資料表。
+                    <Text textAlign={"justify"} color={"gray.100"}>
+                      <Text as={"span"} fontWeight={"bold"} color={"white"}>
+                        研究成員：
+                      </Text>
+                      <br />
+                      潘玠佑(我)：組長，教學組員三種演算法與分派工作。並負責資料預處理、關聯規則的報告與簡報白板。
+                      <br />
+                      黃晰婕：負責資料預處理、分群法的報告與簡報白板。
+                      <br />
+                      黃晟旺：負責分類法的報告與簡報白板。
+                      <br />
+                      王安琪：負責製作與美化簡報，以及主持演講。
+                    </Text>
+                  </Stack>
+                </Flex>
+                <Divider />
+
+                {/* project report */}
+                <Center>
+                  <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={16 / 9}>
+                    <iframe
+                      title={"heart disease data mining report pdf"}
+                      src={pdf_heart}
+                      position="absolute"
+                      width={"100%"}
+                      height={"100%"}
+                      allow="autoplay"
+                    />
+                  </AspectRatio>
+                </Center>
+
+                {/* back button */}
+                <Button
+                  colorScheme={"whiteAlpha"}
+                  color={"whiteAlpha.600"}
+                  variant={"ghost"}
+                  onClick={() => {
+                    setSection(0);
+                    const element = document.getElementById("cards");
+                    element.scrollIntoView({ behavior: "smooth" }, false);
+                  }}
+                >
+                  返回
+                </Button>
+              </Stack>
+            </Container>
+          )}
+
+          {/* 2. card detail */}
+          {section === 2 && (
+            <Container
+              maxW={"6xl"}
+              rounded={"2xl"}
+              bg={containerBg}
+              bgImage={img_ai_class1}
+              bgPosition={"center"}
+              bgSize={"cover"}
+              mt={"150"}
+              p={10}
+              centerContent
+            >
+              <Stack spacing={10} backdropFilter={"auto"} backdropBlur={"8px"}>
+                <Box>
+                  <Heading fontSize={"5xl"} color={"white"}>
+                    AI必修課程
+                  </Heading>
+                  <Text mt={5} textAlign={"justify"} color={"gray.400"}>
+                    為期兩個禮拜的人工智慧課程，教授影像辨識、遠端連線攝影機、
+                    {""}
+                    語意機器人、以及利用IFTTT抓取雲端資料和傳送訊息等。
                   </Text>
-                </Stack>
-              </Flex>
-              <Divider />
+                </Box>
+                <Divider />
 
-              {/* project report */}
-              <Center>
-                <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={16 / 9}>
-                  <iframe
-                    title={"self-checkout report pdf"}
-                    src={pdf_self_checkout}
-                    position="absolute"
-                    width={"100%"}
-                    height={"100%"}
-                    allow="autoplay"
-                  />
-                </AspectRatio>
-              </Center>
+                {/* project name and detail */}
+                <Flex flexWrap={"wrap"}>
+                  <Stack spacing={5}>
+                    <Heading fontSize={"4xl"} color={"gray.100"}>
+                      基於影像辨識的自助結帳系統
+                    </Heading>
+                    <Text textAlign={"justify"} color={"gray.400"}>
+                      利用影像辨識的方式加速結帳流程，有別於自助條碼和重量感應式的自助結帳系統，
+                      {""}
+                      基於影像辨識的系統能更加精確與準確地辨識商品並藉由API抓取後台資料，回傳並加總金額。
+                    </Text>
+                    <Text textAlign={"justify"}>
+                      <Text as={"span"} fontWeight={"bold"} color={"white"}>
+                        Github：
+                      </Text>
+                      <ChakraLink
+                        color={"gray.100"}
+                        href="https://github.com/jyp-studio/self-checkout"
+                        isExternal
+                      >
+                        Self-Checkout
+                      </ChakraLink>
+                    </Text>
+                    <Text textAlign={"justify"} color={"gray.100"}>
+                      <Text as={"span"} fontWeight={"bold"} color={"white"}>
+                        研究成員：
+                      </Text>
+                      <br />
+                      潘玠佑(我)：組長，帶領討論、統整程式、製作簡報、與上台報告。
+                      <br />
+                      邱沛慈：影像辨識。
+                      <br />
+                      巫鎔輿：GUI設計。
+                      <br />
+                      陳宣仁：統整程式。
+                      <br />
+                      林宇哲：製作簡報、語意機器人。
+                      <br />
+                      陳玠宏：串接資料表。
+                    </Text>
+                  </Stack>
+                </Flex>
+                <Divider />
 
-              {/* back button */}
-              <Button
-                colorScheme={"whiteAlpha"}
-                color={"whiteAlpha.600"}
-                variant={"ghost"}
-                onClick={() => setSection(0)}
-              >
-                返回
-              </Button>
-            </Stack>
-          </Container>
-        )}
+                {/* project report */}
+                <Center>
+                  <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={16 / 9}>
+                    <iframe
+                      title={"self-checkout report pdf"}
+                      src={pdf_self_checkout}
+                      position="absolute"
+                      width={"100%"}
+                      height={"100%"}
+                      allow="autoplay"
+                    />
+                  </AspectRatio>
+                </Center>
 
-        {/* 3. card detail */}
-        {section === 3 && (
-          <Container
-            maxW={"6xl"}
-            rounded={"2xl"}
-            bg={containerBg}
-            bgImage={img_online_class1}
-            bgPosition={"center"}
-            bgSize={"cover"}
-            mt={"150"}
-            p={10}
-            centerContent
-          >
-            <Stack spacing={10} backdropFilter={"auto"} backdropBlur={"8px"}>
-              <Box>
-                <Heading fontSize={"5xl"} color={"white"}>
-                  線上課程與講座
+                {/* back button */}
+                <Button
+                  colorScheme={"whiteAlpha"}
+                  color={"whiteAlpha.600"}
+                  variant={"ghost"}
+                  onClick={() => {
+                    setSection(0);
+                    const element = document.getElementById("cards");
+                    element.scrollIntoView({ behavior: "smooth" }, false);
+                  }}
+                >
+                  返回
+                </Button>
+              </Stack>
+            </Container>
+          )}
+
+          {/* 3. card detail */}
+          {section === 3 && (
+            <Container
+              maxW={"6xl"}
+              rounded={"2xl"}
+              bg={containerBg}
+              bgImage={img_online_class1}
+              bgPosition={"center"}
+              bgSize={"cover"}
+              mt={"150"}
+              p={10}
+              centerContent
+            >
+              <Stack spacing={10} backdropFilter={"auto"} backdropBlur={"8px"}>
+                <Box>
+                  <Heading fontSize={"5xl"} color={"white"}>
+                    線上課程與講座
+                  </Heading>
+                  <Text mt={5} textAlign={"justify"} color={"gray.400"}>
+                    在Digi+ Talent網路學習中心對感興趣的課程進行自主學習與評量：
+                    {""}
+                    內容主要包含人工智慧、區塊鏈技術、Docker、智慧聯網等。
+                    同時，也參與許多政府舉辦講座關於設計思考、數位轉型、ESG等，以此豐富自我知識與視野。
+                  </Text>
+                </Box>
+                <Divider />
+
+                {/* digi certificates */}
+                <Heading fontSize={"4xl"} color={"gray.100"}>
+                  部分課程證書
                 </Heading>
-                <Text mt={5} textAlign={"justify"} color={"gray.400"}>
-                  在Digi+ Talent網路學習中心對感興趣的課程進行自主學習與評量：
-                  {""}
-                  內容主要包含人工智慧、區塊鏈技術、Docker、智慧聯網等。
-                  同時，也參與許多政府舉辦講座關於設計思考、數位轉型、ESG等，以此豐富自我知識與視野。
-                </Text>
-              </Box>
-              <Divider />
+                <VStack spacing={10}>
+                  <Image src={img_digi_certificate} w={"50vw"} />
+                  <Image src={img_digi_certificate1} w={"50vw"} />
+                  <Image src={img_digi_certificate2} w={"50vw"} />
+                </VStack>
 
-              {/* digi certificates */}
-              <Heading fontSize={"4xl"} color={"gray.100"}>
-                部分課程證書
-              </Heading>
-              <VStack spacing={10}>
-                <Image src={img_digi_certificate} w={"50vw"} />
-                <Image src={img_digi_certificate1} w={"50vw"} />
-                <Image src={img_digi_certificate2} w={"50vw"} />
-              </VStack>
-
-              {/* back button */}
-              <Button
-                colorScheme={"whiteAlpha"}
-                color={"whiteAlpha.600"}
-                variant={"ghost"}
-                onClick={() => setSection(0)}
-              >
-                返回
-              </Button>
-            </Stack>
-          </Container>
-        )}
+                {/* back button */}
+                <Button
+                  colorScheme={"whiteAlpha"}
+                  color={"whiteAlpha.600"}
+                  variant={"ghost"}
+                  onClick={() => {
+                    setSection(0);
+                    const element = document.getElementById("cards");
+                    element.scrollIntoView({ behavior: "smooth" }, false);
+                  }}
+                >
+                  返回
+                </Button>
+              </Stack>
+            </Container>
+          )}
+        </Container>
 
         <Container maxW={"6xl"} py="3" marginTop={"150"} centerContent>
           <Heading
