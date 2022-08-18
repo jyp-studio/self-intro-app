@@ -127,6 +127,11 @@ function Digi() {
   const textBg = useColorModeValue("gray.50", "gray.900");
   const cardSize = { base: "70vw", md: "50vw", lg: "350px" };
 
+  // lesson cards anchors
+
+  const lesson2 = document.getElementById("lessonCard2");
+  const lesson3 = document.getElementById("lessonCard3");
+
   return (
     <>
       <Navbar />
@@ -216,7 +221,7 @@ function Digi() {
         {section === 0 && (
           <Flex flexWrap={"wrap"} justify={"space-around"} mt={"150"} px={10}>
             {/* 1. card about class */}
-            <Center py={6}>
+            <Center py={6} id={"lessonCard1"}>
               <Box
                 w={cardSize}
                 bg={cardBg}
@@ -284,9 +289,7 @@ function Digi() {
                     _focus={{
                       bg: "teal.500",
                     }}
-                    onClick={() => {
-                      setSection(1);
-                    }}
+                    onClick={() => setSection(1)}
                   >
                     更多細節
                   </Button>
@@ -295,7 +298,7 @@ function Digi() {
             </Center>
 
             {/* 2. card about AI class*/}
-            <Center py={6}>
+            <Center py={6} id={"lessonCard2"}>
               <Box
                 w={cardSize}
                 bg={cardBg}
@@ -375,7 +378,7 @@ function Digi() {
             </Center>
 
             {/* 3. card about online class */}
-            <Center py={6}>
+            <Center py={6} id={"lessonCard3"}>
               <Box
                 w={cardSize}
                 bg={cardBg}
@@ -541,7 +544,16 @@ function Digi() {
                 colorScheme={"whiteAlpha"}
                 color={"whiteAlpha.600"}
                 variant={"ghost"}
-                onClick={() => setSection(0)}
+                onClick={() => {
+                  setSection(0);
+                  const element = document.getElementById("lessonCard1");
+                  const offset = 500;
+                  const bodyRect = document.body.getBoundingClientRect().top;
+                  const elementRect = element.getBoundingClientRect().top;
+                  const elementPosition = elementRect - bodyRect;
+                  const offsetPosition = elementPosition - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+                }}
               >
                 返回
               </Button>
