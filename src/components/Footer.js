@@ -10,6 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebook, FaGithub } from "react-icons/fa";
+import AboutModal from "./AboutModal";
+import ContactModal from "./ContactModal";
 
 // social button component in fotter
 const SocialButton = (props) => {
@@ -57,18 +59,15 @@ function Footer() {
             JYP - STUDIO
           </Text>
           <Stack direction={"row"} spacing={6}>
-            <ChakraLink as={Link} to={"/#"}>
+            <ChakraLink
+              as={Link}
+              to={"/"}
+              onClick={() => window.scrollTo({ top: 0 })}
+            >
               Home
             </ChakraLink>
-            <ChakraLink as={Link} to={"#"}>
-              About
-            </ChakraLink>
-            <ChakraLink as={Link} to={"#"}>
-              Blog
-            </ChakraLink>
-            <ChakraLink as={Link} to={"#"}>
-              Contact
-            </ChakraLink>
+            <AboutModal />
+            <ContactModal />
           </Stack>
         </Container>
 
