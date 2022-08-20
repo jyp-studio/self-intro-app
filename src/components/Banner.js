@@ -4,6 +4,8 @@ import "@fontsource/open-sans";
 function Banner(props) {
   return (
     <Box
+      id={props.id}
+      scrollMargin={props.scrollMargin}
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"
