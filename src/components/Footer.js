@@ -85,7 +85,7 @@ function Footer() {
             justify={{ base: "center", md: "space-between" }}
             align={{ base: "center", md: "center" }}
           >
-            <Text>This self-intro-app is created with Chakra-UI.</Text>
+            <Text>JYP's self-intro</Text>
             <Stack direction={"row"} spacing={6}>
               <SocialButton
                 label={"Github"}
