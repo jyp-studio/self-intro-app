@@ -1,34 +1,25 @@
 import {
   Box,
-  Flex,
   Text,
-  Image,
-  Heading,
-  AspectRatio,
-  WrapItem,
   Container,
-  Button,
   VStack,
-  Badge,
-  HStack,
   Link as ChakraLink,
-  Spacer,
-  useColorMode,
   useColorModeValue,
-  Stack,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import video_flappy_bird from "../assets/flappy_bird.mp4";
-import video_mp3 from "../assets/music_player.MP4";
-import img_ha_structure from "../assets/ha_structure.png";
-import img_bg from "../assets/bg_sideproject.jpg";
+import { FaUnity } from "react-icons/fa";
+import { FiHome, FiLayout, FiMusic, FiSmartphone } from "react-icons/fi";
+
 import Title from "../components/Title";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-import { FaUnity } from "react-icons/fa";
-import { FiHome, FiLayout, FiMusic, FiSmartphone } from "react-icons/fi";
 import SideProjectCard from "../components/SideprojectCard";
+
+import img_ha_structure from "../assets/ha_structure.png";
+import img_ha_structure_darkmode from "../assets/ha_structure_darkmode.png";
+import img_react from "../assets/react_schedule.png";
+import img_bg from "../assets/bg_sideproject.jpg";
 
 function SideProject() {
   // Sidebar link items
@@ -43,27 +34,32 @@ function SideProject() {
   // side projects
   const SideProject = [
     {
+      id: "flappy-bird",
       name: "Unity Flappy Bird",
       badge: ["Unity bolt", "C#", "Flexibility"],
       text: <UnityText />,
-      video: video_flappy_bird,
+      video: "https://www.youtube.com/embed/isXY8-sT2Xg",
     },
     {
+      id: "ha",
       name: "Home Assistant",
       badge: ["Raspberry Pi 4", "Smart Home", "ZeroTier"],
       text: <HAText />,
-      image: img_ha_structure,
+      image: useColorModeValue(img_ha_structure, img_ha_structure_darkmode),
     },
     {
+      id: "react",
       name: "React App",
       badge: ["JavaScript", "HTML/CSS", "PHP/Laravel"],
       text: <ReactText />,
+      image: img_react,
     },
     {
+      id: "mp",
       name: "Music Player",
       badge: ["Rasberry Pi 4", "Python-Pygame", "Spotify"],
       text: <MusicPlayerText />,
-      video: video_mp3,
+      video: "https://www.youtube.com/embed/dTfJ4TKFkAo",
     },
   ];
   return (

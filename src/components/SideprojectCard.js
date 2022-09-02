@@ -24,8 +24,8 @@ function SideProjectCard(props) {
         <Flex w={"full"}>
           <Heading
             flex={1}
-            scrollMargin="100px"
-            id={"flappy-bird"}
+            scrollMargin="150px"
+            id={props.id}
             w={{ base: "full", lg: "auto" }}
             textAlign={{ base: "center", lg: "left" }}
           >
@@ -66,22 +66,12 @@ function SideProjectCard(props) {
           </HStack>
         </Flex>
 
-        {/* <Text fontSize={"xl"} textAlign={"justify"} py={5}> */}
         {props.text}
-        {/* </Text> */}
 
-        {props.image && (
-          <Box w={{ base: "90vw", md: "70vw", lg: "70vw" }}>
-            <Image src={props.image} />
-          </Box>
-        )}
+        {props.image && <Image src={props.image} />}
 
         {props.video && (
-          <AspectRatio
-            justify={"center"}
-            // w={{ base: "70vw", md: "60vw", lg: "40vw" }}
-            ratio={16 / 9}
-          >
+          <AspectRatio justify={"center"} ratio={16 / 9}>
             <iframe
               title="flappy bird video"
               src={props.video}
