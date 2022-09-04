@@ -44,16 +44,8 @@ import Rating from "../components/Rating";
 import img_uml from "../assets/pollution_uml.png";
 import img_bg from "../assets/bg_pollution.jpg";
 import img_abstract from "../assets/pollution_abstract.jpg";
-import img_miro from "../assets/miro.png";
-import img_miro1 from "../assets/miro1.png";
-import img_anime from "../assets/attack_anime.png";
-import img_anime1 from "../assets/attack_anime1.png";
-import img_distribution_chart from "../assets/work_distribution_chart.png";
-import img_bg_sticky from "../assets/bg_sticky_note.jpg";
-import img_problem from "../assets/problem.jpg";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/bg_reward.jpg";
-import img_bg_problem from "../assets/bg_problem.jpg";
 
 import pdf_project from "../assets/pollution_project.pdf";
 

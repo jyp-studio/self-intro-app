@@ -11,6 +11,7 @@ import {
   Link,
   HStack,
   Stack,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 import { FiMail, FiPhone } from "react-icons/fi";
 
@@ -22,12 +23,13 @@ function ContactModal() {
         Contact
       </Text>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Contact</ModalHeader>
+          <ModalCloseButton />
           <ModalBody>
-            <Stack spacing={5}>
+            <Stack spacing={5} py={5}>
               <Text fontWeight={"bold"}>潘玠佑 JYP</Text>
               <HStack spacing={5}>
                 <FiMail />
@@ -39,12 +41,6 @@ function ContactModal() {
               </HStack>
             </Stack>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="teal" mr={3} onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>

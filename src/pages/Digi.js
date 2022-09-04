@@ -217,12 +217,7 @@ function Digi() {
           id="lecture"
           scrollMargin="150px"
         />
-        <Container
-          id="cards"
-          maxW={"10xl"}
-          scrollMargin={"100px"}
-          centerContent
-        >
+        <Container id="cards" maxW={"10xl"} centerContent>
           {/* show all cards without details */}
           {section === 0 && (
             <Flex

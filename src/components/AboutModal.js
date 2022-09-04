@@ -13,6 +13,7 @@ import {
   Link,
   Stack,
   Divider,
+  ModalCloseButton,
 } from "@chakra-ui/react";
 
 function AboutModal() {
@@ -23,12 +24,13 @@ function AboutModal() {
         About
       </Text>
 
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>About</ModalHeader>
+          <ModalCloseButton />
           <ModalBody>
-            <Stack spacing={5}>
+            <Stack spacing={5} py={5}>
               <Text>
                 <Text as={"span"} fontWeight="bold">
                   開發：
@@ -50,12 +52,6 @@ function AboutModal() {
               <Text>使用Chakra UI美化頁面</Text>
             </Stack>
           </ModalBody>
-
-          <ModalFooter>
-            <Button colorScheme="teal" mr={3} onClick={onClose}>
-              Close
-            </Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
     </>
