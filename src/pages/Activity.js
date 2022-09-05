@@ -19,8 +19,25 @@ import {
   TagRightIcon,
   Spacer,
   HStack,
+  Divider,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
+import {
+  FiHome,
+  FiUser,
+  FiChevronLeft,
+  FiChevronRight,
+  FiFeather,
+  FiBookOpen,
+  FiUserCheck,
+  FiSun,
+} from "react-icons/fi";
+
+import Navbar from "../components/Navbar";
+import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
+import Banner from "../components/Banner";
+
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_guitarist from "../assets/guitarist1.png";
 import img_mc_all_spotlight from "../assets/mc_all_spotlight.jpg";
@@ -33,36 +50,20 @@ import img_learn from "../assets/learn_bg.png";
 import img_mobile_learn from "../assets/mobile_learn_bg.png";
 import img_confidence from "../assets/confidence_bg.png";
 import img_mobile_confidence from "../assets/mobile_confidence_bg.jpg";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import {
-  FiHome,
-  FiCompass,
-  FiYoutube,
-  FiCommand,
-  FiMessageCircle,
-  FiBox,
-  FiChevronLeft,
-  FiChevronRight,
-  FiFeather,
-  FiBookOpen,
-  FiUserCheck,
-} from "react-icons/fi";
-
+import img_workshop from "../assets/workshop.jpg";
+import img_activity from "../assets/activity.JPG";
+import img_led from "../assets/led.jpg";
+import img_dt_workshop from "../assets/dt_workshop.png";
 // Sidebar link items
 const LinkItems = [
-  { id: "link_1", name: "Home", icon: FiHome, href: "#" },
-  { id: "link_2", name: "Abstract", icon: FiCompass, href: "#abstract" },
-  { id: "link_3", name: "Trailer", icon: FiYoutube, href: "#trailer" },
+  { name: "Home", icon: FiHome, href: "#" },
+  { name: "Personality", icon: FiUser, href: "#personality" },
+  { name: "Workshop", icon: FiBookOpen, href: "#workshop" },
   {
-    id: "link_4",
-    name: "Architecture",
-    icon: FiCommand,
-    href: "#architecture",
+    name: "Extracurricular Activity",
+    icon: FiSun,
+    href: "#extracurricular",
   },
-  { id: "link_5", name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-  { id: "link_6", name: "Demo", icon: FiBox, href: "#demo" },
 ];
 
 // Settings for the slider
@@ -145,6 +146,7 @@ function Activity() {
       <Sidebar linkItems={LinkItems} key={LinkItems.id} />
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
+        {/* title */}
         <Box
           position={"relative"}
           height={"600px"}
@@ -238,13 +240,19 @@ function Activity() {
             ))}
           </Slider>
         </Box>
-        <Box bg={useColorModeValue("gray.50", "black")}>
+
+        {/* personality */}
+        <Box bg={useColorModeValue("gray.50", "black")} py={100}>
           {/* here is widget */}
-          <VStack>
-            <Heading marginTop={"10"} fontSize={"6xl"}>
-              人格特質
-            </Heading>
-          </VStack>
+          <Heading
+            fontSize={"6xl"}
+            textAlign={"center"}
+            id="personality"
+            scrollMargin={150}
+          >
+            人格特質
+          </Heading>
+
           {/* desktop widgets */}
           <Flex
             flexWrap={"wrap"}
@@ -273,35 +281,135 @@ function Activity() {
           </Flex>
         </Box>
 
-        {/* body of content */}
-
+        {/* class */}
+        <Banner
+          title={"工作坊｜Workshop"}
+          bgImage={img_workshop}
+          id="workshop"
+          scrollMargin="150px"
+        />
         <Container maxW={"8xl"} py="3" centerContent>
-          <Flex flexWrap={"wrap"} justify="center" marginTop={"15"}>
+          <Stack spacing={2} mt={150} maxW={{ base: "sm", lg: "xl" }}>
+            <Heading fontSize={{ base: "3xl", md: "5xl" }}>LED光蛇</Heading>
+            <Text
+              textAlign="justify"
+              color={useColorModeValue("gray.400", "gray.500")}
+            >
+              參加工科系創客計畫，將傳統光棒導入程式控制使其展項更多花樣。
+            </Text>
+            <Divider />
+            <Text
+              textAlign={"justify"}
+              lineHeight={2}
+              color={useColorModeValue("gray.800", "gray.200")}
+            >
+              在學長姐的帶領下，學習使用Arduino板來撰寫程式，以及焊接電路板。
+              {""}
+              當時是第一次接觸這些，覺得很新奇也很有成就感，{""}
+              使我日後喜歡上撰寫程式，並將其實際應用。
+            </Text>
+            <HStack spacing={"2"}>
+              <CreativityTags />
+              <LearnerTags />
+            </HStack>
+          </Stack>
+          <Box
+            mt={5}
+            rounded={"lg"}
+            shadow={"xl"}
+            h={{ base: "300px", lg: "400px" }}
+            bgImage={img_led}
+            bgPos={"center"}
+            bgSize={"cover"}
+            bgRepeat={"no-repeat"}
+            width={{ base: "90vw", md: "md", lg: "50vw" }}
+            justify="center"
+          />
+
+          <Stack spacing={2} mt={150} maxW={{ base: "sm", lg: "xl" }}>
+            <Heading fontSize={{ base: "3xl", md: "5xl" }}>
+              設計思考工作坊
+            </Heading>
+            <Text
+              textAlign="justify"
+              color={useColorModeValue("gray.400", "gray.500")}
+            >
+              數次參加游濟華老師與李孟學老師所舉辦的設計思考工作坊。
+            </Text>
+            <Divider />
+            <Text
+              textAlign={"justify"}
+              lineHeight={2}
+              color={useColorModeValue("gray.800", "gray.200")}
+            >
+              學會運用設計思考的方式來發想題目，製作專題。{""}
+              像是在Digi+
+              Talent實習計畫的AI必修課程中，帶領同儕從生活中發想問題，{""}
+              並利用AI來解決問題——「基於影像辨識的自助結帳系統。」
+            </Text>
+            <HStack spacing={"2"}>
+              <CreativityTags />
+              <LearnerTags />
+            </HStack>
+          </Stack>
+          <Box
+            mt={5}
+            rounded={"lg"}
+            shadow={"xl"}
+            h={{ base: "300px", lg: "400px" }}
+            bgImage={img_dt_workshop}
+            bgPos={"center"}
+            bgSize={"cover"}
+            bgRepeat={"no-repeat"}
+            width={{ base: "90vw", md: "md", lg: "50vw" }}
+            justify="center"
+          />
+        </Container>
+
+        {/* extracurricular */}
+        <Banner
+          marginTop={150}
+          title={"課外活動｜Extracurricular Activity"}
+          bgImage={img_activity}
+          id="extracurricular"
+          scrollMargin="150px"
+        />
+        <Container maxW={"9xl"} py="3" centerContent>
+          <Flex flexWrap={"wrap"} justify="center" marginTop={"150"}>
             <Center>
-              <Box p="2" w="sm">
-                <Heading
-                  fontSize={{ base: "2xl", md: "3vw" }}
-                  textAlign={{ base: "center", lg: "left" }}
-                >
+              <Stack spacing={2} p="2" maxW="sm">
+                <Heading fontSize={{ base: "3xl", md: "5xl" }}>
                   活動總召
                 </Heading>
                 <Text
-                  textAlign={{ base: "center", lg: "left" }}
-                  fontSize={{ base: "lg", md: "xl" }}
+                  textAlign="justify"
+                  color={useColorModeValue("gray.400", "gray.500")}
                 >
                   感恩節活動時，擔任中友扒雞會總召
                 </Text>
-
-                <HStack spacing={"2"} justify={{ base: "center", lg: "left" }}>
+                <Divider />
+                <Text
+                  lineHeight={2}
+                  color={useColorModeValue("gray.800", "gray.200")}
+                >
+                  在過程中，我學習到以下幾點：
+                  <br />
+                  1. 專案管理，統籌所有工作、流程與內容。
+                  <br />
+                  2. 妥善指派工作與溝通來達成良善的團隊合作。
+                  <br />
+                  3. 課業和活動的時間分配和取捨。
+                </Text>
+                <HStack spacing={"2"}>
                   <CreativityTags />
                   <ConfidenceTags />
                 </HStack>
-              </Box>
+              </Stack>
             </Center>
             <Box
               p="2"
               width={{ base: "90vw", md: "md", lg: "40vw" }}
-              justify={{ base: "center", lg: "left" }}
+              justify={{ base: "left" }}
             >
               <Image
                 borderRadius="lg"
@@ -316,27 +424,33 @@ function Activity() {
             flexWrap="wrap"
             flexDirection="row-reverse"
             justify="center"
-            marginTop={"20"}
+            marginTop={"150"}
           >
             <Center px={{ base: "0", lg: "5" }}>
-              <Box p="2" w="sm">
-                <Heading
-                  fontSize={{ base: "2xl", md: "3vw" }}
-                  textAlign={{ base: "center", lg: "left" }}
-                >
+              <Stack spacing={2} p="2" maxW="sm">
+                <Heading fontSize={{ base: "3xl", md: "5xl" }}>
                   營隊講者
                 </Heading>
                 <Text
-                  fontSize={{ base: "lg", md: "xl" }}
-                  textAlign={{ base: "center", lg: "left" }}
+                  textAlign="justify"
+                  color={useColorModeValue("gray.400", "gray.500")}
                 >
                   擔任兩次中友科系探索營的科系講者，負責介紹系所、準備歷程與讀書計畫等。
                 </Text>
-                <HStack spacing={"2"} justify={{ base: "center", lg: "left" }}>
+                <Divider />
+                <Text
+                  textAlign="justify"
+                  color={useColorModeValue("gray.800", "gray.200")}
+                >
+                  以往國高中時便經常擔任主持人、上台表演與演講，{""}
+                  甚至現在大學也經常上台報告，擔任營隊講師等。{""}
+                  因此，有訓練好的口條與邏輯思維來應對演講與報告。
+                </Text>
+                <HStack spacing={"2"}>
                   <ConfidenceTags />
                   <LearnerTags />
                 </HStack>
-              </Box>
+              </Stack>
             </Center>
             <Box
               p="2"
@@ -352,25 +466,40 @@ function Activity() {
             </Box>
           </Flex>
 
-          <Flex flexWrap={"wrap"} justify="center" marginTop={"20"}>
+          <Flex
+            flexWrap={"wrap"}
+            justify="center"
+            marginTop={"150"}
+            px={{ base: "0", lg: "20" }}
+          >
             <Center>
-              <Box p="2" w="lg">
+              <Stack spacing={2} p="2" maxW={{ base: "sm", lg: "5xl" }}>
                 <Heading
-                  fontSize={{ base: "2xl", md: "3vw" }}
-                  textAlign={"center"}
+                  fontSize={{ base: "3xl", md: "5xl" }}
+                  textAlign={{ lg: "center" }}
                 >
                   隊輔x表演
                 </Heading>
-                <Text textAlign={"center"} fontSize={{ base: "lg", md: "xl" }}>
+                <Text
+                  textAlign={"justify"}
+                  color={useColorModeValue("gray.400", "gray.500")}
+                >
                   在兩次中友科系探索營中除了擔任講者外，同時也有擔任過隊輔，領導小隊員；
                   擔任MC、樂團吉他手等。
                 </Text>
-
+                <Divider />
+                <Text
+                  textAlign="justify"
+                  color={useColorModeValue("gray.800", "gray.200")}
+                >
+                  從中不但讓我更加熟練於上台表演與報告、台風更加穩健外，{""}
+                  更讓我學習和他人交流、溝通，學習待人處事的方式和人情世故。
+                </Text>
                 <HStack spacing={"2"} justify={{ base: "center", lg: "left" }}>
                   <CreativityTags />
                   <ConfidenceTags />
                 </HStack>
-              </Box>
+              </Stack>
             </Center>
           </Flex>
           <Flex flexWrap={"wrap"} justify="center">

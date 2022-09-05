@@ -71,10 +71,9 @@ function Certificate() {
           <Stack spacing={100} mt={"100"} w={"full"} textAlign={"center"}>
             <Box
               px={5}
-              bgColor={useColorModeValue("gray.100", "gray.700")}
+              bgColor={useColorModeValue("gray.50", "gray.700")}
               rounded={"xl"}
-              border="1px"
-              borderColor={useColorModeValue("gray.100", "gray.700")}
+              boxShadow={"sm"}
             >
               <TableContainer>
                 <Table variant="simple">
