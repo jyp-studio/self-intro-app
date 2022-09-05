@@ -32,6 +32,7 @@ function Banner(props) {
           left={"50%"}
           transform={"translate(-50%, -50%)"}
           py={"100"}
+          px={"10"}
           w={{ base: "80vw", md: "50vw" }}
           border={"2px"}
           borderColor={props.color ?? "gray.100"}

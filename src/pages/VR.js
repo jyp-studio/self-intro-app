@@ -25,6 +25,7 @@ import {
 import {
   BsGearFill,
   BsLightbulbFill,
+  BsCheckSquareFill,
   BsAwardFill,
   BsFillPersonFill,
 } from "react-icons/bs";
@@ -68,20 +69,25 @@ function VR() {
       title: "導師/實驗室",
       text: "黃悅民教授/多媒體網路實驗室",
     },
+    // {
+    //   icon: BsLightbulbFill,
+    //   title: "設計理念",
+    //   text: "將VR的應用範圍拓展到教育上",
+    // },
+    // {
+    //   icon: BsGearFill,
+    //   title: "Tool",
+    //   text: "Magic VR, Python, Linux, Blender, Cinema 4D",
+    // },
     {
-      icon: BsLightbulbFill,
-      title: "設計理念",
-      text: "將VR的應用範圍拓展到教育上",
-    },
-    {
-      icon: BsGearFill,
-      title: "Tool",
-      text: "Magic VR, Python, Linux, Blender, Cinema 4D",
+      icon: BsCheckSquareFill,
+      title: "獲得補助",
+      text: "科技部大專生計畫(MOST) & 成大工學院補助",
     },
     {
       icon: BsAwardFill,
-      title: "獲得補助",
-      text: "科技部大專生計畫(MOST) & 成大工學院補助",
+      title: "獲得獎項",
+      text: "成大專題競賽研究獎 第二名",
     },
   ];
 

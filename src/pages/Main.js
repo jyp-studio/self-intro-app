@@ -10,9 +10,12 @@ import {
   Stack,
   StackDivider,
   useColorModeValue,
+  Tag,
+  TagLabel,
+  TagRightIcon,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { PhoneIcon, AddIcon, WarningIcon } from "@chakra-ui/icons";
+import { FiGitBranch, FiTool, FiUser } from "react-icons/fi";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
@@ -20,16 +23,10 @@ import Navbar from "../components/Navbar";
 const Feature = (props) => {
   return (
     <Stack direction={"row"} align={"center"}>
-      <Flex
-        w={8}
-        h={8}
-        align={"center"}
-        justify={"center"}
-        rounded={"full"}
-        bg={props.iconBg}
-      >
-        {props.icon}
-      </Flex>
+      <Tag size={"lg"} colorScheme={props.color} variant="subtle">
+        <TagLabel>{props.name}</TagLabel>
+        <TagRightIcon as={props.icon} />
+      </Tag>
       <Text fontWeight={600}>{props.text}</Text>
     </Stack>
   );
@@ -45,23 +42,21 @@ function Main() {
           as={Box}
           textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}
+          py={{ base: 60, md: 60 }}
           h={"100vh"}
         >
           <Heading
             fontWeight={600}
-            fontSize={{ base: "2xl", sm: "4xl", md: "6xl" }}
+            fontSize={{ base: "2xl", sm: "4xl", md: "8xl" }}
             lineHeight={"110%"}
           >
-            Great works are performed not by strength but by <br />
+            All about{" "}
             <Text as={"span"} color={"teal.300"}>
-              perseverance
+              me
             </Text>
           </Heading>
           <Text color={"gray.500"}>
-            Monetize your content by charging your most loyal readers and reward
-            them loyalty points. Give back to your loyal readers by granting
-            them access to your pre-releases and sneak-peaks.
+            Great works are performed not by strength but by perseverance.
           </Text>
           <Stack
             direction={"column"}
@@ -79,7 +74,9 @@ function Main() {
                 bg: "teal.400",
               }}
             >
-              <Link to="/project">Get Started</Link>
+              <Link to="/project" onClick={() => window.scrollTo({ top: 0 })}>
+                Get Started
+              </Link>
             </Button>
           </Stack>
         </Stack>
@@ -98,12 +95,11 @@ function Main() {
                 alignSelf={"flex-start"}
                 rounded={"md"}
               >
-                Our Story
+                My Story
               </Text>
-              <Heading>A digital Product design agency</Heading>
+              <Heading>關於我</Heading>
               <Text color={"gray.500"} fontSize={"lg"}>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore
+                簡單概括我的興趣、技能和特質，可以在其他分頁從專案和活動中了解更多。
               </Text>
               <Stack
                 spacing={4}
@@ -114,19 +110,25 @@ function Main() {
                 }
               >
                 <Feature
-                  icon={<PhoneIcon color={"yellow.500"} w={5} h={5} />}
+                  name="興趣"
+                  icon={FiGitBranch}
+                  color={"green"}
                   iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                  text={"Business Planning"}
+                  text={"多媒體、深度學習、電腦視覺、影像辨識、資料探勘"}
                 />
                 <Feature
-                  icon={<AddIcon color={"green.500"} w={5} h={5} />}
+                  name="技能"
+                  icon={FiTool}
+                  color={"cyan"}
                   iconBg={useColorModeValue("green.100", "green.900")}
-                  text={"Financial Planning"}
+                  text={"Python, JavaScript, C/C++/C#, React, Yolov5, Roboflow"}
                 />
                 <Feature
-                  icon={<WarningIcon color={"purple.500"} w={5} h={5} />}
+                  name="特質"
+                  icon={FiUser}
+                  color={"pink"}
                   iconBg={useColorModeValue("purple.100", "purple.900")}
-                  text={"Market Analysis"}
+                  text={"活潑開朗、台風穩健、創新創意"}
                 />
               </Stack>
             </Stack>
