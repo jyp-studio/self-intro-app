@@ -3,18 +3,12 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   useDisclosure,
-  Button,
   Text,
-  Link,
-  HStack,
-  Stack,
   ModalCloseButton,
   VStack,
   Image,
-  Heading,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
@@ -34,7 +28,13 @@ function CertificateModeal(props) {
   }, [props.dir]);
   return (
     <>
-      <VStack spacing={5} maxW={imgSize} onClick={onOpen}>
+      <VStack
+        spacing={5}
+        px={5}
+        py={{ base: 10, md: 10, lg: 10 }}
+        maxW={imgSize}
+        onClick={onOpen}
+      >
         <Image src={props.image} shadow="lg" />
         <Text>{props.name}</Text>
       </VStack>

@@ -66,7 +66,7 @@ const LinkItems = [
   },
 ];
 
-// Settings for the slider
+// Settings for the carousel
 const settings = {
   dots: true,
   arrows: false,
