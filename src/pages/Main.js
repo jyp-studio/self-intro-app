@@ -10,24 +10,40 @@ import {
   Stack,
   StackDivider,
   useColorModeValue,
-  Tag,
-  TagLabel,
-  TagRightIcon,
+  Center,
+  HStack,
+  Icon,
+  Badge,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { FiGitBranch, FiTool, FiUser } from "react-icons/fi";
+
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 // feature component
 const Feature = (props) => {
   return (
-    <Stack direction={"row"} align={"center"}>
-      <Tag size={"lg"} colorScheme={props.color} variant="subtle">
-        <TagLabel>{props.name}</TagLabel>
-        <TagRightIcon as={props.icon} />
-      </Tag>
-      <Text fontWeight={600}>{props.text}</Text>
+    <Stack direction={"row"} align={"center"} spacing={4}>
+      <HStack
+        px={2}
+        py={2}
+        rounded={"lg"}
+        color={props.color}
+        bg={props.bgColor}
+      >
+        <Badge color={props.color} bg={props.bgColor}>
+          <Text as={"span"} fontSize={"md"}>
+            {props.name}
+          </Text>
+        </Badge>
+        <Icon as={props.icon} ml={2} w={4} h={4} />
+      </HStack>
+
+      <Text fontWeight={600} textAlign={"justify"} overflow={"hidden"}>
+        {props.text}
+      </Text>
     </Stack>
   );
 };
@@ -66,71 +82,91 @@ function Main() {
             position={"relative"}
           >
             <Button
+              as={Link}
+              to="/autobiography"
+              onClick={() => window.scrollTo({ top: 0 })}
               colorScheme={"green"}
               bg={"teal.300"}
               rounded={"full"}
-              px={6}
+              px={5}
               _hover={{
                 bg: "teal.400",
               }}
             >
-              <Link to="/project" onClick={() => window.scrollTo({ top: 0 })}>
-                Get Started
-              </Link>
+              <HStack spacing={2}>
+                <Text>Autobiography</Text>
+                <ArrowForwardIcon w={5} h={5} />
+              </HStack>
             </Button>
           </Stack>
         </Stack>
       </Container>
-      <Flex bg={useColorModeValue("teal.300", "teal.400")} p={20}>
+
+      {/* project block */}
+      <Flex bg={useColorModeValue("teal.300", "teal.400")} px={20} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-            <Stack spacing={4}>
-              <Text
-                textTransform={"uppercase"}
-                color={"blue.400"}
-                fontWeight={600}
-                fontSize={"sm"}
-                bg={useColorModeValue("blue.50", "blue.900")}
-                p={2}
-                alignSelf={"flex-start"}
-                rounded={"md"}
-              >
-                My Story
-              </Text>
-              <Heading>關於我</Heading>
-              <Text color={"gray.500"} fontSize={"lg"}>
-                簡單概括我的興趣、技能和特質，可以在其他分頁從專案和活動中了解更多。
+            <Stack spacing={4} color={"black"} justify={"center"}>
+              <Heading fontSize={"5xl"} color={"gray.800"}>
+                專題｜Project
+              </Heading>
+              <Text color={useColorModeValue("teal.600", "teal.700")}>
+                大學時製作的課堂專題、實習專題、與個人興趣的專案。
               </Text>
               <Stack
                 spacing={4}
                 divider={
                   <StackDivider
-                    borderColor={useColorModeValue("gray.100", "gray.700")}
+                    borderColor={useColorModeValue("teal.500", "teal.600")}
                   />
                 }
               >
                 <Feature
-                  name="興趣"
+                  name="大學專題"
                   icon={FiGitBranch}
-                  color={"green"}
+                  bgColor={"teal.50"}
+                  color={"teal.500"}
                   iconBg={useColorModeValue("yellow.100", "yellow.900")}
-                  text={"多媒體、深度學習、電腦視覺、影像辨識、資料探勘"}
+                  text={"虛擬實境、Digi實習AI、塔防遊戲、股票最佳化"}
                 />
                 <Feature
-                  name="技能"
+                  name="個人專案"
                   icon={FiTool}
-                  color={"cyan"}
+                  bgColor={"cyan.50"}
+                  color={"cyan.600"}
                   iconBg={useColorModeValue("green.100", "green.900")}
-                  text={"Python, JavaScript, C/C++/C#, React, Yolov5, Roboflow"}
+                  text={"個人網頁、智慧家庭、Unity Flappy Bird、音樂播放器"}
                 />
                 <Feature
-                  name="特質"
+                  name="正在進行"
                   icon={FiUser}
-                  color={"pink"}
+                  bgColor={"blue.50"}
+                  color={"blue.400"}
                   iconBg={useColorModeValue("purple.100", "purple.900")}
-                  text={"活潑開朗、台風穩健、創新創意"}
+                  text={"企業財報辨識、步態預測、影像處理專題"}
                 />
               </Stack>
+              <Center>
+                <Button
+                  mt={8}
+                  variant={"ghost"}
+                  as={Link}
+                  to="/project"
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  rounded={"full"}
+                  px={5}
+                  color={"gray.100"}
+                  _hover={{
+                    bg: "whiteAlpha.300",
+                  }}
+                  display={{ base: "none", md: "flex" }}
+                >
+                  <HStack spacing={2}>
+                    <Text>Project</Text>
+                    <ArrowForwardIcon w={5} h={5} />
+                  </HStack>
+                </Button>
+              </Center>
             </Stack>
             <Flex>
               <Image
@@ -142,6 +178,246 @@ function Main() {
                 objectFit={"cover"}
               />
             </Flex>
+            <Center>
+              <Button
+                mt={8}
+                variant={"ghost"}
+                as={Link}
+                to="/project"
+                onClick={() => window.scrollTo({ top: 0 })}
+                rounded={"full"}
+                px={5}
+                color={"gray.100"}
+                _hover={{
+                  bg: "whiteAlpha.300",
+                }}
+                display={{ base: "flex", md: "none" }}
+              >
+                <HStack spacing={2}>
+                  <Text>Project</Text>
+                  <ArrowForwardIcon w={5} h={5} />
+                </HStack>
+              </Button>
+            </Center>
+          </SimpleGrid>
+        </Container>
+      </Flex>
+
+      {/* activity block */}
+      <Flex bg={useColorModeValue("gray.50", "gray.800")} px={20} py={"100px"}>
+        <Container maxW={"8xl"} py={12}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+            <Flex display={{ base: "none", md: "flex" }}>
+              <Image
+                rounded={"md"}
+                alt={"feature image"}
+                src={
+                  "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                }
+                objectFit={"cover"}
+              />
+            </Flex>
+            <Stack
+              spacing={4}
+              justify={"center"}
+              color={useColorModeValue("gray.800", "gray.100")}
+            >
+              <Heading
+                fontSize={"5xl"}
+                color={useColorModeValue("gray.900", "gray.50")}
+              >
+                活動｜Activity
+              </Heading>
+              <Text color={useColorModeValue("teal.600", "teal.700")}>
+                看看我參與哪些課內外活動。
+              </Text>
+              <Stack
+                spacing={4}
+                divider={
+                  <StackDivider
+                    borderColor={useColorModeValue("teal.500", "teal.600")}
+                  />
+                }
+              >
+                <Feature
+                  name="課內活動"
+                  icon={FiGitBranch}
+                  bgColor={"teal.50"}
+                  color={"teal.500"}
+                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                  text={"設計思考工作坊、數值方法工作坊、創客計畫"}
+                />
+                <Feature
+                  name="課外活動"
+                  icon={FiTool}
+                  bgColor={"cyan.50"}
+                  color={"cyan.600"}
+                  iconBg={useColorModeValue("green.100", "green.900")}
+                  text={"中友科系探索營、總召、講師、隊輔"}
+                />
+                <Feature
+                  name="人格特質"
+                  icon={FiUser}
+                  bgColor={"blue.50"}
+                  color={"blue.400"}
+                  iconBg={useColorModeValue("purple.100", "purple.900")}
+                  text={"開朗活潑、創新創意、快速學習、充滿自信"}
+                />
+              </Stack>
+              <Center>
+                <Button
+                  mt={8}
+                  variant={"ghost"}
+                  as={Link}
+                  to="/activity"
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  rounded={"full"}
+                  px={5}
+                  _hover={{
+                    bg: useColorModeValue("gray.100", "gray.700"),
+                  }}
+                  display={{ base: "none", md: "flex" }}
+                >
+                  <HStack spacing={2}>
+                    <Text>Activity</Text>
+                    <ArrowForwardIcon w={5} h={5} />
+                  </HStack>
+                </Button>
+              </Center>
+            </Stack>
+            <Flex>
+              <Image
+                rounded={"md"}
+                alt={"feature image"}
+                src={
+                  "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                }
+                objectFit={"cover"}
+                display={{ base: "flex", md: "none" }}
+              />
+            </Flex>
+            <Center>
+              <Button
+                mt={8}
+                variant={"ghost"}
+                as={Link}
+                to="/project"
+                onClick={() => window.scrollTo({ top: 0 })}
+                rounded={"full"}
+                px={5}
+                color={"gray.100"}
+                _hover={{
+                  bg: "whiteAlpha.300",
+                }}
+                display={{ base: "flex", md: "none" }}
+              >
+                <HStack spacing={2}>
+                  <Text>Project</Text>
+                  <ArrowForwardIcon w={5} h={5} />
+                </HStack>
+              </Button>
+            </Center>
+          </SimpleGrid>
+        </Container>
+      </Flex>
+
+      {/* certificate block */}
+      <Flex bg={useColorModeValue("teal.300", "teal.400")} px={20} py={"100px"}>
+        <Container maxW={"8xl"} py={12}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+            <Stack spacing={4} color={"black"} justify={"center"}>
+              <Heading fontSize={"5xl"} color={"gray.800"}>
+                專題｜Project
+              </Heading>
+              <Text color={useColorModeValue("teal.600", "teal.700")}>
+                大學時製作的課堂專題、實習專題、與個人興趣的專案。
+              </Text>
+              <Stack
+                spacing={4}
+                divider={
+                  <StackDivider
+                    borderColor={useColorModeValue("teal.500", "teal.600")}
+                  />
+                }
+              >
+                <Feature
+                  name="大學專題"
+                  icon={FiGitBranch}
+                  bgColor={"teal.50"}
+                  color={"teal.500"}
+                  iconBg={useColorModeValue("yellow.100", "yellow.900")}
+                  text={"虛擬實境、Digi實習AI、塔防遊戲、股票最佳化"}
+                />
+                <Feature
+                  name="個人專案"
+                  icon={FiTool}
+                  bgColor={"cyan.50"}
+                  color={"cyan.600"}
+                  iconBg={useColorModeValue("green.100", "green.900")}
+                  text={"個人網頁、智慧家庭、Unity Flappy Bird、音樂播放器"}
+                />
+                <Feature
+                  name="正在進行"
+                  icon={FiUser}
+                  bgColor={"blue.50"}
+                  color={"blue.400"}
+                  iconBg={useColorModeValue("purple.100", "purple.900")}
+                  text={"企業財報辨識、步態預測、影像處理專題"}
+                />
+              </Stack>
+              <Center>
+                <Button
+                  mt={8}
+                  variant={"ghost"}
+                  as={Link}
+                  to="/project"
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  rounded={"full"}
+                  px={5}
+                  color={"gray.100"}
+                  _hover={{
+                    bg: "whiteAlpha.300",
+                  }}
+                  display={{ base: "none", md: "flex" }}
+                >
+                  <HStack spacing={2}>
+                    <Text>Project</Text>
+                    <ArrowForwardIcon w={5} h={5} />
+                  </HStack>
+                </Button>
+              </Center>
+            </Stack>
+            <Flex>
+              <Image
+                rounded={"md"}
+                alt={"feature image"}
+                src={
+                  "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                }
+                objectFit={"cover"}
+              />
+            </Flex>
+            <Center>
+              <Button
+                mt={8}
+                variant={"ghost"}
+                as={Link}
+                to="/project"
+                onClick={() => window.scrollTo({ top: 0 })}
+                rounded={"full"}
+                px={5}
+                color={"gray.100"}
+                _hover={{
+                  bg: "whiteAlpha.300",
+                }}
+                display={{ base: "flex", md: "none" }}
+              >
+                <HStack spacing={2}>
+                  <Text>Project</Text>
+                  <ArrowForwardIcon w={5} h={5} />
+                </HStack>
+              </Button>
+            </Center>
           </SimpleGrid>
         </Container>
       </Flex>

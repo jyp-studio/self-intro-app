@@ -263,6 +263,11 @@ const MobileNavItem = (props) => {
 
 const NAV_ITEMS = [
   {
+    label: "Autobiography",
+    pcHref: "/autobiography",
+    href: "/autobiography",
+  },
+  {
     label: "Project",
     pcHref: "/project",
     children: [
