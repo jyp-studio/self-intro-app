@@ -12,75 +12,35 @@ import {
   useColorModeValue,
   Center,
   HStack,
-  IconButton,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import {
-  FiGitBranch,
-  FiTool,
-  FiUser,
-  FiChevronLeft,
-  FiChevronRight,
-} from "react-icons/fi";
-import { useState } from "react";
-import Slider from "react-slick";
+import { FiGitBranch, FiTool, FiUser } from "react-icons/fi";
+import Carousel from "react-grid-carousel";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Feature from "../components/Feature";
 
-import img_bg from "../assets/bg_certificate.jpg";
 import img_cped_teacher0 from "../assets/cped_teacher0.jpg";
 import img_cped_teacher from "../assets/cped_teacher.jpg";
 import img_php_course from "../assets/php_course.jpg";
 import img_pygame_course from "../assets/pygame_course.jpg";
+import img_numerical_method from "../assets/numerical_method_course.jpg";
 import img_gept from "../assets/gept.jpg";
-import Carousel from "react-grid-carousel";
 
-// Settings for the carousel
-const settings = {
-  dots: true,
-  arrows: false,
-  fade: true,
-  infinite: true,
-  autoplay: true,
-  speed: 500,
-  autoplaySpeed: 5000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
-
-// cards of Carousel
-const cards = [
-  {
-    id: "card_1",
-    title: "LAiMM設計思考工作坊",
-    text: "學習設計思考的方式來構思專案，解決問題",
-    image: img_pygame_course,
-  },
-  {
-    id: "card_2",
-    title: "活動總召",
-    text: "擔任成大中友會聖誕節晚會總召",
-    image: img_cped_teacher,
-  },
-  {
-    id: "card_3",
-    title: "營隊講師與隊輔",
-    text: "2度參加成大科系探索營，幫助莘莘學子",
-    image: img_gept,
-  },
+// carousel items
+const carouselItems = [
+  { src: img_numerical_method },
+  { src: img_cped_teacher },
+  { src: img_php_course },
+  { src: img_pygame_course },
+  { src: img_cped_teacher0 },
+  { src: img_gept, w: "500px", h: "auto", transform: "translate(-50%, 25%)" },
 ];
 
 function Main() {
-  const [slider, setSlider] = useState(null);
-
-  // These are the breakpoints which changes the position of the
-  // buttons as the screen size changes
-  const top = useBreakpointValue({ base: "90%", md: "50%" });
-  const side = useBreakpointValue({ base: "30%", md: "40px" });
   return (
     <>
       <Navbar />
@@ -181,15 +141,15 @@ function Main() {
               <Center>
                 <Button
                   mt={8}
-                  variant={"ghost"}
                   as={Link}
                   to="/project"
                   onClick={() => window.scrollTo({ top: 0 })}
                   rounded={"full"}
                   px={5}
-                  color={"gray.100"}
+                  color={"gray.800"}
+                  bg={"gray.100"}
                   _hover={{
-                    bg: "whiteAlpha.300",
+                    bg: "gray.200",
                   }}
                   display={{ base: "none", md: "flex" }}
                 >
@@ -219,9 +179,10 @@ function Main() {
                 onClick={() => window.scrollTo({ top: 0 })}
                 rounded={"full"}
                 px={5}
-                color={"gray.100"}
+                color={"gray.800"}
+                bg={"gray.100"}
                 _hover={{
-                  bg: "whiteAlpha.300",
+                  bg: "gray.200",
                 }}
                 display={{ base: "flex", md: "none" }}
               >
@@ -236,7 +197,7 @@ function Main() {
       </Flex>
 
       {/* activity block */}
-      <Flex bg={useColorModeValue("gray.50", "gray.800")} px={20} py={"100px"}>
+      <Flex bg={useColorModeValue("gray.50", "gray.900")} px={20} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
             <Flex display={{ base: "none", md: "flex" }}>
@@ -299,14 +260,15 @@ function Main() {
               <Center>
                 <Button
                   mt={8}
-                  variant={"ghost"}
                   as={Link}
                   to="/activity"
                   onClick={() => window.scrollTo({ top: 0 })}
                   rounded={"full"}
                   px={5}
+                  colorScheme={"teal"}
+                  bg={"teal.400"}
                   _hover={{
-                    bg: useColorModeValue("gray.100", "gray.700"),
+                    bg: "teal.500",
                   }}
                   display={{ base: "none", md: "flex" }}
                 >
@@ -354,22 +316,56 @@ function Main() {
       </Flex>
 
       {/* certificate block */}
-      <Carousel cols={2} rows={1} gap={10} loop>
-        <Carousel.Item>
-          <img width="100%" src="https://picsum.photos/800/600?random=1" />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img width="100%" src="https://picsum.photos/800/600?random=2" />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img width="100%" src="https://picsum.photos/800/600?random=3" />
-        </Carousel.Item>
-        <Carousel.Item>
-          {/* anything you want to show in the grid */}
-        </Carousel.Item>
-        {/* ... */}
-      </Carousel>
-      <Footer />
+      <Stack py={150} spacing={20} bg={useColorModeValue("white", "gray.800")}>
+        <Heading textAlign={"center"} color={"teal.400"} fontSize={"5xl"}>
+          證書｜Certificates
+        </Heading>
+        <Center>
+          <Button
+            as={Link}
+            to="/certificate"
+            onClick={() => window.scrollTo({ top: 0 })}
+            colorScheme={"green"}
+            bg={"teal.300"}
+            rounded={"full"}
+            px={5}
+            _hover={{
+              bg: "teal.400",
+            }}
+          >
+            <HStack spacing={2}>
+              <Text>Certificates</Text>
+              <ArrowForwardIcon w={5} h={5} />
+            </HStack>
+          </Button>
+        </Center>
+
+        <Carousel
+          cols={useBreakpointValue({ base: 1, md: 2, lg: 3 })}
+          rows={1}
+          gap={10}
+          hideArrow
+          loop
+          autoplay={useBreakpointValue({ md: 4000 })}
+        >
+          {carouselItems.map((card) => (
+            <Carousel.Item>
+              <Box w={card.w ?? "380px"} h={card.h ?? "550px"} pos={"relative"}>
+                <Image
+                  shadow={"xl"}
+                  rounded={"xl"}
+                  src={card.src}
+                  pos={"absolute"}
+                  top={"50%"}
+                  left={"50%"}
+                  transform={card.transform ?? "translate(-50%, -50%)"}
+                />
+              </Box>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      </Stack>
+      <Footer marginTop="0" />
     </>
   );
 }
