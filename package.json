@@ -5,8 +5,8 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.2",
     "@chakra-ui/react": "^2.2.6",
-    "@emotion/react": "^11.10.0",
-    "@emotion/styled": "^11.10.0",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@fontsource/nunito-sans": "^4.5.9",
     "@fontsource/open-sans": "^4.5.11",
     "@testing-library/jest-dom": "^5.14.1",
@@ -15,6 +15,7 @@
     "framer-motion": "^7.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-grid-carousel": "^1.0.1",
     "react-icon": "^1.0.0",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",

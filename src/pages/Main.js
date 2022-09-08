@@ -354,7 +354,7 @@ function Main() {
       </Flex>
 
       {/* certificate block */}
-      {/* <Carousel cols={2} rows={1} gap={10} loop>
+      <Carousel cols={2} rows={1} gap={10} loop>
         <Carousel.Item>
           <img width="100%" src="https://picsum.photos/800/600?random=1" />
         </Carousel.Item>
@@ -366,9 +366,9 @@ function Main() {
         </Carousel.Item>
         <Carousel.Item>
           {/* anything you want to show in the grid */}
-      {/* </Carousel.Item> */}
-      {/* ... */}
-      {/* </Carousel> */}
+        </Carousel.Item>
+        {/* ... */}
+      </Carousel>
       <Footer />
     </>
   );

@@ -39,11 +39,11 @@ const SocialButton = (props) => {
   );
 };
 
-function Footer() {
+function Footer(props) {
   return (
     <>
       <Box
-        marginTop={"10"}
+        marginTop={props.marginTop ?? "10"}
         bg={useColorModeValue("gray.50", "gray.900")}
         color={useColorModeValue("gray.700", "gray.200")}
       >
