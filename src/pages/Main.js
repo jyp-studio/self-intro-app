@@ -37,6 +37,7 @@ import img_cped_teacher from "../assets/cped_teacher.jpg";
 import img_php_course from "../assets/php_course.jpg";
 import img_pygame_course from "../assets/pygame_course.jpg";
 import img_gept from "../assets/gept.jpg";
+import Carousel from "react-grid-carousel";
 
 // Settings for the carousel
 const settings = {
@@ -259,14 +260,14 @@ function Main() {
               >
                 活動｜Activity
               </Heading>
-              <Text color={useColorModeValue("teal.600", "teal.700")}>
+              <Text color={useColorModeValue("gray.400", "gray.500")}>
                 看看我參與哪些課內外活動。
               </Text>
               <Stack
                 spacing={4}
                 divider={
                   <StackDivider
-                    borderColor={useColorModeValue("teal.500", "teal.600")}
+                    borderColor={useColorModeValue("gray.200", "gray.700")}
                   />
                 }
               >
@@ -353,96 +354,21 @@ function Main() {
       </Flex>
 
       {/* certificate block */}
-      <Box
-        position={"relative"}
-        height={"600px"}
-        width={"full"}
-        overflow={"hidden"}
-      >
-        {/* CSS files for react-slick */}
-        {/* <link
-          rel="stylesheet"
-          type="text/css"
-          charSet="UTF-8"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-        />
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-        /> */}
-        {/* Left Icon */}
-        <IconButton
-          color={"whiteAlpha.800"}
-          aria-label="left-arrow"
-          variant="ghost"
-          position="absolute"
-          left={side}
-          top={top}
-          transform={"translate(0%, -50%)"}
-          zIndex={2}
-          onClick={() => slider?.slickPrev()}
-          _hover={{ textDecoration: "none", color: "white" }}
-        >
-          <FiChevronLeft size="40px" />
-        </IconButton>
-        {/* Right Icon */}
-        <IconButton
-          color={"whiteAlpha.800"}
-          aria-label="right-arrow"
-          variant="ghost"
-          position="absolute"
-          right={side}
-          top={top}
-          transform={"translate(0%, -50%)"}
-          zIndex={2}
-          onClick={() => slider?.slickNext()}
-          _hover={{ textDecoration: "none", color: "white" }}
-        >
-          <FiChevronRight size="40px" />
-        </IconButton>
-        {/* Slider */}
-        <Slider {...settings} ref={(slider) => setSlider(slider)}>
-          {cards.map((card) => (
-            <Box
-              key={card.id}
-              height={"6xl"}
-              position="relative"
-              backgroundPosition="center"
-              backgroundRepeat="no-repeat"
-              backgroundSize="cover"
-              backgroundImage={card.image}
-            >
-              {/* This is the block you need to change, to customize the caption */}
-              <Container size="container.lg" height="600px" position="relative">
-                <Stack
-                  spacing={6}
-                  w={"full"}
-                  maxW={"lg"}
-                  position="absolute"
-                  top="50%"
-                  transform="translate(0, -50%)"
-                  backdropFilter="auto"
-                  backdropBlur="4px"
-                  alignItems={"center"}
-                >
-                  <Heading
-                    fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-                    fontWeight={"bolder"}
-                    color="white"
-                  >
-                    {card.title}
-                  </Heading>
-                  <Text fontSize={{ base: "md", lg: "lg" }} color="gray.300">
-                    {card.text}
-                  </Text>
-                </Stack>
-              </Container>
-            </Box>
-          ))}
-        </Slider>
-      </Box>
-
+      {/* <Carousel cols={2} rows={1} gap={10} loop>
+        <Carousel.Item>
+          <img width="100%" src="https://picsum.photos/800/600?random=1" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img width="100%" src="https://picsum.photos/800/600?random=2" />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img width="100%" src="https://picsum.photos/800/600?random=3" />
+        </Carousel.Item>
+        <Carousel.Item>
+          {/* anything you want to show in the grid */}
+      {/* </Carousel.Item> */}
+      {/* ... */}
+      {/* </Carousel> */}
       <Footer />
     </>
   );
