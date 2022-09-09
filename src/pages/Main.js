@@ -13,6 +13,7 @@ import {
   Center,
   HStack,
   useBreakpointValue,
+  Spacer,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -29,6 +30,13 @@ import img_php_course from "../assets/php_course.jpg";
 import img_pygame_course from "../assets/pygame_course.jpg";
 import img_numerical_method from "../assets/numerical_method_course.jpg";
 import img_gept from "../assets/gept.jpg";
+import img_bg_opt from "../assets/bg_opt.jpeg";
+import img_bg_digi from "../assets/bg_digi.jpg";
+import img_bg_pollution from "../assets/bg_pollution.jpg";
+import img_bg_sideproject from "../assets/bg_sideproject.jpg";
+import img_bg_tower from "../assets/bg_tower.jpg";
+import img_bg_vr from "../assets/bg_vr.jpg";
+import Title from "../components/Title";
 
 // carousel items
 const carouselItems = [
@@ -38,6 +46,56 @@ const carouselItems = [
   { src: img_pygame_course },
   { src: img_cped_teacher0 },
   { src: img_gept, w: "500px", h: "auto", transform: "translate(-50%, 25%)" },
+];
+
+//project carousel items
+const projectItems = [
+  {
+    brightness: "50%",
+    image: img_bg_vr,
+    mainTitle: "VR專題",
+    mainColor: "cyan.300",
+    subColor: "cyan.100",
+    subTitle: "探討情境學習融入虛擬實境對學生學習表現與參與度之影響",
+  },
+  {
+    brightness: "50%",
+    image: img_bg_digi,
+    mainColor: "yellow.400",
+    mainTitle: "Digi+ Talent 實習",
+    subColor: "orange.100",
+    subTitle: "與企業和跨領域人才合作共同製作專題",
+  },
+  {
+    image: img_bg_opt,
+    mainTitle: "數值最佳化投資",
+    mainColor: "orange.200",
+    subColor: "orange.300",
+    subTitle: "運用數值方法於python中來進行股票回測",
+  },
+  {
+    image: img_bg_tower,
+    mainTitle: "Tower Defense",
+    mainColor: "whiteAlpha.900",
+    subColor: "whiteAlpha.700",
+    subTitle: "用python從0打造自己的塔防遊戲",
+  },
+  {
+    brightness: "50%",
+    image: img_bg_pollution,
+    mainTitle: "汙染擴散模型",
+    mainColor: "pink.300",
+    subColor: "red.100",
+    subTitle: "利用verilog模擬covid-19的擴散方式",
+  },
+  {
+    image: img_bg_sideproject,
+    mainColor: "blackAlpha.800",
+    mainTitle: "Side Project",
+    subColor: "black",
+    subTitle:
+      "我很喜歡學習各項新知識與技術，而這些是我學習各項技術時，嘗試動手做出的專案！",
+  },
 ];
 
 function Main() {
@@ -97,7 +155,7 @@ function Main() {
       {/* project block */}
       <Flex bg={useColorModeValue("teal.300", "teal.400")} px={20} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <Flex flexWrap={"wrap"} justify={"center"}>
             <Stack spacing={4} color={"black"} justify={"center"}>
               <Heading fontSize={"5xl"} color={"gray.800"}>
                 專題｜Project
@@ -160,16 +218,32 @@ function Main() {
                 </Button>
               </Center>
             </Stack>
-            <Flex>
-              <Image
-                rounded={"md"}
-                alt={"feature image"}
-                src={
-                  "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                }
-                objectFit={"cover"}
-              />
-            </Flex>
+            <Box
+              w="650px"
+              h={{ base: "250px", md: "400px" }}
+              mt={{ base: 20, lg: 0 }}
+            >
+              <Carousel
+                cols={1}
+                rows={1}
+                gap={0}
+                loop
+                hideArrow
+                autoplay={useBreakpointValue({ md: 4000 })}
+              >
+                {projectItems.map((card) => (
+                  <Carousel.Item>
+                    <Title
+                      h={{ base: "250px", md: "400px" }}
+                      mainFontSize={"5xl"}
+                      subFontSize={"md"}
+                      {...card}
+                    />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Box>
+
             <Center>
               <Button
                 mt={8}
@@ -192,7 +266,7 @@ function Main() {
                 </HStack>
               </Button>
             </Center>
-          </SimpleGrid>
+          </Flex>
         </Container>
       </Flex>
 
@@ -200,16 +274,33 @@ function Main() {
       <Flex bg={useColorModeValue("gray.50", "gray.900")} px={20} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-            <Flex display={{ base: "none", md: "flex" }}>
-              <Image
-                rounded={"md"}
-                alt={"feature image"}
-                src={
-                  "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                }
-                objectFit={"cover"}
-              />
-            </Flex>
+            <Box
+              w="650px"
+              h={{ base: "250px", md: "400px" }}
+              mt={{ base: 20, lg: 0 }}
+              display={{ base: "none", md: "flex" }}
+            >
+              <Carousel
+                cols={1}
+                rows={1}
+                gap={0}
+                loop
+                hideArrow
+                autoplay={useBreakpointValue({ md: 4000 })}
+              >
+                {projectItems.map((card) => (
+                  <Carousel.Item>
+                    <Title
+                      h={{ base: "250px", md: "400px" }}
+                      mainFontSize={"5xl"}
+                      subFontSize={"md"}
+                      {...card}
+                    />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Box>
+
             <Stack
               spacing={4}
               justify={"center"}
@@ -279,17 +370,32 @@ function Main() {
                 </Button>
               </Center>
             </Stack>
-            <Flex>
-              <Image
-                rounded={"md"}
-                alt={"feature image"}
-                src={
-                  "https://images.unsplash.com/photo-1554200876-56c2f25224fa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                }
-                objectFit={"cover"}
-                display={{ base: "flex", md: "none" }}
-              />
-            </Flex>
+            <Box
+              w="650px"
+              h={{ base: "250px", md: "400px" }}
+              mt={{ base: 20, lg: 0 }}
+              display={{ base: "block", md: "none" }}
+            >
+              <Carousel
+                cols={1}
+                rows={1}
+                gap={0}
+                loop
+                hideArrow
+                autoplay={useBreakpointValue({ md: 4000 })}
+              >
+                {projectItems.map((card) => (
+                  <Carousel.Item>
+                    <Title
+                      h={{ base: "250px", md: "400px" }}
+                      mainFontSize={"5xl"}
+                      subFontSize={"md"}
+                      {...card}
+                    />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Box>
             <Center>
               <Button
                 mt={8}

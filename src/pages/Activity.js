@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   Box,
-  IconButton,
   Image,
   Heading,
   Text,
@@ -21,12 +20,9 @@ import {
   HStack,
   Divider,
 } from "@chakra-ui/react";
-import Slider from "react-slick";
 import {
   FiHome,
   FiUser,
-  FiChevronLeft,
-  FiChevronRight,
   FiFeather,
   FiBookOpen,
   FiUserCheck,
@@ -37,6 +33,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import Banner from "../components/Banner";
+import TitleCarousel from "../components/TitleCarousel";
 
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_guitarist from "../assets/guitarist1.png";
@@ -54,6 +51,7 @@ import img_workshop from "../assets/workshop.jpg";
 import img_activity from "../assets/activity.JPG";
 import img_led from "../assets/led.jpg";
 import img_dt_workshop from "../assets/dt_workshop.png";
+
 // Sidebar link items
 const LinkItems = [
   { name: "Home", icon: FiHome, href: "#" },
@@ -82,21 +80,18 @@ const settings = {
 // cards of Carousel
 const cards = [
   {
-    id: "card_1",
-    title: "LAiMM設計思考工作坊",
-    text: "學習設計思考的方式來構思專案，解決問題",
+    mainTitle: "LAiMM設計思考工作坊",
+    subTitle: "學習設計思考的方式來構思專案，解決問題",
     image: img_coding_bg,
   },
   {
-    id: "card_2",
-    title: "活動總召",
-    text: "擔任成大中友會聖誕節晚會總召",
+    mainTitle: "活動總召",
+    subTitle: "擔任成大中友會聖誕節晚會總召",
     image: img_thanksgivening,
   },
   {
-    id: "card_3",
-    title: "營隊講師與隊輔",
-    text: "2度參加成大科系探索營，幫助莘莘學子",
+    mainTitle: "營隊講師與隊輔",
+    subTitle: "2度參加成大科系探索營，幫助莘莘學子",
     image: img_mc_all,
   },
 ];
@@ -112,7 +107,6 @@ function Activity() {
   // data of widget
   const data = [
     {
-      id: "data_1",
       name: "Creativity",
       image: img_creativity,
       color: useColorModeValue("red.500", "red.400"),
@@ -121,7 +115,6 @@ function Activity() {
       icon: FiFeather,
     },
     {
-      id: "data_2",
       name: "Fast-learner",
       image: img_learn,
       color: useColorModeValue("teal.400", "teal.300"),
@@ -130,7 +123,6 @@ function Activity() {
       icon: FiBookOpen,
     },
     {
-      id: "data_3",
       name: "Self-confidence",
       image: img_confidence,
       color: "cyan.400",
@@ -147,99 +139,7 @@ function Activity() {
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
         {/* title */}
-        <Box
-          position={"relative"}
-          height={"600px"}
-          width={"full"}
-          overflow={"hidden"}
-        >
-          {/* CSS files for react-slick */}
-          <link
-            rel="stylesheet"
-            type="text/css"
-            charSet="UTF-8"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          />
-          {/* Left Icon */}
-          <IconButton
-            color={"whiteAlpha.800"}
-            aria-label="left-arrow"
-            variant="ghost"
-            position="absolute"
-            left={side}
-            top={top}
-            transform={"translate(0%, -50%)"}
-            zIndex={2}
-            onClick={() => slider?.slickPrev()}
-            _hover={{ textDecoration: "none", color: "white" }}
-          >
-            <FiChevronLeft size="40px" />
-          </IconButton>
-          {/* Right Icon */}
-          <IconButton
-            color={"whiteAlpha.800"}
-            aria-label="right-arrow"
-            variant="ghost"
-            position="absolute"
-            right={side}
-            top={top}
-            transform={"translate(0%, -50%)"}
-            zIndex={2}
-            onClick={() => slider?.slickNext()}
-            _hover={{ textDecoration: "none", color: "white" }}
-          >
-            <FiChevronRight size="40px" />
-          </IconButton>
-          {/* Slider */}
-          <Slider {...settings} ref={(slider) => setSlider(slider)}>
-            {cards.map((card) => (
-              <Box
-                key={card.id}
-                height={"6xl"}
-                position="relative"
-                backgroundPosition="center"
-                backgroundRepeat="no-repeat"
-                backgroundSize="cover"
-                backgroundImage={card.image}
-              >
-                {/* This is the block you need to change, to customize the caption */}
-                <Container
-                  size="container.lg"
-                  height="600px"
-                  position="relative"
-                >
-                  <Stack
-                    spacing={6}
-                    w={"full"}
-                    maxW={"lg"}
-                    position="absolute"
-                    top="50%"
-                    transform="translate(0, -50%)"
-                    backdropFilter="auto"
-                    backdropBlur="4px"
-                    alignItems={"center"}
-                  >
-                    <Heading
-                      fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}
-                      fontWeight={"bolder"}
-                      color="white"
-                    >
-                      {card.title}
-                    </Heading>
-                    <Text fontSize={{ base: "md", lg: "lg" }} color="gray.300">
-                      {card.text}
-                    </Text>
-                  </Stack>
-                </Container>
-              </Box>
-            ))}
-          </Slider>
-        </Box>
+        <TitleCarousel cards={cards} />
 
         {/* personality */}
         <Box bg={useColorModeValue("gray.50", "black")} py={100}>
@@ -260,8 +160,8 @@ function Activity() {
             py={"10"}
             display={{ base: "none", lg: "flex" }}
           >
-            {data.map((item) => (
-              <WrapItem px={"2"} key={item.key}>
+            {data.map((item, index) => (
+              <WrapItem px={"2"} key={index}>
                 <DesktopWidget {...item} />
               </WrapItem>
             ))}
@@ -273,8 +173,8 @@ function Activity() {
             py={"10"}
             display={{ base: "flex", lg: "none" }}
           >
-            {data.map((item) => (
-              <WrapItem p={"2"} key={item.key}>
+            {data.map((item, index) => (
+              <WrapItem p={"2"} key={index}>
                 <MobileWidget {...item} />
               </WrapItem>
             ))}

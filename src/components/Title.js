@@ -12,8 +12,8 @@ function Title(props) {
         backgroundRepeat="no-repeat"
         backgroundSize="cover"
         backgroundImage={`url(${props.image})`}
-        w={"full"}
-        h={"xl"}
+        w={props.w ?? "full"}
+        h={props.h ?? "xl"}
       >
         <Box
           as={VStack}
@@ -34,14 +34,14 @@ function Title(props) {
           <Heading
             fontFamily={`"Open Sans", sans-serif`}
             letterSpacing={"5px"}
-            fontSize={{ base: "12vw", md: "6xl" }}
+            fontSize={props.mainFontSize ?? { base: "12vw", md: "6xl" }}
             color={props.mainColor}
           >
             {props.mainTitle}
           </Heading>
           <Text
             letterSpacing={"5px"}
-            fontSize={"xl"}
+            fontSize={props.subFontSize ?? "xl"}
             color={props.subColor}
             fontWeight={"bold"}
             px={"5"}
