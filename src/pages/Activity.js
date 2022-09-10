@@ -28,6 +28,7 @@ import {
   FiUserCheck,
   FiSun,
 } from "react-icons/fi";
+import Carousel from "react-grid-carousel";
 
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -94,6 +95,13 @@ const cards = [
     subTitle: "2度參加成大科系探索營，幫助莘莘學子",
     image: img_mc_all,
   },
+];
+
+//extracurricular photos
+const extracurricularItems = [
+  { src: img_guitarist, alt: "吉他手" },
+  { src: img_mc_all_spotlight, alt: "mc合照" },
+  { src: img_mc_all, alt: "mc合照1" },
 ];
 
 function Activity() {
@@ -407,6 +415,7 @@ function Activity() {
               p="2"
               width={{ base: "90vw", md: "md", lg: "2xl" }}
               justify={{ base: "center", lg: "left" }}
+              display={{ base: "none", lg: "block" }}
             >
               <Image
                 borderRadius="lg"
@@ -420,6 +429,7 @@ function Activity() {
                 p="2"
                 width={{ base: "90vw", md: "md", lg: "lg" }}
                 justify={{ base: "center", lg: "left" }}
+                display={{ base: "none", lg: "block" }}
               >
                 <Image
                   borderRadius="lg"
@@ -446,6 +456,7 @@ function Activity() {
               p="2"
               width={{ base: "90vw", md: "md", lg: "64vw" }}
               justify={{ base: "center", lg: "left" }}
+              display={{ base: "none", lg: "block" }}
             >
               <Image
                 borderRadius="lg"
@@ -453,6 +464,27 @@ function Activity() {
                 alt="MC表演大合照2"
                 boxShadow="xl"
               />
+            </Box>
+            <Box
+              p="2"
+              width={{ base: "90vw", md: "lg", lg: "64vw" }}
+              justify={{ base: "center", lg: "left" }}
+              display={{ lg: "none" }}
+            >
+              <Carousel
+                cols={1}
+                rows={1}
+                gap={10}
+                loop
+                hideArrow
+                autoplay={useBreakpointValue({ md: 4000 })}
+              >
+                {extracurricularItems.map((card, index) => (
+                  <Carousel.Item key={index}>
+                    <Image borderRadius="lg" boxShadow="xl" {...card} />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
             </Box>
           </Flex>
         </Container>
