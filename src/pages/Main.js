@@ -23,6 +23,7 @@ import Carousel from "react-grid-carousel";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Feature from "../components/Feature";
+import Title from "../components/Title";
 
 import img_cped_teacher0 from "../assets/cped_teacher0.jpg";
 import img_cped_teacher from "../assets/cped_teacher.jpg";
@@ -36,7 +37,9 @@ import img_bg_pollution from "../assets/bg_pollution.jpg";
 import img_bg_sideproject from "../assets/bg_sideproject.jpg";
 import img_bg_tower from "../assets/bg_tower.jpg";
 import img_bg_vr from "../assets/bg_vr.jpg";
-import Title from "../components/Title";
+import img_thanksgivening from "../assets/thanks_giving.jpg";
+import img_mc_all from "../assets/mc_all.jpg";
+import img_coding_bg from "../assets/coding_bg1.png";
 
 // carousel items
 const carouselItems = [
@@ -95,6 +98,25 @@ const projectItems = [
     subColor: "black",
     subTitle:
       "我很喜歡學習各項新知識與技術，而這些是我學習各項技術時，嘗試動手做出的專案！",
+  },
+];
+
+// activity carousel items
+const activityItems = [
+  {
+    mainTitle: "設計思考工作坊",
+    subTitle: "學習設計思考的方式來構思專案，解決問題",
+    image: img_coding_bg,
+  },
+  {
+    mainTitle: "活動總召",
+    subTitle: "擔任成大中友會聖誕節晚會總召",
+    image: img_thanksgivening,
+  },
+  {
+    mainTitle: "營隊講師與隊輔",
+    subTitle: "2度參加成大科系探索營，幫助莘莘學子",
+    image: img_mc_all,
   },
 ];
 
@@ -231,8 +253,8 @@ function Main() {
                 hideArrow
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
-                {projectItems.map((card) => (
-                  <Carousel.Item>
+                {projectItems.map((card, index) => (
+                  <Carousel.Item key={index}>
                     <Title
                       h={{ base: "250px", md: "400px" }}
                       mainFontSize={"5xl"}
@@ -273,34 +295,7 @@ function Main() {
       {/* activity block */}
       <Flex bg={useColorModeValue("gray.50", "gray.900")} px={20} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-            <Box
-              w="650px"
-              h={{ base: "250px", md: "400px" }}
-              mt={{ base: 20, lg: 0 }}
-              display={{ base: "none", md: "flex" }}
-            >
-              <Carousel
-                cols={1}
-                rows={1}
-                gap={0}
-                loop
-                hideArrow
-                autoplay={useBreakpointValue({ md: 4000 })}
-              >
-                {projectItems.map((card) => (
-                  <Carousel.Item>
-                    <Title
-                      h={{ base: "250px", md: "400px" }}
-                      mainFontSize={"5xl"}
-                      subFontSize={"md"}
-                      {...card}
-                    />
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            </Box>
-
+          <Flex flexWrap={"wrap"} flexDir={"row-reverse"} justify={"center"}>
             <Stack
               spacing={4}
               justify={"center"}
@@ -374,7 +369,6 @@ function Main() {
               w="650px"
               h={{ base: "250px", md: "400px" }}
               mt={{ base: 20, lg: 0 }}
-              display={{ base: "block", md: "none" }}
             >
               <Carousel
                 cols={1}
@@ -384,9 +378,11 @@ function Main() {
                 hideArrow
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
-                {projectItems.map((card) => (
-                  <Carousel.Item>
+                {activityItems.map((card, index) => (
+                  <Carousel.Item key={index}>
                     <Title
+                      mainColor={"white"}
+                      subColor={"gray.200"}
                       h={{ base: "250px", md: "400px" }}
                       mainFontSize={"5xl"}
                       subFontSize={"md"}
@@ -399,15 +395,15 @@ function Main() {
             <Center>
               <Button
                 mt={8}
-                variant={"ghost"}
                 as={Link}
                 to="/project"
                 onClick={() => window.scrollTo({ top: 0 })}
                 rounded={"full"}
                 px={5}
-                color={"gray.100"}
+                colorScheme={"teal"}
+                bg={"teal.400"}
                 _hover={{
-                  bg: "whiteAlpha.300",
+                  bg: "teal.500",
                 }}
                 display={{ base: "flex", md: "none" }}
               >
@@ -417,7 +413,7 @@ function Main() {
                 </HStack>
               </Button>
             </Center>
-          </SimpleGrid>
+          </Flex>
         </Container>
       </Flex>
 
