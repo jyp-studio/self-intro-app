@@ -78,7 +78,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-// cards of Carousel
+// cards of Title Carousel
 const cards = [
   {
     mainTitle: "LAiMM設計思考工作坊",

@@ -36,7 +36,7 @@ import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-import Title from "../components/Title";
+import TitleCarousel from "../components/TitleCarousel";
 import Banner from "../components/Banner";
 import Rating from "../components/Rating";
 
@@ -64,6 +64,26 @@ function Autobiography() {
     { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
     { name: "Demo", icon: FiBox, href: "#demo" },
   ];
+
+  // cards of Carousel
+  const cards = [
+    {
+      mainTitle: "LAiMM設計思考工作坊",
+      subTitle: "學習設計思考的方式來構思專案，解決問題",
+      image: img_bg,
+    },
+    {
+      mainTitle: "活動總召",
+      subTitle: "擔任成大中友會聖誕節晚會總召",
+      image: img_anime,
+    },
+    {
+      mainTitle: "營隊講師與隊輔",
+      subTitle: "2度參加成大科系探索營，幫助莘莘學子",
+      image: img_bg_problem,
+    },
+  ];
+
   // Icon box infomation
   const IconBoxItems = [
     {
@@ -111,13 +131,7 @@ function Autobiography() {
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
         {/* title banner */}
-        <Title
-          image={img_bg}
-          mainTitle={"Tower Defense"}
-          mainColor={"whiteAlpha.900"}
-          subColor={"whiteAlpha.700"}
-          subTitle={"用python從0打造自己的塔防遊戲"}
-        />
+        <TitleCarousel cards={cards} />
 
         {/* icon box */}
         <Flex

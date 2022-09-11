@@ -40,6 +40,7 @@ import img_bg_vr from "../assets/bg_vr.jpg";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
 import img_coding_bg from "../assets/coding_bg1.png";
+import { useEffect, useState } from "react";
 
 // carousel items
 const carouselItems = [
@@ -121,6 +122,9 @@ const activityItems = [
 ];
 
 function Main() {
+  // define element render or not
+  let breakPoint = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
+
   return (
     <>
       <Navbar />
@@ -175,9 +179,9 @@ function Main() {
       </Container>
 
       {/* project block */}
-      <Flex bg={useColorModeValue("teal.300", "teal.400")} px={20} py={"100px"}>
+      <Box bg={useColorModeValue("teal.300", "teal.400")} px={20} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
-          <Flex flexWrap={"wrap"} justify={"center"}>
+          <Flex flexWrap={"wrap"} justify={"space-around"}>
             <Stack spacing={4} color={"black"} justify={"center"}>
               <Heading fontSize={"5xl"} color={"gray.800"}>
                 專題｜Project
@@ -218,27 +222,28 @@ function Main() {
                   text={"企業財報辨識、步態預測、影像處理專題"}
                 />
               </Stack>
-              <Center>
-                <Button
-                  mt={8}
-                  as={Link}
-                  to="/project"
-                  onClick={() => window.scrollTo({ top: 0 })}
-                  rounded={"full"}
-                  px={5}
-                  color={"gray.800"}
-                  bg={"gray.100"}
-                  _hover={{
-                    bg: "gray.200",
-                  }}
-                  display={{ base: "none", md: "flex" }}
-                >
-                  <HStack spacing={2}>
-                    <Text>Project</Text>
-                    <ArrowForwardIcon w={5} h={5} />
-                  </HStack>
-                </Button>
-              </Center>
+              {breakPoint === "sm" || (
+                <Center>
+                  <Button
+                    mt={8}
+                    as={Link}
+                    to="/project"
+                    onClick={() => window.scrollTo({ top: 0 })}
+                    rounded={"full"}
+                    px={5}
+                    color={"gray.800"}
+                    bg={"gray.100"}
+                    _hover={{
+                      bg: "gray.200",
+                    }}
+                  >
+                    <HStack spacing={2}>
+                      <Text>Project</Text>
+                      <ArrowForwardIcon w={5} h={5} />
+                    </HStack>
+                  </Button>
+                </Center>
+              )}
             </Stack>
             <Box
               w="650px"
@@ -266,36 +271,41 @@ function Main() {
               </Carousel>
             </Box>
 
-            <Center>
-              <Button
-                mt={8}
-                variant={"ghost"}
-                as={Link}
-                to="/project"
-                onClick={() => window.scrollTo({ top: 0 })}
-                rounded={"full"}
-                px={5}
-                color={"gray.800"}
-                bg={"gray.100"}
-                _hover={{
-                  bg: "gray.200",
-                }}
-                display={{ base: "flex", md: "none" }}
-              >
-                <HStack spacing={2}>
-                  <Text>Project</Text>
-                  <ArrowForwardIcon w={5} h={5} />
-                </HStack>
-              </Button>
-            </Center>
+            {breakPoint === "sm" && (
+              <Center>
+                <Button
+                  mt={8}
+                  variant={"ghost"}
+                  as={Link}
+                  to="/project"
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  rounded={"full"}
+                  px={5}
+                  color={"gray.800"}
+                  bg={"gray.100"}
+                  _hover={{
+                    bg: "gray.200",
+                  }}
+                >
+                  <HStack spacing={2}>
+                    <Text>Project</Text>
+                    <ArrowForwardIcon w={5} h={5} />
+                  </HStack>
+                </Button>
+              </Center>
+            )}
           </Flex>
         </Container>
-      </Flex>
+      </Box>
 
       {/* activity block */}
-      <Flex bg={useColorModeValue("gray.50", "gray.900")} px={20} py={"100px"}>
+      <Box bg={useColorModeValue("gray.50", "gray.900")} px={20} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
-          <Flex flexWrap={"wrap"} flexDir={"row-reverse"} justify={"center"}>
+          <Flex
+            flexWrap={"wrap"}
+            flexDir={"row-reverse"}
+            justify={"space-around"}
+          >
             <Stack
               spacing={4}
               justify={"center"}
@@ -343,27 +353,28 @@ function Main() {
                   text={"開朗活潑、創新創意、快速學習、充滿自信"}
                 />
               </Stack>
-              <Center>
-                <Button
-                  mt={8}
-                  as={Link}
-                  to="/activity"
-                  onClick={() => window.scrollTo({ top: 0 })}
-                  rounded={"full"}
-                  px={5}
-                  colorScheme={"teal"}
-                  bg={"teal.400"}
-                  _hover={{
-                    bg: "teal.500",
-                  }}
-                  display={{ base: "none", md: "flex" }}
-                >
-                  <HStack spacing={2}>
-                    <Text>Activity</Text>
-                    <ArrowForwardIcon w={5} h={5} />
-                  </HStack>
-                </Button>
-              </Center>
+              {breakPoint === "sm" || (
+                <Center>
+                  <Button
+                    mt={8}
+                    as={Link}
+                    to="/activity"
+                    onClick={() => window.scrollTo({ top: 0 })}
+                    rounded={"full"}
+                    px={5}
+                    colorScheme={"teal"}
+                    bg={"teal.400"}
+                    _hover={{
+                      bg: "teal.500",
+                    }}
+                  >
+                    <HStack spacing={2}>
+                      <Text>Activity</Text>
+                      <ArrowForwardIcon w={5} h={5} />
+                    </HStack>
+                  </Button>
+                </Center>
+              )}
             </Stack>
             <Box
               w="650px"
@@ -392,30 +403,31 @@ function Main() {
                 ))}
               </Carousel>
             </Box>
-            <Center>
-              <Button
-                mt={8}
-                as={Link}
-                to="/project"
-                onClick={() => window.scrollTo({ top: 0 })}
-                rounded={"full"}
-                px={5}
-                colorScheme={"teal"}
-                bg={"teal.400"}
-                _hover={{
-                  bg: "teal.500",
-                }}
-                display={{ base: "flex", md: "none" }}
-              >
-                <HStack spacing={2}>
-                  <Text>Project</Text>
-                  <ArrowForwardIcon w={5} h={5} />
-                </HStack>
-              </Button>
-            </Center>
+            {breakPoint === "sm" && (
+              <Center>
+                <Button
+                  mt={8}
+                  as={Link}
+                  to="/project"
+                  onClick={() => window.scrollTo({ top: 0 })}
+                  rounded={"full"}
+                  px={5}
+                  colorScheme={"teal"}
+                  bg={"teal.400"}
+                  _hover={{
+                    bg: "teal.500",
+                  }}
+                >
+                  <HStack spacing={2}>
+                    <Text>Project</Text>
+                    <ArrowForwardIcon w={5} h={5} />
+                  </HStack>
+                </Button>
+              </Center>
+            )}
           </Flex>
         </Container>
-      </Flex>
+      </Box>
 
       {/* certificate block */}
       <Stack py={150} spacing={20} bg={useColorModeValue("white", "gray.800")}>
