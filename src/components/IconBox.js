@@ -1,11 +1,4 @@
-import {
-  Box,
-  Center,
-  Heading,
-  Text,
-  Icon,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { Box, Center, Heading, Text, Icon } from "@chakra-ui/react";
 
 function IconBox(props) {
   return (

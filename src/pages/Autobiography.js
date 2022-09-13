@@ -10,10 +10,20 @@ import {
   VStack,
   Divider,
   useColorModeValue,
+  useBreakpointValue,
   HStack,
   Stack,
+  SimpleGrid,
+  Center,
+  Button,
+  Icon,
+  IconButton,
+  Link as ChakraLink,
+  Tooltip,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import {
   FiHome,
   FiCompass,
@@ -23,26 +33,34 @@ import {
   FiBox,
 } from "react-icons/fi";
 import {
-  BsGearFill,
-  BsLightbulbFill,
-  BsPinAngleFill,
-  BsPenFill,
-} from "react-icons/bs";
+  RiPlantFill,
+  RiBallPenFill,
+  RiSunFill,
+  RiApps2Fill,
+} from "react-icons/ri";
+import { BsFillTriangleFill, BsHash } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
 
+import Carousel from "react-grid-carousel";
+import Title from "../components/Title";
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-import TitleCarousel from "../components/TitleCarousel";
 import Banner from "../components/Banner";
 import Rating from "../components/Rating";
 
-import img_uml from "../assets/uml.png";
-import img_bg from "../assets/bg_tower.jpg";
-import img_covid from "../assets/covid.jpg";
+import img_digi from "../assets/bg_digi.jpg";
+import img_tower_gather from "../assets/tower_gather.png";
+import img_vr_fight from "../assets/vr_fight.png";
+import img_vr_coding from "../assets/vr_coding.png";
+import img_vr_connecting from "../assets/vr_connecting.png";
+import img_vr_npc from "../assets/vr_npc.png";
+import img_bg from "../assets/bg_autobiography.jpg";
+import img_grow from "../assets/grow.jpg";
+import img_lonely from "../assets/lonely.jpg";
 import img_miro from "../assets/miro.png";
 import img_miro1 from "../assets/miro1.png";
 import img_anime from "../assets/attack_anime.png";
@@ -53,6 +71,10 @@ import img_problem from "../assets/problem.jpg";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/bg_reward.jpg";
 import img_bg_problem from "../assets/bg_problem.jpg";
+import img_notepad_coding from "../assets/notepad_coding.png";
+import img_books from "../assets/books.jpg";
+import img_mc_all from "../assets/mc_all.jpg";
+import img_future from "../assets/future.jpg";
 
 function Autobiography() {
   // Sidebar link items
@@ -65,42 +87,35 @@ function Autobiography() {
     { name: "Demo", icon: FiBox, href: "#demo" },
   ];
 
-  // cards of Carousel
-  const cards = [
-    {
-      mainTitle: "LAiMM設計思考工作坊",
-      subTitle: "學習設計思考的方式來構思專案，解決問題",
-      image: img_bg,
-    },
-    {
-      mainTitle: "活動總召",
-      subTitle: "擔任成大中友會聖誕節晚會總召",
-      image: img_anime,
-    },
-    {
-      mainTitle: "營隊講師與隊輔",
-      subTitle: "2度參加成大科系探索營，幫助莘莘學子",
-      image: img_bg_problem,
-    },
-  ];
-
   // Icon box infomation
   const IconBoxItems = [
     {
-      icon: BsGearFill,
-      title: "Tool",
-      text: "Python, pygame module, git",
+      icon: RiPlantFill,
+      title: "成長背景",
+      text: "學習獨立、啟蒙程式",
     },
     {
-      icon: BsPenFill,
-      title: "Design Pattern",
-      text: "MVC & Observer pattern",
+      icon: RiBallPenFill,
+      title: "求學過程",
+      text: "設計思考、增加程式能力",
     },
     {
-      icon: BsLightbulbFill,
-      title: "設計理念",
-      text: "用遊戲的方式來告訴大眾Covid-19的危險性",
+      icon: RiApps2Fill,
+      title: "活動參與",
+      text: "實習研習、擔任活動總召、營隊講師",
     },
+    {
+      icon: RiSunFill,
+      title: "未來展望",
+      text: "專精能力、斜槓人生",
+    },
+  ];
+
+  // carousel cards
+  const carouselItems = [
+    { src: img_vr_connecting },
+    { src: img_vr_coding },
+    { src: img_vr_fight },
   ];
 
   // what I learn im class with name and rating.
@@ -131,21 +146,28 @@ function Autobiography() {
 
       <Box marginLeft={{ base: "0", md: "240px", lg: "240px" }}>
         {/* title banner */}
-        <TitleCarousel cards={cards} />
+        <Title
+          brightness={"20%"}
+          image={img_bg}
+          mainColor={"teal.400"}
+          mainTitle={"自傳"}
+          subColor={"teal.600"}
+          subTitle={"認識自己興趣，並喜歡上程式的過程"}
+        />
 
         {/* icon box */}
         <Flex
-          px={{ base: "0", md: "8vw" }}
+          px={{ base: "0", md: "8vw", lg: "10vw" }}
           flexWrap={"wrap"}
           justify={"center"}
           justifyContent={"space-around"}
-          marginTop={"100px"}
+          marginTop={"150px"}
         >
           {IconBoxItems.map((item, index) => (
             <WrapItem key={index} py={{ base: "3", md: "3", lg: "5" }}>
               <IconBox
-                bgColor={"gray.200"}
-                iconColor={"gray.800"}
+                bgColor={"teal.100"}
+                iconColor={"teal.800"}
                 iconBoxSize={{ base: "3em", md: "3em", lg: "5vw" }}
                 textBoxSize={{ base: "60vw", md: "40vw", lg: "17vw" }}
                 textSize={{ base: "sm", md: "lg", lg: "lg" }}
@@ -155,441 +177,359 @@ function Autobiography() {
           ))}
         </Flex>
 
-        <Box marginTop={"100px"} px={"50"}>
-          <Divider />
-        </Box>
-
-        <Container maxW={"6xl"} marginTop={"120"} centerContent>
-          <Box
-            w={"full"}
-            border={"1px"}
-            borderColor={useColorModeValue("gray.100", "gray.700")}
-            rounded={"2xl"}
-          >
-            <Heading
-              py={"4"}
-              px={"5"}
-              scrollMargin="100px"
-              id={"abstract"}
-              w={{ base: "auto", lg: "full" }}
-              textAlign={{ base: "center", lg: "left" }}
-              fontFamily={`"Open Sans", sans-serif`}
-            >
-              摘要{" "}
-              <Text as={"span"} fontWeight={"thin"}>
-                |
-              </Text>{" "}
-              Abstract
-            </Heading>
-            <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
-            <Flex flexWrap={"wrap"} py="10" justify={"center"}>
-              <Text
-                fontFamily={`"Open Sans", sans-serif`}
-                fontSize="xl"
-                w={"full"}
-                px={{ base: "5", md: "5", lg: "10" }}
-                textAlign={"justify"}
-              >
-                &emsp;&emsp;2019年，Covid-19突然大流行造成許多人死亡。然而，部分大眾卻仍對其抱持懷疑與不信的態度。
-                <Text as={"span"} fontWeight={"bold"}>
-                  為了讓民眾了解Covid-19的危險性。因此決定以衛教的核心思想設計塔防遊戲。
-                </Text>
-                玩家所要守護的家園即代表個人、家人與朋友的健康，而受病毒所感染的變種人類則試圖感染正常人類。每一波的病毒都會越發增強代表著病毒的變種性與流行性。
-                <Text as={"span"} fontWeight={"bold"}>
-                  期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
-                </Text>
-                <br />
-                &emsp;&emsp;本遊戲使用Python-pygame製作，遊戲主要使用
-                <Text as={"span"} fontWeight={"bold"}>
-                  MVC{"("}
-                  Model-View-Controller{")"}
-                </Text>
-                當做主架構，玩家事件則是使用
-                <Text as={"span"} fontWeight={"bold"}>
-                  observer pattern
-                </Text>
-                以方便增修觸發事件。
-              </Text>
-            </Flex>
-          </Box>
-        </Container>
-
-        <Box
-          bg={useColorModeValue("gray.50", "blackAlpha.500")}
-          w={"full"}
-          mt={"120"}
-          py={"10"}
-        >
-          <Container maxW={"8xl"} marginTop={"100"} centerContent>
-            <Box>
-              <Heading
-                fontFamily={`"Open Sans", sans-serif`}
-                scrollMargin="100px"
-                py={"4"}
-                px={"5"}
-                id={"trailer"}
-                w={{ base: "auto", lg: "full" }}
-                textAlign={{ base: "center", lg: "left" }}
-              >
-                前導片{" "}
-                <Text as={"span"} fontWeight={"thin"}>
-                  |
-                </Text>{" "}
-                Trailer
-              </Heading>
-
-              <AspectRatio
-                w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-                ratio={16 / 9}
-              >
-                <iframe
-                  title="tower defense demo video"
-                  src="https://www.youtube.com/embed/gTNaXtLUB8s"
-                  allowFullScreen
-                />
-              </AspectRatio>
-            </Box>
-            <Box marginTop={"200"} marginBottom={"150"}>
-              <Heading
-                fontFamily={`"Open Sans", sans-serif`}
-                scrollMargin="100px"
-                py={"4"}
-                px={"5"}
-                id={"architecture"}
-                w={{ base: "auto", lg: "full" }}
-                textAlign={{ base: "center", lg: "left" }}
-              >
-                程式架構{" "}
-                <Text as={"span"} fontWeight={"thin"}>
-                  |
-                </Text>{" "}
-                Architecture
-              </Heading>
-
-              <Box
-                bg="teal.50"
-                boxShadow="lg"
-                w={{ base: "90vw", md: "70vw", lg: "67vw" }}
-              >
-                <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
-              </Box>
-            </Box>
-          </Container>
-        </Box>
-
-        <Container maxW={"6xl"} py="3" marginTop={"150"} centerContent>
-          <Heading
-            fontFamily={`"Open Sans", sans-serif`}
-            scrollMargin="100px"
-            py={"4"}
-            px={"5"}
-            id={"thoughts"}
-            w={{ base: "auto", lg: "full" }}
-            textAlign={{ base: "center", lg: "left" }}
-          >
-            心得{" "}
-            <Text as={"span"} fontWeight={"thin"}>
-              |
-            </Text>{" "}
-            Thoughts
-          </Heading>
-        </Container>
-
-        {/* 1. design thinking */}
+        {/* grow bg */}
         <Banner
-          title={"設計思考 ｜ Design thinking"}
-          bgImage={img_bg_sticky}
           marginTop={"150"}
+          title={"成長背景｜Background"}
+          bgImage={img_grow}
+          id="bg"
+          scrollMargin="150px"
         />
-        <VStack
-          py={"200"}
-          spacing={"150"}
-          w={"full"}
-          bgColor={"blackAlpha.800"}
-          justify={"center"}
-          alignContent={"center"}
-          alignItems={"center"}
-          justifyContent={"center"}
+        <Container
+          maxW={"8xl"}
+          bg={useColorModeValue("gray.50", "gray.700")}
+          py={150}
+          centerContent
         >
-          <Image
-            src={img_miro}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
-          <HStack
-            py={"50"}
-            marginTop={"50"}
-            flexWrap={"wrap"}
-            w={"65vw"}
-            justify={"center"}
-            justifyContent={"space-around"}
-          >
-            <Image src={img_distribution_chart} w={"400px"} />
-            <Text
-              w={{ base: "80vw", lg: "30vw" }}
-              px={{ base: "5", md: "30" }}
-              py={{ base: "20" }}
-              fontSize={"xl"}
-              color={"gray.200"}
-              fontFamily={`"Open Sans", sans-serif`}
-              textAlign={"justify"}
-            >
-              &emsp;&emsp;在數週的設計思維工作坊中，我擔任
-              <Text as={"span"} fontWeight={"bold"}>
-                組長
-              </Text>
-              的職位，引領兩位組員藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
-            </Text>
-          </HStack>
-          <Image
-            src={img_miro1}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
-        </VStack>
+          <Stack spacing={20} flexWrap={"wrap"} justify={"center"}>
+            <Heading fontFamily={`"Open Sans", sans-serif`}>
+              1. 學習獨立
+            </Heading>
+            <Box
+              bgImage={img_lonely}
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              h={{ base: "400px", lg: "500px" }}
+              bgRepeat={"no-repeat"}
+              bgPosition={"center"}
+              bgSize={"cover"}
+            />
 
-        {/* 2. facing problem */}
-        <Banner
-          title={"遇到困難"}
-          bgImage={img_bg_problem}
-          brightness={"80%"}
-        />
-        <Box
-          bg={useColorModeValue("gray.50", "blackAlpha.500")}
-          w={"full"}
-          py={"200"}
-        >
-          <Container maxW={"8xl"} py="3" centerContent>
-            <Flex
-              flexWrap={"wrap"}
-              w={"full"}
-              justify={"center"}
-              justifyContent={"space-around"}
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
             >
-              {/* image of facing problem */}
+              &emsp;&emsp;我是台中人，出生在非富裕家庭中，父母親時常因為工作不在，因此，我從小就學習獨立自主的生活方式。
+              {""}
+              同時，看著父母親為了家庭辛勤工作的樣子，我決意在學習上出人頭地，力求階級流動。
+            </Text>
+            <Heading fontFamily={`"Open Sans", sans-serif`}>
+              2. 啟蒙程式
+            </Heading>
+            <Box
+              bgImage={img_notepad_coding}
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              h={{ base: "400px", lg: "500px" }}
+              bgRepeat={"no-repeat"}
+              bgPosition={"center"}
+              bgSize={"cover"}
+            />
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              &emsp;&emsp;高中參加電資營，使用notepad++撰寫html與css來呈現網頁。
+              {""}
+              將文字編譯後以圖形化介面呈現，這是我第一次了解到程式的有趣，讓我充滿成就感，
+              {""}
+              想更加了解它的發展性。因此，我選擇就讀成大工科系，期望學習資訊、電機的知識，將軟硬體結合。
+            </Text>
+          </Stack>
+        </Container>
+
+        {/* study process */}
+        <Banner
+          title={"求學過程｜Study process"}
+          bgImage={img_books}
+          id="bg"
+          scrollMargin="150px"
+        />
+        <Container maxW={"7xl"} py={150} centerContent>
+          <Stack spacing={20} flexWrap={"wrap"} justify={"center"}>
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              &emsp;&emsp;學習資訊、電機與機械方面領域的課程時，我發現面對資訊領域課程，
+              {""}
+              我感受到最多樂趣與收穫。因此，我決定繼續向資訊領域深造。
+            </Text>
+            <HStack spacing={2}>
+              <Heading fontFamily={`"Open Sans", sans-serif`}>
+                1. VR專題
+              </Heading>
+              <Tooltip
+                label="Link to VR project"
+                fontSize={"lg"}
+                fontFamily={`"Open Sans", sans-serif`}
+              >
+                <ChakraLink
+                  as={Link}
+                  fontSize={"4xl"}
+                  fontWeight={"bold"}
+                  fontFamily={`"Open Sans", sans-serif`}
+                  to="/project/vr"
+                  onClick={() => window.scroll({ top: 0 })}
+                  color="teal.400"
+                  _hover={{ color: "teal.500" }}
+                >
+                  #
+                </ChakraLink>
+              </Tooltip>
+            </HStack>
+            <Box
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              h={{ base: "400px", lg: "500px" }}
+            >
+              <Carousel
+                cols={1}
+                rows={1}
+                gap={20}
+                hideArrow
+                loop
+                autoplay={useBreakpointValue({ md: 4000 })}
+              >
+                {carouselItems.map((card) => (
+                  <Carousel.Item>
+                    <Box
+                      bgImage={card.src}
+                      w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                      h={{ base: "400px", lg: "500px" }}
+                      bgRepeat={"no-repeat"}
+                      bgPosition={"center"}
+                      bgSize={"cover"}
+                    />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Box>
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              &emsp;&emsp;由於想踏入元宇宙的領域，因此加入黃悅民教授下的多媒體實驗室中，
+              {""}
+              學習並探討情境模擬學習融入虛擬實境對學生學習表現與參與度之影響。
+              <br />
+              <br />
+              <Text as={"span"} fontWeight={"bold"}>
+                一、學習能力
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;建立遊戲的過程中，許多軟體都是第一次接觸，要自己學習，
+              {""}
+              如哈瑪星科技的虛擬實境編輯器Magic VR、Blender、Cinema 4D等。{""}
+              在查找資料和學習的過程中，我發現許多程式都有相似的邏輯與框架，因而顯著提升上手能力。
+              {""}
+              而這也幫助我日後快速自學JS和React框架。
+              <br />
+              <br />
+              <Text as={"span"} fontWeight={"bold"}>
+                二、創造力
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;教授原本只是希望我們建構一個簡易學習樹莓派的場景於虛擬環境中，
+              {""}
+              但為了更加拓展虛擬實境的優點，我另外增加授課NPC與任務NPC，{""}
+              分別向使用者教學指導與指派任務；同時，我也規劃劇本、添加對戰系統，
+              {""}
+              使學習者能夠更加融入教學性遊戲中，提升學習者的參與度。
+            </Text>
+            <Box>
               <Box
-                bgImage={img_problem}
-                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-                h={"400px"}
+                bgImage={img_vr_npc}
+                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                h={{ base: "400px", lg: "500px" }}
                 bgRepeat={"no-repeat"}
                 bgPosition={"center"}
                 bgSize={"cover"}
               />
-              <Text
-                mt={{ base: "100", lg: "0" }}
-                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-                fontSize="xl"
-                textAlign={"justify"}
+              <HStack mt={2} justify={"center"}>
+                <BsFillTriangleFill />
+                <Text
+                  fontSize={"xl"}
+                  textAlign={"center"}
+                  fontFamily={`"Open Sans", sans-serif`}
+                >
+                  尋求玩家協助的NPC
+                </Text>
+              </HStack>
+            </Box>
+
+            <HStack spacing={2}>
+              <Heading fontFamily={`"Open Sans", sans-serif`}>
+                2. 印象深刻的課
+              </Heading>
+              <Tooltip
+                label="Link to Tower Defense project"
+                fontSize={"lg"}
                 fontFamily={`"Open Sans", sans-serif`}
               >
-                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
-                {""}
-                原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
-                {""}
-                因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
-                {""}
-                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
-              </Text>
-            </Flex>
-            <Flex
-              w={"full"}
-              flexWrap={"wrap"}
-              justify={"center"}
-              marginTop={"200"}
-              justifyContent={"space-around"}
-            >
-              {/* 1. Box of explaining animation and damage */}
-              {/* background */}
-              <Box
-                w={{ base: "80vw", md: "60vw", lg: "550px" }}
-                h={{ base: "60vw", md: "45vw", lg: "400px" }}
-                bgColor={"gray.100"}
-                rounded={"2xl"}
-                shadow={"lg"}
-                justify={"center"}
-              >
-                {/* heading banner */}
-                <Box
-                  bgColor={"black"}
-                  w={"full"}
-                  h={"80px"}
-                  textAlign={"center"}
-                  roundedTop={"2xl"}
+                <ChakraLink
+                  as={Link}
+                  fontSize={"4xl"}
+                  fontWeight={"bold"}
+                  fontFamily={`"Open Sans", sans-serif`}
+                  to="/project/tower-defense"
+                  onClick={() => window.scroll({ top: 0 })}
+                  color="teal.400"
+                  _hover={{ color: "teal.500" }}
                 >
-                  {/* heading */}
-                  <HStack
-                    h={"full"}
-                    spacing={"5"}
-                    justify={"center"}
-                    alignItems={"center"}
-                  >
-                    <Heading
-                      color={"white"}
-                      fontSize={{ base: "2xl", md: "auto", lg: "4xl" }}
-                    >
-                      動畫和傷害同時發生
-                    </Heading>
-                    <CloseIcon boxSize={"30px"} color={"red"} />
-                  </HStack>
-                </Box>
-                {/* image */}
-                <Image src={img_anime} px={"10"} py={"5"} />
-              </Box>
-
-              {/* 2. Box of explaining animation and damage */}
-              {/* background */}
-              <Box
-                mt={{ base: "20", md: "20", lg: "0" }}
-                w={{ base: "80vw", md: "60vw", lg: "550px" }}
-                h={{ base: "60vw", md: "45vw", lg: "400px" }}
-                bgColor={"gray.100"}
-                rounded={"2xl"}
-                shadow={"lg"}
-                justify={"center"}
-              >
-                {/* heading banner */}
-                <Box
-                  bgColor={"black"}
-                  w={"full"}
-                  h={"80px"}
-                  textAlign={"center"}
-                  roundedTop={"2xl"}
-                >
-                  {/* heading */}
-                  <HStack
-                    h={"full"}
-                    spacing={"5"}
-                    justify={"center"}
-                    alignItems={"center"}
-                  >
-                    <Heading
-                      color={"white"}
-                      py={"4"}
-                      fontSize={{ base: "2xl", md: "auto", lg: "4xl" }}
-                    >
-                      動畫後才讓傷害出現
-                    </Heading>
-                    <CheckIcon boxSize={"40px"} color={"green.300"} />
-                  </HStack>
-                </Box>
-                {/* image */}
-                <Image src={img_anime1} px={"10"} py={"5"} />
-              </Box>
-            </Flex>
-          </Container>
-        </Box>
-
-        {/* 3. gain */}
-        <Banner title={"獲得收穫"} bgImage={img_bg_reward} brightness={"25%"} />
-        <Box
-          bg={useColorModeValue("gray.900", "blackAlpha.500")}
-          w={"full"}
-          py={"200"}
-        >
-          <Container maxW={"7xl"} py="3" centerContent>
-            {/* box of gain */}
-            <Stack
-              direction={{ base: "column", lg: "row" }}
-              bgColor={"gray.800"}
-              border={"1px"}
-              borderRadius={"lg"}
-              overflow={"hidden"}
-              borderColor={"gray.700"}
-              spacing={{ base: "50", lg: "0" }}
-              alignItems={"center"}
-            >
-              <Box
-                bgImage={img_reward}
-                w={{ base: "80vw", md: "60vw", lg: "400px" }}
-                h={"500px"}
-                bgPosition={"center"}
-                bgSize={"cover"}
-              />
-              {/* words */}
-              <VStack
-                py={"10"}
-                textAlign={"left"}
-                px={"10"}
-                spacing={"10"}
-                color={"white"}
-              >
-                <Heading>收穫</Heading>
-                {/* Rating of gain */}
-                <Rating Gain={Gain} />
-              </VStack>
-            </Stack>
+                  #
+                </ChakraLink>
+              </Tooltip>
+            </HStack>
+            <Box
+              bgImage={img_tower_gather}
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              h={{ base: "400px", lg: "500px" }}
+              bgRepeat={"no-repeat"}
+              bgPosition={"center"}
+              bgSize={"cover"}
+            />
             <Text
-              fontFamily={`"Open Sans", sans-serif`}
-              fontSize={"xl"}
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
               textAlign={"justify"}
-              color={"gray.200"}
-              mt={"150"}
-              px={{ base: "5", md: "10" }}
-            >
-              &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
-              <Text as={"span"} fontWeight={"bold"}>
-                提升我的抗壓性
-              </Text>
-              外， 也我
-              <Text as={"span"} fontWeight={"bold"}>
-                python能力也跟著增強
-              </Text>
-              。除此之外， 我學到最重要的是
-              <Text as={"span"} fontWeight={"bold"}>
-                畫UML的重要性
-              </Text>
-              。
-              以往我們coding時，時常注意的是語法以及效率。然而在大型企劃，數萬行的程式碼中，
-              {""}
-              語法和效率只是基本，更重要的是架構。舉例來說，當開發一個鳥的class，
-              {""}
-              可能很理所當然的新增名字、種類等屬性，並新增fly的method來描述飛行方式。
-              {""}
-              然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
-              這便是一個簡單的例子來闡述架構、格局的重要性。
-              <br />
-              &emsp;&emsp;同時， 學習使用一些
-              <Text as={"span"} fontWeight={"bold"}>
-                design pattern
-              </Text>
-              也使架構更加明確，開發時也更加方便。如使用obsever pattern在user{" "}
-              requests時，當要新增觸發事件時，只要新增一個class寫功能，{""}
-              再到controller中新增這個class就完成了。不必到每個程式碼中新增或修改變數，省去許多繁瑣步驟。
-            </Text>
-          </Container>
-        </Box>
-
-        <Container maxW={"8xl"} py="3" mt={"100"} centerContent>
-          <Box marginTop={"10"}>
-            <Heading
               fontFamily={`"Open Sans", sans-serif`}
-              scrollMargin="100px"
-              py={"4"}
-              px={"5"}
-              id={"demo"}
-              w={{ base: "auto", lg: "full" }}
-              textAlign={{ base: "center", lg: "left" }}
             >
-              成果展示{" "}
-              <Text as={"span"} fontWeight={"thin"}>
-                |
-              </Text>{" "}
-              Demo
-            </Heading>
-
-            <AspectRatio
-              w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-              ratio={16 / 9}
-            >
-              <iframe
-                title="tower defense demo video"
-                src="https://www.youtube.com/embed/mkjUvo7B_K8"
-                allowFullScreen
-              />
-            </AspectRatio>
-          </Box>
+              &emsp;&emsp;大二暑假參加python遊戲設計課程，在這堂課中我學到許多。
+              <br />
+              <br />
+              <Text as={"span"} fontWeight={"bold"}>
+                一、設計思考｜design thinking
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;課程討論中，我們在Miro中張貼許多代表自己的想法的便利貼，
+              {""}
+              以人為本發散思維，收束想法，最後實作。從中我學習到如何有效溝通、團隊合作、
+              {""}
+              以及設計思考的方式，並且也將其運用在日後Digi+ Talent計畫當中。
+              <br />
+              <br />
+              <Text as={"span"} fontWeight={"bold"}>
+                二、UML {"&"} design pattern
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;Albert Einstein曾說：「如果我有1小時拯救世界，{""}
+              我會花55分鐘去確認問題為何，只以5分鐘尋找解決方案。」{""}
+              這代表架構的擬定將決定日後撰寫程式容易度。{""}
+              當時，我們花約好幾天的時間才確立整個遊戲的架構：{""}
+              使用MVC、observer pattern、我方與敵方的運作形式等。{""}
+              而這也使後來撰寫上萬行程式時，方便許多。
+            </Text>
+            <Box>
+              <AspectRatio
+                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                ratio={16 / 9}
+              >
+                <iframe
+                  title="tower defense demo video"
+                  src="https://www.youtube.com/embed/mkjUvo7B_K8"
+                  allowFullScreen
+                />
+              </AspectRatio>
+              <HStack mt={2} justify={"center"}>
+                <BsFillTriangleFill />
+                <Text
+                  fontSize={"xl"}
+                  textAlign={"center"}
+                  fontFamily={`"Open Sans", sans-serif`}
+                >
+                  塔防遊戲demo畫面
+                </Text>
+              </HStack>
+            </Box>
+          </Stack>
         </Container>
-        <Footer />
+
+        {/* activity */}
+        <Banner
+          title={"活動參與｜Activity"}
+          bgImage={img_mc_all}
+          id="bg"
+          scrollMargin="150px"
+        />
+
+        <SimpleGrid
+          py={150}
+          px={10}
+          w={"full"}
+          columns={{ base: 1, lg: 2 }}
+          spacing={20}
+        >
+          {/* digi */}
+          <Stack
+            spacing={10}
+            borderRadius={"2xl"}
+            shadow={"xl"}
+            bg={useColorModeValue("gray.50", "gray.700")}
+            overflow={"hidden"}
+          >
+            <Image
+              src={img_digi}
+              alt="digi photo"
+              w={"full"}
+              h={"350px"}
+              fit="cover"
+            />
+            <Heading
+              px={10}
+              fontFamily={`"Open Sans", sans-serif`}
+              textAlign={"center"}
+            >
+              工研院Digi+ Talent實習計畫
+            </Heading>
+            <Text
+              px={10}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              &emsp;&emsp;與各領域的同儕與業師合作，共同製作專題。{""}
+              目前正設計一套系統提供使用者利用影像辨識輸入收據、{""}
+              三聯式發票並建立數據庫提供視覺化圖表、會計系統以及資料探勘使用。
+              {""}
+              除此之外，也另有製作小專題如：資料探勘心臟病成因、AI影像辨識自助結帳系統等。
+            </Text>
+            <Center>
+              <Button
+                mb={10}
+                as={Link}
+                to="/project/digi"
+                onClick={() => window.scrollTo({ top: 0 })}
+                colorScheme={"green"}
+                bg={"teal.400"}
+                rounded={"full"}
+                px={5}
+                _hover={{
+                  bg: "teal.500",
+                }}
+              >
+                <HStack spacing={2}>
+                  <Text>Detail</Text>
+                  <ArrowForwardIcon w={5} h={5} />
+                </HStack>
+              </Button>
+            </Center>
+          </Stack>
+
+          {/* cped */}
+          <Box bg={"red"} h={"400px"}></Box>
+        </SimpleGrid>
+
+        <Footer marginTop={0} />
       </Box>
     </>
   );
