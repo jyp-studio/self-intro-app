@@ -7,38 +7,31 @@ import {
   AspectRatio,
   WrapItem,
   Container,
-  VStack,
-  Divider,
   useColorModeValue,
   useBreakpointValue,
   HStack,
   Stack,
-  SimpleGrid,
   Center,
   Button,
-  Icon,
-  IconButton,
   Link as ChakraLink,
   Tooltip,
+  Divider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
+
 import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { FiHome } from "react-icons/fi";
 import {
-  FiHome,
-  FiCompass,
-  FiYoutube,
-  FiCommand,
-  FiMessageCircle,
-  FiBox,
-} from "react-icons/fi";
-import {
+  RiPlantLine,
   RiPlantFill,
+  RiBallPenLine,
   RiBallPenFill,
+  RiSunLine,
   RiSunFill,
+  RiApps2Line,
   RiApps2Fill,
 } from "react-icons/ri";
-import { BsFillTriangleFill, BsHash } from "react-icons/bs";
+import { BsFillTriangleFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
@@ -50,7 +43,6 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Banner from "../components/Banner";
-import Rating from "../components/Rating";
 
 import img_digi from "../assets/bg_digi.jpg";
 import img_tower_gather from "../assets/tower_gather.png";
@@ -61,30 +53,22 @@ import img_vr_npc from "../assets/vr_npc.png";
 import img_bg from "../assets/bg_autobiography.jpg";
 import img_grow from "../assets/grow.jpg";
 import img_lonely from "../assets/lonely.jpg";
-import img_miro from "../assets/miro.png";
-import img_miro1 from "../assets/miro1.png";
-import img_anime from "../assets/attack_anime.png";
-import img_anime1 from "../assets/attack_anime1.png";
-import img_distribution_chart from "../assets/work_distribution_chart.png";
-import img_bg_sticky from "../assets/bg_sticky_note.jpg";
-import img_problem from "../assets/problem.jpg";
-import img_reward from "../assets/reward.jpg";
-import img_bg_reward from "../assets/bg_reward.jpg";
-import img_bg_problem from "../assets/bg_problem.jpg";
+import img_led from "../assets/led.jpg";
 import img_notepad_coding from "../assets/notepad_coding.png";
 import img_books from "../assets/books.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
 import img_future from "../assets/future.jpg";
+import img_thanksgivening from "../assets/thanks_giving.jpg";
+import img_dt_workshop from "../assets/dt_workshop.png";
 
 function Autobiography() {
   // Sidebar link items
   const LinkItems = [
     { name: "Home", icon: FiHome, href: "#" },
-    { name: "Abstract", icon: FiCompass, href: "#abstract" },
-    { name: "Trailer", icon: FiYoutube, href: "#trailer" },
-    { name: "Architecture", icon: FiCommand, href: "#architecture" },
-    { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Demo", icon: FiBox, href: "#demo" },
+    { name: "Background", icon: RiPlantLine, href: "#bg" },
+    { name: "Studying", icon: RiBallPenLine, href: "#study" },
+    { name: "Ativity", icon: RiApps2Line, href: "#activity" },
+    { name: "Future", icon: RiSunLine, href: "#future" },
   ];
 
   // Icon box infomation
@@ -111,11 +95,53 @@ function Autobiography() {
     },
   ];
 
-  // carousel cards
+  // vr carousel cards
   const carouselItems = [
     { src: img_vr_connecting },
     { src: img_vr_coding },
     { src: img_vr_fight },
+  ];
+
+  // activity carousel cards
+  const activityCards = [
+    {
+      src: img_digi,
+      alt: "digi intern photo",
+      title: "Digi實習計畫",
+      context:
+        "與跨領域的同儕與業師合作，共同為企業製作相關專題。\
+      目前正設計一套系統提供使用者利用影像辨識輸入收據、\
+      三聯式發票並建立數據庫提供視覺化圖表、會計系統以及資料探勘使用。",
+      link: "/project/digi",
+    },
+    {
+      src: img_thanksgivening,
+      alt: "中友會照片",
+      title: "成大中友會活動",
+      context:
+        "由於是台中人，因此有參加成大中友會，認識同樣來自台中不同科系的同儕。\
+        友會期間，擔任不同職位如：活動總召、營隊講師、隊輔等，\
+        以此累積人脈並增進人際關係與溝通技巧。",
+      link: "/activity",
+    },
+    {
+      src: img_led,
+      alt: "光蛇照片",
+      title: "創客計畫",
+      context:
+        "跟著系上的創客計畫，在學長姐的帶領下實際焊接和撰寫程式來製作新一代的螢光棒，稱為光蛇。\
+        光蛇上有數枚LED燈泡，可透過快速旋轉螢光棒所造成的視覺暫留來顯示文字和圖案。",
+      link: "/activity",
+    },
+    {
+      src: img_dt_workshop,
+      alt: "設計思考工作坊照片",
+      title: "設計思考工作坊",
+      context:
+        "參加設計思考工作坊，和組員從生活中找尋問題，並藉由便利貼的輔助來解構、發想和收束問題。\
+        後來實習時，也帶領組員應用設計思考構思小專題：AI自助結帳系統和探勘心臟病成因。",
+      link: "/activity",
+    },
   ];
 
   // what I learn im class with name and rating.
@@ -137,6 +163,9 @@ function Autobiography() {
       rating: "4",
     },
   ];
+
+  // activity color mode value
+  const activityColorMode = useColorModeValue("gray.50", "gray.700");
 
   return (
     <>
@@ -180,7 +209,7 @@ function Autobiography() {
         {/* grow bg */}
         <Banner
           marginTop={"150"}
-          title={"成長背景｜Background"}
+          title={"成長背景｜Growth Background"}
           bgImage={img_grow}
           id="bg"
           scrollMargin="150px"
@@ -242,9 +271,9 @@ function Autobiography() {
 
         {/* study process */}
         <Banner
-          title={"求學過程｜Study process"}
+          title={"求學過程｜Study Process"}
           bgImage={img_books}
-          id="bg"
+          id="study"
           scrollMargin="150px"
         />
         <Container maxW={"7xl"} py={150} centerContent>
@@ -365,6 +394,8 @@ function Autobiography() {
               </HStack>
             </Box>
 
+            <Divider />
+
             <HStack spacing={2}>
               <Heading fontFamily={`"Open Sans", sans-serif`}>
                 2. 印象深刻的課
@@ -458,76 +489,128 @@ function Autobiography() {
         <Banner
           title={"活動參與｜Activity"}
           bgImage={img_mc_all}
-          id="bg"
+          id="activity"
           scrollMargin="150px"
         />
-
-        <SimpleGrid
-          py={150}
-          px={10}
-          w={"full"}
-          columns={{ base: 1, lg: 2 }}
-          spacing={20}
-        >
-          {/* digi */}
-          <Stack
-            spacing={10}
-            borderRadius={"2xl"}
-            shadow={"xl"}
-            bg={useColorModeValue("gray.50", "gray.700")}
-            overflow={"hidden"}
+        <Box py={150} w={"full"}>
+          <Carousel
+            cols={useBreakpointValue({ base: 1, lg: 2 })}
+            rows={1}
+            gap={20}
+            hideArrow
+            loop
+            autoplay={useBreakpointValue({ md: 4000 })}
           >
-            <Image
-              src={img_digi}
-              alt="digi photo"
-              w={"full"}
-              h={"350px"}
-              fit="cover"
-            />
-            <Heading
-              px={10}
-              fontFamily={`"Open Sans", sans-serif`}
-              textAlign={"center"}
-            >
-              工研院Digi+ Talent實習計畫
-            </Heading>
+            {activityCards.map((card) => (
+              <Carousel.Item>
+                <Stack
+                  spacing={10}
+                  borderRadius={"2xl"}
+                  bg={activityColorMode}
+                  overflow={"hidden"}
+                >
+                  <Image
+                    src={card.src}
+                    alt={card.alt}
+                    w={"full"}
+                    h={"350px"}
+                    fit="cover"
+                  />
+                  <Heading
+                    px={10}
+                    fontFamily={`"Open Sans", sans-serif`}
+                    textAlign={"center"}
+                  >
+                    {card.title}
+                  </Heading>
+                  <Text
+                    px={10}
+                    fontSize="xl"
+                    textAlign={"justify"}
+                    fontFamily={`"Open Sans", sans-serif`}
+                  >
+                    &emsp;&emsp;{card.context}
+                  </Text>
+                  <Center>
+                    <Button
+                      mb={10}
+                      as={Link}
+                      to={card.link}
+                      onClick={() => window.scrollTo({ top: 0 })}
+                      colorScheme={"green"}
+                      bg={"teal.400"}
+                      rounded={"full"}
+                      px={5}
+                      _hover={{
+                        bg: "teal.500",
+                      }}
+                    >
+                      <HStack spacing={2}>
+                        <Text>Detail</Text>
+                        <ArrowForwardIcon w={5} h={5} />
+                      </HStack>
+                    </Button>
+                  </Center>
+                </Stack>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        </Box>
+
+        {/* future */}
+        <Banner
+          title={"未來展望｜Future"}
+          bgImage={img_future}
+          id="future"
+          scrollMargin="150px"
+        />
+        <Container
+          maxW={"8xl"}
+          bg={useColorModeValue("gray.50", "gray.700")}
+          py={150}
+          centerContent
+        >
+          <Stack spacing={20} flexWrap={"wrap"} justify={"center"}>
             <Text
-              px={10}
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               fontSize="xl"
               textAlign={"justify"}
               fontFamily={`"Open Sans", sans-serif`}
             >
-              &emsp;&emsp;與各領域的同儕與業師合作，共同製作專題。{""}
-              目前正設計一套系統提供使用者利用影像辨識輸入收據、{""}
-              三聯式發票並建立數據庫提供視覺化圖表、會計系統以及資料探勘使用。
+              <Text as={"span"} fontWeight={"bold"}>
+                1. 研究所期間
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;我想完成三件事情：
+              <br />
+              一、閱讀與構思論文，為畢業論文做準備。
+              <br />
+              二、想修習關於電腦視覺、影像處理、資料探勘、深度學習與AI方面等課程以增進能力。
+              <br />
+              三、自學React和Laravel，接案架設購物網站、App，增加能力與自我價值。
+              <br />
+              <br />
+              <Text as={"span"} fontWeight={"bold"}>
+                2. 進入職場
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;進入公司為企業進行資料探勘與數據分析，累積作品和經驗。
               {""}
-              除此之外，也另有製作小專題如：資料探勘心臟病成因、AI影像辨識自助結帳系統等。
+              下班時間則到leetcode刷題，為GOOGLE面試做準備；同時接程式案件，{""}
+              作為額外收入並累積作品，當個斜槓青年。
             </Text>
-            <Center>
-              <Button
-                mb={10}
-                as={Link}
-                to="/project/digi"
-                onClick={() => window.scrollTo({ top: 0 })}
-                colorScheme={"green"}
-                bg={"teal.400"}
-                rounded={"full"}
-                px={5}
-                _hover={{
-                  bg: "teal.500",
-                }}
-              >
-                <HStack spacing={2}>
-                  <Text>Detail</Text>
-                  <ArrowForwardIcon w={5} h={5} />
-                </HStack>
-              </Button>
-            </Center>
+            <Box
+              bgImage={img_lonely}
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              h={{ base: "400px", lg: "500px" }}
+              bgRepeat={"no-repeat"}
+              bgPosition={"center"}
+              bgSize={"cover"}
+            />
           </Stack>
-
-          {/* cped */}
-          <Box bg={"red"} h={"400px"}></Box>
-        </SimpleGrid>
+        </Container>
 
         <Footer marginTop={0} />
       </Box>

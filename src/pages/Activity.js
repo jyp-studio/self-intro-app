@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Box,
   Image,
@@ -105,13 +104,6 @@ const extracurricularItems = [
 ];
 
 function Activity() {
-  const [slider, setSlider] = useState(null);
-
-  // These are the breakpoints which changes the position of the
-  // buttons as the screen size changes
-  const top = useBreakpointValue({ base: "90%", md: "50%" });
-  const side = useBreakpointValue({ base: "30%", md: "40px" });
-
   // data of widget
   const data = [
     {

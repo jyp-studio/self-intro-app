@@ -97,7 +97,7 @@ export default Project;
 const Card = (props) => {
   return (
     <Box p="2">
-      <Link to={props.href}>
+      <Link to={props.href} onClick={() => window.scroll({ top: 0 })}>
         <Image
           p="2"
           bg={props.bg}
