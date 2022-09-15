@@ -22,12 +22,7 @@ import {
   FiMessageCircle,
   FiBox,
 } from "react-icons/fi";
-import {
-  BsGearFill,
-  BsLightbulbFill,
-  BsPinAngleFill,
-  BsPenFill,
-} from "react-icons/bs";
+import { BsGearFill, BsLightbulbFill, BsPenFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
@@ -510,7 +505,7 @@ function TowerDefense() {
               textAlign={"justify"}
               color={"gray.200"}
               mt={"150"}
-              px={{ base: "5", md: "10" }}
+              px={{ base: "5", md: "10", lg: "200" }}
             >
               &emsp;&emsp;雖然過程曲折，卻也讓我收穫許多。在整個工作坊期間，由於時間非常緊迫，
               <Text as={"span"} fontWeight={"bold"}>

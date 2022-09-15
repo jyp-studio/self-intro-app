@@ -7,54 +7,36 @@ import {
   AspectRatio,
   WrapItem,
   Container,
-  VStack,
   Divider,
   useColorModeValue,
-  HStack,
   Stack,
   Button,
   Center,
-  Icon,
   Link as ChakraLink,
   List,
   ListItem,
   ListIcon,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
-import {
-  FiHome,
-  FiCompass,
-  FiYoutube,
-  FiCommand,
-  FiMessageCircle,
-  FiBox,
-} from "react-icons/fi";
-import {
-  BsGearFill,
-  BsLightbulbFill,
-  BsPinAngleFill,
-  BsPenFill,
-} from "react-icons/bs";
+import { CheckIcon } from "@chakra-ui/icons";
+import { FiHome, FiCompass, FiMessageSquare, FiFile } from "react-icons/fi";
+import { BsGearFill, BsLightbulbFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
 
+import Carousel from "react-grid-carousel";
 import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/Title";
 import Banner from "../components/Banner";
-import Rating from "../components/Rating";
 
 import img_bg from "../assets/bg_digi.jpg";
 import img_abstract from "../assets/digi_abstract.jpg";
-import img_bg_sticky from "../assets/bg_sticky_note.jpg";
-import img_problem from "../assets/problem.jpg";
-import img_reward from "../assets/reward.jpg";
-import img_bg_reward from "../assets/bg_reward.jpg";
-import img_bg_problem from "../assets/bg_problem.jpg";
+
 import img_class from "../assets/digi_class.jpg";
 import img_debate from "../assets/digi_debate.jpg";
 import img_dm_class from "../assets/data_mining_class.jpg";
@@ -75,8 +57,8 @@ function Digi() {
   const LinkItems = [
     { name: "Home", icon: FiHome, href: "#" },
     { name: "Motivation", icon: FiCompass, href: "#motivation" },
-    { name: "Lecture", icon: FiBox, href: "#lecture" },
-    { name: "Project", icon: FiYoutube, href: "#project" },
+    { name: "Lecture", icon: FiMessageSquare, href: "#lecture" },
+    { name: "Project", icon: FiFile, href: "#project" },
     // { name: "Trailer", icon: FiYoutube, href: "#trailer" },
     // { name: "Architecture", icon: FiCommand, href: "#architecture" },
     // { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
@@ -123,6 +105,22 @@ function Digi() {
   const containerBg = useColorModeValue("gray.50", "gray.700");
   const textBg = useColorModeValue("gray.50", "gray.900");
   const cardSize = { base: "70vw", md: "50vw", lg: "350px" };
+
+  // carousel
+  const breakPoint = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
+  const columns = useBreakpointValue({ base: 1, md: 1, lg: 3 });
+  const autoplay = useBreakpointValue({ md: 4000 });
+  const hideArrow = useBreakpointValue({ base: true, md: false, lg: true });
+
+  // card's scrollMargin
+  const [scrollM, setScrollM] = useState(0);
+  useEffect(() => {
+    if (section === 0) {
+      setScrollM(-200);
+    } else {
+      setScrollM(0);
+    }
+  }, [section]);
 
   return (
     <>
@@ -217,260 +215,536 @@ function Digi() {
           id="lecture"
           scrollMargin="150px"
         />
-        <Container id="cards" maxW={"10xl"} centerContent>
+        <Box py={150} id="cards" scrollMargin={scrollM} maxW={"7xl"}>
           {/* show all cards without details */}
           {section === 0 && (
-            <Flex
-              flexWrap={"wrap"}
-              justify={"space-around"}
-              w={"full"}
-              mt={"150"}
-              px={10}
-            >
-              {/* 1. card about class */}
-              <Center py={6} id={"lessonCard1"}>
-                <Box
-                  w={cardSize}
-                  bg={cardBg}
-                  boxShadow={"2xl"}
-                  rounded={"md"}
-                  overflow={"hidden"}
+            <>
+              {breakPoint === "lg" || (
+                <Carousel
+                  cols={columns}
+                  rows={1}
+                  gap={10}
+                  loop
+                  autoplay={autoplay}
+                  hideArrow={hideArrow}
                 >
-                  <Box
-                    w={"full"}
-                    h={"200px"}
-                    bgImage={img_dm_class}
-                    roundedTop={"md"}
-                    bgPosition={"center"}
-                    bgSize={"cover"}
-                    position={"relative"}
-                  >
-                    <Center>
-                      <Heading
-                        fontSize={"3xl"}
-                        position={"absolute"}
-                        top={"50%"}
-                        transform={"translate(0,-50%)"}
-                        color={"whiteAlpha.800"}
-                        backdropFilter={"auto"}
-                        backdropBlur={"8px"}
+                  {/* 1. card about class */}
+                  <Carousel.Item>
+                    <Center py={6} id={"lessonCard1"}>
+                      <Box
+                        w={cardSize}
+                        bg={cardBg}
+                        boxShadow={"2xl"}
+                        rounded={"md"}
+                        overflow={"hidden"}
                       >
-                        課堂專案與討論
-                      </Heading>
+                        <Box
+                          w={"full"}
+                          h={"200px"}
+                          bgImage={img_dm_class}
+                          roundedTop={"md"}
+                          bgPosition={"center"}
+                          bgSize={"cover"}
+                          position={"relative"}
+                        >
+                          <Center>
+                            <Heading
+                              fontSize={"3xl"}
+                              position={"absolute"}
+                              top={"50%"}
+                              transform={"translate(0,-50%)"}
+                              color={"whiteAlpha.800"}
+                              backdropFilter={"auto"}
+                              backdropBlur={"8px"}
+                            >
+                              課堂專案與討論
+                            </Heading>
+                          </Center>
+                        </Box>
+                        <Box bg={textBg} px={10} py={10}>
+                          <List spacing={3} px={10}>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="teal.400" />
+                              人工智慧與物聯網導論
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="teal.400" />
+                              APP開發導論
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="teal.400" />
+                              大數據分析導論
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="teal.400" />
+                              專案管理
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="teal.400" />
+                              視覺化設計規劃
+                            </ListItem>
+                          </List>
+
+                          <Button
+                            mt={10}
+                            w={"full"}
+                            bg={"teal.400"}
+                            color={"white"}
+                            rounded={"xl"}
+                            boxShadow={"0 5px 20px 0px rgb(49 151 149 / 43%)"}
+                            _hover={{
+                              bg: "teal.500",
+                            }}
+                            _focus={{
+                              bg: "teal.500",
+                            }}
+                            onClick={() => {
+                              setSection(1);
+                              const element = document.getElementById("cards");
+                              element.scrollIntoView(
+                                { behavior: "smooth" },
+                                false
+                              );
+                            }}
+                          >
+                            更多細節
+                          </Button>
+                        </Box>
+                      </Box>
                     </Center>
-                  </Box>
-                  <Box bg={textBg} px={10} py={10}>
-                    <List spacing={3} px={10}>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="teal.400" />
-                        人工智慧與物聯網導論
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="teal.400" />
-                        APP開發導論
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="teal.400" />
-                        大數據分析導論
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="teal.400" />
-                        專案管理
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="teal.400" />
-                        視覺化設計規劃
-                      </ListItem>
-                    </List>
+                  </Carousel.Item>
 
-                    <Button
-                      mt={10}
-                      w={"full"}
-                      bg={"teal.400"}
-                      color={"white"}
-                      rounded={"xl"}
-                      boxShadow={"0 5px 20px 0px rgb(49 151 149 / 43%)"}
-                      _hover={{
-                        bg: "teal.500",
-                      }}
-                      _focus={{
-                        bg: "teal.500",
-                      }}
-                      onClick={() => {
-                        setSection(1);
-                        const element = document.getElementById("cards");
-                        element.scrollIntoView({ behavior: "smooth" }, false);
-                      }}
-                    >
-                      更多細節
-                    </Button>
-                  </Box>
-                </Box>
-              </Center>
+                  {/* 2. card about AI class*/}
+                  <Carousel.Item>
+                    <Center py={6} id={"lessonCard2"}>
+                      <Box
+                        w={cardSize}
+                        bg={cardBg}
+                        boxShadow={"2xl"}
+                        rounded={"md"}
+                        overflow={"hidden"}
+                      >
+                        <Box
+                          w={"full"}
+                          h={"200px"}
+                          bgImage={img_ai_class}
+                          brightness={"20%"}
+                          roundedTop={"md"}
+                          bgPosition={"center"}
+                          bgSize={"cover"}
+                          position={"relative"}
+                        >
+                          <Center>
+                            <Heading
+                              fontSize={"3xl"}
+                              position={"absolute"}
+                              top={"50%"}
+                              transform={"translate(0,-50%)"}
+                              color={"whiteAlpha.800"}
+                              backdropFilter={"auto"}
+                              backdropBlur={"8px"}
+                            >
+                              AI必修課程
+                            </Heading>
+                          </Center>
+                        </Box>
+                        <Box bg={textBg} px={10} py={10}>
+                          <List spacing={3} px={10}>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="yellow.400" />
+                              專題開發
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="yellow.400" />
+                              機器學習、深度學習
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="yellow.400" />
+                              語意機器人
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="yellow.400" />
+                              影像辨識
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="yellow.400" />
+                              IFTTT API串接
+                            </ListItem>
+                          </List>
 
-              {/* 2. card about AI class*/}
-              <Center py={6} id={"lessonCard2"}>
-                <Box
-                  w={cardSize}
-                  bg={cardBg}
-                  boxShadow={"2xl"}
-                  rounded={"md"}
-                  overflow={"hidden"}
+                          <Button
+                            mt={10}
+                            w={"full"}
+                            bg={"yellow.400"}
+                            color={"white"}
+                            rounded={"xl"}
+                            boxShadow={"0 5px 20px 0px rgb(255 255 59 / 43%)"}
+                            _hover={{
+                              bg: "yellow.500",
+                            }}
+                            _focus={{
+                              bg: "yellow.500",
+                            }}
+                            onClick={() => {
+                              setSection(2);
+                              const element = document.getElementById("cards");
+                              element.scrollIntoView(
+                                { behavior: "smooth" },
+                                false
+                              );
+                            }}
+                          >
+                            更多細節
+                          </Button>
+                        </Box>
+                      </Box>
+                    </Center>
+                  </Carousel.Item>
+
+                  {/* 3. card about online class */}
+                  <Carousel.Item>
+                    <Center py={6} id={"lessonCard3"}>
+                      <Box
+                        w={cardSize}
+                        bg={cardBg}
+                        boxShadow={"2xl"}
+                        rounded={"md"}
+                        overflow={"hidden"}
+                      >
+                        <Box
+                          w={"full"}
+                          h={"200px"}
+                          bgImage={img_online_class}
+                          roundedTop={"md"}
+                          bgPosition={"center"}
+                          bgSize={"cover"}
+                          position={"relative"}
+                        >
+                          <Center>
+                            <Heading
+                              fontSize={"3xl"}
+                              position={"absolute"}
+                              top={"50%"}
+                              transform={"translate(0,-50%)"}
+                              color={"whiteAlpha.800"}
+                              backdropFilter={"auto"}
+                              backdropBlur={"8px"}
+                            >
+                              線上課程與講座
+                            </Heading>
+                          </Center>
+                        </Box>
+                        <Box bg={textBg} px={10} py={10}>
+                          <List spacing={3} px={10}>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="blue.500" />
+                              人工智慧
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="blue.500" />
+                              區塊鏈技術
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="blue.500" />
+                              數位轉型
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="blue.500" />
+                              設計思考
+                            </ListItem>
+                            <ListItem>
+                              <ListIcon as={CheckIcon} color="blue.500" />
+                              元宇宙
+                            </ListItem>
+                          </List>
+
+                          <Button
+                            mt={10}
+                            w={"full"}
+                            bg={"blue.500"}
+                            color={"white"}
+                            rounded={"xl"}
+                            boxShadow={"0 5px 20px 0px rgb(43 108 176 / 43%)"}
+                            _hover={{
+                              bg: "blue.600",
+                            }}
+                            _focus={{
+                              bg: "blue.600",
+                            }}
+                            onClick={() => {
+                              setSection(3);
+                              const element = document.getElementById("cards");
+                              element.scrollIntoView(
+                                { behavior: "smooth" },
+                                false
+                              );
+                            }}
+                          >
+                            更多細節
+                          </Button>
+                        </Box>
+                      </Box>
+                    </Center>
+                  </Carousel.Item>
+                </Carousel>
+              )}
+              {breakPoint === "lg" && (
+                <Flex
+                  flexWrap={"wrap"}
+                  justify={"space-around"}
+                  w={"full"}
+                  px={10}
                 >
-                  <Box
-                    w={"full"}
-                    h={"200px"}
-                    bgImage={img_ai_class}
-                    brightness={"20%"}
-                    roundedTop={"md"}
-                    bgPosition={"center"}
-                    bgSize={"cover"}
-                    position={"relative"}
-                  >
-                    <Center>
-                      <Heading
-                        fontSize={"3xl"}
-                        position={"absolute"}
-                        top={"50%"}
-                        transform={"translate(0,-50%)"}
-                        color={"whiteAlpha.800"}
-                        backdropFilter={"auto"}
-                        backdropBlur={"8px"}
-                      >
-                        AI必修課程
-                      </Heading>
-                    </Center>
-                  </Box>
-                  <Box bg={textBg} px={10} py={10}>
-                    <List spacing={3} px={10}>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="yellow.400" />
-                        專題開發
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="yellow.400" />
-                        機器學習、深度學習
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="yellow.400" />
-                        語意機器人
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="yellow.400" />
-                        影像辨識
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="yellow.400" />
-                        IFTTT API串接
-                      </ListItem>
-                    </List>
-
-                    <Button
-                      mt={10}
-                      w={"full"}
-                      bg={"yellow.400"}
-                      color={"white"}
-                      rounded={"xl"}
-                      boxShadow={"0 5px 20px 0px rgb(255 255 59 / 43%)"}
-                      _hover={{
-                        bg: "yellow.500",
-                      }}
-                      _focus={{
-                        bg: "yellow.500",
-                      }}
-                      onClick={() => {
-                        setSection(2);
-                        const element = document.getElementById("cards");
-                        element.scrollIntoView({ behavior: "smooth" }, false);
-                      }}
+                  <Center py={6} id={"lessonCard1"}>
+                    <Box
+                      w={cardSize}
+                      bg={cardBg}
+                      boxShadow={"2xl"}
+                      rounded={"md"}
+                      overflow={"hidden"}
                     >
-                      更多細節
-                    </Button>
-                  </Box>
-                </Box>
-              </Center>
-
-              {/* 3. card about online class */}
-              <Center py={6} id={"lessonCard3"}>
-                <Box
-                  w={cardSize}
-                  bg={cardBg}
-                  boxShadow={"2xl"}
-                  rounded={"md"}
-                  overflow={"hidden"}
-                >
-                  <Box
-                    w={"full"}
-                    h={"200px"}
-                    bgImage={img_online_class}
-                    roundedTop={"md"}
-                    bgPosition={"center"}
-                    bgSize={"cover"}
-                    position={"relative"}
-                  >
-                    <Center>
-                      <Heading
-                        fontSize={"3xl"}
-                        position={"absolute"}
-                        top={"50%"}
-                        transform={"translate(0,-50%)"}
-                        color={"whiteAlpha.800"}
-                        backdropFilter={"auto"}
-                        backdropBlur={"8px"}
+                      <Box
+                        w={"full"}
+                        h={"200px"}
+                        bgImage={img_dm_class}
+                        roundedTop={"md"}
+                        bgPosition={"center"}
+                        bgSize={"cover"}
+                        position={"relative"}
                       >
-                        線上課程與講座
-                      </Heading>
-                    </Center>
-                  </Box>
-                  <Box bg={textBg} px={10} py={10}>
-                    <List spacing={3} px={10}>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="blue.500" />
-                        人工智慧
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="blue.500" />
-                        區塊鏈技術
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="blue.500" />
-                        數位轉型
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="blue.500" />
-                        設計思考
-                      </ListItem>
-                      <ListItem>
-                        <ListIcon as={CheckIcon} color="blue.500" />
-                        元宇宙
-                      </ListItem>
-                    </List>
+                        <Center>
+                          <Heading
+                            fontSize={"3xl"}
+                            position={"absolute"}
+                            top={"50%"}
+                            transform={"translate(0,-50%)"}
+                            color={"whiteAlpha.800"}
+                            backdropFilter={"auto"}
+                            backdropBlur={"8px"}
+                          >
+                            課堂專案與討論
+                          </Heading>
+                        </Center>
+                      </Box>
+                      <Box bg={textBg} px={10} py={10}>
+                        <List spacing={3} px={10}>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="teal.400" />
+                            人工智慧與物聯網導論
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="teal.400" />
+                            APP開發導論
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="teal.400" />
+                            大數據分析導論
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="teal.400" />
+                            專案管理
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="teal.400" />
+                            視覺化設計規劃
+                          </ListItem>
+                        </List>
 
-                    <Button
-                      mt={10}
-                      w={"full"}
-                      bg={"blue.500"}
-                      color={"white"}
-                      rounded={"xl"}
-                      boxShadow={"0 5px 20px 0px rgb(43 108 176 / 43%)"}
-                      _hover={{
-                        bg: "blue.600",
-                      }}
-                      _focus={{
-                        bg: "blue.600",
-                      }}
-                      onClick={() => {
-                        setSection(3);
-                        const element = document.getElementById("cards");
-                        element.scrollIntoView({ behavior: "smooth" }, false);
-                      }}
+                        <Button
+                          mt={10}
+                          w={"full"}
+                          bg={"teal.400"}
+                          color={"white"}
+                          rounded={"xl"}
+                          boxShadow={"0 5px 20px 0px rgb(49 151 149 / 43%)"}
+                          _hover={{
+                            bg: "teal.500",
+                          }}
+                          _focus={{
+                            bg: "teal.500",
+                          }}
+                          onClick={() => {
+                            setSection(1);
+                            const element = document.getElementById("cards");
+                            element.scrollIntoView(
+                              { behavior: "smooth" },
+                              false
+                            );
+                          }}
+                        >
+                          Detail
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Center>
+                  <Center py={6} id={"lessonCard2"}>
+                    <Box
+                      w={cardSize}
+                      bg={cardBg}
+                      boxShadow={"2xl"}
+                      rounded={"md"}
+                      overflow={"hidden"}
                     >
-                      更多細節
-                    </Button>
-                  </Box>
-                </Box>
-              </Center>
-            </Flex>
+                      <Box
+                        w={"full"}
+                        h={"200px"}
+                        bgImage={img_ai_class}
+                        brightness={"20%"}
+                        roundedTop={"md"}
+                        bgPosition={"center"}
+                        bgSize={"cover"}
+                        position={"relative"}
+                      >
+                        <Center>
+                          <Heading
+                            fontSize={"3xl"}
+                            position={"absolute"}
+                            top={"50%"}
+                            transform={"translate(0,-50%)"}
+                            color={"whiteAlpha.800"}
+                            backdropFilter={"auto"}
+                            backdropBlur={"8px"}
+                          >
+                            AI必修課程
+                          </Heading>
+                        </Center>
+                      </Box>
+                      <Box bg={textBg} px={10} py={10}>
+                        <List spacing={3} px={10}>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            專題開發
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            機器學習、深度學習
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            語意機器人
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            影像辨識
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="yellow.400" />
+                            IFTTT API串接
+                          </ListItem>
+                        </List>
+
+                        <Button
+                          mt={10}
+                          w={"full"}
+                          bg={"yellow.400"}
+                          color={"white"}
+                          rounded={"xl"}
+                          boxShadow={"0 5px 20px 0px rgb(255 255 59 / 43%)"}
+                          _hover={{
+                            bg: "yellow.500",
+                          }}
+                          _focus={{
+                            bg: "yellow.500",
+                          }}
+                          onClick={() => {
+                            setSection(2);
+                            const element = document.getElementById("cards");
+                            element.scrollIntoView(
+                              { behavior: "smooth" },
+                              false
+                            );
+                          }}
+                        >
+                          Detail
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Center>
+                  <Center py={6} id={"lessonCard3"}>
+                    <Box
+                      w={cardSize}
+                      bg={cardBg}
+                      boxShadow={"2xl"}
+                      rounded={"md"}
+                      overflow={"hidden"}
+                    >
+                      <Box
+                        w={"full"}
+                        h={"200px"}
+                        bgImage={img_online_class}
+                        roundedTop={"md"}
+                        bgPosition={"center"}
+                        bgSize={"cover"}
+                        position={"relative"}
+                      >
+                        <Center>
+                          <Heading
+                            fontSize={"3xl"}
+                            position={"absolute"}
+                            top={"50%"}
+                            transform={"translate(0,-50%)"}
+                            color={"whiteAlpha.800"}
+                            backdropFilter={"auto"}
+                            backdropBlur={"8px"}
+                          >
+                            線上課程與講座
+                          </Heading>
+                        </Center>
+                      </Box>
+                      <Box bg={textBg} px={10} py={10}>
+                        <List spacing={3} px={10}>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="blue.500" />
+                            人工智慧
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="blue.500" />
+                            區塊鏈技術
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="blue.500" />
+                            數位轉型
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="blue.500" />
+                            設計思考
+                          </ListItem>
+                          <ListItem>
+                            <ListIcon as={CheckIcon} color="blue.500" />
+                            元宇宙
+                          </ListItem>
+                        </List>
+
+                        <Button
+                          mt={10}
+                          w={"full"}
+                          bg={"blue.500"}
+                          color={"white"}
+                          rounded={"xl"}
+                          boxShadow={"0 5px 20px 0px rgb(43 108 176 / 43%)"}
+                          _hover={{
+                            bg: "blue.600",
+                          }}
+                          _focus={{
+                            bg: "blue.600",
+                          }}
+                          onClick={() => {
+                            setSection(3);
+                            const element = document.getElementById("cards");
+                            element.scrollIntoView(
+                              { behavior: "smooth" },
+                              false
+                            );
+                          }}
+                        >
+                          Detail
+                        </Button>
+                      </Box>
+                    </Box>
+                  </Center>
+                </Flex>
+              )}
+            </>
           )}
           {/* show first card detail */}
           {/* 1. card detail */}
@@ -541,7 +815,7 @@ function Digi() {
 
                 {/* project report */}
                 <Center>
-                  <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={16 / 9}>
+                  <AspectRatio w={{ base: "80vw", md: "50vw" }} ratio={16 / 9}>
                     <iframe
                       title={"heart disease data mining report pdf"}
                       src={pdf_heart}
@@ -642,7 +916,7 @@ function Digi() {
 
                 {/* project report */}
                 <Center>
-                  <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={16 / 9}>
+                  <AspectRatio w={{ base: "80vw", md: "50vw" }} ratio={16 / 9}>
                     <iframe
                       title={"self-checkout report pdf"}
                       src={pdf_self_checkout}
@@ -702,11 +976,21 @@ function Digi() {
                 <Heading fontSize={"4xl"} color={"gray.100"}>
                   部分課程證書
                 </Heading>
-                <VStack spacing={10}>
-                  <Image src={img_digi_certificate} w={"50vw"} />
-                  <Image src={img_digi_certificate1} w={"50vw"} />
-                  <Image src={img_digi_certificate2} w={"50vw"} />
-                </VStack>
+                <Center>
+                  <Box w={{ base: "80vw", md: "50vw" }}>
+                    <Carousel cols={1} rows={1} gap={0} loop>
+                      <Carousel.Item>
+                        <Image src={img_digi_certificate} />
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <Image src={img_digi_certificate1} />
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <Image src={img_digi_certificate2} />
+                      </Carousel.Item>
+                    </Carousel>
+                  </Box>
+                </Center>
 
                 {/* back button */}
                 <Button
@@ -724,11 +1008,10 @@ function Digi() {
               </Stack>
             </Container>
           )}
-        </Container>
+        </Box>
 
         {/* 2. project */}
         <Banner
-          marginTop={"150"}
           title={"實務專題"}
           bgImage={img_debate}
           id="project"
@@ -740,9 +1023,68 @@ function Digi() {
           scrollMargin={"100px"}
           centerContent
         >
-          <Heading py={"100"}>
-            目前正著手製作關於影像辨識的專題，預計12/20完成。
+          <Heading
+            w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+            py={"100"}
+            textAlign={"justify"}
+          >
+            目前正著手製作關於影像辨識的專題，預計12/20完成，主要流程如下。
           </Heading>
+          <Container maxW={"7xl"} centerContent>
+            <Stack spacing={20} flexWrap={"wrap"} justify={"center"}>
+              <Text
+                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                fontSize="xl"
+                textAlign={"justify"}
+                fontFamily={`"Open Sans", sans-serif`}
+              >
+                &emsp;&emsp;與中傑鞋業討論之後，發現他們每個月耗費相當多時間{""}
+                在輸入發票、收據到ERP會計系統（企業資源規劃系統，提供企業財務資訊整合）中，
+                {""}
+                因此決定幫助他們開發發票辨識的系統。將辨識發票資訊到輸入訊息到鼎新ERP系統中，
+                {""}
+                由python程式一手包辦，相信可以大幅提升人力與時間消耗，進而提升整體生產力。
+                <br />
+                <br />
+                <Text as={"span"} fontWeight={"bold"}>
+                  1. Yolov5辨識
+                </Text>
+                <br />
+                <br />
+                &emsp;&emsp;首先使用Roboflow將發票資訊標註好後，{""}
+                藉由Yolov5訓練模型，並使用ClearML以圖形化介面顯示訓練成效。
+                <br />
+                <br />
+                <Text as={"span"} fontWeight={"bold"}>
+                  2. Opencv影像處理
+                </Text>
+                <br />
+                <br />
+                &emsp;&emsp;接著將Yolo辨識出來的Bounding Box座標抓取出來後，{""}
+                丟入opencv中進行裁切與低通濾波來得到正確的發票資訊。
+                <br />
+                <br />
+                <Text as={"span"} fontWeight={"bold"}>
+                  3. OCR辨識
+                </Text>
+                <br />
+                <br />
+                &emsp;&emsp;最後將擷取好的照片餵入OCR中以辨識其中的資訊，{""}
+                辨識完成後，利用pandas將資料製作成表格，並以excel存檔。
+                <br />
+                <br />
+                <Text as={"span"} fontWeight={"bold"}>
+                  4. RPA流程自動化
+                </Text>
+                <br />
+                <br />
+                &emsp;&emsp;使用UiPath來自動化讀取剛剛儲存的excel檔案，{""}
+                並輸入ERP系統中完成財務歸檔。
+                <br />
+                <br />
+              </Text>
+            </Stack>
+          </Container>
         </Container>
 
         <Footer />

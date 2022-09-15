@@ -21,10 +21,10 @@ import {
   FiCommand,
   FiMessageCircle,
   FiFile,
+  FiYoutube,
+  FiImage,
 } from "react-icons/fi";
 import {
-  BsGearFill,
-  BsLightbulbFill,
   BsCheckSquareFill,
   BsAwardFill,
   BsFillPersonFill,
@@ -50,6 +50,7 @@ import img_unity_to_magicVR from "../assets/unity_to_magicVR.png";
 import img_unity_to_magicVR1 from "../assets/unity_to_magicVR1.png";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/sunrise.jpg";
+import img_poster from "../assets/vr_poster.png";
 
 import pdf_proposal from "../assets/vr_proposal.pdf";
 
@@ -58,6 +59,8 @@ function VR() {
   const LinkItems = [
     { name: "Home", icon: FiHome, href: "#" },
     { name: "Abstract", icon: FiCompass, href: "#abstract" },
+    { name: "Trailer", icon: FiYoutube, href: "#trailer" },
+    { name: "Poster", icon: FiImage, href: "#poster" },
     { name: "Architecture", icon: FiCommand, href: "#architecture" },
     { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
     { name: "Project report", icon: FiFile, href: "#project-report" },
@@ -245,6 +248,27 @@ function VR() {
                   allowFullScreen
                 />
               </AspectRatio>
+            </Box>
+            <Box marginTop={"200"}>
+              <Heading
+                fontFamily={`"Open Sans", sans-serif`}
+                scrollMargin="100px"
+                py={"4"}
+                px={"5"}
+                id={"poster"}
+                w={{ base: "auto", lg: "full" }}
+                textAlign={{ base: "center", lg: "left" }}
+              >
+                海報{" "}
+                <Text as={"span"} fontWeight={"thin"}>
+                  |
+                </Text>{" "}
+                Poster
+              </Heading>
+
+              <Box boxShadow="lg" w={{ base: "90vw", md: "70vw", lg: "67vw" }}>
+                <Image src={img_poster} />
+              </Box>
             </Box>
             <Box marginTop={"200"} marginBottom={"150"}>
               <Heading
@@ -481,7 +505,7 @@ function VR() {
               fontSize={"xl"}
               textAlign={"justify"}
               mt={"150"}
-              px={{ base: "5", md: "10" }}
+              px={{ base: "5", md: "10", lg: "200" }}
             >
               &emsp;&emsp;為了製作完善的樹莓派虛擬場景，為此，請教實驗室學長姐來學習樹莓派和Linux。
               同時自己也購買一台樹莓派與教學指南，來學習基本指令和嘗試做音樂播放器和智慧家庭。

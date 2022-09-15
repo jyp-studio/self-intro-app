@@ -60,6 +60,7 @@ import img_mc_all from "../assets/mc_all.jpg";
 import img_future from "../assets/future.jpg";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_dt_workshop from "../assets/dt_workshop.png";
+import img_future_plan from "../assets/future_plan.png";
 
 function Autobiography() {
   // Sidebar link items
@@ -109,9 +110,7 @@ function Autobiography() {
       alt: "digi intern photo",
       title: "Digi實習計畫",
       context:
-        "與跨領域的同儕與業師合作，共同為企業製作相關專題。\
-      目前正設計一套系統提供使用者利用影像辨識輸入收據、\
-      三聯式發票並建立數據庫提供視覺化圖表、會計系統以及資料探勘使用。",
+        "與跨領域的同儕與業師合作，共同為企業製作相關專題。目前正設計一套系統提供使用者利用影像辨識輸入收據、三聯式發票並建立數據庫提供視覺化圖表、會計系統以及資料探勘使用。",
       link: "/project/digi",
     },
     {
@@ -119,9 +118,7 @@ function Autobiography() {
       alt: "中友會照片",
       title: "成大中友會活動",
       context:
-        "由於是台中人，因此有參加成大中友會，認識同樣來自台中不同科系的同儕。\
-        友會期間，擔任不同職位如：活動總召、營隊講師、隊輔等，\
-        以此累積人脈並增進人際關係與溝通技巧。",
+        "由於是台中人，因此有參加成大中友會，認識同樣來自台中不同科系的同儕。友會期間，擔任不同職位如：活動總召、營隊講師、隊輔等，以此累積人脈並增進人際關係與溝通技巧。",
       link: "/activity",
     },
     {
@@ -129,8 +126,7 @@ function Autobiography() {
       alt: "光蛇照片",
       title: "創客計畫",
       context:
-        "跟著系上的創客計畫，在學長姐的帶領下實際焊接和撰寫程式來製作新一代的螢光棒，稱為光蛇。\
-        光蛇上有數枚LED燈泡，可透過快速旋轉螢光棒所造成的視覺暫留來顯示文字和圖案。",
+        "跟著系上的創客計畫，在學長姐的帶領下實際焊接和撰寫程式來製作新一代的螢光棒，稱為光蛇。光蛇上有數枚LED燈泡，可透過快速旋轉螢光棒所造成的視覺暫留來顯示文字和圖案。",
       link: "/activity",
     },
     {
@@ -138,31 +134,30 @@ function Autobiography() {
       alt: "設計思考工作坊照片",
       title: "設計思考工作坊",
       context:
-        "參加設計思考工作坊，和組員從生活中找尋問題，並藉由便利貼的輔助來解構、發想和收束問題。\
-        後來實習時，也帶領組員應用設計思考構思小專題：AI自助結帳系統和探勘心臟病成因。",
+        "參加設計思考工作坊，和組員從生活中找尋問題，並藉由便利貼的輔助來解構、發想和收束問題。後來實習時，也帶領組員應用設計思考構思小專題：AI自助結帳系統和探勘心臟病成因。",
       link: "/activity",
     },
   ];
 
   // what I learn im class with name and rating.
-  const Gain = [
-    {
-      name: "Python",
-      rating: "5",
-    },
-    {
-      name: "抗壓性",
-      rating: "5",
-    },
-    {
-      name: "UML",
-      rating: "4",
-    },
-    {
-      name: "Design pattern",
-      rating: "4",
-    },
-  ];
+  // const Gain = [
+  //   {
+  //     name: "Python",
+  //     rating: "5",
+  //   },
+  //   {
+  //     name: "抗壓性",
+  //     rating: "5",
+  //   },
+  //   {
+  //     name: "UML",
+  //     rating: "4",
+  //   },
+  //   {
+  //     name: "Design pattern",
+  //     rating: "4",
+  //   },
+  // ];
 
   // activity color mode value
   const activityColorMode = useColorModeValue("gray.50", "gray.700");
@@ -564,12 +559,7 @@ function Autobiography() {
           id="future"
           scrollMargin="150px"
         />
-        <Container
-          maxW={"8xl"}
-          bg={useColorModeValue("gray.50", "gray.700")}
-          py={150}
-          centerContent
-        >
+        <Container maxW={"8xl"} py={150} centerContent>
           <Stack spacing={20} flexWrap={"wrap"} justify={"center"}>
             <Text
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
@@ -602,12 +592,12 @@ function Autobiography() {
               作為額外收入並累積作品，當個斜槓青年。
             </Text>
             <Box
-              bgImage={img_lonely}
+              bgImage={img_future_plan}
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               h={{ base: "400px", lg: "500px" }}
               bgRepeat={"no-repeat"}
               bgPosition={"center"}
-              bgSize={"cover"}
+              bgSize={"contain"}
             />
           </Stack>
         </Container>

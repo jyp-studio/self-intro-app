@@ -114,5 +114,3 @@ const Card = (props) => {
     </Box>
   );
 };
-
-const ProjectItems = [];

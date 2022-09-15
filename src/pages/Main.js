@@ -3,7 +3,6 @@ import {
   Heading,
   Text,
   Container,
-  SimpleGrid,
   Image,
   Flex,
   Button,
@@ -13,7 +12,6 @@ import {
   Center,
   HStack,
   useBreakpointValue,
-  Spacer,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -40,7 +38,6 @@ import img_bg_vr from "../assets/bg_vr.jpg";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
 import img_coding_bg from "../assets/coding_bg1.png";
-import { useEffect, useState } from "react";
 
 // carousel items
 const carouselItems = [

@@ -10,25 +10,17 @@ import {
   VStack,
   Divider,
   useColorModeValue,
-  HStack,
   Stack,
 } from "@chakra-ui/react";
-import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
+
 import {
   FiHome,
   FiCompass,
-  FiYoutube,
   FiCommand,
   FiMessageCircle,
-  FiBox,
   FiFile,
 } from "react-icons/fi";
-import {
-  BsGearFill,
-  BsLightbulbFill,
-  BsPinAngleFill,
-  BsPenFill,
-} from "react-icons/bs";
+import { BsGearFill, BsLightbulbFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
@@ -272,7 +264,7 @@ function PollutionModel() {
               textAlign={"justify"}
               color={"gray.200"}
               mt={"150"}
-              px={{ base: "5", md: "10" }}
+              px={{ base: "5", md: "10", lg: "200" }}
             >
               &emsp;&emsp;學習邏輯設計和使用Verilog設計decoder和encoder等，不但讓我更加了解電腦的基礎架構、運行過程，
               {""}

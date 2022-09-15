@@ -20,7 +20,6 @@ import {
   FiFile,
   FiCommand,
   FiMessageCircle,
-  FiBox,
 } from "react-icons/fi";
 import { BsGearFill, BsLightbulbFill } from "react-icons/bs";
 
@@ -410,7 +409,7 @@ function Opt() {
               fontSize={"xl"}
               textAlign={"justify"}
               mt={"150"}
-              px={{ base: "5", md: "10" }}
+              px={{ base: "5", md: "10", lg: "200" }}
             >
               &emsp;&emsp;這次的專題研究，我主要
               <Text as={"span"} fontWeight={"bold"}>
@@ -448,7 +447,7 @@ function Opt() {
             <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
               <iframe
                 title="numerical opt pdf"
-                src="https://drive.google.com/file/d/15MRtr8mL9XtxG7JyL70cNwWiCeweTAIf/preview"
+                src={pdf_project}
                 //src={pdf_project}
                 position="absolute"
                 width={"100%"}

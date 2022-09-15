@@ -15,10 +15,10 @@ import {
   Tag,
   TagLabel,
   TagRightIcon,
-  Spacer,
   HStack,
   Divider,
 } from "@chakra-ui/react";
+import Carousel from "react-grid-carousel";
 import {
   FiHome,
   FiUser,
@@ -27,7 +27,6 @@ import {
   FiUserCheck,
   FiSun,
 } from "react-icons/fi";
-import Carousel from "react-grid-carousel";
 
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
@@ -65,17 +64,17 @@ const LinkItems = [
 ];
 
 // Settings for the carousel
-const settings = {
-  dots: true,
-  arrows: false,
-  fade: true,
-  infinite: true,
-  autoplay: true,
-  speed: 500,
-  autoplaySpeed: 5000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
+// const settings = {
+//   dots: true,
+//   arrows: false,
+//   fade: true,
+//   infinite: true,
+//   autoplay: true,
+//   speed: 500,
+//   autoplaySpeed: 5000,
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+// };
 
 // cards of Title Carousel
 const cards = [
@@ -127,10 +126,16 @@ function Activity() {
       image: img_confidence,
       color: "cyan.400",
       mobileImage: img_mobile_confidence,
-      detail: "我相信我做得到，而我也總是做得到",
+      detail: "我相信我做得到，而我也做得到",
       icon: FiUserCheck,
     },
   ];
+
+  // carousel
+  const breakPoint = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
+  const columns = useBreakpointValue({ base: 1 });
+  const autoplay = useBreakpointValue({ md: 4000 });
+  const hideArrow = useBreakpointValue({ base: true, md: false, lg: true });
 
   return (
     <>
@@ -154,31 +159,35 @@ function Activity() {
           </Heading>
 
           {/* desktop widgets */}
-          <Flex
-            flexWrap={"wrap"}
-            justify={"center"}
-            py={"10"}
-            display={{ base: "none", lg: "flex" }}
-          >
-            {data.map((item, index) => (
-              <WrapItem px={"2"} key={index}>
-                <DesktopWidget {...item} />
-              </WrapItem>
-            ))}
-          </Flex>
+          {breakPoint === "lg" && (
+            <Flex flexWrap={"wrap"} justify={"center"} py={"10"}>
+              {data.map((item, index) => (
+                <WrapItem px={"2"} key={index}>
+                  <DesktopWidget {...item} />
+                </WrapItem>
+              ))}
+            </Flex>
+          )}
+
           {/* mobile widgets */}
-          <Flex
-            flexWrap={"wrap"}
-            justify={"center"}
-            py={"10"}
-            display={{ base: "flex", lg: "none" }}
-          >
-            {data.map((item, index) => (
-              <WrapItem p={"2"} key={index}>
-                <MobileWidget {...item} />
-              </WrapItem>
-            ))}
-          </Flex>
+          {breakPoint === "lg" || (
+            <Box mt={100}>
+              <Carousel
+                cols={columns}
+                rows={1}
+                gap={10}
+                loop
+                autoplay={autoplay}
+                hideArrow={hideArrow}
+              >
+                {data.map((item, index) => (
+                  <Carousel.Item key={index}>
+                    <DesktopWidget {...item} />
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Box>
+          )}
         </Box>
 
         {/* class */}
@@ -493,7 +502,7 @@ const DesktopWidget = (props) => {
   return (
     <Box
       bg={useColorModeValue("white", "gray.800")}
-      w={"20vw"}
+      w={{ base: "80vw", md: "60vw", lg: "300px" }}
       borderWidth="1px"
       rounded="lg"
       shadow="lg"
@@ -505,7 +514,7 @@ const DesktopWidget = (props) => {
         roundedTop="lg"
       />
       <VStack
-        h={"13vw"}
+        py={16}
         justify={"center"}
         bg={useColorModeValue("white", "gray.800")}
       >
@@ -513,7 +522,7 @@ const DesktopWidget = (props) => {
         <Heading
           fontWeight={"light"}
           px={"5"}
-          fontSize={"2vw"}
+          fontSize={"3xl"}
           color={props.color}
         >
           {props.name}
@@ -521,61 +530,11 @@ const DesktopWidget = (props) => {
         <Text
           color={useColorModeValue("gray.800", "gray.400")}
           px={"10"}
-          fontSize={"0.8vw"}
+          fontSize={"sm"}
         >
           {props.detail}
         </Text>
       </VStack>
-    </Box>
-  );
-};
-
-// widget component
-const MobileWidget = (props) => {
-  return (
-    <Box
-      bg={useColorModeValue("white", "gray.800")}
-      maxW="lg"
-      h={"100px"}
-      borderWidth="1px"
-      rounded="lg"
-      shadow="xl"
-      position="relative"
-    >
-      <Image
-        w="lg"
-        h={"100px"}
-        src={props.mobileImage}
-        alt={`Widget of ${props.name}`}
-        rounded="lg"
-      />
-      <HStack
-        w={"full"}
-        color={"white"}
-        position={"absolute"}
-        top="50%"
-        transform="translate(0, -50%)"
-        justify={"flex-end"}
-        px={"10"}
-      >
-        <Heading
-          fontWeight={"thin"}
-          backdropFilter="auto"
-          backdropBlur={"1px"}
-          color={props.color}
-        >
-          {props.name}
-        </Heading>
-        <Spacer />
-        <Icon
-          color={props.color}
-          backdropFilter="auto"
-          backdropBlur={"1px"}
-          as={props.icon}
-          w={"5"}
-          h={"5"}
-        />
-      </HStack>
     </Box>
   );
 };

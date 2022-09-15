@@ -39,10 +39,10 @@ function Sidebar(props) {
             >
               {link.icon && (
                 <Icon
+                  as={link.icon}
                   mr="4"
                   fontSize="16"
                   _groupHover={{ color: "white" }}
-                  as={link.icon}
                 />
               )}
               {link.name}
