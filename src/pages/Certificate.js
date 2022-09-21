@@ -12,6 +12,10 @@ import {
   Td,
   TableCaption,
   TableContainer,
+  Image,
+  Text,
+  VStack,
+  Link,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -34,6 +38,8 @@ import img_php_course from "../assets/php_course.jpg";
 import img_pygame_course from "../assets/pygame_course.jpg";
 import img_gept from "../assets/gept.jpg";
 import img_numerical_method from "../assets/numerical_method_course.jpg";
+import img_ur_competition from "../assets/ur_competition.png";
+import img_ur_voting from "../assets/ur_voting.png";
 
 function Certificate() {
   // Sidebar link items
@@ -81,13 +87,18 @@ function Certificate() {
                     <Tbody>
                       <Tr>
                         <Td fontWeight={"bold"}>參賽證明</Td>
-                        <Td>成大專題海報競賽</Td>
+                        <Td>成大專題海報競賽 - 研究獎</Td>
                         <Td isNumeric>第二名</Td>
                       </Tr>
                       <Tr>
                         <Td></Td>
+                        <Td>成大專題海報競賽 - 人氣獎</Td>
+                        <Td isNumeric>投票中</Td>
+                      </Tr>
+                      <Tr>
+                        <Td></Td>
                         <Td>成大工科專題競賽</Td>
-                        <Td isNumeric>第一名</Td>
+                        <Td isNumeric>投票中</Td>
                       </Tr>
                       <Tr>
                         <Td fontWeight={"bold"}>英文檢定</Td>
@@ -133,6 +144,51 @@ function Certificate() {
               >
                 參賽證明
               </Heading>
+              <VStack spacing={20}>
+                <VStack spacing={5}>
+                  <Image
+                    w={{ base: "90vw", md: "65vw", lg: "800px" }}
+                    src={img_ur_competition}
+                    shadow={"lg"}
+                  />
+                  <Text fontSize={"xl"}>
+                    成大專題海報競賽 - 研究獎 第二名{" "}
+                    <Link
+                      fontWeight={"bold"}
+                      color={"teal.400"}
+                      href="https://ur.ncku.edu.tw/news/11年大學生海報競賽得獎名單公告/"
+                      isExternal
+                    >
+                      #
+                    </Link>
+                  </Text>
+                  <Text color={useColorModeValue("gray.400", "gray.500")}>
+                    11月時才會頒獎與獲得證書
+                  </Text>
+                </VStack>
+                <VStack spacing={5}>
+                  <Image
+                    w={{ base: "90vw", md: "65vw", lg: "800px" }}
+                    src={img_ur_voting}
+                    shadow={"lg"}
+                    rounded={"xl"}
+                  />
+                  <Text fontSize={"xl"}>
+                    成大專題海報競賽 - 人氣獎{" "}
+                    <Link
+                      fontWeight={"bold"}
+                      color={"teal.400"}
+                      href="https://ur.ncku.edu.tw/book/%E6%8E%A2%E8%A8%8E%E6%83%85%E5%A2%83%E6%A8%A1%E6%93%AC%E5%AD%B8%E7%BF%92%E8%9E%8D%E5%85%A5%E8%99%9B%E6%93%AC%E5%AF%A6%E5%A2%83%E5%B0%8D%E5%AD%B8%E7%94%9F%E5%AD%B8%E7%BF%92%E8%A1%A8%E7%8F%BE%E8%88%87%E5%8F%83%E8%88%87%E5%BA%A6%E4%B9%8B%E5%BD%B1%E9%9F%BF/"
+                      isExternal
+                    >
+                      #
+                    </Link>
+                  </Text>
+                  <Text color={useColorModeValue("gray.400", "gray.500")}>
+                    目前還在投票環節
+                  </Text>
+                </VStack>
+              </VStack>
             </Stack>
             <Divider />
 

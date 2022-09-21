@@ -12,18 +12,22 @@ import VR from "./pages/VR";
 import Opt from "./pages/Opt";
 import PollutionModel from "./pages/PollutionModel";
 import NotFound from "./pages/NotFound";
+import Resume from "./pages/Resume";
+import InProgress from "./pages/InProgress";
 
 function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/resume" element={<Resume />} />
         <Route path="/autobiography" element={<Autobiography />} />
         <Route path="/project" element={<Project />} />
         <Route path="/project/tower-defense" element={<TowerDefense />} />
         <Route path="/project/digi" element={<Digi />} />
         <Route path="/project/vr" element={<VR />} />
         <Route path="/project/opt" element={<Opt />} />
+        <Route path="/project/in-progress" element={<InProgress />} />
         <Route path="/project/pollution-model" element={<PollutionModel />} />
         <Route path="/project/side-project" element={<SideProject />} />
         <Route path="/activity" element={<Activity />} />

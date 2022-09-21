@@ -61,6 +61,7 @@ import img_future from "../assets/future.jpg";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_dt_workshop from "../assets/dt_workshop.png";
 import img_future_plan from "../assets/future_plan.png";
+import img_future_plan1 from "../assets/future_plan1.png";
 
 function Autobiography() {
   // Sidebar link items
@@ -227,7 +228,6 @@ function Autobiography() {
               bgPosition={"center"}
               bgSize={"cover"}
             />
-
             <Text
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               fontSize="xl"
@@ -554,7 +554,7 @@ function Autobiography() {
 
         {/* future */}
         <Banner
-          title={"未來展望｜Future"}
+          title={"未來展望｜Future Prospects"}
           bgImage={img_future}
           id="future"
           scrollMargin="150px"
@@ -592,7 +592,7 @@ function Autobiography() {
               作為額外收入並累積作品，當個斜槓青年。
             </Text>
             <Box
-              bgImage={img_future_plan}
+              bgImage={useColorModeValue(img_future_plan, img_future_plan1)}
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               h={{ base: "400px", lg: "500px" }}
               bgRepeat={"no-repeat"}

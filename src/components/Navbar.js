@@ -154,7 +154,7 @@ const DesktopSubNav = (props) => {
   return (
     <ChakraLink
       as={Link}
-      to={props.href}
+      to={props.href ?? "#"}
       onClick={() => window.scrollTo({ top: 0 })}
       role={"group"}
       display={"block"}
@@ -272,7 +272,20 @@ const NAV_ITEMS = [
   {
     label: "Autobiography",
     pcHref: "/autobiography",
-    href: "/autobiography",
+    children: [
+      {
+        label: "Resume",
+        subLabel:
+          "A quick look at my learning experiences, competitions, and projects.",
+        href: "/resume",
+      },
+      {
+        label: "Autobiography",
+        subLabel:
+          "A closer look at my growth background, learning process, and future prospects.",
+        href: "/autobiography",
+      },
+    ],
   },
   {
     label: "Project",
@@ -306,6 +319,12 @@ const NAV_ITEMS = [
         label: "Pollution Detection Model",
         subLabel: "Using Verilog to simulate the spread of pollution.",
         href: "/project/pollution-model",
+      },
+      {
+        label: "In Progress",
+        subLabel:
+          "Projects currently under development, including image detection, gait prediction, and Unity games.",
+        href: "/project/in-progress",
       },
       {
         label: "Side Project",
