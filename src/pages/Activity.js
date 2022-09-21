@@ -17,6 +17,7 @@ import {
   TagRightIcon,
   HStack,
   Divider,
+  AspectRatio,
 } from "@chakra-ui/react";
 import Carousel from "react-grid-carousel";
 import {
@@ -234,6 +235,17 @@ function Activity() {
             width={{ base: "90vw", md: "md", lg: "50vw" }}
             justify="center"
           />
+          <AspectRatio
+            mt={5}
+            w={{ base: "90vw", md: "md", lg: "50vw" }}
+            ratio={16 / 9}
+          >
+            <iframe
+              title="tower defense demo video"
+              src="https://www.youtube.com/embed/ZVO3aklH1ME"
+              allowFullScreen
+            />
+          </AspectRatio>
 
           <Stack spacing={2} mt={150} maxW={{ base: "sm", lg: "xl" }}>
             <Heading fontSize={{ base: "3xl", md: "5xl" }}>

@@ -48,11 +48,11 @@ function Project() {
       title: "數值最佳化投資",
     },
     {
-      href: "/project/pollution-model",
+      href: "/project/in-progress",
       bg: "teal.300",
       img: img_verilog,
-      alt: "汙染擴散模型",
-      title: "汙染擴散模型",
+      alt: "projects in progress",
+      title: "正在製作的專題",
     },
     {
       href: "/project/side-project",

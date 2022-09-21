@@ -13,25 +13,17 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-import {
-  FiHome,
-  FiCompass,
-  FiCommand,
-  FiMessageCircle,
-  FiFile,
-} from "react-icons/fi";
+import { FiHome, FiCommand, FiTv, FiActivity } from "react-icons/fi";
 import { BsGearFill, BsLightbulbFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
 
-import IconBox from "../components/IconBox";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Title from "../components/Title";
 import Banner from "../components/Banner";
-import Rating from "../components/Rating";
 
 import img_bg from "../assets/bg_programming.jpeg";
 import img_ai from "../assets/ai.jpeg";
@@ -39,16 +31,17 @@ import img_labeling_people from "../assets/labeling_people.png";
 import img_unity from "../assets/unity.jpeg";
 import img_vision from "../assets/vision.jpeg";
 
-import pdf_project from "../assets/pollution_project.pdf";
-
 function InProgress() {
   // Sidebar link items
   const LinkItems = [
     { name: "Home", icon: FiHome, href: "#" },
-    { name: "Abstract", icon: FiCompass, href: "#abstract" },
-    { name: "Architecture", icon: FiCommand, href: "#architecture" },
-    { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Project report", icon: FiFile, href: "#project-report" },
+    { name: "人工智慧導論", icon: FiActivity, href: "#ai" },
+    {
+      name: "影像處理、電腦視覺及深度學習概論",
+      icon: FiCommand,
+      href: "#vision",
+    },
+    { name: "視窗程式設計", icon: FiTv, href: "#windows" },
   ];
   // Icon box infomation
   const IconBoxItems = [
@@ -114,7 +107,7 @@ function InProgress() {
         <Banner
           title={"人工智慧導論"}
           bgImage={img_ai}
-          id="study"
+          id="ai"
           scrollMargin="150px"
         />
         <Container
@@ -173,7 +166,7 @@ function InProgress() {
           brightness={"20%"}
           title={"影像處理、電腦視覺及深度學習概論"}
           bgImage={img_vision}
-          id="study"
+          id="vision"
           scrollMargin="150px"
         />
         <Container
@@ -195,7 +188,7 @@ function InProgress() {
         <Banner
           title={"視窗程式設計"}
           bgImage={img_unity}
-          id="study"
+          id="windows"
           scrollMargin="150px"
         />
         <Container

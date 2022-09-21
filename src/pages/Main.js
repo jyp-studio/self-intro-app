@@ -31,7 +31,7 @@ import img_numerical_method from "../assets/numerical_method_course.jpg";
 import img_gept from "../assets/gept.jpg";
 import img_bg_opt from "../assets/bg_opt.jpeg";
 import img_bg_digi from "../assets/bg_digi.jpg";
-import img_bg_pollution from "../assets/bg_pollution.jpg";
+import img_bg_in_progress from "../assets/bg_programming.jpeg";
 import img_bg_sideproject from "../assets/bg_sideproject.jpg";
 import img_bg_tower from "../assets/bg_tower.jpg";
 import img_bg_vr from "../assets/bg_vr.jpg";
@@ -83,11 +83,11 @@ const projectItems = [
   },
   {
     brightness: "50%",
-    image: img_bg_pollution,
-    mainTitle: "汙染擴散模型",
-    mainColor: "pink.300",
-    subColor: "red.100",
-    subTitle: "利用verilog模擬covid-19的擴散方式",
+    image: img_bg_in_progress,
+    mainTitle: "專題ing",
+    mainColor: "purple.300",
+    subColor: "purple.400",
+    subTitle: "目前正在進行中的專題，包含步態預測、影像辨識和視窗程式設計。",
   },
   {
     image: img_bg_sideproject,
@@ -176,10 +176,15 @@ function Main() {
       </Container>
 
       {/* project block */}
-      <Box bg={useColorModeValue("teal.300", "teal.400")} px={20} py={"100px"}>
+      <Box bg={useColorModeValue("teal.300", "teal.400")} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
           <Flex flexWrap={"wrap"} justify={"space-around"}>
-            <Stack spacing={4} color={"black"} justify={"center"}>
+            <Stack
+              spacing={4}
+              color={"black"}
+              justify={"center"}
+              px={{ base: 5, md: 20 }}
+            >
               <Heading fontSize={"5xl"} color={"gray.800"}>
                 專題｜Project
               </Heading>
@@ -243,14 +248,14 @@ function Main() {
               )}
             </Stack>
             <Box
-              w="650px"
+              w={{ base: "100vw", lg: "650px" }}
               h={{ base: "250px", md: "400px" }}
               mt={{ base: 20, lg: 0 }}
             >
               <Carousel
                 cols={1}
                 rows={1}
-                gap={0}
+                gap={20}
                 loop
                 hideArrow
                 autoplay={useBreakpointValue({ md: 4000 })}
@@ -296,7 +301,7 @@ function Main() {
       </Box>
 
       {/* activity block */}
-      <Box bg={useColorModeValue("gray.50", "gray.900")} px={20} py={"100px"}>
+      <Box bg={useColorModeValue("gray.50", "gray.900")} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
           <Flex
             flexWrap={"wrap"}
@@ -304,6 +309,7 @@ function Main() {
             justify={"space-around"}
           >
             <Stack
+              px={{ base: 5, md: 20 }}
               spacing={4}
               justify={"center"}
               color={useColorModeValue("gray.800", "gray.100")}
@@ -374,14 +380,14 @@ function Main() {
               )}
             </Stack>
             <Box
-              w="650px"
+              w={{ base: "100vw", lg: "650px" }}
               h={{ base: "250px", md: "400px" }}
               mt={{ base: 20, lg: 0 }}
             >
               <Carousel
                 cols={1}
                 rows={1}
-                gap={0}
+                gap={20}
                 loop
                 hideArrow
                 autoplay={useBreakpointValue({ md: 4000 })}

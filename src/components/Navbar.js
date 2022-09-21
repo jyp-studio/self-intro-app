@@ -316,11 +316,6 @@ const NAV_ITEMS = [
         href: "/project/opt",
       },
       {
-        label: "Pollution Detection Model",
-        subLabel: "Using Verilog to simulate the spread of pollution.",
-        href: "/project/pollution-model",
-      },
-      {
         label: "In Progress",
         subLabel:
           "Projects currently under development, including image detection, gait prediction, and Unity games.",
