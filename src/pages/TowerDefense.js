@@ -180,6 +180,7 @@ function TowerDefense() {
                   期許大眾在遊玩遊戲之後能了解並更加重視Covid-19的危害。
                 </Text>
                 <br />
+                <br />
                 &emsp;&emsp;本遊戲使用Python-pygame製作，遊戲主要使用
                 <Text as={"span"} fontWeight={"bold"}>
                   MVC{"("}
@@ -363,13 +364,22 @@ function TowerDefense() {
                 textAlign={"justify"}
                 fontFamily={`"Open Sans", sans-serif`}
               >
-                &emsp;&emsp;開發過程中，遇到最大的問題是塔攻擊的動畫與造成實際傷害的時間不同，相信這是普遍遊戲都會遇到的困難之處。
+                &emsp;&emsp;開發過程中，遇到最大的問題是
+                <Text as={"span"} fontWeight={"bold"}>
+                  塔攻擊的動畫與造成實際傷害的時間不同
+                </Text>
+                ，相信這是普遍遊戲都會遇到的困難之處。
                 {""}
                 原先我們採取的是動畫出現時即造成傷害，如此是最簡單做法，卻不是最美觀的做法。
+                <br />
+                <br />
+                &emsp;&emsp;因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
                 {""}
-                因此，我們嘗試讓傷害出現在動畫之後，然而這衍生的問題是在動畫的過程中，若敵人跑出攻擊範圍或死亡的話，那該如何？
-                {""}
-                經過一晚的討論，我們最後決定使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果，而效果也如預期般的好。
+                經過一晚的討論，我們最後決定{""}
+                <Text as={"span"} fontWeight={"bold"}>
+                  使用兩個counter，分別計算動畫和攻擊冷卻時間來達成效果
+                </Text>
+                ，而效果也如預期般的好。
               </Text>
             </Flex>
             <Flex
@@ -528,6 +538,7 @@ function TowerDefense() {
               {""}
               然而這時卻很容易使得日後開發遇到窘境，因為企鵝和鴕鳥不會飛。{""}
               這便是一個簡單的例子來闡述架構、格局的重要性。
+              <br />
               <br />
               &emsp;&emsp;同時， 學習使用一些
               <Text as={"span"} fontWeight={"bold"}>

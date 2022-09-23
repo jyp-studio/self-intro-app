@@ -11,6 +11,7 @@ function Sidebar(props) {
       position={"fixed"}
     >
       <Box
+        overflowY="auto"
         py="2"
         bg={useColorModeValue("white", "gray.900")}
         borderRight="1px"

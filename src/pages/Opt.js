@@ -354,7 +354,7 @@ function Opt() {
             px={{ base: "5", md: "50" }}
           />
           <Text
-            px={{ base: "5", md: "10", lg: "30" }}
+            px={{ base: "5", md: "10", lg: "40" }}
             fontSize={"3xl"}
             fontWeight={"bold"}
             textAlign={"justify"}

@@ -67,10 +67,10 @@ function Autobiography() {
   // Sidebar link items
   const LinkItems = [
     { name: "Home", icon: FiHome, href: "#" },
-    { name: "Background", icon: RiPlantLine, href: "#bg" },
-    { name: "Studying", icon: RiBallPenLine, href: "#study" },
+    { name: " Growth background", icon: RiPlantLine, href: "#bg" },
+    { name: "Learning progress", icon: RiBallPenLine, href: "#study" },
     { name: "Ativity", icon: RiApps2Line, href: "#activity" },
-    { name: "Future", icon: RiSunLine, href: "#future" },
+    { name: "Future prospects", icon: RiSunLine, href: "#future" },
   ];
 
   // Icon box infomation
@@ -266,7 +266,7 @@ function Autobiography() {
 
         {/* study process */}
         <Banner
-          title={"求學過程｜Study Process"}
+          title={"求學過程｜Learning Progress"}
           bgImage={img_books}
           id="study"
           scrollMargin="150px"

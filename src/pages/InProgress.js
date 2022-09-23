@@ -1,20 +1,6 @@
-import {
-  Box,
-  Flex,
-  Text,
-  Image,
-  Heading,
-  AspectRatio,
-  WrapItem,
-  Container,
-  VStack,
-  Divider,
-  useColorModeValue,
-  Stack,
-} from "@chakra-ui/react";
+import { Box, Text, Container, Stack } from "@chakra-ui/react";
 
 import { FiHome, FiCommand, FiTv, FiActivity } from "react-icons/fi";
-import { BsGearFill, BsLightbulbFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
@@ -42,31 +28,6 @@ function InProgress() {
       href: "#vision",
     },
     { name: "視窗程式設計", icon: FiTv, href: "#windows" },
-  ];
-  // Icon box infomation
-  const IconBoxItems = [
-    {
-      icon: BsGearFill,
-      title: "Tool",
-      text: "Verilog",
-    },
-    {
-      icon: BsLightbulbFill,
-      title: "設計理念",
-      text: "將邏輯設計概念應用於探查汙染擴散",
-    },
-  ];
-
-  // what I learn im class with name and rating.
-  const Gain = [
-    {
-      name: "Verilog",
-      rating: "5",
-    },
-    {
-      name: "邏輯設計",
-      rating: "5",
-    },
   ];
 
   return (
@@ -96,9 +57,10 @@ function InProgress() {
         >
           <Stack py={150} spacing={"100px"} px={{ base: 5, md: 10, lg: 100 }}>
             <Text textAlign={"justify"}>
-              &emsp;&emsp;大四選修資工系人工智慧導論，{""}
+              &emsp;&emsp;為了更深入了解深度學習、電腦視覺等AI相關的知識，{""}
+              因此，大四選修資工系人工智慧導論，{""}
               影像處理、電腦視覺及深度學習概論，和視窗程式設計課程。{""}
-              分別要製作相關專題。
+              分別都要製作相關專題。
             </Text>
           </Stack>
         </Container>
@@ -120,11 +82,17 @@ function InProgress() {
           <Stack spacing={"100px"} px={{ base: 5, md: 10, lg: 100 }}>
             <Text textAlign={"justify"}>
               &emsp;&emsp;對於人工智慧導論課程，我們這組三個人經過討論決定製作
+              {""}「
+              <Text as={"span"} fontWeight={"bold"}>
+                自動追蹤電子柵欄內人流走向
+              </Text>
+              。」原因是因為影像辨識人臉或服裝時，{""}
+              容易受到喬裝易容而追丟目標人物。但每個人的走路方式大不相同，因此，可以
               {""}
-              「自動追蹤電子柵欄內人流走向。」原因是因為影像辨識人臉或服裝{""}
-              容易受到喬裝易容而追丟目標人物，但每個人的走路方式大不相同，{""}
-              因此，可以透過步態預測來分析特定人物的走向，{""}
-              讓儀器自動追蹤其目的地，來幫助警察更快且更方便地找到犯人。{""}
+              <Text as={"span"} fontWeight={"bold"}>
+                透過步態預測來分析特定人物的走向，讓儀器自動追蹤其目的地
+              </Text>
+              ，來幫助警察更快且更方便地找到犯人。{""}
               此外，也可以應用於路口監視器觀察行人走動，若發現行為異常或突然倒下的行人，
               {""}
               會立刻通報119來爭取搶救時間。主要流程如下：
@@ -179,7 +147,7 @@ function InProgress() {
           <Stack spacing={"100px"} px={{ base: 5, md: 10, lg: 100 }}>
             <Text textAlign={"justify"}>
               &emsp;&emsp;目前影像處理、電腦視覺及深度學習概論課程中，{""}
-              已經找好組員，決定跟著教授教學的內容來決定專題做什麼。
+              教授說要做期末專題，要求我們找好組員，但還尚未公佈專題方向和題目。
             </Text>
           </Stack>
         </Container>

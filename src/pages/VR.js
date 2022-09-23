@@ -63,7 +63,7 @@ function VR() {
     { name: "Poster", icon: FiImage, href: "#poster" },
     { name: "Architecture", icon: FiCommand, href: "#architecture" },
     { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Project report", icon: FiFile, href: "#project-report" },
+    { name: "Reasearch proposal", icon: FiFile, href: "#project-report" },
   ];
   // Icon box infomation
   const IconBoxItems = [
@@ -89,8 +89,8 @@ function VR() {
     },
     {
       icon: BsAwardFill,
-      title: "獲得獎項",
-      text: "成大專題競賽研究獎 第二名",
+      title: "參賽紀錄",
+      text: "成大專題競賽研究獎 第二名、投稿ISNST和TENET",
     },
   ];
 
@@ -98,6 +98,10 @@ function VR() {
   const Gain = [
     {
       name: "Magic VR",
+      rating: "5",
+    },
+    {
+      name: "投稿經驗",
       rating: "5",
     },
     {
@@ -367,97 +371,59 @@ function VR() {
             </Text>
           </Stack>
         </Box>
-        <Center
-          w={"full"}
+
+        <VStack
           py={"150"}
-          px={{ base: "5", md: "30" }}
-          textAlign={"justify"}
-          alignItems={"center"}
+          w={"full"}
           justify={"center"}
+          alignContent={"center"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          fontFamily={`"Open Sans", sans-serif`}
+          textAlign={"justify"}
         >
-          <Text
-            fontSize={"3xl"}
-            fontWeight={"extrabold"}
-            fontFamily={`"Open Sans", sans-serif`}
-          >
+          <Text fontSize={"3xl"} fontWeight={"extrabold"}>
             開發的路上非常艱辛，我也因此學會幾個重要的觀念：
           </Text>
-        </Center>
-        {/* 1. have a good design */}
-        <Banner title={"1. 要有好的事件傳遞。"} bgImage={img_bg_design} />
-        <VStack
-          py={"200"}
-          spacing={"150"}
-          w={"full"}
-          bgColor={"blackAlpha.800"}
-          justify={"center"}
-          alignContent={"center"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
+          <br />
+          <br />
           <Text
             w={{ base: "80vw", md: "60vw" }}
             px={{ base: "5", md: "30" }}
             fontSize={"xl"}
-            color={"gray.200"}
-            fontFamily={`"Open Sans", sans-serif`}
-            textAlign={"justify"}
           >
+            <Text as={"span"} fontWeight={"bold"}>
+              1. 要有好的事件傳遞
+            </Text>
+            <br />
+            <br />
             &emsp;&emsp;在開發初期，由於把很多事件都綁死，導致後期開發都要把過去開發的事件重寫。
             這讓我學會寫code前審視邏輯與架構，確立事件的傳遞必須具有彈性。
-          </Text>
-        </VStack>
-
-        {/* 2. solve the problem by oneself */}
-        <Banner title={"2. 問題要自己解決。"} bgImage={img_bg_design} />
-
-        <VStack
-          py={"200"}
-          spacing={"150"}
-          w={"full"}
-          bgColor={"blackAlpha.800"}
-          justify={"center"}
-          alignContent={"center"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          <Text
-            w={{ base: "80vw", md: "60vw" }}
-            px={{ base: "5", md: "30" }}
-            fontSize={"xl"}
-            color={"gray.200"}
-            fontFamily={`"Open Sans", sans-serif`}
-            textAlign={"justify"}
-          >
+            <br />
+            <br />
+            <Text as={"span"} fontWeight={"bold"}>
+              2. 問題要自己解決
+            </Text>
+            <br />
+            <br />
             &emsp;&emsp;基於MagicVR是新的軟體，實驗室的學長姊其實也不會操作，因此發生的許多問題，
             無論是程式問題或是跑不出來的問題，都要由我們自己解決。我相信日後做研究也同樣需要自己探查論文，解決問題，
             因此，我很慶幸及早學會不依賴他人，而獨立解決問題。
-          </Text>
-        </VStack>
-
-        {/* 2. solve the problem by oneself */}
-        <Banner title={"3. 千萬要記得備份。"} bgImage={img_bg_design} />
-
-        <VStack
-          py={"200"}
-          spacing={"150"}
-          w={"full"}
-          bgColor={"blackAlpha.800"}
-          justify={"center"}
-          alignContent={"center"}
-          alignItems={"center"}
-          justifyContent={"center"}
-        >
-          <Text
-            w={{ base: "80vw", md: "60vw" }}
-            px={{ base: "5", md: "30" }}
-            fontSize={"xl"}
-            color={"gray.200"}
-            fontFamily={`"Open Sans", sans-serif`}
-            textAlign={"justify"}
-          >
+            <br />
+            <br />
+            <Text as={"span"} fontWeight={"bold"}>
+              3. 千萬要記得備份
+            </Text>
+            <br />
+            <br />
             &emsp;&emsp;我還記得大三下開學時檔案突然之間就打不開了，裡面辛辛苦苦建立的場景、事件全部都損毀。
+            {""}
             後來花好多時間才重新建立先前大三上所開發的場景與事件。這慘痛的代價讓我知道，做完一件事情後，千萬記得要備份。
+            <br />
+            <br />
+            &emsp;&emsp;也因此我現在很常使用git來輔助開發專案。使用git
+            checkout來還原和追溯過往紀錄。{""}
+            同時，與他人協作時，也可以藉由建立分支來測試不同功能而不毀壞原先的程式，非常方便。
           </Text>
         </VStack>
 
@@ -512,6 +478,20 @@ function VR() {
               從中我感覺受益良多，並且發現Linux真的好好用，只要打指令就可以完成許多事項，令我愛不釋手。
               此外，樹莓派除了當做音樂播放器和智慧家庭的中控外，我認為還有許多用途，例如結合opencv來做影像辨識應用等，
               等著我去發掘。因此，我很高興可以學習到這些以往不知的知識。
+              <br />
+              <br />
+              &emsp;&emsp;在分析研究數據後，目前有籌備
+              <Text as={"span"} fontWeight={"bold"}>
+                投稿ISNST和TENET國際研討會
+              </Text>
+              ， 主要以不同角度切入來探討虛擬實境對學生學習的各個面向。
+              同時，由於TENET發表時間約莫在12月，相比ISNST在10月底，
+              有更多的時間可以提升實驗品質與擴充實驗數據，更可以全面分析學生的學習表現和參與度。
+              相信這樣可以讓我更加
+              <Text as={"span"} fontWeight={"bold"}>
+                提升撰寫論文的技巧，和英文口頭報告的能力
+              </Text>
+              。
             </Text>
           </Container>
         </Box>
@@ -533,9 +513,6 @@ function VR() {
               </Text>{" "}
               Reasearch Proposal
             </Heading>
-            <Text mt={"5"}>
-              申請科技部大專生專題計畫計劃書，已刪除首頁個人資料表。
-            </Text>
             <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
               <iframe
                 title="numerical opt pdf"

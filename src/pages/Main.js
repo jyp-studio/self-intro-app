@@ -178,7 +178,11 @@ function Main() {
       {/* project block */}
       <Box bg={useColorModeValue("teal.300", "teal.400")} py={"100px"}>
         <Container maxW={"8xl"} py={12}>
-          <Flex flexWrap={"wrap"} justify={"space-around"}>
+          <Flex
+            flexWrap={"wrap"}
+            justify={"space-around"}
+            alignContent="space-between"
+          >
             <Stack
               spacing={4}
               color={"black"}
@@ -250,14 +254,15 @@ function Main() {
             <Box
               w={{ base: "100vw", lg: "650px" }}
               h={{ base: "250px", md: "400px" }}
-              mt={{ base: 20, lg: 0 }}
+              // mt={{ base: 20, lg: 0 }}
             >
               <Carousel
                 cols={1}
                 rows={1}
                 gap={20}
                 loop
-                hideArrow
+                // hideArrow
+                arrowLeft={<Box>HH</Box>}
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
                 {projectItems.map((card, index) => (
@@ -307,6 +312,7 @@ function Main() {
             flexWrap={"wrap"}
             flexDir={"row-reverse"}
             justify={"space-around"}
+            alignContent="space-between"
           >
             <Stack
               px={{ base: 5, md: 20 }}
@@ -382,7 +388,7 @@ function Main() {
             <Box
               w={{ base: "100vw", lg: "650px" }}
               h={{ base: "250px", md: "400px" }}
-              mt={{ base: 20, lg: 0 }}
+              // mt={{ base: 20, lg: 0 }}
             >
               <Carousel
                 cols={1}
