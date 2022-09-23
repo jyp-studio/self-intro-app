@@ -80,8 +80,8 @@ function SideProject() {
         />
         <Container maxW={"6xl"} py="3" mt={"100"} centerContent>
           <VStack spacing={"100px"}>
-            {SideProject.map((item) => (
-              <SideProjectCard {...item} />
+            {SideProject.map((item, index) => (
+              <SideProjectCard key={index} {...item} />
             ))}
           </VStack>
         </Container>

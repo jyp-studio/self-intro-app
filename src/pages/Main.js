@@ -125,7 +125,7 @@ const activityItems = [
   },
 ];
 
-const leftArrow = (
+const LeftArrow = (
   <Icon
     as={FiChevronLeft}
     w={10}
@@ -134,6 +134,7 @@ const leftArrow = (
     aria-label="left-arrow"
     variant="ghost"
     position="absolute"
+    left={"30px"}
     top={"50%"}
     transform={"translate(0%, -50%)"}
     zIndex={2}
@@ -141,7 +142,7 @@ const leftArrow = (
   />
 );
 
-const rightArrow = (
+const RightArrow = (
   <Icon
     as={FiChevronRight}
     w={10}
@@ -150,10 +151,49 @@ const rightArrow = (
     aria-label="right-arrow"
     variant="ghost"
     position="absolute"
+    right={"30px"}
     top={"50%"}
-    transform={"translate(1527%, -50%)"}
+    transform={"translate(0%, -50%)"}
+    alignSelf={"flex-end"}
+    alignItems={"flex-end"}
     zIndex={2}
     _hover={{ textDecoration: "none", color: "whiteAlpha.900" }}
+  />
+);
+
+const XlLeftArrow = (
+  <Icon
+    as={FiChevronLeft}
+    w={50}
+    h={50}
+    color={"blackAlpha.400"}
+    aria-label="left-arrow"
+    variant="ghost"
+    position="absolute"
+    left={"30px"}
+    top={"50%"}
+    transform={"translate(0%, -50%)"}
+    zIndex={2}
+    _hover={{ textDecoration: "none", color: "blackAlpha.800" }}
+  />
+);
+
+const XlRightArrow = (
+  <Icon
+    as={FiChevronRight}
+    w={50}
+    h={50}
+    color={"blackAlpha.400"}
+    aria-label="right-arrow"
+    variant="ghost"
+    position="absolute"
+    right={"30px"}
+    top={"50%"}
+    transform={"translate(0%, -50%)"}
+    alignSelf={"flex-end"}
+    alignItems={"flex-end"}
+    zIndex={2}
+    _hover={{ textDecoration: "none", color: "blackAlpha.800" }}
   />
 );
 
@@ -221,6 +261,7 @@ function Main() {
             flexWrap={"wrap"}
             justify={"space-around"}
             alignContent="space-between"
+            rowGap={10}
           >
             <Stack
               spacing={4}
@@ -299,9 +340,8 @@ function Main() {
                 rows={1}
                 gap={20}
                 loop
-                // hideArrow
-                arrowLeft={leftArrow}
-                arrowRight={rightArrow}
+                arrowLeft={LeftArrow}
+                arrowRight={RightArrow}
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
                 {projectItems.map((card, index) => (
@@ -352,6 +392,7 @@ function Main() {
             flexDir={"row-reverse"}
             justify={"space-around"}
             alignContent="space-between"
+            rowGap={10}
           >
             <Stack
               px={{ base: 5, md: 20 }}
@@ -434,7 +475,8 @@ function Main() {
                 rows={1}
                 gap={20}
                 loop
-                hideArrow
+                arrowLeft={LeftArrow}
+                arrowRight={RightArrow}
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
                 {activityItems.map((card, index) => (
@@ -506,12 +548,13 @@ function Main() {
           cols={useBreakpointValue({ base: 1, md: 2, lg: 3 })}
           rows={1}
           gap={10}
-          hideArrow
+          arrowLeft={XlLeftArrow}
+          arrowRight={XlRightArrow}
           loop
           autoplay={useBreakpointValue({ md: 4000 })}
         >
-          {carouselItems.map((card) => (
-            <Carousel.Item>
+          {carouselItems.map((card, index) => (
+            <Carousel.Item key={index}>
               <Box w={card.w ?? "380px"} h={card.h ?? "550px"} pos={"relative"}>
                 <Image
                   shadow={"xl"}

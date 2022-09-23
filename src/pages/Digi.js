@@ -17,10 +17,18 @@ import {
   ListItem,
   ListIcon,
   useBreakpointValue,
+  Icon,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { CheckIcon } from "@chakra-ui/icons";
-import { FiHome, FiCompass, FiMessageSquare, FiFile } from "react-icons/fi";
+import {
+  FiHome,
+  FiCompass,
+  FiMessageSquare,
+  FiFile,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 import { BsGearFill, BsLightbulbFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
@@ -110,7 +118,90 @@ function Digi() {
   const breakPoint = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
   const columns = useBreakpointValue({ base: 1, md: 1, lg: 3 });
   const autoplay = useBreakpointValue({ md: 4000 });
-  const hideArrow = useBreakpointValue({ base: true, md: false, lg: true });
+
+  const LeftArrow = (
+    <Icon
+      as={FiChevronLeft}
+      w={50}
+      h={50}
+      color={"blackAlpha.500"}
+      aria-label="left-arrow"
+      variant="ghost"
+      position="absolute"
+      left={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      zIndex={2}
+      _hover={{
+        textDecoration: "none",
+        color: "blackAlpha.800",
+      }}
+    />
+  );
+
+  const RightArrow = (
+    <Icon
+      as={FiChevronRight}
+      w={50}
+      h={50}
+      color={"blackAlpha.500"}
+      aria-label="right-arrow"
+      variant="ghost"
+      position="absolute"
+      right={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      alignSelf={"flex-end"}
+      alignItems={"flex-end"}
+      zIndex={2}
+      _hover={{
+        textDecoration: "none",
+        color: "blackAlpha.800",
+      }}
+    />
+  );
+
+  const XlLeftArrow = (
+    <Icon
+      as={FiChevronLeft}
+      w={50}
+      h={50}
+      color={useColorModeValue("blackAlpha.500", "whiteAlpha.500")}
+      aria-label="left-arrow"
+      variant="ghost"
+      position="absolute"
+      left={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      zIndex={2}
+      _hover={{
+        textDecoration: "none",
+        color: useColorModeValue("blackAlpha.800", "whiteAlpha.800"),
+      }}
+    />
+  );
+
+  const XlRightArrow = (
+    <Icon
+      as={FiChevronRight}
+      w={50}
+      h={50}
+      color={useColorModeValue("blackAlpha.500", "whiteAlpha.500")}
+      aria-label="right-arrow"
+      variant="ghost"
+      position="absolute"
+      right={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      alignSelf={"flex-end"}
+      alignItems={"flex-end"}
+      zIndex={2}
+      _hover={{
+        textDecoration: "none",
+        color: useColorModeValue("blackAlpha.800", "whiteAlpha.800"),
+      }}
+    />
+  );
 
   // card's scrollMargin
   const [scrollM, setScrollM] = useState(0);
@@ -226,7 +317,8 @@ function Digi() {
                   gap={10}
                   loop
                   autoplay={autoplay}
-                  hideArrow={hideArrow}
+                  arrowLeft={XlLeftArrow}
+                  arrowRight={XlRightArrow}
                 >
                   {/* 1. card about class */}
                   <Carousel.Item>
@@ -492,6 +584,9 @@ function Digi() {
                 <Flex
                   flexWrap={"wrap"}
                   justify={"space-around"}
+                  alignContent={"space-around"}
+                  rowGap={10}
+                  columnGap={5}
                   w={"full"}
                   px={10}
                 >
@@ -978,7 +1073,14 @@ function Digi() {
                 </Heading>
                 <Center>
                   <Box w={{ base: "80vw", md: "50vw" }}>
-                    <Carousel cols={1} rows={1} gap={0} loop>
+                    <Carousel
+                      cols={1}
+                      rows={1}
+                      gap={0}
+                      arrowLeft={LeftArrow}
+                      arrowRight={RightArrow}
+                      loop
+                    >
                       <Carousel.Item>
                         <Image src={img_digi_certificate} />
                       </Carousel.Item>

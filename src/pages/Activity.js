@@ -27,6 +27,8 @@ import {
   FiBookOpen,
   FiUserCheck,
   FiSun,
+  FiChevronLeft,
+  FiChevronRight,
 } from "react-icons/fi";
 
 import Navbar from "../components/Navbar";
@@ -64,19 +66,6 @@ const LinkItems = [
   },
 ];
 
-// Settings for the carousel
-// const settings = {
-//   dots: true,
-//   arrows: false,
-//   fade: true,
-//   infinite: true,
-//   autoplay: true,
-//   speed: 500,
-//   autoplaySpeed: 5000,
-//   slidesToShow: 1,
-//   slidesToScroll: 1,
-// };
-
 // cards of Title Carousel
 const cards = [
   {
@@ -102,6 +91,42 @@ const extracurricularItems = [
   { src: img_mc_all_spotlight, alt: "mc合照" },
   { src: img_mc_all, alt: "mc合照1" },
 ];
+
+const XlLeftArrow = (
+  <Icon
+    as={FiChevronLeft}
+    w={50}
+    h={50}
+    color={"whiteAlpha.500"}
+    aria-label="left-arrow"
+    variant="ghost"
+    position="absolute"
+    left={"30px"}
+    top={"50%"}
+    transform={"translate(0%, -50%)"}
+    zIndex={2}
+    _hover={{ textDecoration: "none", color: "whiteAlpha.800" }}
+  />
+);
+
+const XlRightArrow = (
+  <Icon
+    as={FiChevronRight}
+    w={50}
+    h={50}
+    color={"whiteAlpha.500"}
+    aria-label="right-arrow"
+    variant="ghost"
+    position="absolute"
+    right={"30px"}
+    top={"50%"}
+    transform={"translate(0%, -50%)"}
+    alignSelf={"flex-end"}
+    alignItems={"flex-end"}
+    zIndex={2}
+    _hover={{ textDecoration: "none", color: "whiteAlpha.800" }}
+  />
+);
 
 function Activity() {
   // data of widget
@@ -136,7 +161,6 @@ function Activity() {
   const breakPoint = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
   const columns = useBreakpointValue({ base: 1 });
   const autoplay = useBreakpointValue({ md: 4000 });
-  const hideArrow = useBreakpointValue({ base: true, md: false, lg: true });
 
   return (
     <>
@@ -161,7 +185,13 @@ function Activity() {
 
           {/* desktop widgets */}
           {breakPoint === "lg" && (
-            <Flex flexWrap={"wrap"} justify={"center"} py={"10"}>
+            <Flex
+              flexWrap={"wrap"}
+              justify={"center"}
+              py={"10"}
+              columnGap={5}
+              rowGap={10}
+            >
               {data.map((item, index) => (
                 <WrapItem px={"2"} key={index}>
                   <DesktopWidget {...item} />
@@ -172,22 +202,25 @@ function Activity() {
 
           {/* mobile widgets */}
           {breakPoint === "lg" || (
-            <Box mt={100}>
-              <Carousel
-                cols={columns}
-                rows={1}
-                gap={10}
-                loop
-                autoplay={autoplay}
-                hideArrow={hideArrow}
-              >
-                {data.map((item, index) => (
-                  <Carousel.Item key={index}>
-                    <DesktopWidget {...item} />
-                  </Carousel.Item>
-                ))}
-              </Carousel>
-            </Box>
+            <Center>
+              <Box mt={100} w={{ base: "90vw", md: "60vw" }}>
+                <Carousel
+                  cols={columns}
+                  rows={1}
+                  gap={10}
+                  loop
+                  autoplay={autoplay}
+                  arrowLeft={XlLeftArrow}
+                  arrowRight={XlRightArrow}
+                >
+                  {data.map((item, index) => (
+                    <Carousel.Item key={index}>
+                      <DesktopWidget {...item} />
+                    </Carousel.Item>
+                  ))}
+                </Carousel>
+              </Box>
+            </Center>
           )}
         </Box>
 
@@ -489,7 +522,8 @@ function Activity() {
                 rows={1}
                 gap={10}
                 loop
-                hideArrow
+                arrowLeft={XlLeftArrow}
+                arrowRight={XlRightArrow}
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
                 {extracurricularItems.map((card, index) => (
@@ -514,7 +548,7 @@ const DesktopWidget = (props) => {
   return (
     <Box
       bg={useColorModeValue("white", "gray.800")}
-      w={{ base: "80vw", md: "60vw", lg: "300px" }}
+      w={{ base: "80vw", md: "55vw", lg: "300px" }}
       borderWidth="1px"
       rounded="lg"
       shadow="lg"

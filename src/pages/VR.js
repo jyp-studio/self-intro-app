@@ -248,7 +248,7 @@ function VR() {
                 <iframe
                   title="vr project trailer video"
                   src="https://www.youtube.com/embed/rW8oSm2Rcqc"
-                  frameborder="0"
+                  frameBorder="0"
                   allowFullScreen
                 />
               </AspectRatio>
@@ -382,7 +382,12 @@ function VR() {
           fontFamily={`"Open Sans", sans-serif`}
           textAlign={"justify"}
         >
-          <Text fontSize={"3xl"} fontWeight={"extrabold"}>
+          <Text
+            fontSize={"3xl"}
+            fontWeight={"extrabold"}
+            px={20}
+            textAlign={"justify"}
+          >
             開發的路上非常艱辛，我也因此學會幾個重要的觀念：
           </Text>
           <br />

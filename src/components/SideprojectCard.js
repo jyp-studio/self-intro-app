@@ -128,14 +128,7 @@ function SideProjectCard(props) {
 
         {props.video && (
           <AspectRatio justify={"center"} ratio={16 / 9}>
-            <iframe
-              title="flappy bird video"
-              src={props.video}
-              allowFullScreen
-              controls="0"
-              autoplay="0" // disable video from auto playing; however, not working:(
-              volume="0"
-            />
+            <iframe title="video" src={props.video} allowFullScreen />
           </AspectRatio>
         )}
       </Stack>

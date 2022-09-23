@@ -1,4 +1,5 @@
 import {
+  Icon,
   Box,
   Flex,
   Text,
@@ -20,7 +21,7 @@ import {
 import { Link } from "react-router-dom";
 
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { FiHome } from "react-icons/fi";
+import { FiHome, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import {
   RiPlantLine,
   RiPlantFill,
@@ -140,25 +141,83 @@ function Autobiography() {
     },
   ];
 
-  // what I learn im class with name and rating.
-  // const Gain = [
-  //   {
-  //     name: "Python",
-  //     rating: "5",
-  //   },
-  //   {
-  //     name: "抗壓性",
-  //     rating: "5",
-  //   },
-  //   {
-  //     name: "UML",
-  //     rating: "4",
-  //   },
-  //   {
-  //     name: "Design pattern",
-  //     rating: "4",
-  //   },
-  // ];
+  const XlLeftArrow = (
+    <Icon
+      as={FiChevronLeft}
+      w={50}
+      h={50}
+      color={"whiteAlpha.500"}
+      aria-label="left-arrow"
+      variant="ghost"
+      position="absolute"
+      left={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      zIndex={2}
+      _hover={{ textDecoration: "none", color: "whiteAlpha.800" }}
+    />
+  );
+
+  const XlRightArrow = (
+    <Icon
+      as={FiChevronRight}
+      w={50}
+      h={50}
+      color={"whiteAlpha.500"}
+      aria-label="right-arrow"
+      variant="ghost"
+      position="absolute"
+      right={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      alignSelf={"flex-end"}
+      alignItems={"flex-end"}
+      zIndex={2}
+      _hover={{ textDecoration: "none", color: "whiteAlpha.800" }}
+    />
+  );
+
+  const LeftArrow = (
+    <Icon
+      as={FiChevronLeft}
+      w={50}
+      h={50}
+      color={useColorModeValue("blackAlpha.500", "whiteAlpha.500")}
+      aria-label="left-arrow"
+      variant="ghost"
+      position="absolute"
+      left={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      zIndex={2}
+      _hover={{
+        textDecoration: "none",
+        color: useColorModeValue("blackAlpha.800", "whiteAlpha.800"),
+      }}
+    />
+  );
+
+  const RightArrow = (
+    <Icon
+      as={FiChevronRight}
+      w={50}
+      h={50}
+      color={useColorModeValue("blackAlpha.500", "whiteAlpha.500")}
+      aria-label="right-arrow"
+      variant="ghost"
+      position="absolute"
+      right={"30px"}
+      top={"50%"}
+      transform={"translate(0%, -50%)"}
+      alignSelf={"flex-end"}
+      alignItems={"flex-end"}
+      zIndex={2}
+      _hover={{
+        textDecoration: "none",
+        color: useColorModeValue("blackAlpha.800", "whiteAlpha.800"),
+      }}
+    />
+  );
 
   // activity color mode value
   const activityColorMode = useColorModeValue("gray.50", "gray.700");
@@ -314,12 +373,13 @@ function Autobiography() {
                 cols={1}
                 rows={1}
                 gap={20}
-                hideArrow
+                arrowLeft={XlLeftArrow}
+                arrowRight={XlRightArrow}
                 loop
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
-                {carouselItems.map((card) => (
-                  <Carousel.Item>
+                {carouselItems.map((card, index) => (
+                  <Carousel.Item key={index}>
                     <Box
                       bgImage={card.src}
                       w={{ base: "80vw", md: "60vw", lg: "60vw" }}
@@ -492,12 +552,13 @@ function Autobiography() {
             cols={useBreakpointValue({ base: 1, lg: 2 })}
             rows={1}
             gap={20}
-            hideArrow
+            arrowLeft={LeftArrow}
+            arrowRight={RightArrow}
             loop
             autoplay={useBreakpointValue({ md: 4000 })}
           >
-            {activityCards.map((card) => (
-              <Carousel.Item>
+            {activityCards.map((card, index) => (
+              <Carousel.Item key={index}>
                 <Stack
                   spacing={10}
                   borderRadius={"2xl"}
