@@ -55,10 +55,10 @@ import pdf_self_checkout from "../assets/self_checkout.pdf";
 function Digi() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: "Motivation", icon: FiCompass, href: "#motivation" },
-    { name: "Lecture", icon: FiMessageSquare, href: "#lecture" },
-    { name: "Project", icon: FiFile, href: "#project" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: "Motivation", icon: <FiCompass />, href: "#motivation" },
+    { name: "Lecture", icon: <FiMessageSquare />, href: "#lecture" },
+    { name: "Project", icon: <FiFile />, href: "#project" },
     // { name: "Trailer", icon: FiYoutube, href: "#trailer" },
     // { name: "Architecture", icon: FiCommand, href: "#architecture" },
     // { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },

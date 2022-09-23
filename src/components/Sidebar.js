@@ -40,11 +40,14 @@ function Sidebar(props) {
             >
               {link.icon && (
                 <Icon
-                  as={link.icon}
+                  // as={link.icon}
                   mr="4"
-                  fontSize="16"
+                  mt="1"
+                  fontSize="18"
                   _groupHover={{ color: "white" }}
-                />
+                >
+                  {link.icon}
+                </Icon>
               )}
               {link.name}
             </Flex>

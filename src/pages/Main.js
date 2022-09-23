@@ -12,10 +12,17 @@ import {
   Center,
   HStack,
   useBreakpointValue,
+  Icon,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import { FiGitBranch, FiTool, FiUser } from "react-icons/fi";
+import {
+  FiGitBranch,
+  FiTool,
+  FiUser,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 import Carousel from "react-grid-carousel";
 
 import Footer from "../components/Footer";
@@ -117,6 +124,38 @@ const activityItems = [
     image: img_mc_all,
   },
 ];
+
+const leftArrow = (
+  <Icon
+    as={FiChevronLeft}
+    w={10}
+    h={10}
+    color={"whiteAlpha.300"}
+    aria-label="left-arrow"
+    variant="ghost"
+    position="absolute"
+    top={"50%"}
+    transform={"translate(0%, -50%)"}
+    zIndex={2}
+    _hover={{ textDecoration: "none", color: "whiteAlpha.900" }}
+  />
+);
+
+const rightArrow = (
+  <Icon
+    as={FiChevronRight}
+    w={10}
+    h={10}
+    color={"whiteAlpha.300"}
+    aria-label="right-arrow"
+    variant="ghost"
+    position="absolute"
+    top={"50%"}
+    transform={"translate(1527%, -50%)"}
+    zIndex={2}
+    _hover={{ textDecoration: "none", color: "whiteAlpha.900" }}
+  />
+);
 
 function Main() {
   // define element render or not
@@ -254,7 +293,6 @@ function Main() {
             <Box
               w={{ base: "100vw", lg: "650px" }}
               h={{ base: "250px", md: "400px" }}
-              // mt={{ base: 20, lg: 0 }}
             >
               <Carousel
                 cols={1}
@@ -262,7 +300,8 @@ function Main() {
                 gap={20}
                 loop
                 // hideArrow
-                arrowLeft={<Box>HH</Box>}
+                arrowLeft={leftArrow}
+                arrowRight={rightArrow}
                 autoplay={useBreakpointValue({ md: 4000 })}
               >
                 {projectItems.map((card, index) => (

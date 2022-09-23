@@ -44,11 +44,11 @@ import img_ur_voting from "../assets/ur_voting.png";
 function Certificate() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: "Competition", icon: FiAward, href: "#competition" },
-    { name: "GEPT", icon: FiBookmark, href: "#gept" },
-    { name: "Course", icon: FiBookOpen, href: "#course" },
-    { name: "Lecture", icon: FiUser, href: "#lecture" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: "Competition", icon: <FiAward />, href: "#competition" },
+    { name: "GEPT", icon: <FiBookmark />, href: "#gept" },
+    { name: "Course", icon: <FiBookOpen />, href: "#course" },
+    { name: "Lecture", icon: <FiUser />, href: "#lecture" },
   ];
   return (
     <>

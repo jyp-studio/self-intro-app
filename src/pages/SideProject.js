@@ -24,11 +24,11 @@ import img_bg from "../assets/bg_sideproject.jpg";
 function SideProject() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: "Unity Flappy Bird", icon: FaUnity, href: "#flappy-bird" },
-    { name: "Home Assistant", icon: FiSmartphone, href: "#ha" },
-    { name: "React App", icon: FiLayout, href: "#react" },
-    { name: "Music Player", icon: FiMusic, href: "#mp" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: "Unity Flappy Bird", icon: <FaUnity />, href: "#flappy-bird" },
+    { name: "Home Assistant", icon: <FiSmartphone />, href: "#ha" },
+    { name: "React App", icon: <FiLayout />, href: "#react" },
+    { name: "Music Player", icon: <FiMusic />, href: "#mp" },
   ];
 
   // side projects

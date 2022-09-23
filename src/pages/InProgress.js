@@ -20,14 +20,14 @@ import img_vision from "../assets/vision.jpeg";
 function InProgress() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: "人工智慧導論", icon: FiActivity, href: "#ai" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: "人工智慧導論", icon: <FiActivity />, href: "#ai" },
     {
       name: "影像處理、電腦視覺及深度學習概論",
-      icon: FiCommand,
+      icon: <FiCommand />,
       href: "#vision",
     },
-    { name: "視窗程式設計", icon: FiTv, href: "#windows" },
+    { name: "視窗程式設計", icon: <FiTv />, href: "#windows" },
   ];
 
   return (

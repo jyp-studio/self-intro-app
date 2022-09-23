@@ -54,12 +54,12 @@ import img_dt_workshop from "../assets/dt_workshop.png";
 
 // Sidebar link items
 const LinkItems = [
-  { name: "Home", icon: FiHome, href: "#" },
-  { name: "Personality", icon: FiUser, href: "#personality" },
-  { name: "Workshop", icon: FiBookOpen, href: "#workshop" },
+  { name: "Home", icon: <FiHome />, href: "#" },
+  { name: "Personality", icon: <FiUser />, href: "#personality" },
+  { name: "Workshop", icon: <FiBookOpen />, href: "#workshop" },
   {
     name: "Extracurricular Activity",
-    icon: FiSun,
+    icon: <FiSun />,
     href: "#extracurricular",
   },
 ];

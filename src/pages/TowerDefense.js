@@ -52,12 +52,12 @@ import img_bg_problem from "../assets/bg_problem.jpg";
 function TowerDefense() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: "Abstract", icon: FiCompass, href: "#abstract" },
-    { name: "Trailer", icon: FiYoutube, href: "#trailer" },
-    { name: "Architecture", icon: FiCommand, href: "#architecture" },
-    { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Demo", icon: FiBox, href: "#demo" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: "Abstract", icon: <FiCompass />, href: "#abstract" },
+    { name: "Trailer", icon: <FiYoutube />, href: "#trailer" },
+    { name: "Architecture", icon: <FiCommand />, href: "#architecture" },
+    { name: "Thoughts", icon: <FiMessageCircle />, href: "#thoughts" },
+    { name: "Demo", icon: <FiBox />, href: "#demo" },
   ];
   // Icon box infomation
   const IconBoxItems = [

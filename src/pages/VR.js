@@ -57,13 +57,13 @@ import pdf_proposal from "../assets/vr_proposal.pdf";
 function VR() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: "Abstract", icon: FiCompass, href: "#abstract" },
-    { name: "Trailer", icon: FiYoutube, href: "#trailer" },
-    { name: "Poster", icon: FiImage, href: "#poster" },
-    { name: "Architecture", icon: FiCommand, href: "#architecture" },
-    { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Reasearch proposal", icon: FiFile, href: "#project-report" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: "Abstract", icon: <FiCompass />, href: "#abstract" },
+    { name: "Trailer", icon: <FiYoutube />, href: "#trailer" },
+    { name: "Poster", icon: <FiImage />, href: "#poster" },
+    { name: "Architecture", icon: <FiCommand />, href: "#architecture" },
+    { name: "Thoughts", icon: <FiMessageCircle />, href: "#thoughts" },
+    { name: "Reasearch proposal", icon: <FiFile />, href: "#project-report" },
   ];
   // Icon box infomation
   const IconBoxItems = [

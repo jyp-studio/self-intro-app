@@ -51,11 +51,11 @@ import pdf_project from "../assets/numerical_paper.pdf";
 function Opt() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: "Abstract", icon: FiCompass, href: "#abstract" },
-    { name: "Architecture", icon: FiCommand, href: "#architecture" },
-    { name: "Thoughts", icon: FiMessageCircle, href: "#thoughts" },
-    { name: "Project report", icon: FiFile, href: "#project-report" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: "Abstract", icon: <FiCompass />, href: "#abstract" },
+    { name: "Architecture", icon: <FiCommand />, href: "#architecture" },
+    { name: "Thoughts", icon: <FiMessageCircle />, href: "#thoughts" },
+    { name: "Project report", icon: <FiFile />, href: "#project-report" },
   ];
 
   // Icon box infomation

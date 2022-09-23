@@ -66,11 +66,11 @@ import img_future_plan1 from "../assets/future_plan1.png";
 function Autobiography() {
   // Sidebar link items
   const LinkItems = [
-    { name: "Home", icon: FiHome, href: "#" },
-    { name: " Growth background", icon: RiPlantLine, href: "#bg" },
-    { name: "Learning progress", icon: RiBallPenLine, href: "#study" },
-    { name: "Ativity", icon: RiApps2Line, href: "#activity" },
-    { name: "Future prospects", icon: RiSunLine, href: "#future" },
+    { name: "Home", icon: <FiHome />, href: "#" },
+    { name: " Growth background", icon: <RiPlantLine />, href: "#bg" },
+    { name: "Learning progress", icon: <RiBallPenLine />, href: "#study" },
+    { name: "Ativity", icon: <RiApps2Line />, href: "#activity" },
+    { name: "Future prospects", icon: <RiSunLine />, href: "#future" },
   ];
 
   // Icon box infomation
