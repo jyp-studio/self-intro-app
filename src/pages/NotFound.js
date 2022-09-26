@@ -1,6 +1,5 @@
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 function NotFound() {
@@ -35,8 +34,6 @@ function NotFound() {
           <Link to="/">Go to Home</Link>
         </Button>
       </Box>
-
-      <Footer />
     </>
   );
 }
