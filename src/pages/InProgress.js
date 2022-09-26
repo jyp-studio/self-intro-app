@@ -124,7 +124,21 @@ function InProgress() {
               <br />
               <br />
               &emsp;&emsp;接著開始利用剪影來訓練分辨角度的模型，
-              並藉由RNN來得知目標人物的走向。例如，
+              完成後可以藉由擷取影片中特定人物在每幀的行進角度來得知他的走向。
+              <br />
+              <br />
+              <Text as={"span"} fontWeight={"bold"}>
+                3. 建立GUI介面
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;為了讓沒有程式背景的人也可以輕易使用，GUI是必備的設計。
+              {""}
+              我們預計設計載入影片的按鈕，播放、暫停、與快進的控制桿，{""}
+              以及選取特定人物進行追蹤的按鈕。{""}
+              此外，我們也將製作html網頁並藉由POST和GET抓取製作好的python程式API。
+              {""}
+              已達成跨平台的應用。
             </Text>
           </Stack>
         </Container>
@@ -146,8 +160,8 @@ function InProgress() {
         >
           <Stack spacing={"100px"} px={{ base: 5, md: 10, lg: 100 }}>
             <Text textAlign={"justify"}>
-              &emsp;&emsp;目前影像處理、電腦視覺及深度學習概論課程中，{""}
-              教授說要做期末專題，要求我們找好組員，但還尚未公佈專題方向和題目。
+              &emsp;&emsp;影像處理、電腦視覺及深度學習概論課程中，{""}
+              教授說要做期末專題，要求我們找好組員。目前已找好組員，等待教授公佈專題方向和題目。
             </Text>
           </Stack>
         </Container>

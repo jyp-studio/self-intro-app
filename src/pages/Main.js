@@ -45,6 +45,7 @@ import img_bg_vr from "../assets/bg_vr.jpg";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
 import img_coding_bg from "../assets/coding_bg1.png";
+import img_led from "../assets/led.jpg";
 
 // carousel items
 const carouselItems = [
@@ -117,6 +118,11 @@ const activityItems = [
     mainTitle: "活動總召",
     subTitle: "擔任成大中友會聖誕節晚會總召",
     image: img_thanksgivening,
+  },
+  {
+    mainTitle: "LED光蛇",
+    subTitle: "參與創客計畫，學習焊接與撰寫光蛇",
+    image: img_led,
   },
   {
     mainTitle: "營隊講師與隊輔",

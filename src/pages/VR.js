@@ -520,7 +520,7 @@ function VR() {
             </Heading>
             <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
               <iframe
-                title="numerical opt pdf"
+                title="vr pdf"
                 src={pdf_proposal}
                 position="absolute"
                 width={"100%"}

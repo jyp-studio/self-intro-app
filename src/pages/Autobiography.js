@@ -5,7 +5,6 @@ import {
   Text,
   Image,
   Heading,
-  AspectRatio,
   WrapItem,
   Container,
   useColorModeValue,
@@ -16,7 +15,6 @@ import {
   Button,
   Link as ChakraLink,
   Tooltip,
-  Divider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -32,7 +30,6 @@ import {
   RiApps2Line,
   RiApps2Fill,
 } from "react-icons/ri";
-import { BsFillTriangleFill } from "react-icons/bs";
 
 import "@fontsource/open-sans";
 import "@fontsource/nunito-sans";
@@ -45,16 +42,16 @@ import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Banner from "../components/Banner";
 
-import img_digi from "../assets/bg_digi.jpg";
-import img_tower_gather from "../assets/tower_gather.png";
+import img_digi from "../assets/digi_report.JPG";
+import img_led_waving from "../assets/led_waving.png";
 import img_vr_fight from "../assets/vr_fight.png";
 import img_vr_coding from "../assets/vr_coding.png";
 import img_vr_connecting from "../assets/vr_connecting.png";
-import img_vr_npc from "../assets/vr_npc.png";
+import img_miro from "../assets/miro.png";
+import img_tower_uml from "../assets/uml.png";
 import img_bg from "../assets/bg_autobiography.jpg";
 import img_grow from "../assets/grow.jpg";
 import img_lonely from "../assets/lonely.jpg";
-import img_led from "../assets/led.jpg";
 import img_notepad_coding from "../assets/notepad_coding.png";
 import img_books from "../assets/books.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
@@ -63,6 +60,7 @@ import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_dt_workshop from "../assets/dt_workshop.png";
 import img_future_plan from "../assets/future_plan.png";
 import img_future_plan1 from "../assets/future_plan1.png";
+import img_opt_gui from "../assets/opt_gui.png";
 
 function Autobiography() {
   // Sidebar link items
@@ -124,7 +122,7 @@ function Autobiography() {
       link: "/activity",
     },
     {
-      src: img_led,
+      src: img_led_waving,
       alt: "光蛇照片",
       title: "創客計畫",
       context:
@@ -332,19 +330,131 @@ function Autobiography() {
         />
         <Container maxW={"7xl"} py={150} centerContent>
           <Stack spacing={20} flexWrap={"wrap"} justify={"center"}>
+            <Heading fontFamily={`"Open Sans", sans-serif`}>
+              1. 探索興趣
+            </Heading>
             <Text
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               fontSize="xl"
               textAlign={"justify"}
               fontFamily={`"Open Sans", sans-serif`}
             >
-              &emsp;&emsp;學習資訊、電機與機械方面領域的課程時，我發現面對資訊領域課程，
+              &emsp;&emsp;就讀成大工科系時，為了更加理解自己的喜好，{""}
+              我修習許多資訊、電機與力學的相關課程。{""}
+              例如程式設計、電路學和工程力學等；{""}
+              六日也有參與資工系開設的PHP {"&"} MySQL密集課程。{""}
+              此外，也修讀工程科學暨創新概論，設計齒輪機構帶動木製鋼琴家彈琴，
               {""}
-              我感受到最多樂趣與收穫。因此，我決定繼續向資訊領域深造。
+              以及組裝遙控車並用C語言撰寫遙控車的控制程式。{""}
+              從中發現自己對力學真的沒有興趣，{""}
+              而資訊和電機則像是等重的法碼擺在天秤上，持平。
             </Text>
+
+            <Heading fontFamily={`"Open Sans", sans-serif`}>
+              2. 鎖定目標
+            </Heading>
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              &emsp;&emsp;直到大二的暑假參與
+              <Link
+                to="/project/tower-defense"
+                onClick={() => window.scrollTo({ top: 0 })}
+              >
+                <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                  Python程式語言與互動式遊戲設計
+                </Text>
+              </Link>
+              的密集課程。
+              {""}
+              使用Python程式語言，從零建造一個塔防遊戲，我才赫然發現，我最喜歡的是「資訊工程」。
+            </Text>
+            <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
+              <Image src={img_miro} />
+              <Text
+                mt={5}
+                px={{ base: 10, lg: 20 }}
+                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                fontSize="xl"
+                textAlign={"justify"}
+                fontFamily={`"Open Sans", sans-serif`}
+              >
+                ▲ Python遊戲設計課程中學習運用
+                <Text as={"span"} fontWeight={"bold"} color={"teal.400"}>
+                  設計思考
+                </Text>
+                法來對新冠肺炎的主題進行聯想與解構，
+                {""}
+                以此構思遊戲方向。上圖為對新冠疫情的聯想。
+              </Text>
+            </Box>
+            <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
+              <Image src={img_tower_uml} />
+              <Text
+                mt={5}
+                px={{ base: 10, lg: 20 }}
+                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                fontSize="xl"
+                textAlign={"justify"}
+                fontFamily={`"Open Sans", sans-serif`}
+              >
+                ▲ 遊戲設計課程中學習
+                <Text as={"span"} fontWeight={"bold"} color={"teal.400"}>
+                  UML和design patterns
+                </Text>
+                來幫助開發。上圖為塔防遊戲MVC概要架構，輔以Observer
+                pattern處理輸入事件。
+              </Text>
+            </Box>
+
+            <Heading fontFamily={`"Open Sans", sans-serif`}>
+              3. 深入學習
+            </Heading>
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              &emsp;&emsp;確定自我興趣之後，我開始選修相關科目譬如機器學習與作業系統。
+              {""}
+              此外，我也修讀實作課程如微處理機與介面設計（含實習），{""}
+              透過撰寫C語言和組合語言來製作嵌入式系統。{""}
+              另外，在數值方法的課程中，教授期望我們期末專題運用所學結合程式語言來解決生活中的問題，
+              {""}
+              也因此我透過Python實現數值最佳化，以此製作「
+              <Link
+                to="/project/opt"
+                onClick={() => window.scrollTo({ top: 0 })}
+              >
+                <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                  最佳化股票回測系統
+                </Text>
+              </Link>
+              」。
+            </Text>
+            <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
+              <Image src={img_opt_gui} />
+              <Text
+                mt={5}
+                px={{ base: 10, lg: 20 }}
+                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                fontSize="xl"
+                textAlign={"justify"}
+                fontFamily={`"Open Sans", sans-serif`}
+              >
+                ▲ 最佳化股票回測系統中，使用者可以輸入股票資訊來比對原始策略和
+                {""}
+                最佳化策略下的結果差異。上圖為輸入TSLA股票資訊的分析結果。
+              </Text>
+            </Box>
+
             <HStack spacing={2}>
               <Heading fontFamily={`"Open Sans", sans-serif`}>
-                1. VR專題
+                4. 專題應用
               </Heading>
               <Tooltip
                 label="Link to VR project"
@@ -365,6 +475,37 @@ function Autobiography() {
                 </ChakraLink>
               </Tooltip>
             </HStack>
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              &emsp;&emsp;持續深入探索資訊領域時，由於元宇宙的興起，{""}
+              我也因此加入黃悅民教授下的多媒體網路實驗室中，{""}
+              應用虛擬實境的技術於教育之中來探討其對學生學習的影響。 期間很榮幸
+              <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                通過科技部大專生計畫
+              </Text>
+              ，並且在成大大專生專題研究成果海報競賽中獲得
+              <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                研究獎第二名
+              </Text>
+              的殊榮。 除此之外，執行虛擬實境專題期間，我發現對於資訊的應用，
+              {""}
+              如影像處理、電腦視覺、資料探勘，以及製作遊戲、應用程式，{""}
+              我感到最有興趣，因此，我後來參與
+              <Link
+                to="/project/digi"
+                onClick={() => window.scrollTo({ top: 0 })}
+              >
+                <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                  工研院Digi+ Talent實習計畫
+                </Text>
+              </Link>
+              製作影像辨識專題、{""}
+              同時，大四也選修人工智慧導論、影像處理、電腦視覺及深度學習概論，以及視窗程式設計。
+            </Text>
             <Box
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               h={{ base: "400px", lg: "500px" }}
@@ -392,71 +533,13 @@ function Autobiography() {
                 ))}
               </Carousel>
             </Box>
-            <Text
-              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-              fontSize="xl"
-              textAlign={"justify"}
-              fontFamily={`"Open Sans", sans-serif`}
-            >
-              &emsp;&emsp;由於想踏入元宇宙的領域，因此加入黃悅民教授下的多媒體實驗室中，
-              {""}
-              學習並探討情境模擬學習融入虛擬實境對學生學習表現與參與度之影響。
-              <br />
-              <br />
-              <Text as={"span"} fontWeight={"bold"}>
-                一、學習能力
-              </Text>
-              <br />
-              <br />
-              &emsp;&emsp;建立遊戲的過程中，許多軟體都是第一次接觸，要自己學習，
-              {""}
-              如哈瑪星科技的虛擬實境編輯器Magic VR、Blender、Cinema 4D等。{""}
-              在查找資料和學習的過程中，我發現許多程式都有相似的邏輯與框架，因而顯著提升上手能力。
-              {""}
-              而這也幫助我日後快速自學JS和React框架。
-              <br />
-              <br />
-              <Text as={"span"} fontWeight={"bold"}>
-                二、創造力
-              </Text>
-              <br />
-              <br />
-              &emsp;&emsp;教授原本只是希望我們建構一個簡易學習樹莓派的場景於虛擬環境中，
-              {""}
-              但為了更加拓展虛擬實境的優點，我另外增加授課NPC與任務NPC，{""}
-              分別向使用者教學指導與指派任務；同時，我也規劃劇本、添加對戰系統，
-              {""}
-              使學習者能夠更加融入教學性遊戲中，提升學習者的參與度。
-            </Text>
-            <Box>
-              <Box
-                bgImage={img_vr_npc}
-                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-                h={{ base: "400px", lg: "500px" }}
-                bgRepeat={"no-repeat"}
-                bgPosition={"center"}
-                bgSize={"cover"}
-              />
-              <HStack mt={2} justify={"center"}>
-                <BsFillTriangleFill />
-                <Text
-                  fontSize={"xl"}
-                  textAlign={"center"}
-                  fontFamily={`"Open Sans", sans-serif`}
-                >
-                  尋求玩家協助的NPC
-                </Text>
-              </HStack>
-            </Box>
-
-            <Divider />
 
             <HStack spacing={2}>
               <Heading fontFamily={`"Open Sans", sans-serif`}>
-                2. 印象深刻的課
+                5. 個人專案
               </Heading>
               <Tooltip
-                label="Link to Tower Defense project"
+                label="Link to Side project"
                 fontSize={"lg"}
                 fontFamily={`"Open Sans", sans-serif`}
               >
@@ -465,7 +548,7 @@ function Autobiography() {
                   fontSize={"4xl"}
                   fontWeight={"bold"}
                   fontFamily={`"Open Sans", sans-serif`}
-                  to="/project/tower-defense"
+                  to="/project/side-project"
                   onClick={() => window.scroll({ top: 0 })}
                   color="teal.400"
                   _hover={{ color: "teal.500" }}
@@ -474,69 +557,60 @@ function Autobiography() {
                 </ChakraLink>
               </Tooltip>
             </HStack>
-            <Box
-              bgImage={img_tower_gather}
-              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-              h={{ base: "400px", lg: "500px" }}
-              bgRepeat={"no-repeat"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-            />
             <Text
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               fontSize="xl"
               textAlign={"justify"}
               fontFamily={`"Open Sans", sans-serif`}
             >
-              &emsp;&emsp;大二暑假參加python遊戲設計課程，在這堂課中我學到許多。
-              <br />
-              <br />
               <Text as={"span"} fontWeight={"bold"}>
-                一、設計思考｜design thinking
+                （一）智慧家庭
               </Text>
               <br />
               <br />
-              &emsp;&emsp;課程討論中，我們在Miro中張貼許多代表自己的想法的便利貼，
-              {""}
-              以人為本發散思維，收束想法，最後實作。從中我學習到如何有效溝通、團隊合作、
-              {""}
-              以及設計思考的方式，並且也將其運用在日後Digi+ Talent計畫當中。
-              <br />
-              <br />
-              <Text as={"span"} fontWeight={"bold"}>
-                二、UML {"&"} design pattern
+              &emsp;&emsp;除了課堂專題之外，我也喜歡製作個人專案。{""}
+              宿舍床鋪在上，大燈開關在下，每次睡覺時，{""}
+              皆先要在樓下關燈後再到床上摸黑鋪床，實屬麻煩，{""}
+              於是我在樹莓派上安裝
+              <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                Home Assistant{" "}
               </Text>
-              <br />
-              <br />
-              &emsp;&emsp;Albert Einstein曾說：「如果我有1小時拯救世界，{""}
-              我會花55分鐘去確認問題為何，只以5分鐘尋找解決方案。」{""}
-              這代表架構的擬定將決定日後撰寫程式容易度。{""}
-              當時，我們花約好幾天的時間才確立整個遊戲的架構：{""}
-              使用MVC、observer pattern、我方與敵方的運作形式等。{""}
-              而這也使後來撰寫上萬行程式時，方便許多。
+              開源軟體並向 宿委申請房間斷電來切換宿舍房內的大燈開關成智慧開關。
+              {""}
+              雖然最後因為電壓不穩的問題而作罷，我還是退而求其次，{""}
+              改用智慧插座實現控制家電與手機電量80%即斷電的功能，以此實現智慧家庭。
             </Text>
-            <Box>
-              <AspectRatio
-                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-                ratio={16 / 9}
-              >
-                <iframe
-                  title="tower defense demo video"
-                  src="https://www.youtube.com/embed/mkjUvo7B_K8"
-                  allowFullScreen
-                />
-              </AspectRatio>
-              <HStack mt={2} justify={"center"}>
-                <BsFillTriangleFill />
-                <Text
-                  fontSize={"xl"}
-                  textAlign={"center"}
-                  fontFamily={`"Open Sans", sans-serif`}
-                >
-                  塔防遊戲demo畫面
-                </Text>
-              </HStack>
-            </Box>
+
+            <Text
+              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              fontSize="xl"
+              textAlign={"justify"}
+              fontFamily={`"Open Sans", sans-serif`}
+            >
+              <Text as={"span"} fontWeight={"bold"}>
+                （二）React網頁
+              </Text>
+              <br />
+              <br />
+              &emsp;&emsp;目前除了AI領域外，
+              我正在學習JavaScript、HTML、以及CSS， 實作
+              <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                React前端購物網站
+              </Text>
+              與
+              <Text as={"span"} color={"teal.400"} fontWeight={"bold"}>
+                個人形象網站
+              </Text>
+              。 主要是因為我想拓展本身的技能，串接網頁與Python
+              API實現跨平台的功能。同時，目前許多軟體、{""}
+              應用程式其實也都是網頁，可以用JavaScript編寫而成，{""}
+              像是撰寫程式常用的Visual Studio Code{""}
+              即是使用與JavaScript兼容的TypeScript。{""}
+              此外，現今也有漸進式網頁應用（Progressive Web
+              Application）的技術可以將網頁包裝成{""}
+              應用程式下載到手機中。因此，我才特意花時間學習，{""}
+              未來也預計學習Laravel後端框架。
+            </Text>
           </Stack>
         </Container>
 
