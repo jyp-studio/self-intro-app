@@ -7,13 +7,7 @@ import {
   Divider,
   Center,
 } from "@chakra-ui/react";
-import {
-  FiHome,
-  FiCompass,
-  FiYoutube,
-  FiCommand,
-  FiCheckSquare,
-} from "react-icons/fi";
+import { FiHome, FiCompass, FiCommand, FiCheckSquare } from "react-icons/fi";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";

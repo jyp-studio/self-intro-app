@@ -13,7 +13,6 @@ import {
   useColorModeValue,
   Stack,
   useBreakpointValue,
-  Center,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -45,7 +44,6 @@ import Rating from "../components/Rating";
 import img_uml from "../assets/vr_uml.png";
 import img_bg from "../assets/bg_vr.jpg";
 import img_abstract from "../assets/raspberry_pi.jpg";
-import img_bg_design from "../assets/bg_design.jpg";
 import img_unity_to_magicVR from "../assets/unity_to_magicVR.png";
 import img_unity_to_magicVR1 from "../assets/unity_to_magicVR1.png";
 import img_reward from "../assets/reward.jpg";
