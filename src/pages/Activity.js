@@ -44,11 +44,8 @@ import img_mc_all from "../assets/mc_all.jpg";
 import img_speech from "../assets/speech.jpg";
 import img_coding_bg from "../assets/coding_bg1.png";
 import img_creativity from "../assets/creativity_bg.jpg";
-import img_mobile_creativity from "../assets/mobile_creativity_bg.jpg";
 import img_learn from "../assets/learn_bg.png";
-import img_mobile_learn from "../assets/mobile_learn_bg.png";
 import img_confidence from "../assets/confidence_bg.png";
-import img_mobile_confidence from "../assets/mobile_confidence_bg.jpg";
 import img_workshop from "../assets/workshop.jpg";
 import img_activity from "../assets/activity.JPG";
 import img_led from "../assets/led.jpg";
@@ -135,7 +132,6 @@ function Activity() {
       name: "Creativity",
       image: img_creativity,
       color: useColorModeValue("red.500", "red.400"),
-      mobileImage: img_mobile_creativity,
       detail: "有價值的差異化，是我的創新",
       icon: FiFeather,
     },
@@ -143,7 +139,6 @@ function Activity() {
       name: "Fast-learner",
       image: img_learn,
       color: useColorModeValue("teal.400", "teal.300"),
-      mobileImage: img_mobile_learn,
       detail: "快速學習，應用知識",
       icon: FiBookOpen,
     },
@@ -151,7 +146,6 @@ function Activity() {
       name: "Self-confidence",
       image: img_confidence,
       color: "cyan.400",
-      mobileImage: img_mobile_confidence,
       detail: "我相信我做得到，而我也做得到",
       icon: FiUserCheck,
     },
@@ -159,7 +153,6 @@ function Activity() {
 
   // carousel
   const breakPoint = useBreakpointValue({ base: "sm", md: "md", lg: "lg" });
-  const columns = useBreakpointValue({ base: 1 });
   const autoplay = useBreakpointValue({ md: 4000 });
 
   return (
@@ -205,7 +198,7 @@ function Activity() {
             <Center>
               <Box mt={100} w={{ base: "90vw", md: "60vw" }}>
                 <Carousel
-                  cols={columns}
+                  cols={1}
                   rows={1}
                   gap={10}
                   loop
