@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
 import Activity from "./pages/Activity";
 import Certificate from "./pages/Certificate";
@@ -16,7 +16,7 @@ import InProgress from "./pages/InProgress";
 
 function Router() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/resume" element={<Resume />} />
@@ -35,7 +35,7 @@ function Router() {
             <Route path="project" element={<Project />} />
           </Route> */}
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
