@@ -1,6 +1,7 @@
 {
   "name": "selfintro-app",
   "version": "0.1.0",
+  "homepage": "https://jyp-studio.github.io/self-intro-app",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.0.2",
