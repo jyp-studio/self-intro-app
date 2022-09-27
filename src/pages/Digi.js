@@ -1110,13 +1110,19 @@ function Digi() {
                       loop
                     >
                       <Carousel.Item>
-                        <Image src={img_digi_certificate} />
+                        <Skeleton isLoaded>
+                          <Image src={img_digi_certificate} />
+                        </Skeleton>
                       </Carousel.Item>
                       <Carousel.Item>
-                        <Image src={img_digi_certificate1} />
+                        <Skeleton isLoaded>
+                          <Image src={img_digi_certificate1} />
+                        </Skeleton>
                       </Carousel.Item>
                       <Carousel.Item>
-                        <Image src={img_digi_certificate2} />
+                        <Skeleton isLoaded>
+                          <Image src={img_digi_certificate2} />
+                        </Skeleton>
                       </Carousel.Item>
                     </Carousel>
                   </Box>

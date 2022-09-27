@@ -7,7 +7,6 @@ import {
   Container,
   useBreakpointValue,
   Stack,
-  Skeleton,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
