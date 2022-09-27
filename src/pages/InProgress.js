@@ -1,4 +1,12 @@
-import { Box, Text, Container, Stack } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  Container,
+  Stack,
+  Skeleton,
+  Image,
+  Center,
+} from "@chakra-ui/react";
 
 import { FiHome, FiCommand, FiTv, FiActivity } from "react-icons/fi";
 
@@ -109,14 +117,14 @@ function InProgress() {
               {""}
               以製作人像剪影來去除衣服、配件所造成的顏色雜訊。
             </Text>
-            <Box
-              bgImage={img_labeling_people}
-              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-              h={{ base: "400px", lg: "500px" }}
-              bgRepeat={"no-repeat"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-            />
+            <Skeleton isLoaded>
+              <Center>
+                <Image
+                  src={img_labeling_people}
+                  w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                />
+              </Center>
+            </Skeleton>
             <Text textAlign={"justify"}>
               <Text as={"span"} fontWeight={"bold"}>
                 2. 訓練步態預測模型

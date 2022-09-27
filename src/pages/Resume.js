@@ -6,6 +6,7 @@ import {
   AspectRatio,
   Divider,
   Center,
+  Skeleton,
 } from "@chakra-ui/react";
 import { FiHome, FiCompass, FiCommand, FiCheckSquare } from "react-icons/fi";
 
@@ -44,7 +45,9 @@ function Resume() {
             >
               個人簡歷表
             </Heading>
-            <Image src={img_resume} w={{ base: "90vw", md: "60vw" }} />
+            <Skeleton isLoaded>
+              <Image src={img_resume} w={{ base: "90vw", md: "60vw" }} />
+            </Skeleton>
 
             <Box py={50} w={"full"}>
               <Divider />
@@ -59,16 +62,18 @@ function Resume() {
             >
               歷年成績單
             </Heading>
-            <AspectRatio w={{ base: "90vw", lg: "60vw" }} ratio={3 / 4.5}>
-              <iframe
-                title="score pdf"
-                src={pdf_score}
-                position="absolute"
-                width={"100%"}
-                height={"100%"}
-                allow="autoplay"
-              />
-            </AspectRatio>
+            <Skeleton isLoaded>
+              <AspectRatio w={{ base: "90vw", lg: "60vw" }} ratio={3 / 4.5}>
+                <iframe
+                  title="score pdf"
+                  src={pdf_score}
+                  position="absolute"
+                  width={"100%"}
+                  height={"100%"}
+                  allow="autoplay"
+                />
+              </AspectRatio>
+            </Skeleton>
 
             <Box py={50} w={"full"}>
               <Divider />
@@ -84,7 +89,9 @@ function Resume() {
             >
               名次證明
             </Heading>
-            <Image src={img_rank} w={{ base: "90vw", md: "60vw" }} />
+            <Skeleton isLoaded>
+              <Image src={img_rank} w={{ base: "90vw", md: "60vw" }} />
+            </Skeleton>
           </VStack>
         </Center>
         <Footer />

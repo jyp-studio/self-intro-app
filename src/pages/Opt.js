@@ -12,6 +12,7 @@ import {
   Divider,
   useColorModeValue,
   Stack,
+  Skeleton,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import {
@@ -152,8 +153,9 @@ function Opt() {
               </Text>{" "}
               Abstract
             </Heading>
-            <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
-
+            <Skeleton isLoaded>
+              <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
+            </Skeleton>
             <Text
               py={"10"}
               fontFamily={`"Open Sans", sans-serif`}
@@ -201,14 +203,15 @@ function Opt() {
                 </Text>{" "}
                 Architecture
               </Heading>
-
-              <Box
-                bg="gray.100"
-                boxShadow="lg"
-                w={{ base: "90vw", md: "70vw", lg: "67vw" }}
-              >
-                <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
-              </Box>
+              <Skeleton isLoaded>
+                <Box
+                  bg="gray.100"
+                  boxShadow="lg"
+                  w={{ base: "90vw", md: "70vw", lg: "67vw" }}
+                >
+                  <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
+                </Box>
+              </Skeleton>
             </Box>
           </Container>
         </Box>
@@ -254,14 +257,16 @@ function Opt() {
             textAlign={"justify"}
             alignItems={"center"}
           >
-            <Box
-              bgImage={img_Albert_Einstein}
-              w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-              h={"600px"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-              bgRepeat={"no-repeat"}
-            />
+            <Skeleton isLoaded>
+              <Box
+                bgImage={img_Albert_Einstein}
+                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
+                h={"600px"}
+                bgPosition={"center"}
+                bgSize={"cover"}
+                bgRepeat={"no-repeat"}
+              />
+            </Skeleton>
             <Text
               w={{ base: "80vw", md: "60vw", lg: "30vw" }}
               px={{ base: "5", md: "30" }}
@@ -303,11 +308,13 @@ function Opt() {
             {""}
             然而所幸，在經過數週不眠不休地思索，以及參與設計思考工作坊，將思維發散並收束後，終於想出應用領域—「股票市場」。
           </Text>
-          <Image
-            src={img_numerical_poster1}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
+          <Skeleton isLoaded>
+            <Image
+              src={img_numerical_poster1}
+              w={{ base: "95vw", md: "75vw" }}
+              px={{ base: "5", md: "50" }}
+            />
+          </Skeleton>
           <Text
             px={{ base: "5", md: "10", lg: "30" }}
             fontSize={"3xl"}
@@ -318,11 +325,13 @@ function Opt() {
           >
             工作坊中，藉由小組討論的方式來發散想法與構想可行性。
           </Text>
-          <Image
-            src={img_numerical_poster2}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
+          <Skeleton isLoaded>
+            <Image
+              src={img_numerical_poster2}
+              w={{ base: "95vw", md: "75vw" }}
+              px={{ base: "5", md: "50" }}
+            />
+          </Skeleton>
           <Text
             px={{ base: "5", md: "10", lg: "30" }}
             fontSize={"3xl"}
@@ -333,11 +342,13 @@ function Opt() {
           >
             完成後，設計流程與GUI介面。
           </Text>
-          <Image
-            src={img_numerical_poster3}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
+          <Skeleton isLoaded>
+            <Image
+              src={img_numerical_poster3}
+              w={{ base: "95vw", md: "75vw" }}
+              px={{ base: "5", md: "50" }}
+            />
+          </Skeleton>
           <Text
             px={{ base: "5", md: "10", lg: "30" }}
             fontSize={"3xl"}
@@ -348,11 +359,13 @@ function Opt() {
           >
             最後，撰寫摘要來向他人報告。
           </Text>
-          <Image
-            src={img_numerical_poster4}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
+          <Skeleton isLoaded>
+            <Image
+              src={img_numerical_poster4}
+              w={{ base: "95vw", md: "75vw" }}
+              px={{ base: "5", md: "50" }}
+            />
+          </Skeleton>
           <Text
             px={{ base: "5", md: "10", lg: "40" }}
             fontSize={"3xl"}
@@ -384,13 +397,15 @@ function Opt() {
               spacing={{ base: "50", lg: "0" }}
               alignItems={"center"}
             >
-              <Box
-                bgImage={img_reward}
-                w={{ base: "80vw", md: "60vw", lg: "400px" }}
-                h={"500px"}
-                bgPosition={"center"}
-                bgSize={"cover"}
-              />
+              <Skeleton isLoaded>
+                <Box
+                  bgImage={img_reward}
+                  w={{ base: "80vw", md: "60vw", lg: "400px" }}
+                  h={{ base: "450px", md: "500px" }}
+                  bgPosition={"center"}
+                  bgSize={"cover"}
+                />
+              </Skeleton>
               {/* words */}
               <VStack
                 py={"10"}
@@ -443,18 +458,19 @@ function Opt() {
               </Text>{" "}
               Project Report
             </Heading>
-
-            <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
-              <iframe
-                title="numerical opt pdf"
-                src={pdf_project}
-                //src={pdf_project}
-                position="absolute"
-                width={"100%"}
-                height={"100%"}
-                allow="autoplay"
-              />
-            </AspectRatio>
+            <Skeleton isLoaded>
+              <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
+                <iframe
+                  title="numerical opt pdf"
+                  src={pdf_project}
+                  //src={pdf_project}
+                  position="absolute"
+                  width={"100%"}
+                  height={"100%"}
+                  allow="autoplay"
+                />
+              </AspectRatio>
+            </Skeleton>
           </Box>
         </Container>
         <Footer />

@@ -16,6 +16,7 @@ import {
   Text,
   VStack,
   Link,
+  Skeleton,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -146,11 +147,13 @@ function Certificate() {
               </Heading>
               <VStack spacing={20}>
                 <VStack spacing={5}>
-                  <Image
-                    w={{ base: "90vw", md: "65vw", lg: "800px" }}
-                    src={img_ur_competition}
-                    shadow={"lg"}
-                  />
+                  <Skeleton isLoaded>
+                    <Image
+                      w={{ base: "90vw", md: "65vw", lg: "800px" }}
+                      src={img_ur_competition}
+                      shadow={"lg"}
+                    />
+                  </Skeleton>
                   <Text fontSize={"xl"}>
                     成大專題海報競賽 - 研究獎 第二名{" "}
                     <Link
@@ -167,12 +170,14 @@ function Certificate() {
                   </Text>
                 </VStack>
                 <VStack spacing={5}>
-                  <Image
-                    w={{ base: "90vw", md: "65vw", lg: "800px" }}
-                    src={img_ur_voting}
-                    shadow={"lg"}
-                    rounded={"xl"}
-                  />
+                  <Skeleton isLoaded>
+                    <Image
+                      w={{ base: "90vw", md: "65vw", lg: "800px" }}
+                      src={img_ur_voting}
+                      shadow={"lg"}
+                      rounded={"xl"}
+                    />
+                  </Skeleton>
                   <Text fontSize={"xl"}>
                     成大專題海報競賽 - 人氣獎{" "}
                     <Link

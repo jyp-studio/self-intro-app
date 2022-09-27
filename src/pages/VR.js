@@ -13,6 +13,7 @@ import {
   useColorModeValue,
   Stack,
   useBreakpointValue,
+  Skeleton,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -185,7 +186,9 @@ function VR() {
               </Text>{" "}
               Abstract
             </Heading>
-            <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
+            <Skeleton isLoaded>
+              <Image src={img_abstract} w={"full"} h={"400px"} fit={"cover"} />
+            </Skeleton>
 
             <Text
               py={"10"}
@@ -238,18 +241,19 @@ function VR() {
                 </Text>{" "}
                 Trailer
               </Heading>
-
-              <AspectRatio
-                w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-                ratio={16 / 9}
-              >
-                <iframe
-                  title="vr project trailer video"
-                  src="https://www.youtube.com/embed/rW8oSm2Rcqc"
-                  frameBorder="0"
-                  allowFullScreen
-                />
-              </AspectRatio>
+              <Skeleton isLoaded>
+                <AspectRatio
+                  w={{ base: "90vw", md: "60vw", lg: "67vw" }}
+                  ratio={16 / 9}
+                >
+                  <iframe
+                    title="vr project trailer video"
+                    src="https://www.youtube.com/embed/rW8oSm2Rcqc"
+                    frameBorder="0"
+                    allowFullScreen
+                  />
+                </AspectRatio>
+              </Skeleton>
             </Box>
             <Box marginTop={"200"}>
               <Heading
@@ -268,9 +272,14 @@ function VR() {
                 Poster
               </Heading>
 
-              <Box boxShadow="lg" w={{ base: "90vw", md: "70vw", lg: "67vw" }}>
-                <Image src={img_poster} />
-              </Box>
+              <Skeleton isLoaded>
+                <Box
+                  boxShadow="lg"
+                  w={{ base: "90vw", md: "70vw", lg: "67vw" }}
+                >
+                  <Image src={img_poster} />
+                </Box>
+              </Skeleton>
             </Box>
             <Box marginTop={"200"} marginBottom={"150"}>
               <Heading
@@ -288,14 +297,15 @@ function VR() {
                 </Text>{" "}
                 Research Method
               </Heading>
-
-              <Box
-                bg="cyan.100"
-                boxShadow="lg"
-                w={{ base: "90vw", md: "70vw", lg: "67vw" }}
-              >
-                <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
-              </Box>
+              <Skeleton isLoaded>
+                <Box
+                  bg="cyan.100"
+                  boxShadow="lg"
+                  w={{ base: "90vw", md: "70vw", lg: "67vw" }}
+                >
+                  <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
+                </Box>
+              </Skeleton>
             </Box>
           </Container>
         </Box>
@@ -338,19 +348,23 @@ function VR() {
           >
             {/* display in mobile */}
             {imageDir === "row" && (
-              <Image
-                src={img_unity_to_magicVR1}
-                w={{ base: "80vw", md: "50vw" }}
-                display={{ base: "inline", lg: "none" }}
-              />
+              <Skeleton isLoaded>
+                <Image
+                  src={img_unity_to_magicVR1}
+                  w={{ base: "80vw", md: "50vw" }}
+                  display={{ base: "inline", lg: "none" }}
+                />
+              </Skeleton>
             )}
             {/* display in pc */}
             {imageDir === "row" || (
-              <Image
-                src={img_unity_to_magicVR}
-                w={{ lg: "10vw" }}
-                display={{ base: "none", lg: "inline-block" }}
-              />
+              <Skeleton isLoaded>
+                <Image
+                  src={img_unity_to_magicVR}
+                  w={{ lg: "10vw" }}
+                  display={{ base: "none", lg: "inline-block" }}
+                />
+              </Skeleton>
             )}
             <Text
               w={{ base: "80vw", md: "60vw", lg: "30vw" }}
@@ -449,13 +463,15 @@ function VR() {
               spacing={{ base: "50", lg: "0" }}
               alignItems={"center"}
             >
-              <Box
-                bgImage={img_reward}
-                w={{ base: "80vw", md: "60vw", lg: "400px" }}
-                h={"500px"}
-                bgPosition={"center"}
-                bgSize={"cover"}
-              />
+              <Skeleton isLoaded>
+                <Box
+                  bgImage={img_reward}
+                  w={{ base: "80vw", md: "60vw", lg: "400px" }}
+                  h={{ base: "450px", md: "500px" }}
+                  bgPosition={"center"}
+                  bgSize={"cover"}
+                />
+              </Skeleton>
               {/* words */}
               <VStack
                 py={"10"}
@@ -516,16 +532,18 @@ function VR() {
               </Text>{" "}
               Reasearch Proposal
             </Heading>
-            <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
-              <iframe
-                title="vr pdf"
-                src={pdf_proposal}
-                position="absolute"
-                width={"100%"}
-                height={"100%"}
-                allow="autoplay"
-              />
-            </AspectRatio>
+            <Skeleton isLoaded>
+              <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
+                <iframe
+                  title="vr pdf"
+                  src={pdf_proposal}
+                  position="absolute"
+                  width={"100%"}
+                  height={"100%"}
+                  allow="autoplay"
+                />
+              </AspectRatio>
+            </Skeleton>
           </Box>
         </Container>
         <Footer />

@@ -12,6 +12,7 @@ import {
   useColorModeValue,
   HStack,
   Stack,
+  Skeleton,
 } from "@chakra-ui/react";
 import { CloseIcon, CheckIcon } from "@chakra-ui/icons";
 import {
@@ -162,7 +163,9 @@ function TowerDefense() {
               </Text>{" "}
               Abstract
             </Heading>
-            <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
+            <Skeleton isLoaded>
+              <Image src={img_covid} w={"full"} h={"400px"} fit={"cover"} />
+            </Skeleton>
             <Flex flexWrap={"wrap"} py="10" justify={"center"}>
               <Text
                 fontFamily={`"Open Sans", sans-serif`}
@@ -219,17 +222,18 @@ function TowerDefense() {
                 </Text>{" "}
                 Trailer
               </Heading>
-
-              <AspectRatio
-                w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-                ratio={16 / 9}
-              >
-                <iframe
-                  title="tower defense demo video"
-                  src="https://www.youtube.com/embed/gTNaXtLUB8s"
-                  allowFullScreen
-                />
-              </AspectRatio>
+              <Skeleton isLoaded>
+                <AspectRatio
+                  w={{ base: "90vw", md: "60vw", lg: "67vw" }}
+                  ratio={16 / 9}
+                >
+                  <iframe
+                    title="tower defense demo video"
+                    src="https://www.youtube.com/embed/gTNaXtLUB8s"
+                    allowFullScreen
+                  />
+                </AspectRatio>
+              </Skeleton>
             </Box>
             <Box marginTop={"200"} marginBottom={"150"}>
               <Heading
@@ -247,14 +251,15 @@ function TowerDefense() {
                 </Text>{" "}
                 Architecture
               </Heading>
-
-              <Box
-                bg="teal.50"
-                boxShadow="lg"
-                w={{ base: "90vw", md: "70vw", lg: "67vw" }}
-              >
-                <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
-              </Box>
+              <Skeleton isLoaded>
+                <Box
+                  bg="teal.50"
+                  boxShadow="lg"
+                  w={{ base: "90vw", md: "70vw", lg: "67vw" }}
+                >
+                  <Image src={img_uml} p={{ base: "2", md: "5", lg: "8" }} />
+                </Box>
+              </Skeleton>
             </Box>
           </Container>
         </Box>
@@ -293,11 +298,13 @@ function TowerDefense() {
           alignItems={"center"}
           justifyContent={"center"}
         >
-          <Image
-            src={img_miro}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
+          <Skeleton isLoaded>
+            <Image
+              src={img_miro}
+              w={{ base: "95vw", md: "75vw" }}
+              px={{ base: "5", md: "50" }}
+            />
+          </Skeleton>
           <HStack
             py={"50"}
             marginTop={"50"}
@@ -306,7 +313,9 @@ function TowerDefense() {
             justify={"center"}
             justifyContent={"space-around"}
           >
-            <Image src={img_distribution_chart} w={"400px"} />
+            <Skeleton isLoaded>
+              <Image src={img_distribution_chart} w={"400px"} />
+            </Skeleton>
             <Text
               w={{ base: "80vw", lg: "30vw" }}
               px={{ base: "5", md: "30" }}
@@ -323,11 +332,13 @@ function TowerDefense() {
               的職位，引領兩位組員藉由Miro便利貼的功能對新冠肺炎進行聯想與解構，並將其與塔防遊戲做結合。
             </Text>
           </HStack>
-          <Image
-            src={img_miro1}
-            w={{ base: "95vw", md: "75vw" }}
-            px={{ base: "5", md: "50" }}
-          />
+          <Skeleton isLoaded>
+            <Image
+              src={img_miro1}
+              w={{ base: "95vw", md: "75vw" }}
+              px={{ base: "5", md: "50" }}
+            />
+          </Skeleton>
         </VStack>
 
         {/* 2. facing problem */}
@@ -349,14 +360,16 @@ function TowerDefense() {
               justifyContent={"space-around"}
             >
               {/* image of facing problem */}
-              <Box
-                bgImage={img_problem}
-                w={{ base: "80vw", md: "60vw", lg: "30vw" }}
-                h={"400px"}
-                bgRepeat={"no-repeat"}
-                bgPosition={"center"}
-                bgSize={"cover"}
-              />
+              <Skeleton isLoaded>
+                <Box
+                  bgImage={img_problem}
+                  w={{ base: "80vw", md: "60vw", lg: "30vw" }}
+                  h={"400px"}
+                  bgRepeat={"no-repeat"}
+                  bgPosition={"center"}
+                  bgSize={"cover"}
+                />
+              </Skeleton>
               <Text
                 mt={{ base: "100", lg: "0" }}
                 w={{ base: "80vw", md: "60vw", lg: "30vw" }}
@@ -424,7 +437,9 @@ function TowerDefense() {
                   </HStack>
                 </Box>
                 {/* image */}
-                <Image src={img_anime} px={"10"} py={"5"} />
+                <Skeleton isLoaded>
+                  <Image src={img_anime} px={"10"} py={"5"} />
+                </Skeleton>
               </Box>
 
               {/* 2. Box of explaining animation and damage */}
@@ -464,7 +479,9 @@ function TowerDefense() {
                   </HStack>
                 </Box>
                 {/* image */}
-                <Image src={img_anime1} px={"10"} py={"5"} />
+                <Skeleton isLoaded>
+                  <Image src={img_anime1} px={"10"} py={"5"} />
+                </Skeleton>
               </Box>
             </Flex>
           </Container>
@@ -489,13 +506,15 @@ function TowerDefense() {
               spacing={{ base: "50", lg: "0" }}
               alignItems={"center"}
             >
-              <Box
-                bgImage={img_reward}
-                w={{ base: "80vw", md: "60vw", lg: "400px" }}
-                h={"500px"}
-                bgPosition={"center"}
-                bgSize={"cover"}
-              />
+              <Skeleton isLoaded>
+                <Box
+                  bgImage={img_reward}
+                  w={{ base: "80vw", md: "60vw", lg: "400px" }}
+                  h={{ base: "450px", md: "500px" }}
+                  bgPosition={"center"}
+                  bgSize={"cover"}
+                />
+              </Skeleton>
               {/* words */}
               <VStack
                 py={"10"}
@@ -568,17 +587,18 @@ function TowerDefense() {
               </Text>{" "}
               Demo
             </Heading>
-
-            <AspectRatio
-              w={{ base: "70vw", md: "60vw", lg: "67vw" }}
-              ratio={16 / 9}
-            >
-              <iframe
-                title="tower defense demo video"
-                src="https://www.youtube.com/embed/mkjUvo7B_K8"
-                allowFullScreen
-              />
-            </AspectRatio>
+            <Skeleton isLoaded>
+              <AspectRatio
+                w={{ base: "90vw", md: "60vw", lg: "67vw" }}
+                ratio={16 / 9}
+              >
+                <iframe
+                  title="tower defense demo video"
+                  src="https://www.youtube.com/embed/mkjUvo7B_K8"
+                  allowFullScreen
+                />
+              </AspectRatio>
+            </Skeleton>
           </Box>
         </Container>
         <Footer />

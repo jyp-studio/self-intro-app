@@ -6,6 +6,7 @@ import {
   Image,
   useColorModeValue,
   Container,
+  Skeleton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import img_digi from "../assets/digi.png";
@@ -98,15 +99,17 @@ const Card = (props) => {
   return (
     <Box p="2">
       <Link to={props.href} onClick={() => window.scroll({ top: 0 })}>
-        <Image
-          p="2"
-          bg={props.bg}
-          w="250px"
-          borderRadius="lg"
-          src={props.img}
-          alt={props.alt}
-          boxShadow="xl"
-        />
+        <Skeleton isLoaded>
+          <Image
+            p="2"
+            bg={props.bg}
+            w="250px"
+            borderRadius="lg"
+            src={props.img}
+            alt={props.alt}
+            boxShadow="xl"
+          />
+        </Skeleton>
       </Link>
       <Center>
         <Text fontSize="2xl">{props.title}</Text>

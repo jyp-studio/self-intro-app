@@ -15,6 +15,7 @@ import {
   Button,
   Link as ChakraLink,
   Tooltip,
+  Skeleton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -51,7 +52,6 @@ import img_miro from "../assets/miro.png";
 import img_tower_uml from "../assets/uml.png";
 import img_bg from "../assets/bg_autobiography.jpg";
 import img_grow from "../assets/grow.jpg";
-import img_lonely from "../assets/lonely.jpg";
 import img_notepad_coding from "../assets/notepad_coding.png";
 import img_books from "../assets/books.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
@@ -277,14 +277,7 @@ function Autobiography() {
             <Heading fontFamily={`"Open Sans", sans-serif`}>
               1. 學習獨立
             </Heading>
-            <Box
-              bgImage={img_lonely}
-              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-              h={{ base: "400px", lg: "500px" }}
-              bgRepeat={"no-repeat"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-            />
+
             <Text
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               fontSize="xl"
@@ -298,25 +291,24 @@ function Autobiography() {
             <Heading fontFamily={`"Open Sans", sans-serif`}>
               2. 啟蒙程式
             </Heading>
-            <Box
-              bgImage={img_notepad_coding}
-              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-              h={{ base: "400px", lg: "500px" }}
-              bgRepeat={"no-repeat"}
-              bgPosition={"center"}
-              bgSize={"cover"}
-            />
+            <Skeleton isLoaded>
+              <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
+                <Image src={img_notepad_coding} />
+              </Box>
+            </Skeleton>
             <Text
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               fontSize="xl"
               textAlign={"justify"}
               fontFamily={`"Open Sans", sans-serif`}
             >
-              &emsp;&emsp;高中參加電資營，使用notepad++撰寫html與css來呈現網頁。
-              {""}
-              將文字編譯後以圖形化介面呈現，這是我第一次了解到程式的有趣，讓我充滿成就感，
-              {""}
-              想更加了解它的發展性。因此，我選擇就讀成大工科系，期望學習資訊、電機的知識，將軟硬體結合。
+              &emsp;&emsp;高中參加電資營，{""}
+              使用notepad++撰寫HTML與CSS來呈現網頁並部署到GitHub page上。{""}
+              將文字編譯後以圖形化介面呈現，這是我第一次了解到程式的有趣，{""}
+              讓我充滿成就感。但同時我也對電路的實作充滿興趣，{""}
+              譬如用Arduino連接七段顯示器，使其有規律地呈現數字。{""}
+              因此，我選擇就讀成大工科系，期望學習資訊、電機與力學的知識後，{""}
+              能更加確立自己的興趣，同時整合所學加以應用。
             </Text>
           </Stack>
         </Container>
@@ -372,43 +364,47 @@ function Autobiography() {
               {""}
               使用Python程式語言，從零建造一個塔防遊戲，我才赫然發現，我最喜歡的是「資訊工程」。
             </Text>
-            <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
-              <Image src={img_miro} />
-              <Text
-                mt={5}
-                px={{ base: 10, lg: 20 }}
-                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-                fontSize="xl"
-                textAlign={"justify"}
-                fontFamily={`"Open Sans", sans-serif`}
-              >
-                ▲ Python遊戲設計課程中學習運用
-                <Text as={"span"} fontWeight={"bold"} color={"teal.400"}>
-                  設計思考
+            <Skeleton isLoaded>
+              <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
+                <Image src={img_miro} />
+                <Text
+                  mt={5}
+                  px={{ base: 10, lg: 20 }}
+                  w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                  fontSize="xl"
+                  textAlign={"justify"}
+                  fontFamily={`"Open Sans", sans-serif`}
+                >
+                  ▲ Python遊戲設計課程中學習運用
+                  <Text as={"span"} fontWeight={"bold"} color={"teal.400"}>
+                    設計思考
+                  </Text>
+                  法來對新冠肺炎的主題進行聯想與解構，
+                  {""}
+                  以此構思遊戲方向。上圖為對新冠疫情的聯想。
                 </Text>
-                法來對新冠肺炎的主題進行聯想與解構，
-                {""}
-                以此構思遊戲方向。上圖為對新冠疫情的聯想。
-              </Text>
-            </Box>
-            <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
-              <Image src={img_tower_uml} />
-              <Text
-                mt={5}
-                px={{ base: 10, lg: 20 }}
-                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-                fontSize="xl"
-                textAlign={"justify"}
-                fontFamily={`"Open Sans", sans-serif`}
-              >
-                ▲ 遊戲設計課程中學習
-                <Text as={"span"} fontWeight={"bold"} color={"teal.400"}>
-                  UML和design patterns
+              </Box>
+            </Skeleton>
+            <Skeleton isLoaded>
+              <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
+                <Image src={img_tower_uml} />
+                <Text
+                  mt={5}
+                  px={{ base: 10, lg: 20 }}
+                  w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                  fontSize="xl"
+                  textAlign={"justify"}
+                  fontFamily={`"Open Sans", sans-serif`}
+                >
+                  ▲ 遊戲設計課程中學習
+                  <Text as={"span"} fontWeight={"bold"} color={"teal.400"}>
+                    UML和design patterns
+                  </Text>
+                  來幫助開發。上圖為塔防遊戲MVC概要架構，輔以Observer
+                  pattern處理輸入事件。
                 </Text>
-                來幫助開發。上圖為塔防遊戲MVC概要架構，輔以Observer
-                pattern處理輸入事件。
-              </Text>
-            </Box>
+              </Box>
+            </Skeleton>
 
             <Heading fontFamily={`"Open Sans", sans-serif`}>
               3. 深入學習
@@ -436,21 +432,23 @@ function Autobiography() {
               </Link>
               」。
             </Text>
-            <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
-              <Image src={img_opt_gui} />
-              <Text
-                mt={5}
-                px={{ base: 10, lg: 20 }}
-                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-                fontSize="xl"
-                textAlign={"justify"}
-                fontFamily={`"Open Sans", sans-serif`}
-              >
-                ▲ 最佳化股票回測系統中，使用者可以輸入股票資訊來比對原始策略和
-                {""}
-                最佳化策略下的結果差異。上圖為輸入TSLA股票資訊的分析結果。
-              </Text>
-            </Box>
+            <Skeleton isLoaded>
+              <Box w={{ base: "80vw", md: "60vw", lg: "60vw" }}>
+                <Image src={img_opt_gui} />
+                <Text
+                  mt={5}
+                  px={{ base: 10, lg: 20 }}
+                  w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                  fontSize="xl"
+                  textAlign={"justify"}
+                  fontFamily={`"Open Sans", sans-serif`}
+                >
+                  ▲ 最佳化股票回測系統中，使用者可以輸入股票資訊來比對原始策略和
+                  {""}
+                  最佳化策略下的結果差異。上圖為輸入TSLA股票資訊的分析結果。
+                </Text>
+              </Box>
+            </Skeleton>
 
             <HStack spacing={2}>
               <Heading fontFamily={`"Open Sans", sans-serif`}>
@@ -506,14 +504,15 @@ function Autobiography() {
               製作影像辨識專題、{""}
               同時，大四也選修人工智慧導論、影像處理、電腦視覺及深度學習概論，以及視窗程式設計。
             </Text>
+
             <Box
               w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-              h={{ base: "400px", lg: "500px" }}
+              h={{ base: "260px", lg: "500px" }}
             >
               <Carousel
                 cols={1}
                 rows={1}
-                gap={20}
+                gap={5}
                 arrowLeft={XlLeftArrow}
                 arrowRight={XlRightArrow}
                 loop
@@ -521,14 +520,14 @@ function Autobiography() {
               >
                 {carouselItems.map((card, index) => (
                   <Carousel.Item key={index}>
-                    <Box
-                      bgImage={card.src}
-                      w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-                      h={{ base: "400px", lg: "500px" }}
-                      bgRepeat={"no-repeat"}
-                      bgPosition={"center"}
-                      bgSize={"cover"}
-                    />
+                    <Skeleton isLoaded>
+                      <Image
+                        src={card.src}
+                        w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+                        h={{ base: "260px", lg: "500px" }}
+                        rounded={"xl"}
+                      />
+                    </Skeleton>
                   </Carousel.Item>
                 ))}
               </Carousel>
@@ -726,14 +725,12 @@ function Autobiography() {
               下班時間則到leetcode刷題，為GOOGLE面試做準備；同時接程式案件，{""}
               作為額外收入並累積作品，當個斜槓青年。
             </Text>
-            <Box
-              bgImage={useColorModeValue(img_future_plan, img_future_plan1)}
-              w={{ base: "80vw", md: "60vw", lg: "60vw" }}
-              h={{ base: "400px", lg: "500px" }}
-              bgRepeat={"no-repeat"}
-              bgPosition={"center"}
-              bgSize={"contain"}
-            />
+            <Skeleton isLoaded>
+              <Image
+                src={useColorModeValue(img_future_plan, img_future_plan1)}
+                w={{ base: "80vw", md: "60vw", lg: "60vw" }}
+              />
+            </Skeleton>
           </Stack>
         </Container>
 

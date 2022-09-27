@@ -13,6 +13,7 @@ import {
   HStack,
   useBreakpointValue,
   Icon,
+  Skeleton,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -561,17 +562,23 @@ function Main() {
         >
           {carouselItems.map((card, index) => (
             <Carousel.Item key={index}>
-              <Box w={card.w ?? "380px"} h={card.h ?? "550px"} pos={"relative"}>
-                <Image
-                  shadow={"xl"}
-                  rounded={"xl"}
-                  src={card.src}
-                  pos={"absolute"}
-                  top={"50%"}
-                  left={"50%"}
-                  transform={card.transform ?? "translate(-50%, -50%)"}
-                />
-              </Box>
+              <Skeleton isLoaded>
+                <Box
+                  w={card.w ?? "380px"}
+                  h={card.h ?? "550px"}
+                  pos={"relative"}
+                >
+                  <Image
+                    shadow={"xl"}
+                    rounded={"xl"}
+                    src={card.src}
+                    pos={"absolute"}
+                    top={"50%"}
+                    left={"50%"}
+                    transform={card.transform ?? "translate(-50%, -50%)"}
+                  />
+                </Box>
+              </Skeleton>
             </Carousel.Item>
           ))}
         </Carousel>

@@ -9,6 +9,7 @@ import {
   Image,
   useColorModeValue,
   useBreakpointValue,
+  Skeleton,
 } from "@chakra-ui/react";
 
 function SideProjectCard(props) {
@@ -124,12 +125,18 @@ function SideProjectCard(props) {
 
         {props.text}
 
-        {props.image && <Image src={props.image} />}
+        {props.image && (
+          <Skeleton isLoaded>
+            <Image src={props.image} />
+          </Skeleton>
+        )}
 
         {props.video && (
-          <AspectRatio justify={"center"} ratio={16 / 9}>
-            <iframe title="video" src={props.video} allowFullScreen />
-          </AspectRatio>
+          <Skeleton isLoaded>
+            <AspectRatio justify={"center"} ratio={16 / 9}>
+              <iframe title="video" src={props.video} allowFullScreen />
+            </AspectRatio>
+          </Skeleton>
         )}
       </Stack>
     </Box>

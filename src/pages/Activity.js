@@ -18,6 +18,7 @@ import {
   HStack,
   Divider,
   AspectRatio,
+  Skeleton,
 } from "@chakra-ui/react";
 import Carousel from "react-grid-carousel";
 import {
@@ -196,7 +197,7 @@ function Activity() {
           {/* mobile widgets */}
           {breakPoint === "lg" || (
             <Center>
-              <Box mt={100} w={{ base: "90vw", md: "60vw" }}>
+              <Box mt={100} w={{ base: "100vw", md: "60vw" }}>
                 <Carousel
                   cols={1}
                   rows={1}
@@ -249,29 +250,33 @@ function Activity() {
               <LearnerTags />
             </HStack>
           </Stack>
-          <Box
-            mt={5}
-            rounded={"lg"}
-            shadow={"xl"}
-            h={{ base: "300px", lg: "400px" }}
-            bgImage={img_led}
-            bgPos={"center"}
-            bgSize={"cover"}
-            bgRepeat={"no-repeat"}
-            width={{ base: "90vw", md: "md", lg: "50vw" }}
-            justify="center"
-          />
-          <AspectRatio
-            mt={5}
-            w={{ base: "90vw", md: "md", lg: "50vw" }}
-            ratio={16 / 9}
-          >
-            <iframe
-              title="tower defense demo video"
-              src="https://www.youtube.com/embed/ZVO3aklH1ME"
-              allowFullScreen
+          <Skeleton isLoaded>
+            <Box
+              mt={5}
+              rounded={"lg"}
+              shadow={"xl"}
+              h={{ base: "300px", lg: "400px" }}
+              bgImage={img_led}
+              bgPos={"center"}
+              bgSize={"cover"}
+              bgRepeat={"no-repeat"}
+              width={{ base: "90vw", md: "md", lg: "50vw" }}
+              justify="center"
             />
-          </AspectRatio>
+          </Skeleton>
+          <Skeleton isLoaded>
+            <AspectRatio
+              mt={5}
+              w={{ base: "90vw", md: "md", lg: "50vw" }}
+              ratio={16 / 9}
+            >
+              <iframe
+                title="tower defense demo video"
+                src="https://www.youtube.com/embed/ZVO3aklH1ME"
+                allowFullScreen
+              />
+            </AspectRatio>
+          </Skeleton>
 
           <Stack spacing={2} mt={150} maxW={{ base: "sm", lg: "xl" }}>
             <Heading fontSize={{ base: "3xl", md: "5xl" }}>
@@ -299,18 +304,20 @@ function Activity() {
               <LearnerTags />
             </HStack>
           </Stack>
-          <Box
-            mt={5}
-            rounded={"lg"}
-            shadow={"xl"}
-            h={{ base: "300px", lg: "400px" }}
-            bgImage={img_dt_workshop}
-            bgPos={"center"}
-            bgSize={"cover"}
-            bgRepeat={"no-repeat"}
-            width={{ base: "90vw", md: "md", lg: "50vw" }}
-            justify="center"
-          />
+          <Skeleton isLoaded>
+            <Box
+              mt={5}
+              rounded={"lg"}
+              shadow={"xl"}
+              h={{ base: "300px", lg: "400px" }}
+              bgImage={img_dt_workshop}
+              bgPos={"center"}
+              bgSize={"cover"}
+              bgRepeat={"no-repeat"}
+              width={{ base: "90vw", md: "md", lg: "50vw" }}
+              justify="center"
+            />
+          </Skeleton>
         </Container>
 
         {/* extracurricular */}
@@ -353,18 +360,20 @@ function Activity() {
                 </HStack>
               </Stack>
             </Center>
-            <Box
-              p="2"
-              width={{ base: "90vw", md: "md", lg: "40vw" }}
-              justify={{ base: "left" }}
-            >
-              <Image
-                borderRadius="lg"
-                src={img_thanksgivening}
-                alt="感恩節活動照片"
-                boxShadow="xl"
-              />
-            </Box>
+            <Skeleton isLoaded>
+              <Box
+                p="2"
+                width={{ base: "90vw", md: "md", lg: "40vw" }}
+                justify={{ lg: "left" }}
+              >
+                <Image
+                  borderRadius="lg"
+                  src={img_thanksgivening}
+                  alt="感恩節活動照片"
+                  boxShadow="xl"
+                />
+              </Box>
+            </Skeleton>
           </Flex>
 
           <Flex
@@ -399,18 +408,20 @@ function Activity() {
                 </HStack>
               </Stack>
             </Center>
-            <Box
-              p="2"
-              width={{ base: "90vw", md: "md", lg: "40vw" }}
-              justify={{ base: "center", lg: "left" }}
-            >
-              <Image
-                borderRadius="lg"
-                src={img_speech}
-                alt="演講狀況照片"
-                boxShadow="xl"
-              />
-            </Box>
+            <Skeleton isLoaded>
+              <Box
+                p="2"
+                width={{ base: "90vw", md: "md", lg: "40vw" }}
+                justify={{ base: "center", lg: "left" }}
+              >
+                <Image
+                  borderRadius="lg"
+                  src={img_speech}
+                  alt="演講狀況照片"
+                  boxShadow="xl"
+                />
+              </Box>
+            </Skeleton>
           </Flex>
 
           <Flex
@@ -450,33 +461,37 @@ function Activity() {
             </Center>
           </Flex>
           <Flex flexWrap={"wrap"} justify="center">
-            <Box
-              p="2"
-              width={{ base: "90vw", md: "md", lg: "2xl" }}
-              justify={{ base: "center", lg: "left" }}
-              display={{ base: "none", lg: "block" }}
-            >
-              <Image
-                borderRadius="lg"
-                src={img_guitarist}
-                alt="感恩節活動照片"
-                boxShadow="xl"
-              />
-            </Box>
-            <VStack>
+            <Skeleton isLoaded>
               <Box
                 p="2"
-                width={{ base: "90vw", md: "md", lg: "lg" }}
+                width={{ base: "90vw", md: "md", lg: "2xl" }}
                 justify={{ base: "center", lg: "left" }}
                 display={{ base: "none", lg: "block" }}
               >
                 <Image
                   borderRadius="lg"
-                  src={img_mc_all}
-                  alt="MC表演大合照1"
+                  src={img_guitarist}
+                  alt="感恩節活動照片"
                   boxShadow="xl"
                 />
               </Box>
+            </Skeleton>
+            <VStack>
+              <Skeleton isLoaded>
+                <Box
+                  p="2"
+                  width={{ base: "90vw", md: "md", lg: "lg" }}
+                  justify={{ base: "center", lg: "left" }}
+                  display={{ base: "none", lg: "block" }}
+                >
+                  <Image
+                    borderRadius="lg"
+                    src={img_mc_all}
+                    alt="MC表演大合照1"
+                    boxShadow="xl"
+                  />
+                </Box>
+              </Skeleton>
               <Heading
                 fontSize={{ lg: "5xl" }}
                 display={{ base: "none", lg: "inline" }}
@@ -491,19 +506,21 @@ function Activity() {
                 ontroller
               </Heading>
             </VStack>
-            <Box
-              p="2"
-              width={{ base: "90vw", md: "md", lg: "64vw" }}
-              justify={{ base: "center", lg: "left" }}
-              display={{ base: "none", lg: "block" }}
-            >
-              <Image
-                borderRadius="lg"
-                src={img_mc_all_spotlight}
-                alt="MC表演大合照2"
-                boxShadow="xl"
-              />
-            </Box>
+            <Skeleton isLoaded>
+              <Box
+                p="2"
+                width={{ base: "90vw", md: "md", lg: "64vw" }}
+                justify={{ base: "center", lg: "left" }}
+                display={{ base: "none", lg: "block" }}
+              >
+                <Image
+                  borderRadius="lg"
+                  src={img_mc_all_spotlight}
+                  alt="MC表演大合照2"
+                  boxShadow="xl"
+                />
+              </Box>
+            </Skeleton>
             <Box
               p="2"
               width={{ base: "90vw", md: "lg", lg: "64vw" }}
@@ -521,7 +538,9 @@ function Activity() {
               >
                 {extracurricularItems.map((card, index) => (
                   <Carousel.Item key={index}>
-                    <Image borderRadius="lg" boxShadow="xl" {...card} />
+                    <Skeleton isLoaded>
+                      <Image borderRadius="lg" boxShadow="xl" {...card} />
+                    </Skeleton>
                   </Carousel.Item>
                 ))}
               </Carousel>
@@ -547,11 +566,13 @@ const DesktopWidget = (props) => {
       shadow="lg"
       position="relative"
     >
-      <Image
-        src={props.image}
-        alt={`Widget of ${props.name}`}
-        roundedTop="lg"
-      />
+      <Skeleton isLoaded>
+        <Image
+          src={props.image}
+          alt={`Widget of ${props.name}`}
+          roundedTop="lg"
+        />
+      </Skeleton>
       <VStack
         py={16}
         justify={"center"}
