@@ -39,7 +39,7 @@ import Banner from "../components/Banner";
 import TitleCarousel from "../components/TitleCarousel";
 
 import img_thanksgivening from "../assets/thanks_giving.jpg";
-import img_guitarist from "../assets/guitarist.JPG";
+import img_guitarist from "../assets/guitarist.jpg";
 import img_mc_all_spotlight from "../assets/mc_all_spotlight.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
 import img_speech from "../assets/speech.jpg";
