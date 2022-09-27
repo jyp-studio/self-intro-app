@@ -42,7 +42,7 @@ import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import Banner from "../components/Banner";
 
-import img_digi from "../assets/digi_report.JPG";
+import img_digi from "../assets/digi_report.jpg";
 import img_led_waving from "../assets/led_waving.png";
 import img_vr_fight from "../assets/vr_fight.png";
 import img_vr_coding from "../assets/vr_coding.png";
