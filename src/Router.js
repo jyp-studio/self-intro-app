@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Activity from "./pages/Activity";
 import Certificate from "./pages/Certificate";
@@ -16,7 +16,7 @@ import InProgress from "./pages/InProgress";
 
 function Router() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/resume" element={<Resume />} />
@@ -31,11 +31,8 @@ function Router() {
         <Route path="/activity" element={<Activity />} />
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/*" element={<NotFound />} />
-        {/* <Route path="/" element={<Main />}>
-            <Route path="project" element={<Project />} />
-          </Route> */}
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
