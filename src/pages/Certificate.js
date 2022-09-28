@@ -201,7 +201,7 @@ function Certificate() {
               <Heading id="gept" scrollMargin={100}>
                 英文檢定
               </Heading>
-              <Flex w={"full"} flexWrap={"wrap"} justify={"space-around"}>
+              <Flex w={"full"} flexWrap={"wrap"} justify={"center"}>
                 <CertificateModal
                   dir={"h"}
                   name={"GEPT 中高級證書"}
@@ -218,7 +218,9 @@ function Certificate() {
               <Flex
                 w={"full"}
                 flexWrap={"wrap"}
-                justify={{ base: "center", md: "space-around" }}
+                justify={"center"}
+                columnGap={10}
+                rowGap={10}
               >
                 <CertificateModal
                   dir={"v"}
@@ -243,7 +245,13 @@ function Certificate() {
               <Heading id="lecture" scrollMargin={100}>
                 演講證書
               </Heading>
-              <Flex w={"full"} flexWrap={"wrap"} justify={"space-around"}>
+              <Flex
+                w={"full"}
+                flexWrap={"wrap"}
+                justify={"center"}
+                columnGap={10}
+                rowGap={10}
+              >
                 <CertificateModal
                   dir={"v"}
                   name={"2021營隊講師"}

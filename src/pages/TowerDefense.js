@@ -401,6 +401,8 @@ function TowerDefense() {
               justify={"center"}
               marginTop={"200"}
               justifyContent={"space-around"}
+              columnGap={10}
+              rowGap={10}
             >
               {/* 1. Box of explaining animation and damage */}
               {/* background */}
@@ -445,7 +447,6 @@ function TowerDefense() {
               {/* 2. Box of explaining animation and damage */}
               {/* background */}
               <Box
-                mt={{ base: "20", md: "20", lg: "0" }}
                 w={{ base: "80vw", md: "60vw", lg: "550px" }}
                 h={{ base: "60vw", md: "45vw", lg: "400px" }}
                 bgColor={"gray.100"}

@@ -315,7 +315,7 @@ function Digi() {
             <>
               {breakPoint === "lg" || (
                 <Center>
-                  <Box w={"90vw"}>
+                  <Box w={{ base: "90vw", md: "70vw" }}>
                     <Carousel
                       cols={columns}
                       rows={1}
