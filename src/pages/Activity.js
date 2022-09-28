@@ -39,7 +39,7 @@ import Banner from "../components/Banner";
 import TitleCarousel from "../components/TitleCarousel";
 
 import img_thanksgivening from "../assets/thanks_giving.jpg";
-import img_guitarist from "../assets/guitarist.jpg";
+import img_guitarist from "../assets/guitarist.png";
 import img_mc_all_spotlight from "../assets/mc_all_spotlight.jpg";
 import img_mc_all from "../assets/mc_all.jpg";
 import img_speech from "../assets/speech.jpg";
@@ -48,7 +48,7 @@ import img_creativity from "../assets/creativity_bg.jpg";
 import img_learn from "../assets/learn_bg.png";
 import img_confidence from "../assets/confidence_bg.png";
 import img_workshop from "../assets/workshop.jpg";
-import img_activity from "../assets/activity.jpg";
+import img_activity from "../assets/activity.png";
 import img_led from "../assets/led.jpg";
 import img_dt_workshop from "../assets/dt_workshop.png";
 
