@@ -22,12 +22,14 @@ import {
   FiMessageCircle,
   FiFile,
   FiYoutube,
-  FiImage,
 } from "react-icons/fi";
 import {
-  BsCheckSquareFill,
+  BsLightbulbFill,
   BsAwardFill,
   BsFillPersonFill,
+  BsCheckSquareFill,
+  BsFillBarChartLineFill,
+  BsGearFill,
 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
@@ -49,9 +51,9 @@ import img_unity_to_magicVR from "../assets/unity_to_magicVR.png";
 import img_unity_to_magicVR1 from "../assets/unity_to_magicVR1.png";
 import img_reward from "../assets/reward.jpg";
 import img_bg_reward from "../assets/sunrise.jpg";
-import img_poster from "../assets/vr_poster.png";
 
 import pdf_proposal from "../assets/vr_proposal.pdf";
+import pdf_isnst from "../assets/isnst.pdf";
 
 function VR() {
   // Sidebar link items
@@ -59,37 +61,41 @@ function VR() {
     { name: "Home", icon: <FiHome />, href: "#" },
     { name: "Abstract", icon: <FiCompass />, href: "#abstract" },
     { name: "Trailer", icon: <FiYoutube />, href: "#trailer" },
-    { name: "Poster", icon: <FiImage />, href: "#poster" },
     { name: "Architecture", icon: <FiCommand />, href: "#architecture" },
     { name: "Thoughts", icon: <FiMessageCircle />, href: "#thoughts" },
-    { name: "Reasearch proposal", icon: <FiFile />, href: "#project-report" },
+    { name: "Project Report", icon: <FiFile />, href: "#project-report" },
   ];
   // Icon box infomation
   const IconBoxItems = [
     {
       icon: BsFillPersonFill,
-      title: "導師/實驗室",
+      title: "指導教授/實驗室",
       text: "黃悅民教授/多媒體網路實驗室",
     },
-    // {
-    //   icon: BsLightbulbFill,
-    //   title: "設計理念",
-    //   text: "將VR的應用範圍拓展到教育上",
-    // },
-    // {
-    //   icon: BsGearFill,
-    //   title: "Tool",
-    //   text: "Magic VR, Python, Linux, Blender, Cinema 4D",
-    // },
+    {
+      icon: BsLightbulbFill,
+      title: "設計理念",
+      text: "將VR的應用範圍拓展到教育上，特別是電子工程類別",
+    },
+    {
+      icon: BsGearFill,
+      title: "Tool",
+      text: "哈瑪星科技虛擬實境編輯器Magic VR、Blender、Cinema 4D",
+    },
     {
       icon: BsCheckSquareFill,
-      title: "獲得補助",
-      text: "科技部大專生計畫(MOST) & 成大工學院補助",
+      title: "通過計畫",
+      text: "科技部大專生計畫",
+    },
+    {
+      icon: BsFillBarChartLineFill,
+      title: "論文投稿",
+      text: "ISNST和TANET國內外學術研討會",
     },
     {
       icon: BsAwardFill,
       title: "參賽紀錄",
-      text: "成大專題競賽研究獎 第二名、投稿ISNST和TENET",
+      text: "成大專題競賽研究獎-第二名",
     },
   ];
 
@@ -255,32 +261,7 @@ function VR() {
                 </AspectRatio>
               </Skeleton>
             </Box>
-            <Box marginTop={"200"}>
-              <Heading
-                fontFamily={`"Open Sans", sans-serif`}
-                scrollMargin="100px"
-                py={"4"}
-                px={"5"}
-                id={"poster"}
-                w={{ base: "auto", lg: "full" }}
-                textAlign={{ base: "center", lg: "left" }}
-              >
-                海報{" "}
-                <Text as={"span"} fontWeight={"thin"}>
-                  |
-                </Text>{" "}
-                Poster
-              </Heading>
 
-              <Skeleton isLoaded>
-                <Box
-                  boxShadow="lg"
-                  w={{ base: "90vw", md: "70vw", lg: "67vw" }}
-                >
-                  <Image src={img_poster} />
-                </Box>
-              </Skeleton>
-            </Box>
             <Box marginTop={"200"} marginBottom={"150"}>
               <Heading
                 fontFamily={`"Open Sans", sans-serif`}
@@ -493,19 +474,24 @@ function VR() {
               px={{ base: "5", md: "10", lg: "200" }}
             >
               &emsp;&emsp;為了製作完善的樹莓派虛擬場景，為此，請教實驗室學長姐來學習樹莓派和Linux。
+              {""}
               同時自己也購買一台樹莓派與教學指南，來學習基本指令和嘗試做音樂播放器和智慧家庭。
+              {""}
               從中我感覺受益良多，並且發現Linux真的好好用，只要打指令就可以完成許多事項，令我愛不釋手。
+              {""}
               此外，樹莓派除了當做音樂播放器和智慧家庭的中控外，我認為還有許多用途，例如結合opencv來做影像辨識應用等，
-              等著我去發掘。因此，我很高興可以學習到這些以往不知的知識。
+              {""}
+              等著我去發掘。因此，我很高興可以學習到這些以往不知的知識。{""}
               <br />
               <br />
               &emsp;&emsp;在分析研究數據後，目前有籌備
               <Text as={"span"} fontWeight={"bold"}>
                 投稿ISNST和TENET國際研討會
               </Text>
-              ， 主要以不同角度切入來探討虛擬實境對學生學習的各個面向。
-              同時，由於TENET發表時間約莫在12月，相比ISNST在10月底，
+              ， 主要以不同角度切入來探討虛擬實境對學生學習的各個面向。{""}
+              同時，由於TANET發表時間約莫在12月，相比ISNST在10月底，{""}
               有更多的時間可以提升實驗品質與擴充實驗數據，更可以全面分析學生的學習表現和參與度。
+              {""}
               相信這樣可以讓我更加
               <Text as={"span"} fontWeight={"bold"}>
                 提升撰寫論文的技巧，和英文口頭報告的能力
@@ -515,10 +501,15 @@ function VR() {
           </Container>
         </Box>
 
-        <Container maxW={"8xl"} py="3" mt={"100"} centerContent>
+        <Container
+          maxW={"8xl"}
+          py="3"
+          mt={"100"}
+          fontFamily={`"Open Sans", sans-serif`}
+          centerContent
+        >
           <Box marginTop={"10"} justify={"center"}>
             <Heading
-              fontFamily={`"Open Sans", sans-serif`}
               scrollMargin="100px"
               py={"4"}
               px={"5"}
@@ -526,17 +517,36 @@ function VR() {
               w={{ base: "auto", lg: "full" }}
               textAlign={{ base: "center", lg: "left" }}
             >
-              研究企劃書{" "}
+              研究報告{" "}
               <Text as={"span"} fontWeight={"thin"}>
                 |
               </Text>{" "}
-              Reasearch Proposal
+              Project Report
             </Heading>
+
+            <Text fontSize={"2xl"} mt={20} py={5} textAlign={"center"}>
+              科技部大專生計畫書
+            </Text>
             <Skeleton isLoaded>
               <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
                 <iframe
                   title="vr pdf"
                   src={pdf_proposal}
+                  position="absolute"
+                  width={"100%"}
+                  height={"100%"}
+                  allow="autoplay"
+                />
+              </AspectRatio>
+            </Skeleton>
+            <Text fontSize={"2xl"} mt={150} py={5} textAlign={"center"}>
+              ISNST論文
+            </Text>
+            <Skeleton isLoaded>
+              <AspectRatio w={{ base: "auto", lg: "50vw" }} ratio={3 / 4}>
+                <iframe
+                  title="vr pdf"
+                  src={pdf_isnst}
                   position="absolute"
                   width={"100%"}
                   height={"100%"}
