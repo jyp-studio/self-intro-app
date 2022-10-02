@@ -14,7 +14,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-import img_resume from "../assets/resume.png";
+import img_resume from "../assets/resume_dm.png";
 import img_rank from "../assets/rank.jpg";
 
 import pdf_score from "../assets/score.pdf";
