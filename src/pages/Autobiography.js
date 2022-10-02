@@ -58,8 +58,7 @@ import img_mc_all from "../assets/mc_all.jpg";
 import img_future from "../assets/future.jpg";
 import img_thanksgivening from "../assets/thanks_giving.jpg";
 import img_dt_workshop from "../assets/dt_workshop.png";
-import img_future_plan from "../assets/future_plan.png";
-import img_future_plan1 from "../assets/future_plan1.png";
+import img_future_plan2 from "../assets/future_plan2.png";
 import img_opt_gui from "../assets/opt_gui.png";
 
 function Autobiography() {
@@ -701,18 +700,17 @@ function Autobiography() {
               textAlign={"justify"}
               fontFamily={`"Open Sans", sans-serif`}
             >
-              &emsp;&emsp;多媒體應用一直都佔著人們生活中的一大部份，{""}
-              無論是影視影音、遊戲、甚至是教育中都可以看到其身影。{""}
-              因此，我想踏入多媒體領域中，精進學習與深入研究。{""}
-              尤其，虛擬實境與擴 增實境由於其跳脫現實框架的延展性，{""}
-              化不可能成為可能，勢必會成為未來發展的趨勢。{""}
-              許多日常生活與科技應用將會與之結合並延伸發展。{""}
-              為此，我想於研究所中學習電腦視覺與影像處理與辨識{""}
-              、虛擬實境和擴增實境等相關技術，將其結合並以此提升與推廣多媒體應用的範疇。
+              &emsp;&emsp;數據分析一直主導人們的前進方向，{""}
+              任何企業、商店、研究計畫都需要使用數據分析來發掘其中有用的資訊。
+              {""}
+              因此，我想踏入資料科學的領域之中，運用數據發掘意外性資料與需求。
+              {""}
+              將其運用於推薦系統、自然語言處理等。{""}
+              甚至能夠結合自學的JavaScript來開發網頁與軟體，提供人們使用。
             </Text>
             <Skeleton isLoaded>
               <Image
-                src={useColorModeValue(img_future_plan, img_future_plan1)}
+                src={img_future_plan2}
                 w={{ base: "80vw", md: "60vw", lg: "60vw" }}
               />
             </Skeleton>
