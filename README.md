@@ -1,7 +1,3 @@
-## Personal website is deployed on Render.com. Click [here](https://jyp.onrender.com) to see it.
-
-=====================================================================================
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
