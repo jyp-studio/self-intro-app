@@ -60,7 +60,7 @@ function VR() {
   const LinkItems = [
     { name: "Home", icon: <FiHome />, href: "#" },
     { name: "Abstract", icon: <FiCompass />, href: "#abstract" },
-    { name: "Trailer", icon: <FiYoutube />, href: "#trailer" },
+    { name: "Video", icon: <FiYoutube />, href: "#video" },
     { name: "Architecture", icon: <FiCommand />, href: "#architecture" },
     { name: "Thoughts", icon: <FiMessageCircle />, href: "#thoughts" },
     { name: "Project Report", icon: <FiFile />, href: "#project-report" },
@@ -237,15 +237,15 @@ function VR() {
                 scrollMargin="100px"
                 py={"4"}
                 px={"5"}
-                id={"trailer"}
+                id={"video"}
                 w={{ base: "auto", lg: "full" }}
                 textAlign={{ base: "center", lg: "left" }}
               >
-                前導片{" "}
+                虛擬實境展演與受試者訪談{" "}
                 <Text as={"span"} fontWeight={"thin"}>
                   |
                 </Text>{" "}
-                Trailer
+                Demo
               </Heading>
               <Skeleton isLoaded>
                 <AspectRatio
@@ -253,8 +253,8 @@ function VR() {
                   ratio={16 / 9}
                 >
                   <iframe
-                    title="vr project trailer video"
-                    src="https://www.youtube.com/embed/rW8oSm2Rcqc"
+                    title="vr project video"
+                    src="https://www.youtube.com/embed/YoQwVxjd1s0"
                     frameBorder="0"
                     allowFullScreen
                   />
@@ -486,7 +486,7 @@ function VR() {
               <br />
               &emsp;&emsp;在分析研究數據後，目前有籌備
               <Text as={"span"} fontWeight={"bold"}>
-                投稿ISNST和TENET國際研討會
+                投稿ISNST和TANET國際研討會
               </Text>
               ， 主要以不同角度切入來探討虛擬實境對學生學習的各個面向。{""}
               同時，由於TANET發表時間約莫在12月，相比ISNST在10月底，{""}
