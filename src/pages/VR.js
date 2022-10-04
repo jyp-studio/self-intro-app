@@ -486,7 +486,7 @@ function VR() {
               <br />
               &emsp;&emsp;在分析研究數據後，目前有籌備
               <Text as={"span"} fontWeight={"bold"}>
-                投稿ISNST和TENET國際研討會
+                投稿ISNST和TANET國際研討會
               </Text>
               ， 主要以不同角度切入來探討虛擬實境對學生學習的各個面向。{""}
               同時，由於TANET發表時間約莫在12月，相比ISNST在10月底，{""}
